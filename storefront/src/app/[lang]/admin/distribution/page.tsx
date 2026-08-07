@@ -1,12 +1,15 @@
-﻿export default function DistributionPage() {
+﻿export default function PlaceholderPage() {
+  const title = "distribution";
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold">分销概览</h1>
-      <div className="grid grid-cols-4 gap-4">
-        <div className="bg-white rounded-xl border p-5"><div className="text-sm text-gray-500">分销员总数</div><div className="text-2xl font-bold mt-2">0</div></div>
-        <div className="bg-white rounded-xl border p-5"><div className="text-sm text-gray-500">今日销售额</div><div className="text-2xl font-bold mt-2">$0.00</div></div>
-        <div className="bg-white rounded-xl border p-5"><div className="text-sm text-gray-500">累计佣金</div><div className="text-2xl font-bold mt-2">$0.00</div></div>
-        <div className="bg-white rounded-xl border p-5"><div className="text-sm text-gray-500">待结算佣金</div><div className="text-2xl font-bold mt-2">$0.00</div></div>
+      <div>
+        <h1 className="text-2xl font-bold">{title}</h1>
+        <p className="text-gray-500 mt-1">功能开发中，敬请期待</p>
+      </div>
+      <div className="bg-white rounded-xl border p-12 text-center">
+        <div className="text-6xl mb-4">🚧</div>
+        <h3 className="text-lg font-medium text-gray-700 mb-2">此功能正在开发中</h3>
+        <p className="text-gray-500">该模块已在开发计划中，将在后续版本中推出</p>
       </div>
     </div>
   );

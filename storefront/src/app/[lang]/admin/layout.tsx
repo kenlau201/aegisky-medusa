@@ -60,7 +60,7 @@ const menuGroups = [
     icon: '📝',
     items: [
       { label: '素材中心', href: '/admin/content/media' },
-      { label: '文章管理', href: '/admin/content/articles' },
+      { label: '文章管理', href: '/admin/articles' },
       { label: '协议管理', href: '/admin/content/agreements' },
       { label: '留言反馈', href: '/admin/content/feedbacks' },
     ]
