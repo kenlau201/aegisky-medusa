@@ -5,12 +5,16 @@ import { getAllProducts, getAllCategories, getAllBrands, getFeaturedProducts, ge
 import { t, LanguageCode } from '@/i18n'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: 'Aegisky - Global B2B Drone & UAV Supply Chain Platform',
-  description: '6,384 drone products, 438 brands. FPV drones, industrial UAVs, motors, ESCs, batteries, flight controllers, cameras, and more.',
-  alternates: {
-    canonical: 'https://aegisky.com',
-  },
+export async function generateMetadata({ params: { lang } }: { params: { lang: LanguageCode } }): Promise<Metadata> {
+  await ensureDataLoaded()
+  const stats = getStats()
+  return {
+    title: 'Aegisky - Global B2B Drone & UAV Supply Chain Platform',
+    description: `${stats.totalProducts.toLocaleString()} drone products, ${stats.totalBrands}+ brands. FPV drones, industrial UAVs, motors, ESCs, batteries, flight controllers, cameras, and more.`,
+    alternates: {
+      canonical: 'https://aegisky.com',
+    },
+  }
 }
 
 export default async function HomePage({ params: { lang } }: { params: { lang: LanguageCode } }) {

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 
@@ -56,7 +56,7 @@ export default function DistributionOverviewPage() {
           <select className="px-3 py-2 border rounded text-sm">
             <option>自然日</option>
           </select>
-          <input type="date" defaultValue="2026-08-07" className="px-3 py-2 border rounded text-sm" />
+          <input type="date" defaultValue={new Date().toISOString().split('T')[0]} className="px-3 py-2 border rounded text-sm" />
           <button className="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700">搜索</button>
         </div>
         <div className="relative h-64">
