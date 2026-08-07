@@ -1,5 +1,7 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { pool as db } from '@/lib/control-tower/db';
+import { syncBrands } from '@/lib/data-sync';
+import { invalidateDataCache } from '@/lib/data';
 
 export const runtime = 'nodejs';
 
@@ -31,6 +33,9 @@ export async function POST(request: NextRequest) {
        RETURNING *`,
       [body.name, body.slug || body.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'), body.logo_url || null, body.description || null]
     );
+
+    syncBrands().then(() => invalidateDataCache()).catch(err => console.error('Sync error:', err));
+
     return NextResponse.json({ success: true, brand: result.rows[0] });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

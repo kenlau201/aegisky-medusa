@@ -1,5 +1,7 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { pool as db } from '@/lib/control-tower/db';
+import { syncCategories } from '@/lib/data-sync';
+import { invalidateDataCache } from '@/lib/data';
 
 export const runtime = 'nodejs';
 
@@ -30,6 +32,10 @@ export async function POST(request: NextRequest) {
        RETURNING *`,
       [body.name, body.slug || body.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'), body.parent_id || 0, body.image_url || null, body.depth || 0]
     );
+
+    // Sync data in background
+    syncCategories().then(() => invalidateDataCache()).catch(err => console.error('Sync error:', err));
+
     return NextResponse.json({ success: true, category: result.rows[0] });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

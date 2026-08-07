@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9000'
-const PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_PUBLISHABLE_KEY || 'pk_2f2350f9a72ea702a46d0a68566194d73ff4ef26a7ff20f4b60294beb8869a0a'
+import { pool } from '@/lib/control-tower/db'
+import bcrypt from 'bcryptjs'
+import crypto from 'crypto'
 
 // Cookie settings - HttpOnly to prevent XSS token theft
 const COOKIE_OPTIONS = {
@@ -12,6 +12,25 @@ const COOKIE_OPTIONS = {
   maxAge: 7 * 24 * 60 * 60, // 7 days
 }
 
+// Simple JWT-like token generation (no external JWT dependency needed)
+function generateToken(customerId: string, email: string): string {
+  const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url')
+  const payload = Buffer.from(JSON.stringify({
+    sub: customerId,
+    email,
+    iat: Math.floor(Date.now() / 1000),
+    exp: Math.floor(Date.now() / 1000) + 7 * 24 * 60 * 60,
+  })).toString('base64url')
+  const secret = process.env.JWT_SECRET || 'aegisky-jwt-secret-2026'
+  const signature = crypto
+    .createHmac('sha256', secret)
+    .update(`${header}.${payload}`)
+    .digest('base64url')
+  return `${header}.${payload}.${signature}`
+}
+
+export const runtime = 'nodejs'
+
 export async function POST(request: Request) {
   try {
     const body = await request.json()
@@ -21,67 +40,62 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Email and password are required' }, { status: 400 })
     }
 
-    // Authenticate with Medusa
-    const authResponse = await fetch(`${API_BASE}/auth/customer/emailpass`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-publishable-api-key': PUBLISHABLE_KEY,
-      },
-      body: JSON.stringify({ email, password }),
-    })
+    // Find customer by email in local database
+    const result = await pool.query(
+      'SELECT id, email, password_hash, first_name, last_name, company, phone, country, role, status, email_verified, created_at FROM aegisky_customers WHERE email = $1',
+      [email.toLowerCase().trim()]
+    )
 
-    if (!authResponse.ok) {
-      const errorData = await authResponse.json().catch(() => ({}))
-      return NextResponse.json(
-        { error: errorData.message || 'Invalid email or password' },
-        { status: authResponse.status }
-      )
+    const customer = result.rows[0]
+
+    if (!customer) {
+      return NextResponse.json({ error: 'Invalid email or password' }, { status: 401 })
     }
 
-    const authData = await authResponse.json()
-
-    // Get customer details
-    let customer = null
-    try {
-      const customerResponse = await fetch(`${API_BASE}/store/customers/me`, {
-        headers: {
-          'x-publishable-api-key': PUBLISHABLE_KEY,
-          'Authorization': `Bearer ${authData.token}`,
-        },
-      })
-      if (customerResponse.ok) {
-        const customerData = await customerResponse.json()
-        customer = customerData.customer
-      }
-    } catch (e) {
-      console.log('Could not fetch customer details')
+    if (customer.status !== 'active') {
+      return NextResponse.json({ error: 'Account is not active' }, { status: 403 })
     }
 
-    const customerInfo = customer ? {
+    // Verify password with bcrypt
+    const passwordValid = await bcrypt.compare(password, customer.password_hash)
+    if (!passwordValid) {
+      return NextResponse.json({ error: 'Invalid email or password' }, { status: 401 })
+    }
+
+    // Update last login and login count
+    await pool.query(
+      'UPDATE aegisky_customers SET last_login = NOW(), login_count = login_count + 1 WHERE id = $1',
+      [customer.id]
+    )
+
+    // Generate token
+    const token = generateToken(customer.id, customer.email)
+
+    const customerInfo = {
       id: customer.id,
       email: customer.email,
       name: [customer.first_name, customer.last_name].filter(Boolean).join(' ') || customer.email,
+      firstName: customer.first_name,
+      lastName: customer.last_name,
       phone: customer.phone,
-      company: customer.company_name,
+      company: customer.company,
+      country: customer.country,
+      role: customer.role,
+      emailVerified: customer.email_verified,
       createdAt: customer.created_at,
-    } : {
-      id: authData.actor_id,
-      email,
-      name: email,
     }
 
-    // Set JWT in HttpOnly cookie
     const response = NextResponse.json({
       success: true,
       customer: customerInfo,
+      token,
     })
 
-    response.cookies.set('aegisky_token', authData.token, COOKIE_OPTIONS)
+    response.cookies.set('aegisky_token', token, COOKIE_OPTIONS)
 
     return response
   } catch (error) {
-    console.error('Login proxy error:', error)
+    console.error('Login error:', error)
     return NextResponse.json({ error: 'Login failed' }, { status: 500 })
   }
 }

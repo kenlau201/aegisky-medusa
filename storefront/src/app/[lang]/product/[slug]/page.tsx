@@ -109,7 +109,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string; 
     name: product.name,
     sku: product.sku,
     description: (product.shortDescription || product.description || '').replace(/<[^>]*>/g, '').substring(0, 1000),
-    images: product.images.slice(0, 10),
+    images: (product.images || []).slice(0, 10),
     brand: product.brands?.[0]?.name,
     category: product.categories?.[0]?.name,
     price: product.price,
@@ -134,7 +134,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string; 
   breadcrumbItems.push({ name: product.name.substring(0, 60), url: '' });
 
   const breadcrumbJsonLd = generateBreadcrumbSchema({ items: breadcrumbItems });
-  const faqJsonLd = generateFAQSchema(faqQuestions);
+  const faqJsonLd = generateFAQSchema({ questions: faqQuestions });
 
   return (
     <>

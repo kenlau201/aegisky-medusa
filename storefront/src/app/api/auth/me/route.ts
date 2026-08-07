@@ -1,12 +1,35 @@
 import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
+import { pool } from '@/lib/control-tower/db'
+import crypto from 'crypto'
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9000'
-const PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_PUBLISHABLE_KEY || 'pk_2f2350f9a72ea702a46d0a68566194d73ff4ef26a7ff20f4b60294beb8869a0a'
-
-export async function GET(request: Request) {
+function verifyToken(token: string): { sub: string; email: string } | null {
   try {
-    // Read token from HttpOnly cookie
+    const parts = token.split('.')
+    if (parts.length !== 3) return null
+
+    const [header, payload, signature] = parts
+    const secret = process.env.JWT_SECRET || 'aegisky-jwt-secret-2026'
+    const expectedSig = crypto
+      .createHmac('sha256', secret)
+      .update(`${header}.${payload}`)
+      .digest('base64url')
+
+    if (signature !== expectedSig) return null
+
+    const data = JSON.parse(Buffer.from(payload, 'base64url').toString())
+    if (data.exp && data.exp < Math.floor(Date.now() / 1000)) return null
+
+    return { sub: data.sub, email: data.email }
+  } catch {
+    return null
+  }
+}
+
+export const runtime = 'nodejs'
+
+export async function GET() {
+  try {
     const cookieStore = cookies()
     const token = cookieStore.get('aegisky_token')?.value
 
@@ -14,23 +37,24 @@ export async function GET(request: Request) {
       return NextResponse.json({ authenticated: false }, { status: 401 })
     }
 
-    const customerResponse = await fetch(`${API_BASE}/store/customers/me`, {
-      headers: {
-        'x-publishable-api-key': PUBLISHABLE_KEY,
-        'Authorization': `Bearer ${token}`,
-      },
-      cache: 'no-store',
-    })
-
-    if (!customerResponse.ok) {
-      // Invalid token - clear cookie
+    const decoded = verifyToken(token)
+    if (!decoded) {
       const response = NextResponse.json({ authenticated: false }, { status: 401 })
       response.cookies.delete('aegisky_token')
       return response
     }
 
-    const customerData = await customerResponse.json()
-    const customer = customerData.customer
+    const result = await pool.query(
+      'SELECT id, email, first_name, last_name, company, phone, country, role, email_verified, created_at FROM aegisky_customers WHERE id = $1',
+      [decoded.sub]
+    )
+
+    const customer = result.rows[0]
+    if (!customer) {
+      const response = NextResponse.json({ authenticated: false }, { status: 401 })
+      response.cookies.delete('aegisky_token')
+      return response
+    }
 
     return NextResponse.json({
       authenticated: true,
@@ -38,9 +62,13 @@ export async function GET(request: Request) {
         id: customer.id,
         email: customer.email,
         name: [customer.first_name, customer.last_name].filter(Boolean).join(' ') || customer.email,
+        firstName: customer.first_name,
+        lastName: customer.last_name,
         phone: customer.phone,
-        company: customer.company_name || customer.metadata?.company,
-        country: customer.metadata?.country,
+        company: customer.company,
+        country: customer.country,
+        role: customer.role,
+        emailVerified: customer.email_verified,
         createdAt: customer.created_at,
       },
     })
@@ -50,7 +78,6 @@ export async function GET(request: Request) {
 }
 
 export async function DELETE() {
-  // Logout - clear the HttpOnly cookie
   const response = NextResponse.json({ success: true })
   response.cookies.delete('aegisky_token')
   return response

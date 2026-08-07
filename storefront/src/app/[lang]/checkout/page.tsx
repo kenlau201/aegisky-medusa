@@ -7,7 +7,6 @@ import { t, LanguageCode } from '@/i18n'
 import { useCart } from '@/lib/cart-context'
 import { useCurrency } from '@/lib/currency-context'
 import { useAuth } from '@/lib/auth-context'
-import { API_BASE, PUBLISHABLE_KEY } from '@/lib/api-client'
 import { COUNTRIES } from '@/lib/shipping'
 
 interface ShippingRate {
@@ -53,11 +52,10 @@ export default function CheckoutPage({ params: { lang } }: { params: { lang: Lan
     setLoadingRates(true)
     setError(null)
     try {
-      const response = await fetch(`${API_BASE}/store/shipping/rates`, {
+      const response = await fetch('/api/store/shipping/rates', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-publishable-api-key': PUBLISHABLE_KEY,
         },
         body: JSON.stringify({
           address: {
@@ -112,11 +110,10 @@ export default function CheckoutPage({ params: { lang } }: { params: { lang: Lan
     setStep('processing')
 
     try {
-      const response = await fetch(`${API_BASE}/store/checkout`, {
+      const response = await fetch('/api/store/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-publishable-api-key': PUBLISHABLE_KEY,
         },
         body: JSON.stringify({
           email: address.email,

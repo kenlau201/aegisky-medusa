@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { pool as db } from '@/lib/control-tower/db';
+import { syncProducts } from '@/lib/data-sync';
+import { invalidateDataCache } from '@/lib/data';
 
 export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
   try {
@@ -50,6 +52,9 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
     }
 
+    // Sync data in background
+    syncProducts().then(() => invalidateDataCache()).catch(err => console.error('Sync error:', err));
+
     return NextResponse.json({ success: true, product: result.rows[0] });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -59,6 +64,10 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
 export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
   try {
     await db.query(`DELETE FROM aegisky_products WHERE id = $1`, [params.id]);
+
+    // Sync data in background
+    syncProducts().then(() => invalidateDataCache()).catch(err => console.error('Sync error:', err));
+
     return NextResponse.json({ success: true });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

@@ -296,6 +296,17 @@ if (typeof window === 'undefined' && USE_BACKEND_API && !apiInitStarted) {
   apiLoadPromise = loadDataFromAPI()
 }
 
+// 清除内存缓存，下次调用getAll*时重新从JSON文件加载
+export function invalidateDataCache() {
+  productsCache = null
+  categoriesCache = null
+  brandsCache = null
+  tagsCache = null
+  attributesCache = null
+  apiLoadPromise = null
+  console.log('[data] Cache invalidated')
+}
+
 // ============================================================
 // 基础数据函数
 // ============================================================
@@ -693,13 +704,13 @@ export function getOnSaleProducts(limit = 12): Product[] {
 
 export function getRelatedProducts(product: Product, limit = 8): Product[] {
   const sameCategory = new Set<number>()
-  product.categories.forEach(c => sameCategory.add(c.id))
+  ;(product.categories || []).forEach(c => sameCategory.add(c.id))
 
   return getAllProducts()
     .filter(p =>
       p.id !== product.id &&
       p.inStock &&
-      p.categories.some(c => sameCategory.has(c.id))
+      (p.categories || []).some(c => sameCategory.has(c.id))
     )
     .sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating))
     .slice(0, limit)

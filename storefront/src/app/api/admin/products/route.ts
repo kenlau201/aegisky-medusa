@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { pool as db } from '@/lib/control-tower/db';
+import { syncProducts } from '@/lib/data-sync';
+import { invalidateDataCache } from '@/lib/data';
 
 export async function POST(request: NextRequest) {
   try {
@@ -18,6 +20,9 @@ export async function POST(request: NextRequest) {
       body.in_stock, body.in_stock ? 'instock' : 'outofstock',
       body.on_sale || false, body.currency || 'USD'
     ]);
+
+    // Sync data in background (don't block response)
+    syncProducts().then(() => invalidateDataCache()).catch(err => console.error('Sync error:', err));
 
     return NextResponse.json({ success: true, product: result.rows[0] });
   } catch (error: any) {
