@@ -45,6 +45,16 @@ const menuGroups: { title: string; icon: string; items: MenuItem[] }[] = [
           { label: '批量操作', href: '/admin/products/batch' },
         ]
       },
+      {
+        label: '库存管理',
+        children: [
+          { label: '库存日志', href: '/admin/inventory/logs' },
+          { label: '库存查询', href: '/admin/inventory/search' },
+          { label: '商品入库', href: '/admin/inventory/inbound' },
+          { label: '商品出库', href: '/admin/inventory/outbound' },
+          { label: '库存调整', href: '/admin/inventory/adjust' },
+        ]
+      },
     ]
   },
   {
@@ -303,35 +313,11 @@ const menuGroups: { title: string; icon: string; items: MenuItem[] }[] = [
           { label: '商品设置', href: '/admin/settings/product' },
           { label: '交易设置', href: '/admin/settings/trade' },
           { label: '订单设置', href: '/admin/settings/order' },
+          { label: '小票打印', href: '/admin/settings/receipt' },
+          { label: '客服设置', href: '/admin/settings/customer-service' },
           { label: '个性化设置', href: '/admin/settings/customization' },
           { label: '小程序设置', href: '/admin/settings/miniprogram' },
           { label: '经营模式', href: '/admin/settings/business-mode' },
-        ]
-      },
-      {
-        label: '商城装修',
-        children: [
-          { label: '页面管理', href: '/admin/settings/decoration/pages' },
-          { label: '主题风格', href: '/admin/settings/decoration/theme' },
-          { label: '导航管理', href: '/admin/settings/decoration/navigation' },
-          { label: '开屏广告', href: '/admin/settings/decoration/splash' },
-        ]
-      },
-      {
-        label: 'PC端装修',
-        children: [
-          { label: '页面管理', href: '/admin/settings/pc/pages' },
-          { label: '导航菜单', href: '/admin/settings/pc/navigation' },
-          { label: '分类抽屉', href: '/admin/settings/pc/category-drawer' },
-        ]
-      },
-      {
-        label: '账号权限',
-        children: [
-          { label: '账号管理', href: '/admin/settings/admins' },
-          { label: '角色管理', href: '/admin/settings/roles' },
-          { label: '操作日志', href: '/admin/settings/logs' },
-          { label: '菜单管理', href: '/admin/settings/menus' },
         ]
       },
       {
@@ -348,8 +334,82 @@ const menuGroups: { title: string; icon: string; items: MenuItem[] }[] = [
           { label: '登录设置', href: '/admin/settings/login' },
           { label: '支付设置', href: '/admin/settings/payment' },
           { label: '地区管理', href: '/admin/settings/regions' },
+          { label: '邮件服务器', href: '/admin/settings/mail-server' },
+          { label: '邮件模板', href: '/admin/settings/mail-template' },
+          { label: '友情链接', href: '/admin/settings/friend-links' },
+          { label: 'API版本', href: '/admin/settings/api-version' },
+          { label: '授权信息', href: '/admin/settings/authorization' },
         ]
       },
+      {
+        label: '账号权限',
+        children: [
+          { label: '管理员列表', href: '/admin/settings/admins' },
+          { label: '账号管理', href: '/admin/auth/accounts' },
+          { label: '角色管理', href: '/admin/settings/roles' },
+          { label: '操作日志', href: '/admin/settings/logs' },
+          { label: '菜单管理', href: '/admin/settings/menus' },
+        ]
+      },
+      {
+        label: '消息设置',
+        children: [
+          { label: '消息管理', href: '/admin/settings/notifications' },
+          { label: '通知设置', href: '/admin/settings/notification-settings' },
+        ]
+      },
+    ]
+  },
+  {
+    title: '装修',
+    icon: '🎨',
+    items: [
+      { label: '主题风格', href: '/admin/settings/decoration/theme' },
+      {
+        label: '移动端装修',
+        children: [
+          { label: '页面管理', href: '/admin/decoration/mobile/pages' },
+          { label: '分类页', href: '/admin/decoration/mobile/category' },
+          { label: '主导航栏', href: '/admin/decoration/mobile/nav' },
+          { label: '会员页', href: '/admin/decoration/mobile/member' },
+          { label: '开屏广告', href: '/admin/settings/decoration/splash' },
+          { label: '其他页面', href: '/admin/decoration/mobile/other' },
+          { label: '分类导航', href: '/admin/decoration/mobile/category-nav' },
+        ]
+      },
+      {
+        label: 'PC端装修',
+        children: [
+          { label: '首页装修', href: '/admin/decoration/pc/home' },
+          { label: '页面管理', href: '/admin/settings/pc/pages' },
+          { label: '导航菜单', href: '/admin/settings/pc/navigation' },
+          { label: '分类抽屉', href: '/admin/settings/pc/category-drawer' },
+          { label: '其他页面', href: '/admin/decoration/pc/other' },
+          { label: '自定义页', href: '/admin/decoration/pc/custom' },
+        ]
+      },
+    ]
+  },
+  {
+    title: '批发',
+    icon: '🏭',
+    items: [
+      { label: '询价管理', href: '/admin/wholesale/inquiry' },
+      { label: '批量订单', href: '/admin/wholesale/bulk-order' },
+      { label: '企业认证', href: '/admin/wholesale/verification' },
+      { label: '价格控制', href: '/admin/wholesale/price-control' },
+    ]
+  },
+  {
+    title: '跨境',
+    icon: '🌍',
+    items: [
+      { label: '专享组件', href: '/admin/cross-border/components' },
+      { label: 'PC模板', href: '/admin/cross-border/pc-template' },
+      { label: '移动端模板', href: '/admin/cross-border/mobile-template' },
+      { label: '第三方登录', href: '/admin/cross-border/login' },
+      { label: '翻译管理', href: '/admin/cross-border/translation' },
+      { label: '图片智能处理', href: '/admin/cross-border/image' },
     ]
   },
 ];
