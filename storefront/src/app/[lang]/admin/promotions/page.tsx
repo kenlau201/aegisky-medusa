@@ -1,6 +1,6 @@
-﻿'use client';
+'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const shortcuts = [
   { name: '优惠券', desc: '向客户发放店铺优惠券', icon: '🎫', color: 'bg-red-500', href: '/admin/promotions/coupons' },
@@ -22,7 +22,10 @@ const activities = [
 
 export default function PromotionOverviewPage() {
   const [activeTab, setActiveTab] = useState('全部');
-  const prefix = `/${window.location.pathname.split('/')[1]}`;
+  const [prefix, setPrefix] = useState('/en');
+  useEffect(() => {
+    setPrefix(`/${window.location.pathname.split('/')[1]}`);
+  }, []);
 
   return (
     <div className="space-y-6">

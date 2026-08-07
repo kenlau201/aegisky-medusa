@@ -19,7 +19,7 @@ export async function getAllInventory(): Promise<(InventoryStock & { product_nam
   const result = await pool.query(`
     SELECT s.*, p.name as product_name
     FROM ct_inventory_stocks s
-    LEFT JOIN products p ON s.product_id = p.sku
+    LEFT JOIN aegisky_products p ON s.product_id = p.sku
     ORDER BY s.product_id, s.warehouse
   `)
   return result.rows

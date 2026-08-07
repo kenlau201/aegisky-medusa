@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { pool as db } from '@/lib/control-tower/db';
@@ -10,23 +9,28 @@ export const revalidate = 3600;
 
 async function getSupplier(slug: string) {
   try {
-    // 先按slug查，再按id查
+    // Query aegisky_brands (not the empty 'brands' Medusa table)
     const result = await db.query(`
-      SELECT b.*,
-             (SELECT COUNT(*) FROM products p WHERE p.brand_id = b.id) as product_count,
-             (SELECT json_agg(json_build_object(
-               'id', p.id,
-               'title', p.title,
-               'slug', p.slug,
-               'thumbnail', p.thumbnail_url,
-               'price', p.price
-             )) FROM products p WHERE p.brand_id = b.id LIMIT 12) as products
-      FROM brands b
+      SELECT b.id, b.name, b.slug, b.logo_url, b.description, b.product_count
+      FROM aegisky_brands b
       WHERE b.slug = $1 OR b.id::text = $1
     `, [slug]);
 
     if (result.rows.length === 0) return null;
-    return result.rows[0];
+    const brand = result.rows[0];
+
+    // Query products that have this brand in their JSONB brands array
+    const productsResult = await db.query(`
+      SELECT id, name, slug, main_image, price
+      FROM aegisky_products
+      WHERE brands @> $1::jsonb
+      LIMIT 12
+    `, [JSON.stringify([{ id: brand.id, name: brand.name, slug: brand.slug }])]);
+
+    return {
+      ...brand,
+      products: productsResult.rows,
+    };
   } catch (e) {
     console.error('Error fetching supplier:', e);
     return null;
@@ -56,7 +60,7 @@ export default async function SupplierDetailPage({ params }: { params: { slug: s
     url: supplierUrl,
     logo: supplier.logo_url,
     description: supplier.description,
-    country: supplier.country,
+    country: 'Global',
     certifications: ['Verified Supplier', 'Export Compliance Screened'],
   });
 
@@ -92,6 +96,7 @@ export default async function SupplierDetailPage({ params }: { params: { slug: s
             {/* Logo */}
             <div className="w-32 h-32 bg-gray-50 rounded-xl flex items-center justify-center flex-shrink-0 border border-gray-200">
               {supplier.logo_url ? (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={supplier.logo_url}
                   alt={supplier.name}
@@ -114,15 +119,13 @@ export default async function SupplierDetailPage({ params }: { params: { slug: s
                 </span>
               </div>
 
-              {supplier.country && (
-                <p className="text-gray-600 mb-3 flex items-center gap-2">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  {supplier.country}
-                </p>
-              )}
+              <p className="text-gray-600 mb-3 flex items-center gap-2">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Global Supplier
+              </p>
 
               {supplier.description && (
                 <p className="text-lg text-gray-700 mb-6 max-w-3xl">
@@ -131,38 +134,31 @@ export default async function SupplierDetailPage({ params }: { params: { slug: s
               )}
 
               <div className="flex flex-wrap gap-3">
-                {supplier.website && (
-                  <a
-                    href={supplier.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-                  >
-                    Visit Website
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                )}
-                <button className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-2.5 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                <Link
+                  href={`/${params.lang}/brand/${supplier.slug}`}
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                >
+                  View All Products
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link
+                  href={`/${params.lang}/rfq?supplier=${supplier.id}`}
+                  className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-2.5 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  Contact Supplier
-                </button>
-                <button className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-2.5 rounded-lg font-medium hover:bg-gray-50 transition-colors">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-                  </svg>
-                  Save
-                </button>
+                  Contact Supplier / RFQ
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Tabs Navigation - 仿UST */}
+      {/* Tabs Navigation */}
       <div className="bg-white border-b sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4">
           <nav className="flex gap-8 overflow-x-auto">
@@ -170,8 +166,6 @@ export default async function SupplierDetailPage({ params }: { params: { slug: s
               { id: 'overview', label: 'CAPABILITY OVERVIEW' },
               { id: 'products', label: `PRODUCTS (${supplier.product_count || 0})` },
               { id: 'certifications', label: 'CERTIFICATIONS' },
-              { id: 'articles', label: 'ARTICLES' },
-              { id: 'locations', label: 'LOCATIONS' },
               { id: 'contact', label: 'CONTACT' },
             ].map((tab) => (
               <a
@@ -235,19 +229,20 @@ export default async function SupplierDetailPage({ params }: { params: { slug: s
                   {supplier.products.map((product: any) => (
                     <Link
                       key={product.id}
-                      href={`/${params.lang}/products/${product.slug || product.id}`}
+                      href={`/${params.lang}/product/${product.slug || product.id}`}
                       className="bg-white border border-gray-200 rounded-lg p-4 hover:border-blue-500 hover:shadow-md transition-all flex gap-4"
                     >
                       <div className="w-20 h-20 bg-gray-100 rounded flex-shrink-0 flex items-center justify-center">
-                        {product.thumbnail ? (
-                          <img src={product.thumbnail} alt={product.title} className="w-full h-full object-cover rounded" />
+                        {product.main_image ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={product.main_image} alt={product.name} className="w-full h-full object-contain rounded" />
                         ) : (
                           <span className="text-gray-400 text-xs">No image</span>
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-gray-900 text-sm line-clamp-2 hover:text-blue-600">
-                          {product.title}
+                          {product.name}
                         </h4>
                         {product.price && (
                           <p className="text-blue-600 font-semibold mt-1">
@@ -260,6 +255,16 @@ export default async function SupplierDetailPage({ params }: { params: { slug: s
                 </div>
               ) : (
                 <p className="text-gray-500">No products listed yet.</p>
+              )}
+              {(supplier.product_count || 0) > 12 && (
+                <div className="mt-6">
+                  <Link
+                    href={`/${params.lang}/brand/${supplier.slug}`}
+                    className="inline-block bg-[#0B1F3A] text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-[#1a3055] transition-colors"
+                  >
+                    View all {supplier.product_count} products
+                  </Link>
+                </div>
               )}
             </section>
 
@@ -277,12 +282,6 @@ export default async function SupplierDetailPage({ params }: { params: { slug: s
                 ))}
               </div>
             </section>
-
-            {/* Articles */}
-            <section id="articles">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b">Related Articles & News</h2>
-              <p className="text-gray-500">Articles about this supplier will appear here.</p>
-            </section>
           </div>
 
           {/* Sidebar */}
@@ -291,12 +290,10 @@ export default async function SupplierDetailPage({ params }: { params: { slug: s
             <div className="bg-white border border-gray-200 rounded-xl p-6">
               <h3 className="font-bold text-gray-900 mb-4">Company Facts</h3>
               <dl className="space-y-3 text-sm">
-                {supplier.country && (
-                  <div className="flex justify-between">
-                    <dt className="text-gray-500">Country</dt>
-                    <dd className="font-medium text-gray-900">{supplier.country}</dd>
-                  </div>
-                )}
+                <div className="flex justify-between">
+                  <dt className="text-gray-500">Country</dt>
+                  <dd className="font-medium text-gray-900">Global</dd>
+                </div>
                 <div className="flex justify-between">
                   <dt className="text-gray-500">Products</dt>
                   <dd className="font-medium text-gray-900">{supplier.product_count || 0}</dd>
