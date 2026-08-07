@@ -88,6 +88,16 @@ export const COUNTRY_GROUPS = {
 export const SANCTIONED_COUNTRIES = ['RU', 'IR', 'KP', 'SY', 'CU', 'VE', 'BY', 'MM', 'SD', 'LY', 'YE', 'SO', 'AF', 'ZW', 'ER']
 export const HIGH_RISK_COUNTRIES = ['HK', 'AE', 'TR', 'CY', 'MT', 'LU', 'PA', 'KY', 'VG', 'BM', 'GI', 'MU', 'KZ', 'UZ', 'KG']
 
+// ==================== 红旗关键词（实体名称扫描）====================
+export const RED_FLAG_KEYWORDS = [
+  'military', 'defense', 'defence', 'army', 'navy', 'air force',
+  'weapons', 'missile', 'rocket', 'bomb', 'explosive', 'munitions',
+  'armed forces', 'ministry of defense', 'mod ', 'pentagon',
+  'rosoboronexport', 'almaz', 'sukhoi', 'mikoyan', 'kalashnikov', 'wagner',
+  'irgc', 'revolutionary guard', 'people\u2019s liberation army', 'pla ',
+  'defense ministry', 'military research', 'arms dealer', 'arms trade',
+]
+
 // ==================== 红旗指标（KYC/最终用户红旗）====================
 export const RED_FLAG_INDICATORS = [
   // 客户/实体红旗

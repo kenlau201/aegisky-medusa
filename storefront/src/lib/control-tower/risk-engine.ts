@@ -2,7 +2,7 @@
  * Aegisky Control Tower - 风险评分引擎 v2.0
  * 多维度风险评估，符合 EU Dual-Use / OFAC / FATF 标准
  */
-import { SANCTIONED_COUNTRIES, HIGH_RISK_COUNTRIES, RED_FLAG_KEYWORDS, DRONE_ECCN_CODES } from './db'
+import { SANCTIONED_COUNTRIES, HIGH_RISK_COUNTRIES, RED_FLAG_KEYWORDS, DRONE_ECCN_CODES } from './constants'
 
 export interface RiskFactor {
   category: string
