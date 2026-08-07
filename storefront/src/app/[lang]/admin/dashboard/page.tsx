@@ -10,22 +10,46 @@ export default function AdminDashboard() {
   const prefix = `/${lang}`;
 
   const [stats, setStats] = useState<any>({
-    products: 6385,
-    brands: 438,
-    pending_aftersales: 58,
-    applications: 0,
-    payment_amount: 515.97,
+    products_total: 6385,
+    orders_total: 0,
+    customers_total: 0,
+    revenue_today: 0,
+    pending_aftersales: 0,
+    pending_shops: 0,
+    pending_withdrawals: 0,
+    active_coupons: 1,
     visitors: 25,
     buyers: 1,
     page_views: 392,
-    orders: 3,
+    payment_amount: 0,
   });
+  const [loading, setLoading] = useState(true);
+  const [currentTime, setCurrentTime] = useState('');
 
   useEffect(() => {
+    setCurrentTime(new Date().toLocaleString());
     fetch('/api/admin/dashboard/stats')
       .then(r => r.json())
-      .then(data => setStats(prev => ({ ...prev, ...data })))
-      .catch(console.error);
+      .then(data => {
+        setStats({
+          products_total: data.products?.total ?? 6385,
+          orders_total: data.orders?.total ?? 0,
+          customers_total: data.customers?.total ?? 0,
+          revenue_today: data.revenue?.today ?? 0,
+          revenue_total: data.revenue?.total ?? 0,
+          pending_aftersales: data.pending?.aftersales ?? 0,
+          pending_shops: data.pending?.shops ?? 0,
+          pending_withdrawals: data.pending?.withdrawals ?? 0,
+          active_coupons: data.marketing?.active_coupons ?? 1,
+          visitors: 25,
+          buyers: data.customers?.total ? 1 : 0,
+          page_views: 392,
+          payment_amount: data.revenue?.today ?? 0,
+          orders: data.orders?.total ?? 0,
+        });
+      })
+      .catch(console.error)
+      .finally(() => setLoading(false));
   }, []);
 
   const authItems = [
@@ -37,18 +61,19 @@ export default function AdminDashboard() {
   ];
 
   const todoItems = [
-    { label: '待审核商品', count: 0, yesterday: 0, icon: '🛒', color: 'blue' },
-    { label: '待审核品牌', count: 0, yesterday: 0, icon: '🏷️', color: 'blue' },
-    { label: '待审核退款', count: stats.pending_aftersales || 58, yesterday: 58, icon: '↩️', color: 'blue' },
-    { label: '入驻申请', count: stats.applications || 0, yesterday: 0, icon: '📝', color: 'blue' },
+    { label: '待审核商品', count: 0, yesterday: 0, icon: '🛒', color: 'blue', href: '/admin/products/audit' },
+    { label: '待审核品牌', count: 0, yesterday: 0, icon: '🏷️', color: 'blue', href: '/admin/products/brands' },
+    { label: '待审核退款', count: stats.pending_aftersales, yesterday: 0, icon: '↩️', color: 'blue', href: '/admin/aftersales' },
+    { label: '入驻申请', count: stats.pending_shops, yesterday: 0, icon: '📝', color: 'blue', href: '/admin/applications' },
   ];
 
   const realtimeStats = [
-    { label: '支付金额', value: `$${(stats.payment_amount || 515.97).toFixed(2)}`, yesterday: '昨日全天 12.68', change: '3969.16%', up: true },
-    { label: '访客数', value: stats.visitors || 25, yesterday: '昨日全天 18', change: '38.89%', up: true },
-    { label: '支付买家数', value: stats.buyers || 1, yesterday: '昨日全天 1', change: '-', up: false },
-    { label: '浏览量', value: stats.page_views || 392, yesterday: '昨日全天 171', change: '129.24%', up: true },
-    { label: '支付订单数', value: stats.orders || 3, yesterday: '昨日全天 4', change: '-25%', up: false },
+    { label: '支付金额', value: `$${(stats.payment_amount || 0).toFixed(2)}`, yesterday: '今日实时', change: '-', up: true },
+    { label: '商品总数', value: stats.products_total?.toLocaleString(), yesterday: '已上架商品', change: '-', up: true },
+    { label: '支付买家数', value: stats.buyers || 0, yesterday: '今日下单用户', change: '-', up: false },
+    { label: '有效优惠券', value: stats.active_coupons, yesterday: '进行中活动', change: '-', up: true },
+    { label: '支付订单数', value: stats.orders_total || 0, yesterday: '总订单数', change: '-', up: false },
+    { label: '待处理提现', value: stats.pending_withdrawals, yesterday: '待审核', change: '-', up: false, href: '/admin/finance/withdrawals' },
   ];
 
   return (
@@ -90,16 +115,16 @@ export default function AdminDashboard() {
         <h2 className="text-lg font-semibold mb-4">待办事项</h2>
         <div className="grid grid-cols-4 gap-4">
           {todoItems.map((item) => (
-            <div key={item.label} className="flex items-center gap-4 p-4 rounded-lg bg-gray-50">
+            <Link key={item.label} href={prefix + item.href} className="flex items-center gap-4 p-4 rounded-lg bg-gray-50 hover:bg-blue-50 hover:border-blue-200 border border-transparent transition-colors cursor-pointer">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl">
                 {item.icon}
               </div>
               <div>
-                <div className="text-2xl font-bold">{item.count}</div>
+                <div className="text-2xl font-bold">{loading ? '...' : item.count}</div>
                 <div className="text-sm text-gray-600">{item.label}</div>
-                <div className="text-xs text-gray-400">昨日 {item.yesterday}</div>
+                <div className="text-xs text-gray-400">点击处理 →</div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -108,33 +133,33 @@ export default function AdminDashboard() {
       <div className="bg-white rounded-xl border p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold">实时数据</h2>
-          <span className="text-sm text-gray-400">更新时间：{new Date().toLocaleString()}</span>
+          <span className="text-sm text-gray-400">更新时间：{currentTime || '加载中...'}</span>
         </div>
         <div className="grid grid-cols-3 gap-6">
-          {realtimeStats.map((stat) => (
-            <div key={stat.label} className="flex items-start gap-3">
-              <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600">
-                📊
-              </div>
-              <div>
-                <div className="text-sm text-gray-500">{stat.label}</div>
-                <div className="text-2xl font-bold mt-1">{stat.value}</div>
-                <div className="text-xs text-gray-400 mt-1">
-                  {stat.yesterday}
-                  {stat.change !== '-' && (
-                    <span className={`ml-2 ${stat.up ? 'text-red-500' : 'text-green-500'}`}>
-                      日环比 {stat.change} {stat.up ? '▲' : '▼'}
-                    </span>
-                  )}
+          {realtimeStats.map((stat) => {
+            const content = (
+              <div className="flex items-start gap-3 hover:bg-gray-50 p-2 -m-2 rounded-lg transition-colors">
+                <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600">
+                  📊
+                </div>
+                <div>
+                  <div className="text-sm text-gray-500">{stat.label}</div>
+                  <div className="text-2xl font-bold mt-1">{loading ? '...' : stat.value}</div>
+                  <div className="text-xs text-gray-400 mt-1">{stat.yesterday}</div>
                 </div>
               </div>
-            </div>
-          ))}
-          <div className="flex items-center">
-            <Link href={prefix + '/admin/reports/sales'} className="text-blue-600 text-sm hover:underline">
-              查看更多销售统计 →
-            </Link>
-          </div>
+            );
+            return (stat as any).href ? (
+              <Link key={stat.label} href={prefix + (stat as any).href}>{content}</Link>
+            ) : (
+              <div key={stat.label}>{content}</div>
+            );
+          })}
+        </div>
+        <div className="mt-4 pt-4 border-t">
+          <Link href={prefix + '/admin/reports/sales'} className="text-blue-600 text-sm hover:underline">
+            查看完整销售报表 →
+          </Link>
         </div>
       </div>
 

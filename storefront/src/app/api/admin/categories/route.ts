@@ -6,9 +6,9 @@ export const runtime = 'nodejs';
 export async function GET(request: NextRequest) {
   try {
     const result = await db.query(`
-      SELECT id, name, slug, parent_id, image, sort_order, is_hot, is_visible
+      SELECT id, name, slug, parent as parent_id, image_url as image, depth, product_count, path, children_count
       FROM aegisky_categories
-      ORDER BY parent_id ASC, sort_order ASC, id ASC
+      ORDER BY parent ASC, id ASC
     `);
 
     return NextResponse.json({
