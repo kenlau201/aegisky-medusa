@@ -1,8 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
 export default function OrdersAdminPage() {
+  const params = useParams();
+  const lang = params.lang as string;
   const [orders, setOrders] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -58,7 +62,11 @@ export default function OrdersAdminPage() {
               <tr><td colSpan={7} className="px-6 py-12 text-center text-gray-400">加载中...</td></tr>
             ) : orders.length > 0 ? orders.map((o: any) => (
               <tr key={o.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 text-sm font-mono text-blue-600">{o.order_number || o.id?.slice(0, 8)}</td>
+                <td className="px-6 py-4 text-sm font-mono">
+                  <Link href={`/${lang}/admin/orders/${o.id}`} className="text-blue-600 hover:underline">
+                    {o.order_number || o.id?.slice(0, 8)}
+                  </Link>
+                </td>
                 <td className="px-6 py-4 text-sm text-gray-900">{o.customer_name || '-'}</td>
                 <td className="px-6 py-4 text-sm text-gray-600">{o.item_count || 0} 件商品</td>
                 <td className="px-6 py-4 text-sm font-medium">${o.total || '0.00'}</td>
@@ -69,7 +77,7 @@ export default function OrdersAdminPage() {
                 </td>
                 <td className="px-6 py-4 text-sm text-gray-500">{new Date(o.created_at).toLocaleString()}</td>
                 <td className="px-6 py-4">
-                  <button className="text-blue-600 hover:underline text-sm">详情</button>
+                  <Link href={`/${lang}/admin/orders/${o.id}`} className="text-blue-600 hover:underline text-sm">详情</Link>
                 </td>
               </tr>
             )) : (

@@ -1,6 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { pool as db } from '@/lib/control-tower/db';
 
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const result = await db.query(`
+      INSERT INTO aegisky_products (
+        id, name, slug, sku, price, regular_price, sale_price,
+        short_description, description, main_image, in_stock,
+        stock_status, on_sale, currency, created_at
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, NOW())
+      RETURNING *
+    `, [
+      body.id, body.name, body.slug, body.sku,
+      body.price, body.regular_price, body.sale_price,
+      body.short_description, body.description, body.main_image,
+      body.in_stock, body.in_stock ? 'instock' : 'outofstock',
+      body.on_sale || false, body.currency || 'USD'
+    ]);
+
+    return NextResponse.json({ success: true, product: result.rows[0] });
+  } catch (error: any) {
+    console.error('Create product error:', error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);

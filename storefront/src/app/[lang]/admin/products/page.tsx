@@ -1,8 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
 export default function ProductsAdminPage() {
+  const params = useParams();
+  const lang = params.lang as string;
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -33,7 +37,9 @@ export default function ProductsAdminPage() {
         </div>
         <div className="flex gap-2">
           <button className="border px-4 py-2 rounded-lg hover:bg-gray-50">批量导入</button>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">+ 新增商品</button>
+          <Link href={`/${lang}/admin/products/new`} className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+            + 新增商品
+          </Link>
         </div>
       </div>
 
