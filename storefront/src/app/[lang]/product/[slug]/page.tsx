@@ -5,6 +5,7 @@ import dynamicClient from 'next/dynamic'
 import { getProductBySlug, getRelatedProducts } from '@/lib/data'
 import { translateText, LanguageCode } from '@/i18n'
 import type { Metadata } from 'next'
+import { generateProductSchema, generateBreadcrumbSchema, generateFAQSchema } from '@/lib/geo/schema-generator'
 
 const ProductDetailClient = dynamicClient(() => import('./ProductDetailClient'), {
   ssr: false,
@@ -70,60 +71,70 @@ export default function ProductDetailPage({ params }: { params: { slug: string; 
 
   const relatedProducts = getRelatedProducts(product, 8)
 
-  // Product JSON-LD structured data
-  const productJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
+  // 提取技术参数（如果有）
+  const additionalProperty: Array<{ name: string; value: string }> = [];
+  if (product.specifications) {
+    for (const [key, value] of Object.entries(product.specifications)) {
+      if (value) additionalProperty.push({ name: key, value: String(value) });
+    }
+  }
+
+  // B2B FAQ - 工业无人机买家常见问题
+  const faqQuestions = [
+    {
+      question: `What is the MOQ for ${product.name}?`,
+      answer: `Standard MOQ applies. Bulk pricing and OEM/ODM customizations are available for enterprise orders. Contact our sales team for volume discounts and lead times.`,
+    },
+    {
+      question: `Is ${product.name} export compliant?`,
+      answer: `All products on Aegisky undergo ECCN classification and export compliance screening. CE/FCC certifications are available where applicable. We provide full export documentation for cross-border shipments.`,
+    },
+    {
+      question: `What is the lead time for ${product.name}?`,
+      answer: `Standard lead time is 2-4 weeks for in-stock items. Custom OEM orders typically require 4-8 weeks depending on specifications and quantity.`,
+    },
+    {
+      question: `Do you offer OEM/ODM for this product?`,
+      answer: `Yes, most manufacturers on Aegisky offer OEM/ODM services including custom branding, firmware modifications, and hardware customization. Contact us to discuss your requirements.`,
+    },
+    {
+      question: `What warranty and support is included?`,
+      answer: `All products come with standard manufacturer warranty. Extended warranty, on-site support, and technical training are available for enterprise customers.`,
+    },
+  ];
+
+  // 用我们的GEO schema生成器
+  const productJsonLd = generateProductSchema({
+    id: product.id,
     name: product.name,
     sku: product.sku,
-    mpn: product.sku,
-    description: (product.shortDescription || product.description || '').replace(/<[^>]*>/g, '').substring(0, 500),
-    image: product.images.slice(0, 5),
-    brand: product.brands?.[0] ? { '@type': 'Brand', name: product.brands[0].name } : undefined,
+    description: (product.shortDescription || product.description || '').replace(/<[^>]*>/g, '').substring(0, 1000),
+    images: product.images.slice(0, 10),
+    brand: product.brands?.[0]?.name,
     category: product.categories?.[0]?.name,
-    offers: product.price && product.price > 0 ? {
-      '@type': 'Offer',
-      url: `https://aegisky.com/${params.lang}/product/${params.slug}`,
-      priceCurrency: product.currency || 'RUB',
-      price: product.price.toFixed(2),
-      availability: product.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: {
-        '@type': 'Organization',
-        name: 'Aegisky',
-      },
-    } : undefined,
-    aggregateRating: product.reviewCount > 0 ? {
-      '@type': 'AggregateRating',
-      ratingValue: product.rating || '4.5',
-      reviewCount: product.reviewCount,
-    } : undefined,
-  }
+    price: product.price,
+    currency: product.currency || 'USD',
+    inStock: product.inStock,
+    url: `https://aegisky.com/${params.lang}/product/${params.slug}`,
+    additionalProperty,
+    moq: '1 unit (sample), 10+ units for bulk pricing',
+    businessFunction: 'http://purl.org/goodrelations/v1#Manufacture',
+  });
 
-  // Breadcrumb JSON-LD
-  const breadcrumbItems: any[] = [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://aegisky.com' },
-    { '@type': 'ListItem', position: 2, name: 'Catalog', item: 'https://aegisky.com/en/categories' },
-  ]
+  const breadcrumbItems = [
+    { name: 'Home', url: `https://aegisky.com/${params.lang}` },
+    { name: 'Products', url: `https://aegisky.com/${params.lang}/categories` },
+  ];
   if (product.categories?.[0]) {
     breadcrumbItems.push({
-      '@type': 'ListItem',
-      position: 3,
       name: product.categories[0].name,
-      item: `https://aegisky.com/en/category/${product.categories[0].slug}`,
-    })
+      url: `https://aegisky.com/${params.lang}/category/${product.categories[0].slug}`,
+    });
   }
-  breadcrumbItems.push({
-    '@type': 'ListItem',
-    position: breadcrumbItems.length + 1,
-    name: product.name.substring(0, 60),
-  })
+  breadcrumbItems.push({ name: product.name.substring(0, 60), url: '' });
 
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: breadcrumbItems,
-  }
+  const breadcrumbJsonLd = generateBreadcrumbSchema({ items: breadcrumbItems });
+  const faqJsonLd = generateFAQSchema(faqQuestions);
 
   return (
     <>
@@ -134,6 +145,10 @@ export default function ProductDetailPage({ params }: { params: { slug: string; 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <ProductDetailClient product={product} relatedProducts={relatedProducts} lang={params.lang} />
     </>
