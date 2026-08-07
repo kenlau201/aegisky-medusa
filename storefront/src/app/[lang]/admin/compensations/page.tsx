@@ -2,34 +2,25 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9000'
-const ADMIN_TOKEN_KEY = 'aegisky_admin_token'
+import { useParams } from 'next/navigation'
 
 export default function AdminCompensationsPage() {
-  const [token, setToken] = useState<string | null>(null)
+  const params = useParams()
+  const lang = params.lang as string
   const [orders, setOrders] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const t = localStorage.getItem(ADMIN_TOKEN_KEY)
-    if (t) {
-      setToken(t)
-      fetchCompensations(t)
-    } else {
-      window.location.href = '/en/admin'
-    }
+    fetchCompensations()
   }, [])
 
-  const fetchCompensations = async (t: string) => {
+  const fetchCompensations = async () => {
     setLoading(true)
     try {
-      const res = await fetch(`${API_BASE}/store/admin/orders?status=compensation_pending`, {
-        headers: { 'x-admin-token': t }
-      })
+      const res = await fetch('/api/admin/orders?status=compensation_pending')
       if (res.ok) {
         const data = await res.json()
-        setOrders(data.orders)
+        setOrders(data.orders || [])
       }
     } catch (e) {
       console.error(e)
@@ -41,7 +32,7 @@ export default function AdminCompensationsPage() {
     <div className="min-h-screen bg-gray-100">
       <header className="bg-white shadow">
         <div className="max-w-5xl mx-auto px-4 py-4 flex items-center gap-6">
-          <Link href="/en/admin" className="text-blue-600 hover:underline text-sm">← Dashboard</Link>
+          <Link href={`/${lang}/admin/dashboard`} className="text-blue-600 hover:underline text-sm">← Dashboard</Link>
           <h1 className="text-xl font-bold">Compensation Queue</h1>
         </div>
       </header>
@@ -49,7 +40,7 @@ export default function AdminCompensationsPage() {
       <main className="max-w-5xl mx-auto px-4 py-6">
         <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
           <p className="text-yellow-800 text-sm">
-            <strong>⚠️ Important:</strong> These orders have been paid but encountered issues (stock failure, disputes, etc.).
+            <strong>Important:</strong> These orders have been paid but encountered issues (stock failure, disputes, etc.).
             They are <strong>not automatically refunded</strong> to avoid Stripe fee loss.
             Please review each case manually and decide the appropriate action.
           </p>
@@ -69,7 +60,7 @@ export default function AdminCompensationsPage() {
                 <div className="flex justify-between items-start">
                   <div>
                     <Link
-                      href={`/en/admin/orders/${order.id}`}
+                      href={`/${lang}/admin/orders/${order.id}`}
                       className="text-lg font-semibold text-blue-600 hover:underline font-mono"
                     >
                       {order.order_number}
@@ -88,9 +79,14 @@ export default function AdminCompensationsPage() {
                     </div>
                   </div>
                 </div>
+                {order.compensation_reason && (
+                  <div className="mt-3 text-sm bg-red-50 p-3 rounded text-red-700">
+                    Reason: {order.compensation_reason}
+                  </div>
+                )}
                 <div className="mt-4 flex gap-2">
                   <Link
-                    href={`/en/admin/orders/${order.id}`}
+                    href={`/${lang}/admin/orders/${order.id}`}
                     className="px-4 py-2 bg-blue-600 text-white rounded text-sm hover:bg-blue-700"
                   >
                     Review & Resolve

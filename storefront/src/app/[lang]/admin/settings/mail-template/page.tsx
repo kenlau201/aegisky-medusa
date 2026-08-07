@@ -1,11 +1,72 @@
-﻿export default function PlaceholderPage() {
+'use client';
+
+import { useState } from 'react';
+
+export default function Page() {
+  const [saved, setSaved] = useState(false);
+  const [form, setForm] = useState<any>({});
+
+  const fields = [{"key":"welcome_subject","label":"欢迎邮件标题"},{"key":"welcome_content","label":"欢迎邮件内容","type":"textarea"},{"key":"order_subject","label":"订单通知标题"},{"key":"order_content","label":"订单通知内容","type":"textarea"}];
+
+  const handleSave = () => {
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2000);
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center h-96 text-gray-400">
-      <svg className="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-      </svg>
-      <p className="text-lg font-medium">功能开发中</p>
-      <p className="text-sm mt-1">该模块正在开发，敬请期待</p>
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-2xl font-bold">邮件模板</h1>
+        <p className="text-gray-500 mt-1">邮件模板管理</p>
+      </div>
+      <div className="bg-white rounded-xl border p-6 max-w-2xl">
+        <div className="space-y-4">
+          {fields.map((f: any) => (
+            <div key={f.key}>
+              <label className="block text-sm font-medium text-gray-700 mb-1">{f.label}</label>
+              {f.type === 'switch' ? (
+                <button
+                  onClick={() => setForm({...form, [f.key]: !form[f.key]})}
+                  className={`relative w-12 h-6 rounded-full transition-colors ${form[f.key] ? 'bg-blue-600' : 'bg-gray-300'}`}
+                >
+                  <span className={`absolute top-0.5 w-5 h-5 bg-white rounded-full transition-transform ${form[f.key] ? 'left-6' : 'left-0.5'}`} />
+                </button>
+              ) : f.type === 'textarea' ? (
+                <textarea
+                  value={form[f.key] || ''}
+                  onChange={e => setForm({...form, [f.key]: e.target.value})}
+                  rows={3}
+                  className="w-full px-3 py-2 border rounded text-sm"
+                  placeholder={f.placeholder || ''}
+                />
+              ) : f.type === 'select' ? (
+                <select
+                  value={form[f.key] || ''}
+                  onChange={e => setForm({...form, [f.key]: e.target.value})}
+                  className="w-full px-3 py-2 border rounded text-sm"
+                >
+                  <option value="">请选择</option>
+                  {(f.options || []).map((o: string) => <option key={o}>{o}</option>)}
+                </select>
+              ) : (
+                <input
+                  type={f.type || 'text'}
+                  value={form[f.key] || ''}
+                  onChange={e => setForm({...form, [f.key]: e.target.value})}
+                  className="w-full px-3 py-2 border rounded text-sm"
+                  placeholder={f.placeholder || ''}
+                />
+              )}
+              {f.hint && <p className="text-xs text-gray-400 mt-1">{f.hint}</p>}
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 flex gap-3">
+          <button onClick={handleSave} className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            {saved ? '已保存 ✓' : '保存设置'}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

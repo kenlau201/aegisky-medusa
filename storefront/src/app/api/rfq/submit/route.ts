@@ -1,33 +1,35 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from 'next/server';
+import { pool } from '@/lib/control-tower/db';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9000'
-const PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_PUBLISHABLE_KEY || 'pk_2f2350f9a72ea702a46d0a68566194d73ff4ef26a7ff20f4b60294beb8869a0a'
+export const runtime = 'nodejs';
 
+// POST /api/rfq/submit - submit a new RFQ from storefront
 export async function POST(request: Request) {
   try {
-    const body = await request.json()
+    const body = await request.json();
+    const { customer_email, customer_name, company, country, phone, message, items } = body;
 
-    const response = await fetch(`${API_BASE}/store/rfq`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-publishable-api-key': PUBLISHABLE_KEY,
-      },
-      body: JSON.stringify(body),
-    })
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}))
-      return NextResponse.json(
-        { error: errorData.message || 'Failed to submit RFQ' },
-        { status: response.status }
-      )
+    if (!customer_email || !customer_name) {
+      return NextResponse.json({ error: 'Email and name are required' }, { status: 400 });
     }
 
-    const data = await response.json()
-    return NextResponse.json(data)
-  } catch (error) {
-    console.error('RFQ submit proxy error:', error)
-    return NextResponse.json({ error: 'Failed to submit RFQ' }, { status: 500 })
+    const result = await pool.query(`
+      INSERT INTO aegisky_rfqs (customer_email, customer_name, company, country, phone, message, items, status)
+      VALUES ($1, $2, $3, $4, $5, $6, $7::jsonb, 'pending')
+      RETURNING *
+    `, [
+      customer_email,
+      customer_name,
+      company || null,
+      country || null,
+      phone || null,
+      message || null,
+      JSON.stringify(items || []),
+    ]);
+
+    return NextResponse.json({ success: true, rfq: result.rows[0] });
+  } catch (error: any) {
+    console.error('RFQ submit error:', error);
+    return NextResponse.json({ error: 'Failed to submit RFQ' }, { status: 500 });
   }
 }
