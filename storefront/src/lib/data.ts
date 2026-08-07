@@ -395,16 +395,38 @@ export function getAllCategories(): Category[] {
   return categoriesCache
 }
 
-// Decode HTML entities like &amp; &lt; &gt; etc.
+// Decode HTML entities including named, decimal (&#NNN;) and hex (&#xHHH;) entities
 function decodeHtml(str: string): string {
   if (!str) return str
-  return str
+  // First decode numeric entities (both decimal and hex) using a browser-agnostic approach
+  let result = str
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(parseInt(dec, 10)))
+  // Then decode named entities
+  result = result
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
     .replace(/&nbsp;/g, ' ')
+    .replace(/&laquo;/g, '"')
+    .replace(/&raquo;/g, '"')
+    .replace(/&mdash;/g, '—')
+    .replace(/&ndash;/g, '–')
+    .replace(/&hellip;/g, '…')
+    .replace(/&trade;/g, '™')
+    .replace(/&reg;/g, '®')
+    .replace(/&copy;/g, '©')
+    .replace(/&deg;/g, '°')
+    .replace(/&plusmn;/g, '±')
+    .replace(/&times;/g, '×')
+    .replace(/&divide;/g, '÷')
+    .replace(/&ldquo;/g, '\u201C')
+    .replace(/&rdquo;/g, '\u201D')
+    .replace(/&lsquo;/g, '\u2018')
+    .replace(/&rsquo;/g, '\u2019')
+  return result
 }
 
 export function getAllBrands(): Brand[] {
@@ -512,14 +534,14 @@ function getAllCategoryIds(catId: number): Set<number> {
 export function getCategoryProductCount(catId: number): number {
   const allIds = getAllCategoryIds(catId)
   return getAllProducts().filter(p =>
-    p.inStock && p.categories.some(c => allIds.has(c.id))
+    p.inStock && (p.categories || []).some(c => allIds.has(c.id))
   ).length
 }
 
 export function getProductsByCategoryId(catId: number): Product[] {
   const allIds = getAllCategoryIds(catId)
   return getAllProducts().filter(p =>
-    p.inStock && p.categories.some(c => allIds.has(c.id))
+    p.inStock && (p.categories || []).some(c => allIds.has(c.id))
   )
 }
 
@@ -531,7 +553,7 @@ export function getProductsByCategorySlug(slug: string): Product[] {
 
 export function getProductsByBrandId(brandId: number): Product[] {
   return getAllProducts().filter(p =>
-    p.inStock && p.brands.some(b => b.id === brandId)
+    p.inStock && (p.brands || []).some(b => b.id === brandId)
   )
 }
 
@@ -543,7 +565,7 @@ export function getProductsByBrandSlug(slug: string): Product[] {
 
 export function getProductsByTagId(tagId: number): Product[] {
   return getAllProducts().filter(p =>
-    p.inStock && p.tags.some(t => t.id === tagId)
+    p.inStock && (p.tags || []).some(t => t.id === tagId)
   )
 }
 
@@ -584,19 +606,19 @@ export function searchProducts(filters: ProductFilters): Product[] {
 
   if (filters.categoryId) {
     results = results.filter(p =>
-      p.categories.some(c => c.id === filters.categoryId)
+      (p.categories || []).some(c => c.id === filters.categoryId)
     )
   }
 
   if (filters.brandId) {
     results = results.filter(p =>
-      p.brands.some(b => b.id === filters.brandId)
+      (p.brands || []).some(b => b.id === filters.brandId)
     )
   }
 
   if (filters.tagId) {
     results = results.filter(p =>
-      p.tags.some(t => t.id === filters.tagId)
+      (p.tags || []).some(t => t.id === filters.tagId)
     )
   }
 
@@ -619,8 +641,8 @@ export function searchProducts(filters: ProductFilters): Product[] {
   if (filters.attributeFilters) {
     filters.attributeFilters.forEach(({ attrId, termIds }) => {
       results = results.filter(p =>
-        p.attributes.some(a =>
-          a.id === attrId && a.terms.some(t => termIds.includes(t.id))
+        (p.attributes || []).some(a =>
+          a.id === attrId && (a.terms || []).some(t => termIds.includes(t.id))
         )
       )
     })

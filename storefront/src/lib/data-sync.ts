@@ -18,6 +18,38 @@ function ensureDir(dir: string) {
   }
 }
 
+// Decode HTML entities including numeric entities
+function decodeHtml(str: string): string {
+  if (!str) return str
+  let result = str
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(parseInt(dec, 10)))
+  result = result
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&mdash;/g, '\u2014')
+    .replace(/&ndash;/g, '\u2013')
+    .replace(/&hellip;/g, '\u2026')
+    .replace(/&times;/g, '\u00D7')
+    .replace(/&divide;/g, '\u00F7')
+    .replace(/&laquo;/g, '\u00AB')
+    .replace(/&raquo;/g, '\u00BB')
+    .replace(/&ldquo;/g, '\u201C')
+    .replace(/&rdquo;/g, '\u201D')
+    .replace(/&lsquo;/g, '\u2018')
+    .replace(/&rsquo;/g, '\u2019')
+    .replace(/&trade;/g, '\u2122')
+    .replace(/&reg;/g, '\u00AE')
+    .replace(/&copy;/g, '\u00A9')
+    .replace(/&deg;/g, '\u00B0')
+    .replace(/&plusmn;/g, '\u00B1')
+  return result
+}
+
 function writeJsonToDirs(filename: string, data: any) {
   const json = JSON.stringify(data)
   for (const dir of DATA_DIRS) {
@@ -41,7 +73,7 @@ export async function syncProducts(): Promise<number> {
     SELECT
       id, name, slug, sku, price, regular_price, sale_price,
       short_description, description, main_image,
-      in_stock, stock_status, on_sale, currency,
+      in_stock, stock_status, stock_quantity, on_sale, currency,
       images, videos, categories, brands, tags, attributes,
       image_count, video_count, weight, dimensions,
       rating, review_count, created_at
@@ -51,13 +83,13 @@ export async function syncProducts(): Promise<number> {
 
   const products = result.rows.map(p => ({
     id: p.id,
-    name: p.name,
+    name: decodeHtml(p.name),
     slug: p.slug,
     sku: p.sku || '',
     type: 'simple',
     parent: 0,
-    shortDescription: p.short_description || '',
-    description: p.description || '',
+    shortDescription: decodeHtml(p.short_description || ''),
+    description: decodeHtml(p.description || ''),
     price: p.price !== null ? Number(p.price) : null,
     regularPrice: p.regular_price !== null ? Number(p.regular_price) : null,
     salePrice: p.sale_price !== null ? Number(p.sale_price) : null,
@@ -78,6 +110,7 @@ export async function syncProducts(): Promise<number> {
     galleryVideos: [],
     inStock: p.in_stock !== false,
     stockStatus: p.stock_status || 'instock',
+    stockQuantity: p.stock_quantity || 100,
     lowStockRemaining: null,
     isOnBackorder: false,
     weight: p.weight || '',

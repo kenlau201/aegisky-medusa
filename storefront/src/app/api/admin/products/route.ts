@@ -10,15 +10,18 @@ export async function POST(request: NextRequest) {
       INSERT INTO aegisky_products (
         id, name, slug, sku, price, regular_price, sale_price,
         short_description, description, main_image, in_stock,
-        stock_status, on_sale, currency, created_at
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, NOW())
+        stock_status, on_sale, currency, stock_quantity, shop_id, created_at
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, NOW())
       RETURNING *
     `, [
       body.id, body.name, body.slug, body.sku,
-      body.price, body.regular_price, body.sale_price,
-      body.short_description, body.description, body.main_image,
-      body.in_stock, body.in_stock ? 'instock' : 'outofstock',
-      body.on_sale || false, body.currency || 'USD'
+      body.price, body.regularPrice, body.salePrice,
+      body.shortDescription, body.description, body.mainImage,
+      body.in_stock !== undefined ? body.in_stock : true,
+      body.in_stock ? 'instock' : 'outofstock',
+      body.on_sale || false, body.currency || 'USD',
+      body.stock_quantity || 100,
+      body.shop_id || '79a4022b-f75e-43f3-9721-0b93deb35872'
     ]);
 
     // Sync data in background (don't block response)
@@ -66,10 +69,13 @@ export async function GET(request: NextRequest) {
         p.sku,
         p.in_stock,
         p.stock_status,
+        p.stock_quantity,
         p.image_count,
         p.video_count,
-        p.created_at
+        p.created_at,
+        s.name as shop_name
       FROM aegisky_products p
+      LEFT JOIN shop s ON p.shop_id = s.id
       ${whereClause}
       ORDER BY p.id DESC
       LIMIT $${params.length + 1} OFFSET $${params.length + 2}

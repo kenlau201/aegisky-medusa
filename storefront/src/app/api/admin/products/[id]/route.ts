@@ -28,7 +28,7 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
 
     const allowedFields = ['name', 'slug', 'price', 'regular_price', 'sale_price', 'sku',
       'short_description', 'description', 'main_image', 'in_stock', 'stock_status',
-      'on_sale', 'currency', 'meta_title', 'meta_description'];
+      'on_sale', 'currency', 'meta_title', 'meta_description', 'stock_quantity', 'shop_id'];
 
     for (const field of allowedFields) {
       if (body[field] !== undefined) {

@@ -31,13 +31,12 @@ const TECHNOLOGY_CATEGORIES = [
 async function getSuppliers() {
   try {
     const result = await db.query(`
-      SELECT b.id, b.name, b.slug, b.logo_url, b.description, b.country,
-             COUNT(p.id) as product_count
-      FROM brands b
-      LEFT JOIN products p ON p.brand_id = b.id
-      GROUP BY b.id, b.name, b.slug, b.logo_url, b.description, b.country
-      ORDER BY product_count DESC
-      LIMIT 200
+      SELECT b.id, b.name, b.slug, b.logo_url, b.description,
+             b.product_count,
+             COALESCE(b.product_count, 0) as product_count
+      FROM aegisky_brands b
+      ORDER BY b.product_count DESC NULLS LAST
+      LIMIT 500
     `);
     return result.rows;
   } catch (e) {
@@ -132,6 +131,7 @@ export default async function SuppliersPage({ params }: { params: { lang: string
               >
                 <div className="h-40 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center p-6 relative">
                   {supplier.logo_url ? (
+                    // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={supplier.logo_url}
                       alt={supplier.name}

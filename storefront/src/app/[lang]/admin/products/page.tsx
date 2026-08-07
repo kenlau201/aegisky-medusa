@@ -196,7 +196,7 @@ export default function ProductsAdminPage() {
                     <div className="max-w-xs">
                       <div className="font-medium text-gray-900 text-sm leading-tight line-clamp-2">{p.name}</div>
                       <div className="flex items-center gap-2 mt-1">
-                        <span className="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">自营店铺</span>
+                        <span className="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">{p.shop_name || '自营店铺'}</span>
                       </div>
                     </div>
                   </div>
@@ -213,7 +213,13 @@ export default function ProductsAdminPage() {
                     <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition ${p.in_stock ? 'translate-x-4' : 'translate-x-0.5'}`} />
                   </button>
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-700">{p.stock || 9999}</td>
+                <td className="px-6 py-4 text-sm text-gray-700">
+                  {p.in_stock ? (
+                    <span className="text-green-600">{p.stock_quantity ?? 100}</span>
+                  ) : (
+                    <span className="text-red-500">0</span>
+                  )}
+                </td>
                 <td className="px-6 py-4 text-sm text-gray-700">100</td>
                 <td className="px-6 py-4 relative" ref={openDropdown === p.id ? dropdownRef : null}>
                   <div className="flex items-center gap-3 text-sm whitespace-nowrap">
