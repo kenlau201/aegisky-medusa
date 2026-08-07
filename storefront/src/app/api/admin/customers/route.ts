@@ -40,10 +40,11 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
+    const username = body.username || body.email.split('@')[0];
     const result = await db.query(`
-      INSERT INTO customer (username, email, phone, level_name, points)
-      VALUES ($1, $2, $3, $4, $5) RETURNING *
-    `, [body.username, body.email, body.phone, body.level_name || '普通会员', body.points || 0]);
+      INSERT INTO customer (username, email, phone, first_name, last_name, level_name, points, status, created_at)
+      VALUES ($1, $2, $3, $4, $5, $6, 0, 'active', NOW()) RETURNING *
+    `, [username, body.email, body.phone || null, body.first_name || null, body.last_name || null, body.level_name || '普通会员']);
     return NextResponse.json({ success: true, customer: result.rows[0] });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

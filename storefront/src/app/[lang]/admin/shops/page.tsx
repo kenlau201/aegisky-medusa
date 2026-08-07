@@ -152,7 +152,7 @@ export default function ShopsAdminPage() {
                       详情
                     </button>
                     <span className="text-gray-300">|</span>
-                    <button className="text-blue-600 hover:text-blue-800">编辑</button>
+                    <button onClick={() => setSelectedShop(shop)} className="text-blue-600 hover:text-blue-800">编辑</button>
                     {shop.status === 'pending' && (
                       <>
                         <span className="text-gray-300">|</span>

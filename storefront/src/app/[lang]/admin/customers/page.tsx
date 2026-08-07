@@ -18,7 +18,31 @@ export default function CustomersAdminPage() {
   const [total, setTotal] = useState(0);
   const [keyword, setKeyword] = useState('');
   const [selectedCustomer, setSelectedCustomer] = useState<any>(null);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [formData, setFormData] = useState({ email: '', phone: '', first_name: '', last_name: '', password: '' });
   const pageSize = 20;
+
+  const handleAdd = async () => {
+    if (!formData.email) { alert('请输入邮箱'); return; }
+    setSaving(true);
+    try {
+      const res = await fetch('/api/admin/customers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setShowAddModal(false);
+        setFormData({ email: '', phone: '', first_name: '', last_name: '', password: '' });
+        load();
+      } else {
+        const data = await res.json();
+        alert(data.error || '创建失败');
+      }
+    } catch (e) { alert('创建失败'); }
+    setSaving(false);
+  };
 
   const load = () => {
     setLoading(true);
@@ -41,7 +65,7 @@ export default function CustomersAdminPage() {
           <h1 className="text-2xl font-bold">客户列表</h1>
           <p className="text-gray-500 mt-1">共 {total} 位客户</p>
         </div>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm">+ 添加客户</button>
+        <button onClick={() => setShowAddModal(true)} className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm">+ 添加客户</button>
       </div>
 
       <div className="bg-white rounded-xl border p-4 flex gap-4">
@@ -140,6 +164,45 @@ export default function CustomersAdminPage() {
 
       {selectedCustomer && (
         <CustomerDetailModal customer={selectedCustomer} onClose={() => setSelectedCustomer(null)} />
+      )}
+
+      {showAddModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="bg-white rounded-lg shadow-2xl w-[480px]">
+            <div className="flex items-center justify-between px-5 py-3 border-b">
+              <h3 className="font-bold">添加客户</h3>
+              <button onClick={() => setShowAddModal(false)} className="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            <div className="p-5 space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">邮箱 <span className="text-red-500">*</span></label>
+                <input type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full px-3 py-2 border rounded text-sm" placeholder="customer@example.com" />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-sm font-medium mb-1">名</label>
+                  <input type="text" value={formData.first_name} onChange={e => setFormData({...formData, first_name: e.target.value})} className="w-full px-3 py-2 border rounded text-sm" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1">姓</label>
+                  <input type="text" value={formData.last_name} onChange={e => setFormData({...formData, last_name: e.target.value})} className="w-full px-3 py-2 border rounded text-sm" />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">手机号</label>
+                <input type="text" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full px-3 py-2 border rounded text-sm" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">密码</label>
+                <input type="password" value={formData.password} onChange={e => setFormData({...formData, password: e.target.value})} className="w-full px-3 py-2 border rounded text-sm" placeholder="留空则自动生成" />
+              </div>
+            </div>
+            <div className="px-5 py-3 border-t flex justify-end gap-3 bg-gray-50">
+              <button onClick={() => setShowAddModal(false)} className="px-4 py-2 border rounded text-sm hover:bg-gray-100">取消</button>
+              <button onClick={handleAdd} disabled={saving} className="px-4 py-2 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 disabled:opacity-50">{saving ? '创建中...' : '创建'}</button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

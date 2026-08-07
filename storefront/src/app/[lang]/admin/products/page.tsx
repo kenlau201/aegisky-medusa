@@ -97,7 +97,7 @@ export default function ProductsAdminPage() {
           <p className="text-gray-500 mt-1">共 {total.toLocaleString()} 件商品</p>
         </div>
         <div className="flex gap-2">
-          <button className="border px-4 py-2 rounded-lg hover:bg-gray-50 text-sm">批量导出</button>
+          <button onClick={() => window.open(`/api/admin/products/export?search=${encodeURIComponent(search)}`, '_blank')} className="border px-4 py-2 rounded-lg hover:bg-gray-50 text-sm">批量导出</button>
           <Link href={`/${lang}/admin/products/new`} className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm">
             + 新增商品
           </Link>

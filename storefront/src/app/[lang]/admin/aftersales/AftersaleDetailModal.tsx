@@ -22,10 +22,40 @@ const typeLabels: Record<string, string> = {
   exchange: '换货',
 };
 
-export default function AftersaleDetailModal({ aftersale, onClose }: { aftersale: any; onClose: () => void }) {
+export default function AftersaleDetailModal({ aftersale, onClose, onUpdate }: { aftersale: any; onClose: () => void; onUpdate?: () => void }) {
   const [activeTab, setActiveTab] = useState<'info' | 'logs'>('info');
   const [refuseReason, setRefuseReason] = useState('');
   const [showRefuse, setShowRefuse] = useState(false);
+  const [saving, setSaving] = useState(false);
+
+  const handleApprove = async () => {
+    setSaving(true);
+    try {
+      await fetch(`/api/admin/aftersales/${aftersale.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: 'approved' }),
+      });
+      onUpdate?.();
+      onClose();
+    } catch (e) { alert('操作失败'); }
+    setSaving(false);
+  };
+
+  const handleReject = async () => {
+    if (!refuseReason) { alert('请输入拒绝原因'); return; }
+    setSaving(true);
+    try {
+      await fetch(`/api/admin/aftersales/${aftersale.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: 'rejected', handle_remark: refuseReason }),
+      });
+      onUpdate?.();
+      onClose();
+    } catch (e) { alert('操作失败'); }
+    setSaving(false);
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
@@ -144,14 +174,14 @@ export default function AftersaleDetailModal({ aftersale, onClose }: { aftersale
                 >
                   拒绝
                 </button>
-                <button className="px-4 py-2 bg-green-600 text-white rounded text-sm hover:bg-green-700">
+                <button onClick={handleApprove} disabled={saving} className="px-4 py-2 bg-green-600 text-white rounded text-sm hover:bg-green-700 disabled:opacity-50">
                   同意售后
                 </button>
               </>
             ) : (
               <>
                 <button onClick={() => setShowRefuse(false)} className="px-4 py-2 border rounded text-sm hover:bg-gray-100">返回</button>
-                <button className="px-4 py-2 bg-red-600 text-white rounded text-sm hover:bg-red-700">
+                <button onClick={handleReject} disabled={saving} className="px-4 py-2 bg-red-600 text-white rounded text-sm hover:bg-red-700 disabled:opacity-50">
                   确认拒绝
                 </button>
               </>
