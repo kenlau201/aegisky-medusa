@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 interface ProductDetailModalProps {
   product: any;
   onClose: () => void;
-  mode?: 'detail' | 'edit' | 'overrule';
 }
 
 const steps = [
@@ -16,56 +15,69 @@ const steps = [
   { key: 'advanced', label: '高级信息' },
 ];
 
-export default function ProductDetailModal({ product, onClose, mode = 'detail' }: ProductDetailModalProps) {
+export default function ProductDetailModal({ product, onClose }: ProductDetailModalProps) {
   const [currentStep, setCurrentStep] = useState('basic');
   const [formData, setFormData] = useState<any>({
+    // 基本信息
+    product_type: 'normal',
     name: product.name || '',
     sku: product.sku || String(product.id),
-    price: product.price || 0,
-    market_price: product.regular_price || product.price || 0,
-    cost_price: 0,
-    stock: 9999,
-    weight: 0,
-    brand: product.brand_name || '',
-    category: '',
-    description: product.short_description || '',
     seo_slug: product.slug || '',
+    brand: product.brand_name || '',
+    category_id: '',
+    weight: 0,
     keywords: '',
-    short_desc: '',
-    is_on_sale: product.in_stock ?? true,
-    sale_mode: 'normal',
-    presale_type: 'full',
-    presale_deposit_percent: 10,
-    presale_deposit_amount: 0,
-    presale_valid: 'permanent',
-    presale_balance_days: 2,
-    presale_balance_hours: 0,
-    presale_ship_days: 2,
-    spec_type: 'single',
-    specs: [],
-    logistics_type: 'fixed',
-    logistics_fee: 0,
-    logistics_template: 'default',
-    limit_buy: false,
-    limit_count: 0,
-    services: {
-      global: true,
-      merchant_ship: true,
-      ship_24h: true,
-      return_7d: true,
-      exchange_7d: true,
-      on_time: true,
-    },
-    virtual_sales: 0,
-    related_products: [],
+    subtitle: product.short_description || '',
+    is_on_sale: true,
+    scheduled_off: false,
+    scheduled_off_time: '',
     images: product.images || (product.main_image ? [product.main_image] : []),
     videos: product.videos || [],
+
+    // 销售信息
+    sale_mode: 'stock', // stock=现货, presale=预售
+    presale_type: 'deposit', // full=全款, deposit=定金
+    deposit_percent: 10,
+    deposit_amount: 0,
+    presale_valid: 'longterm',
+    deposit_refund: false,
+    balance_days: 2,
+    balance_hours: 0,
+    balance_within_days: 1,
+    balance_within_hours: 0,
+    ship_days: 2,
+    ship_hours: 0,
+    spec_mode: 'single', // single=统一规格, multi=多规格
+    specs: [],
+    price: product.price || 0,
+    market_price: product.regular_price || 0,
+    cost_price: 0,
+    stock: 9999,
+    barcode: '',
+
+    // 物流
+    shipping_type: 'fixed', // fixed=固定运费, template=运费模板
+    shipping_fee: 0,
+    shipping_template: 'default',
+
+    // 商品详情
+    description: product.description || '',
+    detail_images: [],
+
+    // 高级信息
+    service_tags: ['global', 'merchant_ship', '24h_ship', '7day_return'],
+    virtual_sales: 0,
+    related_products: [],
   });
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = 'auto'; };
   }, []);
+
+  const updateField = (key: string, value: any) => {
+    setFormData((prev: any) => ({ ...prev, [key]: value }));
+  };
 
   const handleSave = async () => {
     try {
@@ -74,10 +86,10 @@ export default function ProductDetailModal({ product, onClose, mode = 'detail' }
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
-      alert(mode === 'overrule' ? '越权操作成功' : '保存成功');
+      alert('保存成功');
       onClose();
     } catch (e) {
-      alert('操作失败');
+      alert('保存失败');
     }
   };
 
@@ -85,31 +97,32 @@ export default function ProductDetailModal({ product, onClose, mode = 'detail' }
     const slug = formData.name.toLowerCase()
       .replace(/[^a-z0-9\u4e00-\u9fa5]+/g, '-')
       .replace(/^-+|-+$/g, '');
-    setFormData({ ...formData, seo_slug: slug });
+    updateField('seo_slug', slug);
   };
 
-  const title = mode === 'overrule' ? '越权编辑商品' : '商品详情';
-  const submitText = mode === 'overrule' ? '确认' : '保存';
+  const InputField = ({ label, required, children, hint }: any) => (
+    <div className="mb-5">
+      <label className="block text-sm font-medium text-gray-700 mb-2">
+        {required && <span className="text-red-500 mr-1">*</span>}
+        {label}
+      </label>
+      {children}
+      {hint && <p className="text-xs text-gray-400 mt-1">{hint}</p>}
+    </div>
+  );
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-      <div className="bg-white rounded-xl shadow-2xl w-[95vw] max-w-5xl max-h-[92vh] flex flex-col">
+      <div className="bg-white rounded-lg shadow-2xl w-[95vw] max-w-5xl max-h-[92vh] flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b">
-          <h2 className="text-lg font-bold">{title}</h2>
-          <div className="flex items-center gap-3">
-            {mode === 'overrule' && (
-              <button className="px-4 py-1.5 border border-blue-500 text-blue-600 rounded-lg text-sm hover:bg-blue-50 flex items-center gap-1">
-                🌐 一键翻译
-              </button>
-            )}
-            <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-2xl leading-none">&times;</button>
-          </div>
+        <div className="flex items-center justify-between px-6 py-3 border-b">
+          <h2 className="text-base font-bold">商品详情</h2>
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
         </div>
 
         {/* Steps */}
-        <div className="px-6 py-4 border-b bg-gray-50">
-          <div className="flex items-center justify-center">
+        <div className="px-6 py-3 border-b bg-gray-50">
+          <div className="flex items-center">
             {steps.map((step, idx) => (
               <div key={step.key} className="flex items-center">
                 <button
@@ -134,655 +147,543 @@ export default function ProductDetailModal({ product, onClose, mode = 'detail' }
         <div className="flex-1 overflow-y-auto p-6">
           {/* ========== 基本信息 ========== */}
           {currentStep === 'basic' && (
-            <div className="space-y-6">
-              <h3 className="text-base font-semibold text-gray-900 border-l-4 border-blue-600 pl-3">基本信息</h3>
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 border-l-4 border-blue-600 pl-2 mb-5">基本信息</h3>
 
-              {/* 商品类型 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  <span className="text-red-500">*</span> 商品类型
-                  <span className="text-gray-400 font-normal ml-2 text-xs">不同商品类型可编辑的字段内容不同，商品类型一旦发布后将不可更改</span>
-                </label>
+              <InputField label="商品类型" required hint="不同商品类型可编辑的字段内容不同，商品类型一旦发布后将不可更改">
                 <div className="flex gap-4">
-                  <button className="relative px-8 py-4 border-2 border-blue-600 bg-blue-50 rounded-lg text-center">
-                    <div className="font-medium text-blue-600">普通商品</div>
+                  <button
+                    onClick={() => updateField('product_type', 'normal')}
+                    className={`relative px-8 py-3 border-2 rounded-lg text-center ${formData.product_type === 'normal' ? 'border-blue-600 bg-blue-50' : 'border-gray-200'}`}
+                  >
+                    <div className={`font-medium ${formData.product_type === 'normal' ? 'text-blue-600' : 'text-gray-700'}`}>普通商品</div>
                     <div className="text-xs text-gray-500 mt-1">物流配送</div>
-                    <div className="absolute top-2 right-2 text-blue-600">✅</div>
+                    {formData.product_type === 'normal' && <div className="absolute -top-2 -right-2 w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs">✓</div>}
                   </button>
-                  <button className="px-8 py-4 border rounded-lg text-center hover:border-gray-400">
-                    <div className="font-medium text-gray-700">虚拟商品</div>
+                  <button
+                    onClick={() => updateField('product_type', 'virtual')}
+                    className={`px-8 py-3 border-2 rounded-lg text-center ${formData.product_type === 'virtual' ? 'border-blue-600 bg-blue-50' : 'border-gray-200'}`}
+                  >
+                    <div className={`font-medium ${formData.product_type === 'virtual' ? 'text-blue-600' : 'text-gray-700'}`}>虚拟商品</div>
                     <div className="text-xs text-gray-500 mt-1">无需物流</div>
                   </button>
                 </div>
-              </div>
+              </InputField>
 
-              {/* 商品图片 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  <span className="text-red-500">*</span> 商品图片
-                </label>
+              <InputField label="商品图片" required>
                 <div className="flex flex-wrap gap-3">
-                  {(formData.images || []).slice(0, 4).map((img: string, idx: number) => (
-                    <div key={idx} className="relative w-24 h-24 border rounded-lg overflow-hidden group">
+                  {(formData.images || []).map((img: string, idx: number) => (
+                    <div key={idx} className="relative w-20 h-20 border rounded overflow-hidden group">
                       <img src={img} className="w-full h-full object-cover" alt="" />
-                      <div className="absolute top-1 right-1">
-                        <button className="w-6 h-6 bg-purple-600 text-white rounded text-xs flex items-center justify-center hover:bg-purple-700" title="AI处理">
-                          AI
-                        </button>
-                      </div>
+                      <button className="absolute top-1 right-1 w-5 h-5 bg-purple-600 text-white rounded text-xs flex items-center justify-center hover:bg-purple-700">AI</button>
+                      {idx === 0 && <div className="absolute bottom-0 left-0 right-0 bg-blue-600 text-white text-[10px] text-center py-0.5">主图</div>}
                     </div>
                   ))}
-                  <button className="w-24 h-24 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center text-gray-400 hover:border-blue-400 hover:text-blue-500">
-                    <span className="text-2xl">+</span>
+                  <button className="w-20 h-20 border-2 border-dashed border-gray-300 rounded flex flex-col items-center justify-center text-gray-400 hover:border-blue-400">
+                    <span className="text-xl">+</span>
                   </button>
-                  <button className="w-24 h-24 border-2 border-dashed border-purple-300 bg-purple-50 rounded-lg flex flex-col items-center justify-center text-purple-600 hover:bg-purple-100">
-                    <span className="text-xl">✨</span>
-                    <span className="text-xs mt-1">AI</span>
+                  <button className="w-20 h-20 border-2 border-dashed border-purple-300 bg-purple-50 rounded flex flex-col items-center justify-center text-purple-600 hover:bg-purple-100">
+                    <span className="text-lg">✨</span>
+                    <span className="text-[10px]">AI</span>
                   </button>
                 </div>
-                <p className="text-xs text-gray-500 mt-2">您可以通过拖拽来调整相册图片顺序，第一张图将作为商品主图展示</p>
-              </div>
+                <p className="text-xs text-gray-400 mt-2">您可以通过拖拽来调整相册图片顺序，第一张图将作为商品主图展示</p>
+              </InputField>
 
-              {/* 商品视频 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">商品视频</label>
-                <div className="w-24 h-24 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center text-gray-400 hover:border-blue-400">
-                  <span className="text-2xl">▶</span>
+              <InputField label="商品视频">
+                <div className="w-20 h-20 border-2 border-dashed border-gray-300 rounded flex items-center justify-center text-gray-400">
+                  <span className="text-xl">▶</span>
                 </div>
-                <p className="text-xs text-gray-500 mt-2">如有商品视频则商品视频作为商品主图展示</p>
-              </div>
+                <p className="text-xs text-gray-400 mt-2">如有商品视频则商品视频作为商品主图展示</p>
+              </InputField>
 
-              {/* 商品名称 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  <span className="text-red-500">*</span> 商品名称
-                </label>
-                <div className="flex gap-2">
+              <InputField label="商品名称" required>
+                <div className="flex gap-2 max-w-3xl">
                   <input
                     type="text"
                     value={formData.name}
-                    onChange={e => setFormData({ ...formData, name: e.target.value })}
-                    className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    onChange={e => updateField('name', e.target.value)}
+                    className="flex-1 px-3 py-2 border rounded text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   />
-                  <button className="px-3 py-2 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 text-sm flex items-center gap-1">
-                    AI
+                  <button className="px-3 py-2 bg-purple-50 text-purple-600 border border-purple-200 rounded text-xs flex items-center gap-1 hover:bg-purple-100">
+                    ✨ AI
                   </button>
                 </div>
-              </div>
+              </InputField>
 
-              {/* SEO链接 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  SEO链接
-                  <span className="ml-1 text-gray-400 cursor-help text-xs">ⓘ</span>
-                </label>
-                <div className="flex gap-2">
+              <InputField label="SEO链接" hint={`SEO链接预览：域名/product/${formData.seo_slug || '[...]'}.shtml`}>
+                <div className="flex gap-2 max-w-3xl">
                   <input
                     type="text"
                     value={formData.seo_slug}
-                    onChange={e => setFormData({ ...formData, seo_slug: e.target.value })}
-                    className="flex-1 px-4 py-2 border rounded-lg"
+                    onChange={e => updateField('seo_slug', e.target.value)}
+                    className="flex-1 px-3 py-2 border rounded text-sm"
                   />
-                  <button onClick={generateSEO} className="px-4 py-2 border rounded-lg hover:bg-gray-50 text-sm">自动生成</button>
+                  <button onClick={generateSEO} className="px-4 py-2 border rounded text-sm hover:bg-gray-50">自动生成</button>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">
-                  SEO链接预览: 域名/product/{formData.seo_slug || '[...]'}.shtml
-                </p>
-              </div>
+              </InputField>
 
-              {/* 商品品牌 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">商品品牌</label>
+              <InputField label="商品品牌">
                 <select
                   value={formData.brand}
-                  onChange={e => setFormData({ ...formData, brand: e.target.value })}
-                  className="w-full max-w-md px-4 py-2 border rounded-lg"
+                  onChange={e => updateField('brand', e.target.value)}
+                  className="w-64 px-3 py-2 border rounded text-sm"
                 >
                   <option value="">选择品牌</option>
-                  {product.brands?.map((b: any) => (
-                    <option key={b.id} value={b.name}>{b.name}</option>
-                  ))}
+                  {product.brands?.map((b: any) => <option key={b.id} value={b.name}>{b.name}</option>)}
                 </select>
-              </div>
+              </InputField>
 
-              {/* 商品类目 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  <span className="text-red-500">*</span> 商品类目
-                </label>
+              <InputField label="商品类目" required>
+                <select className="w-64 px-3 py-2 border rounded text-sm">
+                  <option>选择商品类目</option>
+                </select>
+              </InputField>
+
+              <InputField label="商品重量">
                 <div className="flex items-center gap-2">
-                  <select className="flex-1 max-w-md px-4 py-2 border rounded-lg">
-                    <option>美妆 / 迷人彩妆 / 粉底</option>
-                  </select>
-                  {mode === 'overrule' && <button className="text-blue-600 text-sm hover:underline">刷新</button>}
-                </div>
-              </div>
-
-              {/* 商品重量 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">商品重量</label>
-                <div className="flex items-center">
                   <input
                     type="number"
                     step="0.001"
                     value={formData.weight}
-                    onChange={e => setFormData({ ...formData, weight: parseFloat(e.target.value) })}
-                    className="w-40 px-4 py-2 border rounded-l-lg"
+                    onChange={e => updateField('weight', parseFloat(e.target.value))}
+                    className="w-32 px-3 py-2 border rounded text-sm"
                   />
-                  <span className="px-3 py-2 border border-l-0 rounded-r-lg bg-gray-50 text-gray-600">Kg</span>
+                  <span className="text-sm text-gray-500">Kg</span>
                 </div>
-              </div>
+              </InputField>
 
-              {/* 商品编码 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">商品编码</label>
+              <InputField label="商品编码" hint="如果您不输入商品编码，系统将自动生成一个唯一的编码">
                 <input
                   type="text"
                   value={formData.sku}
-                  disabled
-                  className="w-full max-w-lg px-4 py-2 border rounded-lg bg-gray-50 text-gray-500"
+                  onChange={e => updateField('sku', e.target.value)}
+                  className="w-full max-w-lg px-3 py-2 border rounded text-sm bg-gray-50"
                 />
-                <p className="text-xs text-gray-500 mt-1">如果您不输入商品编码，系统将自动生成一个唯一的编码</p>
-              </div>
+              </InputField>
 
-              {/* 搜索关键词 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">搜索关键词</label>
-                <div className="flex gap-2">
+              <InputField label="搜索关键词" hint="用空格分隔，为空时会自动根据商品名称分词">
+                <div className="flex gap-2 max-w-3xl">
                   <input
                     type="text"
                     value={formData.keywords}
-                    onChange={e => setFormData({ ...formData, keywords: e.target.value })}
-                    placeholder="用空格分隔，为空时会自动根据商品名称分词"
-                    className="flex-1 px-4 py-2 border rounded-lg"
+                    onChange={e => updateField('keywords', e.target.value)}
+                    placeholder="粉底 底妆 美妆 混油皮"
+                    className="flex-1 px-3 py-2 border rounded text-sm"
                   />
-                  <button className="px-3 py-2 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 text-sm">AI</button>
-                  <button className="px-4 py-2 border rounded-lg hover:bg-gray-50 text-sm">更新关键词</button>
+                  <button className="px-3 py-2 bg-purple-50 text-purple-600 border border-purple-200 rounded text-xs flex items-center gap-1 hover:bg-purple-100">
+                    ✨ 更新关键词
+                  </button>
                 </div>
-              </div>
+              </InputField>
 
-              {/* 商品描述 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">商品描述</label>
-                <div className="flex gap-2">
+              <InputField label="商品描述" hint="该描述可作为'商品卖点'的概述及促销信息补充">
+                <div className="flex gap-2 max-w-3xl">
                   <input
                     type="text"
-                    value={formData.short_desc}
-                    onChange={e => setFormData({ ...formData, short_desc: e.target.value })}
+                    value={formData.subtitle}
+                    onChange={e => updateField('subtitle', e.target.value)}
                     placeholder="遮瑕持久不脱妆"
-                    className="flex-1 px-4 py-2 border rounded-lg"
+                    className="flex-1 px-3 py-2 border rounded text-sm"
                   />
-                  <button className="px-4 py-2 border rounded-lg hover:bg-gray-50 text-sm flex items-center gap-1">
+                  <button className="px-3 py-2 bg-purple-50 text-purple-600 border border-purple-200 rounded text-xs flex items-center gap-1 hover:bg-purple-100">
                     🌐 多语言
                   </button>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">
-                  该描述可作为"商品卖点"的概述及促销信息补充 <a href="#" className="text-blue-600 hover:underline">查看示例</a>
-                </p>
-              </div>
+              </InputField>
 
-              {/* 是否上架 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">是否上架</label>
-                <div className="flex items-center gap-6">
+              <InputField label="是否上架" hint="上架则允许销售（未审核的商品无法手动上架）">
+                <div className="flex items-center gap-6 mb-3">
                   <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      checked={formData.is_on_sale}
-                      onChange={() => setFormData({ ...formData, is_on_sale: true })}
-                      className="w-4 h-4"
-                    />
+                    <input type="radio" name="is_on_sale" checked={formData.is_on_sale} onChange={() => updateField('is_on_sale', true)} className="w-4 h-4" />
                     <span className="text-sm">上架</span>
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      checked={!formData.is_on_sale}
-                      onChange={() => setFormData({ ...formData, is_on_sale: false })}
-                      className="w-4 h-4"
-                    />
+                    <input type="radio" name="is_on_sale" checked={!formData.is_on_sale} onChange={() => updateField('is_on_sale', false)} className="w-4 h-4" />
                     <span className="text-sm">下架</span>
                   </label>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">上架则允许销售（未审核的商品无法手动上架）</p>
-              </div>
-
-              {/* 定时下架 */}
-              <div className="flex items-center gap-4">
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="w-4 h-4" />
-                  <span className="text-sm text-gray-600">启用定时下架</span>
-                </label>
-                <input type="datetime-local" disabled className="px-3 py-1.5 border rounded-lg bg-gray-50 text-sm" />
-              </div>
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" checked={formData.scheduled_off} onChange={e => updateField('scheduled_off', e.target.checked)} className="w-4 h-4" />
+                    <span className="text-sm">启用定时下架</span>
+                  </label>
+                  <input type="datetime-local" disabled={!formData.scheduled_off} className="px-3 py-1.5 border rounded text-sm disabled:bg-gray-100" />
+                </div>
+              </InputField>
             </div>
           )}
 
           {/* ========== 销售信息 ========== */}
           {currentStep === 'sales' && (
-            <div className="space-y-6">
-              <h3 className="text-base font-semibold text-gray-900 border-l-4 border-blue-600 pl-3">销售信息</h3>
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 border-l-4 border-blue-600 pl-2 mb-5">销售信息</h3>
 
-              {/* 销售模式 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">销售模式
-                  <span className="ml-1 text-gray-400 cursor-help text-xs">ⓘ</span>
-                </label>
+              <InputField label="销售模式">
                 <div className="flex items-center gap-6">
                   <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      checked={formData.sale_mode === 'normal'}
-                      onChange={() => setFormData({ ...formData, sale_mode: 'normal' })}
-                      className="w-4 h-4"
-                    />
+                    <input type="radio" name="sale_mode" checked={formData.sale_mode === 'stock'} onChange={() => updateField('sale_mode', 'stock')} className="w-4 h-4" />
                     <span className="text-sm">现货销售</span>
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      checked={formData.sale_mode === 'presale'}
-                      onChange={() => setFormData({ ...formData, sale_mode: 'presale' })}
-                      className="w-4 h-4"
-                    />
+                    <input type="radio" name="sale_mode" checked={formData.sale_mode === 'presale'} onChange={() => updateField('sale_mode', 'presale')} className="w-4 h-4" />
                     <span className="text-sm">预售模式</span>
-                    <span className="ml-1 text-gray-400 cursor-help text-xs">ⓘ</span>
+                    <span className="text-gray-400 text-xs cursor-help" title="预售商品设置">ⓘ</span>
                   </label>
                 </div>
-              </div>
+              </InputField>
 
-              {/* 预售设置 */}
               {formData.sale_mode === 'presale' && (
-                <div className="bg-gray-50 rounded-lg p-4 space-y-4 ml-6">
-                  <div className="flex items-center justify-between">
+                <div className="ml-6 pl-4 border-l-2 border-gray-100 mb-5">
+                  <InputField label="预售方式" required>
                     <div className="flex items-center gap-6">
-                      <label className="flex items-center gap-2">
-                        <span className="text-sm text-red-500">*</span>
-                        <span className="text-sm">预售方式</span>
-                      </label>
                       <label className="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" className="w-4 h-4" />
+                        <input type="radio" name="presale_type" checked={formData.presale_type === 'full'} onChange={() => updateField('presale_type', 'full')} className="w-4 h-4" />
                         <span className="text-sm">全款预售</span>
                       </label>
                       <label className="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" defaultChecked className="w-4 h-4" />
+                        <input type="radio" name="presale_type" checked={formData.presale_type === 'deposit'} onChange={() => updateField('presale_type', 'deposit')} className="w-4 h-4" />
                         <span className="text-sm">定金预售</span>
                       </label>
+                      <span className="text-sm text-gray-500 ml-auto">售后规则 <span className="cursor-help">ⓘ</span></span>
                     </div>
-                    <button className="text-sm text-gray-500 hover:text-gray-700">售后规则 ⓘ</button>
-                  </div>
+                  </InputField>
 
-                  <div className="flex items-center gap-4">
-                    <span className="text-sm text-red-500">*</span>
-                    <span className="text-sm w-24">定金收取方式</span>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" defaultChecked className="w-4 h-4" />
-                      <span className="text-sm">按</span>
-                    </label>
-                    <input type="number" defaultValue={10} className="w-16 px-2 py-1 border rounded text-center text-sm" />
-                    <span className="text-sm">%</span>
-                    <span className="text-sm">收取定金</span>
-                    <label className="flex items-center gap-2 cursor-pointer ml-4">
-                      <input type="checkbox" className="w-4 h-4" />
-                      <span className="text-sm">向下取整数</span>
-                    </label>
-                  </div>
+                  {formData.presale_type === 'deposit' && (
+                    <>
+                      <InputField label="定金收取方式" required>
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-3">
+                            <label className="flex items-center gap-2 cursor-pointer">
+                              <input type="radio" name="deposit_mode" defaultChecked className="w-4 h-4" />
+                              <span className="text-sm">按</span>
+                            </label>
+                            <input type="number" value={formData.deposit_percent} onChange={e => updateField('deposit_percent', parseInt(e.target.value))} className="w-20 px-2 py-1 border rounded text-sm" />
+                            <span className="text-sm">%</span>
+                            <span className="text-sm">收取定金</span>
+                            <label className="flex items-center gap-2 cursor-pointer ml-4">
+                              <input type="checkbox" className="w-4 h-4" />
+                              <span className="text-sm">向下取整</span>
+                            </label>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <label className="flex items-center gap-2 cursor-pointer">
+                              <input type="radio" name="deposit_mode" className="w-4 h-4" />
+                              <span className="text-sm">按固定金额</span>
+                            </label>
+                            <input type="number" value={formData.deposit_amount} onChange={e => updateField('deposit_amount', parseFloat(e.target.value))} className="w-24 px-2 py-1 border rounded text-sm" />
+                            <span className="text-sm">元</span>
+                            <span className="text-sm">收取定金</span>
+                          </div>
+                        </div>
+                      </InputField>
 
-                  <div className="flex items-center gap-4 ml-28">
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" className="w-4 h-4" />
-                      <span className="text-sm">按固定金额</span>
-                    </label>
-                    <input type="number" defaultValue={0.00} className="w-20 px-2 py-1 border rounded text-center text-sm" />
-                    <span className="text-sm">元</span>
-                    <span className="text-sm text-gray-500">收取定金</span>
-                  </div>
+                      <InputField label="预售有效期">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="presale_valid" defaultChecked className="w-4 h-4" />
+                          <span className="text-sm">长期有效</span>
+                        </label>
+                      </InputField>
 
-                  <div className="flex items-center gap-4">
-                    <span className="text-sm w-24">预售有效期</span>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" defaultChecked className="w-4 h-4" />
-                      <span className="text-sm">长期有效</span>
-                    </label>
-                  </div>
+                      <InputField label="预售定金" hint="预售定金不支持退款，若要退款请联系客服处理，或支付尾款后申请售后">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="deposit_refund" defaultChecked className="w-4 h-4" />
+                          <span className="text-sm">定金不退</span>
+                        </label>
+                      </InputField>
 
-                  <div className="flex items-center gap-4">
-                    <span className="text-sm w-24">预售定金</span>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" defaultChecked className="w-4 h-4" />
-                      <span className="text-sm">定金不退</span>
-                    </label>
-                    <span className="text-xs text-gray-500">预售定金不支持退款，若要退款请联系客服处理，或支付尾款后申请售后</span>
-                  </div>
+                      <InputField label="尾款支付时间" required>
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <label className="flex items-center gap-2 cursor-pointer">
+                              <input type="radio" name="balance_time" defaultChecked className="w-4 h-4" />
+                              <span className="text-sm">支付定金后</span>
+                            </label>
+                            <input type="number" value={formData.balance_days} onChange={e => updateField('balance_days', parseInt(e.target.value))} className="w-16 px-2 py-1 border rounded text-sm" />
+                            <span className="text-sm">天</span>
+                            <span className="text-sm">开始支付尾款，并需要在</span>
+                            <input type="number" value={formData.balance_within_days} onChange={e => updateField('balance_within_days', parseInt(e.target.value))} className="w-16 px-2 py-1 border rounded text-sm" />
+                            <span className="text-sm">天</span>
+                            <input type="number" value={formData.balance_within_hours} onChange={e => updateField('balance_within_hours', parseInt(e.target.value))} className="w-16 px-2 py-1 border rounded text-sm" />
+                            <span className="text-sm">小时</span>
+                            <span className="text-sm">内完成支付</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <label className="flex items-center gap-2 cursor-pointer">
+                              <input type="radio" name="balance_time" className="w-4 h-4" />
+                              <span className="text-sm">固定时间</span>
+                            </label>
+                            <input type="date" className="px-2 py-1 border rounded text-sm" />
+                            <span className="text-sm">~</span>
+                            <input type="date" className="px-2 py-1 border rounded text-sm" />
+                          </div>
+                        </div>
+                      </InputField>
 
-                  <div className="flex items-center gap-4">
-                    <span className="text-sm text-red-500">*</span>
-                    <span className="text-sm w-24">尾款支付时间</span>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" defaultChecked className="w-4 h-4" />
-                      <span className="text-sm">支付定金后</span>
-                    </label>
-                    <input type="number" defaultValue={2} className="w-16 px-2 py-1 border rounded text-center text-sm" />
-                    <span className="text-sm">天</span>
-                    <span className="text-sm">开始支付尾款，并需要在</span>
-                    <input type="number" defaultValue={1} className="w-16 px-2 py-1 border rounded text-center text-sm" />
-                    <span className="text-sm">天</span>
-                    <input type="number" defaultValue={0} className="w-16 px-2 py-1 border rounded text-center text-sm" />
-                    <span className="text-sm">小时</span>
-                    <span className="text-sm">内完成支付</span>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <span className="text-sm text-red-500">*</span>
-                    <span className="text-sm w-24">发货时间</span>
-                    <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" defaultChecked className="w-4 h-4" />
-                      <span className="text-sm">支付全款后</span>
-                    </label>
-                    <input type="number" defaultValue={2} className="w-16 px-2 py-1 border rounded text-center text-sm" />
-                    <span className="text-sm">天</span>
-                    <input type="number" defaultValue={0} className="w-16 px-2 py-1 border rounded text-center text-sm" />
-                    <span className="text-sm">小时</span>
-                    <span className="text-sm">后开始发货</span>
-                  </div>
+                      <InputField label="发货时间" required>
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2">
+                            <label className="flex items-center gap-2 cursor-pointer">
+                              <input type="radio" name="ship_time" defaultChecked className="w-4 h-4" />
+                              <span className="text-sm">支付全款后</span>
+                            </label>
+                            <input type="number" value={formData.ship_days} onChange={e => updateField('ship_days', parseInt(e.target.value))} className="w-16 px-2 py-1 border rounded text-sm" />
+                            <span className="text-sm">天</span>
+                            <input type="number" value={formData.ship_hours} onChange={e => updateField('ship_hours', parseInt(e.target.value))} className="w-16 px-2 py-1 border rounded text-sm" />
+                            <span className="text-sm">小时</span>
+                            <span className="text-sm">后开始发货</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <label className="flex items-center gap-2 cursor-pointer">
+                              <input type="radio" name="ship_time" className="w-4 h-4" />
+                              <span className="text-sm">指定日期</span>
+                            </label>
+                            <input type="date" className="px-2 py-1 border rounded text-sm" />
+                          </div>
+                        </div>
+                      </InputField>
+                    </>
+                  )}
                 </div>
               )}
 
-              {/* 属性模板 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">属性模板</label>
-                <select className="w-64 px-4 py-2 border rounded-lg">
-                  <option>请选择</option>
+              <InputField label="属性模板">
+                <select className="w-64 px-3 py-2 border rounded text-sm">
+                  <option value="">请选择</option>
                 </select>
-              </div>
+              </InputField>
 
-              {/* 商品属性 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">商品属性</label>
-                <div className="border rounded-lg p-4 min-h-[60px] bg-gray-50">
-                  <button className="text-sm text-blue-600 hover:text-blue-800">+ 添加商品属性</button>
-                </div>
-              </div>
+              <InputField label="商品属性">
+                <button className="px-4 py-2 border border-dashed border-gray-300 rounded text-sm text-gray-500 hover:border-blue-400">
+                  + 添加商品属性
+                </button>
+              </InputField>
 
-              {/* 销售规格 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">销售规格</label>
-                <div className="flex items-center gap-6">
+              <InputField label="销售规格">
+                <div className="flex items-center gap-6 mb-3">
                   <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      checked={formData.spec_type === 'single'}
-                      onChange={() => setFormData({ ...formData, spec_type: 'single' })}
-                      className="w-4 h-4"
-                    />
+                    <input type="radio" name="spec_mode" checked={formData.spec_mode === 'single'} onChange={() => updateField('spec_mode', 'single')} className="w-4 h-4" />
                     <span className="text-sm">统一规格</span>
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      checked={formData.spec_type === 'multi'}
-                      onChange={() => setFormData({ ...formData, spec_type: 'multi' })}
-                      className="w-4 h-4"
-                    />
+                    <input type="radio" name="spec_mode" checked={formData.spec_mode === 'multi'} onChange={() => updateField('spec_mode', 'multi')} className="w-4 h-4" />
                     <span className="text-sm">多规格</span>
                   </label>
                 </div>
-              </div>
 
-              {/* 统一规格价格 */}
-              {formData.spec_type === 'single' && (
-                <div className="grid grid-cols-3 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <span className="text-red-500">*</span> 一口价 ($)
-                    </label>
-                    <input
-                      type="number"
-                      value={formData.price}
-                      onChange={e => setFormData({ ...formData, price: parseFloat(e.target.value) })}
-                      className="w-full px-4 py-2 border rounded-lg"
-                    />
+                {formData.spec_mode === 'single' ? (
+                  <div className="grid grid-cols-4 gap-4 max-w-2xl bg-gray-50 p-4 rounded">
+                    <div>
+                      <label className="block text-xs text-gray-500 mb-1"><span className="text-red-500">*</span> 一口价 ($)</label>
+                      <input type="number" value={formData.price} onChange={e => updateField('price', parseFloat(e.target.value))} className="w-full px-2 py-1.5 border rounded text-sm" />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-gray-500 mb-1"><span className="text-red-500">*</span> 库存</label>
+                      <input type="number" value={formData.stock} onChange={e => updateField('stock', parseInt(e.target.value))} className="w-full px-2 py-1.5 border rounded text-sm" />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-gray-500 mb-1">市场价 ($)</label>
+                      <input type="number" value={formData.market_price} onChange={e => updateField('market_price', parseFloat(e.target.value))} className="w-full px-2 py-1.5 border rounded text-sm" />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-gray-500 mb-1">成本价 ($)</label>
+                      <input type="number" value={formData.cost_price} onChange={e => updateField('cost_price', parseFloat(e.target.value))} className="w-full px-2 py-1.5 border rounded text-sm" />
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      <span className="text-red-500">*</span> 库存
-                    </label>
-                    <input
-                      type="number"
-                      value={formData.stock}
-                      onChange={e => setFormData({ ...formData, stock: parseInt(e.target.value) })}
-                      className="w-full px-4 py-2 border rounded-lg"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">市场价 ($)</label>
-                    <input
-                      type="number"
-                      value={formData.market_price}
-                      onChange={e => setFormData({ ...formData, market_price: parseFloat(e.target.value) })}
-                      className="w-full px-4 py-2 border rounded-lg"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">成本价 ($)</label>
-                    <input
-                      type="number"
-                      value={formData.cost_price}
-                      onChange={e => setFormData({ ...formData, cost_price: parseFloat(e.target.value) })}
-                      className="w-full px-4 py-2 border rounded-lg"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">商品条码</label>
-                    <input type="text" className="w-full px-4 py-2 border rounded-lg" />
-                  </div>
-                </div>
-              )}
+                ) : (
+                  <div className="space-y-3">
+                    {/* 多规格示例 */}
+                    <div className="border rounded p-3 bg-gray-50">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-sm w-16">规格名:</span>
+                        <input type="text" defaultValue="混油命定" className="px-2 py-1 border rounded text-sm w-40" />
+                        <button className="px-2 py-1 bg-purple-50 text-purple-600 border border-purple-200 rounded text-xs">✨ AI</button>
+                        <label className="flex items-center gap-1 text-xs text-gray-500 ml-2">
+                          <input type="checkbox" className="w-3 h-3" /> 添加规格图片
+                        </label>
+                      </div>
+                      <div className="flex flex-wrap gap-2 ml-16">
+                        {['584 中性一白', '674 黄调自然白', '774 橄榄自然白'].map((v, i) => (
+                          <div key={i} className="flex items-center gap-1 px-3 py-1 bg-white border rounded-full text-sm">
+                            {v}
+                            <button className="text-purple-600 text-xs ml-1">✨</button>
+                          </div>
+                        ))}
+                        <button className="px-3 py-1 border border-dashed rounded-full text-xs text-gray-500">+ 增加规格值</button>
+                      </div>
+                    </div>
+                    <button className="px-4 py-2 border border-dashed border-gray-300 rounded text-sm text-gray-500 hover:border-blue-400">
+                      + 添加商品规格
+                    </button>
+                    <p className="text-xs text-gray-400">仅支持为第一组规格设置规格图片，买家选择不同规格会看到对应规格图片，建议尺寸：800 x 800像素</p>
 
-              {/* 附加服务 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  附加服务
-                  <span className="ml-1 text-gray-400 cursor-help text-xs">ⓘ</span>
-                </label>
-                <div className="border rounded-lg p-4 bg-gray-50">
-                  <button className="text-sm text-blue-600 hover:text-blue-800">+ 添加商品附加服务</button>
-                </div>
-              </div>
-
-              {/* 商品限购 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">商品限购</label>
-                <div className="flex items-center gap-6">
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      checked={!formData.limit_buy}
-                      onChange={() => setFormData({ ...formData, limit_buy: false })}
-                      className="w-4 h-4"
-                    />
-                    <span className="text-sm">不限购</span>
-                  </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      checked={formData.limit_buy}
-                      onChange={() => setFormData({ ...formData, limit_buy: true })}
-                      className="w-4 h-4"
-                    />
-                    <span className="text-sm">限购</span>
-                    <input
-                      type="number"
-                      value={formData.limit_count}
-                      onChange={e => setFormData({ ...formData, limit_count: parseInt(e.target.value) })}
-                      disabled={!formData.limit_buy}
-                      className="w-24 px-3 py-1 border rounded text-sm disabled:bg-gray-50"
-                    />
-                    <span className="text-sm">件</span>
-                  </label>
-                </div>
-              </div>
+                    {/* 规格明细表格 */}
+                    <div className="border rounded overflow-hidden">
+                      <table className="w-full text-sm">
+                        <thead className="bg-gray-50">
+                          <tr>
+                            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500">规格明细</th>
+                            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500">一口价</th>
+                            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500">库存</th>
+                            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500">市场价</th>
+                            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500">成本价</th>
+                            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500">规格编码</th>
+                            <th className="px-3 py-2 text-left text-xs font-medium text-gray-500">商品条形码</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y">
+                          {[1, 2, 3].map(i => (
+                            <tr key={i}>
+                              <td className="px-3 py-2">584 中性一白</td>
+                              <td className="px-3 py-2"><input defaultValue="456.00" className="w-20 px-2 py-1 border rounded text-sm" /></td>
+                              <td className="px-3 py-2"><input defaultValue="1000" className="w-16 px-2 py-1 border rounded text-sm" /></td>
+                              <td className="px-3 py-2"><input defaultValue="547.20" className="w-20 px-2 py-1 border rounded text-sm" /></td>
+                              <td className="px-3 py-2"><input placeholder="0.00" className="w-20 px-2 py-1 border rounded text-sm" /></td>
+                              <td className="px-3 py-2"><input className="w-24 px-2 py-1 border rounded text-sm" /></td>
+                              <td className="px-3 py-2"><input className="w-28 px-2 py-1 border rounded text-sm" /></td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+              </InputField>
             </div>
           )}
 
           {/* ========== 物流及配送 ========== */}
           {currentStep === 'logistics' && (
-            <div className="space-y-6">
-              <h3 className="text-base font-semibold text-gray-900 border-l-4 border-blue-600 pl-3">物流及配送</h3>
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 border-l-4 border-blue-600 pl-2 mb-5">物流及配送</h3>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
-                  <span className="text-red-500">*</span> 快递运费
-                </label>
+              <InputField label="快递运费" required hint="设置固定运费为0时，前台展示为免运费。">
                 <div className="space-y-3">
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3">
                     <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
-                        checked={formData.logistics_type === 'fixed'}
-                        onChange={() => setFormData({ ...formData, logistics_type: 'fixed' })}
-                        className="w-4 h-4"
-                      />
+                      <input type="radio" name="shipping_type" checked={formData.shipping_type === 'fixed'} onChange={() => updateField('shipping_type', 'fixed')} className="w-4 h-4" />
                       <span className="text-sm">固定运费</span>
                     </label>
-                    <span className="text-gray-400">¥</span>
+                    <span className="text-sm">¥</span>
                     <input
                       type="number"
-                      value={formData.logistics_fee}
-                      onChange={e => setFormData({ ...formData, logistics_fee: parseFloat(e.target.value) })}
-                      disabled={formData.logistics_type !== 'fixed'}
-                      className="w-32 px-3 py-1.5 border rounded-lg disabled:bg-gray-50"
+                      value={formData.shipping_fee}
+                      onChange={e => updateField('shipping_fee', parseFloat(e.target.value))}
+                      disabled={formData.shipping_type !== 'fixed'}
+                      className="w-24 px-2 py-1 border rounded text-sm disabled:bg-gray-100"
                     />
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3">
                     <label className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
-                        checked={formData.logistics_type === 'template'}
-                        onChange={() => setFormData({ ...formData, logistics_type: 'template' })}
-                        className="w-4 h-4"
-                      />
+                      <input type="radio" name="shipping_type" checked={formData.shipping_type === 'template'} onChange={() => updateField('shipping_type', 'template')} className="w-4 h-4" />
                       <span className="text-sm">运费模板</span>
                     </label>
                     <select
-                      disabled={formData.logistics_type !== 'template'}
-                      className="w-48 px-3 py-1.5 border rounded-lg disabled:bg-gray-50"
+                      value={formData.shipping_template}
+                      onChange={e => updateField('shipping_template', e.target.value)}
+                      disabled={formData.shipping_type !== 'template'}
+                      className="w-48 px-2 py-1 border rounded text-sm disabled:bg-gray-100"
                     >
-                      <option>默认模板</option>
+                      <option value="default">默认模板</option>
+                      <option value="free">全国包邮</option>
                     </select>
                   </div>
                 </div>
-                <p className="text-xs text-gray-500 mt-2">
-                  设置固定运费为0时，前台展示为免运费。<a href="#" className="text-blue-600 hover:underline">查看示例</a>
-                </p>
-              </div>
+              </InputField>
             </div>
           )}
 
           {/* ========== 商品详情 ========== */}
           {currentStep === 'detail' && (
-            <div className="space-y-6">
-              <h3 className="text-base font-semibold text-gray-900 border-l-4 border-blue-600 pl-3">商品详情</h3>
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 border-l-4 border-blue-600 pl-2 mb-5">商品详情</h3>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">商品详情</label>
-                <div className="border rounded-lg">
+              <InputField label="商品详情">
+                <div className="border rounded">
                   <div className="border-b px-3 py-2 flex gap-1 bg-gray-50 flex-wrap">
                     <button className="px-2 py-1 hover:bg-gray-200 rounded text-sm font-bold">B</button>
                     <button className="px-2 py-1 hover:bg-gray-200 rounded text-sm italic">I</button>
                     <button className="px-2 py-1 hover:bg-gray-200 rounded text-sm underline">U</button>
                     <span className="border-l mx-1"></span>
-                    <button className="px-2 py-1 hover:bg-gray-200 rounded text-sm">🔤</button>
-                    <button className="px-2 py-1 hover:bg-gray-200 rounded text-sm">🎨</button>
                     <button className="px-2 py-1 hover:bg-gray-200 rounded text-sm">📷</button>
                     <button className="px-2 py-1 hover:bg-gray-200 rounded text-sm">🔗</button>
-                    <button className="px-2 py-1 hover:bg-gray-200 rounded text-sm">📋</button>
-                    <button className="px-2 py-1 hover:bg-gray-200 rounded text-sm">↩️</button>
-                    <button className="px-2 py-1 hover:bg-gray-200 rounded text-sm">↪️</button>
+                    <button className="px-2 py-1 hover:bg-gray-200 rounded text-sm">≡</button>
                     <span className="border-l mx-1"></span>
-                    <button className="px-3 py-1 bg-purple-100 text-purple-700 rounded text-sm flex items-center gap-1">
+                    <button className="px-3 py-1 bg-purple-50 text-purple-600 border border-purple-200 rounded text-xs flex items-center gap-1 ml-auto hover:bg-purple-100">
                       ✨ AI生成详情
                     </button>
                   </div>
-                  <div className="p-8 min-h-[400px] flex items-center justify-center bg-gray-50">
-                    {formData.images && formData.images.length > 0 ? (
-                      <div className="space-y-0 max-w-md">
-                        {formData.images.slice(0, 3).map((img: string, idx: number) => (
-                          <img key={idx} src={img} className="w-full" alt="" />
-                        ))}
-                      </div>
+                  <div className="p-4 min-h-[300px] bg-white">
+                    {product.description ? (
+                      <div className="prose prose-sm max-w-none" dangerouslySetInnerHTML={{ __html: product.description }} />
                     ) : (
-                      <div className="text-center text-gray-400">
-                        <div className="text-4xl mb-2">🖼️</div>
-                        <p className="text-sm">点击上方工具栏的图片按钮上传商品详情图</p>
-                        <p className="text-xs mt-1">建议宽度 750px，高度不限</p>
-                      </div>
+                      <p className="text-gray-400 text-sm">请输入商品详情内容...</p>
                     )}
                   </div>
                 </div>
-              </div>
+              </InputField>
+
+              <InputField label="详情图片">
+                <div className="flex flex-wrap gap-3">
+                  <button className="w-24 h-24 border-2 border-dashed border-gray-300 rounded flex flex-col items-center justify-center text-gray-400 hover:border-blue-400">
+                    <span className="text-xl">+</span>
+                    <span className="text-xs mt-1">上传图片</span>
+                  </button>
+                </div>
+              </InputField>
             </div>
           )}
 
           {/* ========== 高级信息 ========== */}
           {currentStep === 'advanced' && (
-            <div className="space-y-6">
-              <h3 className="text-base font-semibold text-gray-900 border-l-4 border-blue-600 pl-3">高级信息</h3>
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 border-l-4 border-blue-600 pl-2 mb-5">高级信息</h3>
 
-              {/* 服务说明 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">服务说明</label>
-                <div className="flex flex-wrap gap-6">
+              <InputField label="服务说明">
+                <div className="flex flex-wrap gap-4">
                   {[
                     { key: 'global', label: '售全球' },
                     { key: 'merchant_ship', label: '商家发货&售后' },
-                    { key: 'ship_24h', label: '24小时发货' },
-                    { key: 'return_7d', label: '7天无理由退换货' },
-                    { key: 'exchange_7d', label: '7天无理由换货' },
-                    { key: 'on_time', label: '准时到达' },
-                  ].map(svc => (
-                    <label key={svc.key} className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={formData.services[svc.key]}
-                        onChange={e => setFormData({
-                          ...formData,
-                          services: { ...formData.services, [svc.key]: e.target.checked }
-                        })}
-                        className="w-4 h-4"
-                      />
-                      <span className="text-sm text-gray-700">{svc.label}</span>
+                    { key: '24h_ship', label: '24小时发货' },
+                    { key: '7day_return', label: '7天无理由退货' },
+                    { key: '7day_exchange', label: '7天无理由换货' },
+                    { key: 'ontime', label: '准时到达' },
+                  ].map(tag => (
+                    <label key={tag.key} className="flex items-center gap-2 cursor-pointer">
+                      <input type="checkbox" defaultChecked={formData.service_tags.includes(tag.key)} className="w-4 h-4" />
+                      <span className="text-sm">{tag.label}</span>
                     </label>
                   ))}
                 </div>
-              </div>
+              </InputField>
 
-              {/* 虚拟销售 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">虚拟销售</label>
+              <InputField label="虚拟销售" hint="虚拟销售会随下单而增加，但不是真实销售数据">
                 <input
                   type="number"
                   value={formData.virtual_sales}
-                  onChange={e => setFormData({ ...formData, virtual_sales: parseInt(e.target.value) })}
-                  className="w-40 px-4 py-2 border rounded-lg"
+                  onChange={e => updateField('virtual_sales', parseInt(e.target.value))}
+                  className="w-32 px-3 py-2 border rounded text-sm"
                 />
-                <p className="text-xs text-gray-500 mt-1">虚拟销售会随下单而增加，但不是真实销售数据</p>
-              </div>
+              </InputField>
 
-              {/* 相关商品 */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">相关商品</label>
-                <button className="px-4 py-2 border rounded-lg hover:bg-gray-50 text-sm">选择商品</button>
-                <p className="text-xs text-gray-500 mt-1">最多添加10个商品，仅用于在商品详情页展示</p>
+              <InputField label="相关商品" hint="最多添加10个商品，仅用于在商品详情页展示">
+                <button className="px-4 py-2 border rounded text-sm hover:bg-gray-50">选择商品</button>
+              </InputField>
+
+              <div className="mt-8 pt-6 border-t">
+                <h4 className="text-sm font-medium text-red-600 mb-3">⚠️ 危险操作</h4>
+                <button className="px-4 py-2 bg-red-50 text-red-600 border border-red-200 rounded text-sm hover:bg-red-100">
+                  删除此商品
+                </button>
               </div>
             </div>
           )}
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-4 border-t flex justify-end gap-3 bg-gray-50">
-          <button onClick={onClose} className="px-6 py-2 border rounded-lg hover:bg-gray-100">取消</button>
-          <button onClick={handleSave} className="px-8 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">{submitText}</button>
+        <div className="px-6 py-3 border-t flex justify-end gap-3 bg-gray-50">
+          <button onClick={onClose} className="px-6 py-2 border rounded hover:bg-gray-100 text-sm">取消</button>
+          <button onClick={handleSave} className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm">保存</button>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import ProductDetailModal from './ProductDetailModal';
-import PromoteModal from './PromoteModal';
+import { UnauthorizedActionModal, PromoteModal, AIProcessingModal } from './ActionModals';
 
 export default function ProductsAdminPage() {
   const params = useParams();
@@ -17,11 +17,13 @@ export default function ProductsAdminPage() {
   const [statusFilter, setStatusFilter] = useState('on_sale');
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
-  const [detailModalMode, setDetailModalMode] = useState<'detail' | 'overrule'>('detail');
+
+  // 弹窗状态
   const [showDetailModal, setShowDetailModal] = useState(false);
+  const [showUnauthorizedModal, setShowUnauthorizedModal] = useState(false);
   const [showPromoteModal, setShowPromoteModal] = useState(false);
-  const [aiProcessing, setAiProcessing] = useState<string | null>(null);
-  const [aiProgress, setAiProgress] = useState(0);
+  const [aiAction, setAiAction] = useState<string | null>(null);
+
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pageSize = 20;
 
@@ -49,38 +51,10 @@ export default function ProductsAdminPage() {
 
   const totalPages = Math.ceil(total / pageSize);
 
-  const handleAIAction = async (productId: number, action: string) => {
+  const handleAIAaction = (product: any, action: string) => {
     setOpenDropdown(null);
-    setAiProcessing(action);
-    setAiProgress(0);
-
-    // 模拟AI处理进度
-    const interval = setInterval(() => {
-      setAiProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(() => {
-            setAiProcessing(null);
-            setAiProgress(0);
-            alert(`✅ AI任务"${action}"已完成！`);
-          }, 500);
-          return 100;
-        }
-        return prev + Math.random() * 15;
-      });
-    }, 300);
-
-    try {
-      await fetch('/api/admin/products/ai-action', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ productId, action })
-      });
-    } catch (e) {
-      clearInterval(interval);
-      setAiProcessing(null);
-      alert('AI功能调用失败');
-    }
+    setSelectedProduct(product);
+    setAiAction(action);
   };
 
   const togglePublish = async (productId: number, currentStatus: boolean) => {
@@ -98,21 +72,8 @@ export default function ProductsAdminPage() {
     }
   };
 
-  const openDetail = (product: any, mode: 'detail' | 'overrule' = 'detail') => {
-    setSelectedProduct(product);
-    setDetailModalMode(mode);
-    setShowDetailModal(true);
-  };
-
-  const openPromote = (product: any) => {
-    setSelectedProduct(product);
-    setShowPromoteModal(true);
-    setOpenDropdown(null);
-  };
-
   const viewProduct = (product: any) => {
-    const url = `/${lang}/products/${product.slug || product.id}`;
-    window.open(url, '_blank');
+    window.open(`/${lang}/products/${product.slug || product.id}`, '_blank');
   };
 
   return (
@@ -145,81 +106,51 @@ export default function ProductsAdminPage() {
         </div>
 
         {/* 筛选 */}
-        <div className="p-4 grid grid-cols-2 gap-4">
+        <div className="p-4 flex flex-wrap gap-4 items-center">
           <div className="flex items-center gap-2">
-            <label className="text-sm text-gray-600 w-20 text-right">商品名称:</label>
+            <label className="text-sm text-gray-600">商品名称:</label>
             <input
               type="text"
               placeholder="输入商品名称/货号"
               defaultValue={search}
               onKeyDown={(e) => e.key === 'Enter' && setSearch((e.target as HTMLInputElement).value)}
-              className="flex-1 px-3 py-1.5 border rounded text-sm"
+              className="px-3 py-1.5 border rounded text-sm w-52"
             />
           </div>
           <div className="flex items-center gap-2">
-            <label className="text-sm text-gray-600 w-20 text-right">店铺:</label>
-            <select className="flex-1 px-3 py-1.5 border rounded text-sm">
+            <label className="text-sm text-gray-600">店铺:</label>
+            <select className="px-3 py-1.5 border rounded text-sm w-44">
               <option>请输入店铺名称</option>
-              <option>自营店铺</option>
-              <option>Apple旗舰店</option>
-              <option>DJI大疆旗舰店</option>
             </select>
           </div>
           <div className="flex items-center gap-2">
-            <label className="text-sm text-gray-600 w-20 text-right">分类:</label>
-            <select className="flex-1 px-3 py-1.5 border rounded text-sm">
+            <label className="text-sm text-gray-600">分类:</label>
+            <select className="px-3 py-1.5 border rounded text-sm w-32">
               <option>选择分类</option>
             </select>
           </div>
           <div className="flex items-center gap-2">
-            <label className="text-sm text-gray-600 w-20 text-right">品牌:</label>
-            <select className="flex-1 px-3 py-1.5 border rounded text-sm">
+            <label className="text-sm text-gray-600">品牌:</label>
+            <select className="px-3 py-1.5 border rounded text-sm w-32">
               <option>选择品牌</option>
             </select>
           </div>
           <div className="flex items-center gap-2">
-            <label className="text-sm text-gray-600 w-20 text-right">类型:</label>
-            <select className="flex-1 px-3 py-1.5 border rounded text-sm">
+            <label className="text-sm text-gray-600">类型:</label>
+            <select className="px-3 py-1.5 border rounded text-sm w-24">
               <option>请选择</option>
-              <option>普通商品</option>
-              <option>虚拟商品</option>
             </select>
           </div>
           <div className="flex items-center gap-2">
-            <label className="text-sm text-gray-600 w-20 text-right">商品类型:</label>
-            <select className="flex-1 px-3 py-1.5 border rounded text-sm">
+            <label className="text-sm text-gray-600">商品类型:</label>
+            <select className="px-3 py-1.5 border rounded text-sm w-24">
               <option>请选择</option>
-              <option>实物商品</option>
-              <option>电子卡券</option>
-              <option>卡密商品</option>
             </select>
           </div>
-          <div className="col-span-2 flex gap-2 justify-end">
-            <button className="px-6 py-1.5 bg-blue-600 text-white rounded text-sm hover:bg-blue-700">搜索</button>
-            <button className="px-6 py-1.5 border rounded text-sm hover:bg-gray-50">重置</button>
-          </div>
+          <button className="px-4 py-1.5 bg-blue-600 text-white rounded text-sm hover:bg-blue-700">搜索</button>
+          <button className="px-4 py-1.5 border rounded text-sm hover:bg-gray-50">重置</button>
         </div>
       </div>
-
-      {/* AI处理中进度条 */}
-      {aiProcessing && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-3">
-              <div className="animate-spin w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full"></div>
-              <span className="text-blue-700 text-sm font-medium">AI正在处理: {aiProcessing}</span>
-            </div>
-            <span className="text-blue-600 text-sm font-mono">{Math.min(100, Math.round(aiProgress))}%</span>
-          </div>
-          <div className="w-full bg-blue-200 rounded-full h-2">
-            <div
-              className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-              style={{ width: `${Math.min(100, aiProgress)}%` }}
-            />
-          </div>
-          <p className="text-xs text-blue-600 mt-2">AI正在处理商品图片/文字，请勿关闭页面...</p>
-        </div>
-      )}
 
       {/* 表格 */}
       <div className="bg-white rounded-xl border overflow-hidden">
@@ -228,10 +159,10 @@ export default function ProductsAdminPage() {
             <tr>
               <th className="text-left px-6 py-3 text-xs font-medium text-gray-500">商品名称</th>
               <th className="text-left px-6 py-3 text-xs font-medium text-gray-500">商品信息</th>
-              <th className="text-center px-6 py-3 text-xs font-medium text-gray-500 w-24">是否上架</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 w-20">库存</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 w-20">排序</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 w-72">操作</th>
+              <th className="text-center px-6 py-3 text-xs font-medium text-gray-500">是否上架</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500">库存</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500">排序</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500">操作</th>
             </tr>
           </thead>
           <tbody className="divide-y">
@@ -269,13 +200,35 @@ export default function ProductsAdminPage() {
                 <td className="px-6 py-4 text-sm text-gray-700">{p.stock || 9999}</td>
                 <td className="px-6 py-4 text-sm text-gray-700">100</td>
                 <td className="px-6 py-4 relative" ref={openDropdown === p.id ? dropdownRef : null}>
-                  <div className="flex items-center gap-2 text-sm whitespace-nowrap">
-                    <button onClick={() => openDetail(p, 'detail')} className="text-blue-600 hover:text-blue-800">详情</button>
+                  <div className="flex items-center gap-3 text-sm whitespace-nowrap">
+                    {/* 详情 */}
+                    <button
+                      onClick={() => { setSelectedProduct(p); setShowDetailModal(true); }}
+                      className="text-blue-600 hover:text-blue-800"
+                    >
+                      详情
+                    </button>
                     <span className="text-gray-300">|</span>
-                    <button onClick={() => openDetail(p, 'overrule')} className="text-blue-600 hover:text-blue-800">越权操作</button>
+
+                    {/* 越权操作 */}
+                    <button
+                      onClick={() => { setSelectedProduct(p); setShowUnauthorizedModal(true); }}
+                      className="text-blue-600 hover:text-blue-800"
+                    >
+                      越权操作
+                    </button>
                     <span className="text-gray-300">|</span>
-                    <button onClick={() => viewProduct(p)} className="text-blue-600 hover:text-blue-800">查看商品</button>
+
+                    {/* 查看商品 */}
+                    <button
+                      onClick={() => viewProduct(p)}
+                      className="text-blue-600 hover:text-blue-800"
+                    >
+                      查看商品
+                    </button>
                     <span className="text-gray-300">|</span>
+
+                    {/* 更多 */}
                     <div className="relative">
                       <button
                         onClick={() => setOpenDropdown(openDropdown === p.id ? null : p.id)}
@@ -288,20 +241,28 @@ export default function ProductsAdminPage() {
                       </button>
                       {openDropdown === p.id && (
                         <div className="absolute right-0 top-full mt-1 bg-white rounded-lg shadow-lg border py-1 z-50 min-w-[170px]">
-                          <button onClick={() => openPromote(p)}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                          <button
+                            onClick={() => { setOpenDropdown(null); setSelectedProduct(p); setShowPromoteModal(true); }}
+                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                          >
                             推广
                           </button>
-                          <button onClick={() => handleAIAction(p.id, '智能批量翻译图片')}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                          <button
+                            onClick={() => handleAIAaction(p, '智能批量翻译图片')}
+                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+                          >
                             <span className="text-purple-600">✨</span> 智能批量翻译图片
                           </button>
-                          <button onClick={() => handleAIAction(p.id, '智能消除图片文字')}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                          <button
+                            onClick={() => handleAIAaction(p, '智能消除图片文字')}
+                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+                          >
                             <span className="text-purple-600">✨</span> 智能消除图片文字
                           </button>
-                          <button onClick={() => handleAIAction(p.id, '一键翻译商品文字')}
-                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                          <button
+                            onClick={() => handleAIAaction(p, '一键翻译商品文字')}
+                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+                          >
                             <span className="text-purple-600">✨</span> 一键翻译商品文字
                           </button>
                         </div>
@@ -340,21 +301,24 @@ export default function ProductsAdminPage() {
         </div>
       </div>
 
-      {/* 商品详情/越权编辑弹窗 */}
+      {/* 商品详情弹窗 */}
       {showDetailModal && selectedProduct && (
-        <ProductDetailModal
-          product={selectedProduct}
-          mode={detailModalMode}
-          onClose={() => setShowDetailModal(false)}
-        />
+        <ProductDetailModal product={selectedProduct} onClose={() => setShowDetailModal(false)} />
+      )}
+
+      {/* 越权操作弹窗 */}
+      {showUnauthorizedModal && selectedProduct && (
+        <UnauthorizedActionModal product={selectedProduct} onClose={() => setShowUnauthorizedModal(false)} />
       )}
 
       {/* 推广弹窗 */}
       {showPromoteModal && selectedProduct && (
-        <PromoteModal
-          product={selectedProduct}
-          onClose={() => setShowPromoteModal(false)}
-        />
+        <PromoteModal product={selectedProduct} onClose={() => setShowPromoteModal(false)} />
+      )}
+
+      {/* AI处理进度弹窗 */}
+      {aiAction && selectedProduct && (
+        <AIProcessingModal product={selectedProduct} action={aiAction} onClose={() => setAiAction(null)} />
       )}
     </div>
   );
