@@ -9,6 +9,55 @@ export default function BrandsPage() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [editBrand, setEditBrand] = useState<any>(null);
   const [activeTab, setActiveTab] = useState<'list' | 'audit'>('list');
+  const [formName, setFormName] = useState('');
+  const [formSlug, setFormSlug] = useState('');
+  const [formDesc, setFormDesc] = useState('');
+  const [saving, setSaving] = useState(false);
+
+  const refreshBrands = async () => {
+    const res = await fetch('/api/admin/brands');
+    const data = await res.json();
+    setBrands(data.brands || []);
+  };
+
+  const openAdd = () => {
+    setEditBrand(null);
+    setFormName(''); setFormSlug(''); setFormDesc('');
+    setShowAddModal(true);
+  };
+
+  const openEdit = (b: any) => {
+    setEditBrand(b);
+    setFormName(b.name); setFormSlug(b.slug || ''); setFormDesc(b.description || '');
+    setShowAddModal(false);
+  };
+
+  const handleSave = async () => {
+    if (!formName.trim()) { alert('请输入品牌名称'); return; }
+    setSaving(true);
+    try {
+      const slug = formSlug || formName.toLowerCase().replace(/[^a-z0-9\u4e00-\u9fa5]+/g, '-');
+      if (editBrand) {
+        await fetch(`/api/admin/brands/${editBrand.id}`, {
+          method: 'PUT', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: formName, slug, description: formDesc })
+        });
+      } else {
+        await fetch('/api/admin/brands', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: formName, slug, description: formDesc })
+        });
+      }
+      await refreshBrands();
+      setShowAddModal(false); setEditBrand(null);
+    } catch (e) { alert('保存失败'); } finally { setSaving(false); }
+  };
+
+  const handleDelete = async (id: number) => {
+    if (!confirm('确定删除该品牌？')) return;
+    await fetch(`/api/admin/brands/${id}`, { method: 'DELETE' });
+    await refreshBrands();
+  };
 
   useEffect(() => {
     fetch('/api/admin/brands')
@@ -39,7 +88,7 @@ export default function BrandsPage() {
           <h1 className="text-2xl font-bold text-gray-900">商品品牌</h1>
           <p className="text-gray-500 mt-1">共 {brands.length} 个品牌</p>
         </div>
-        <button onClick={() => setShowAddModal(true)} className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm">
+        <button onClick={openAdd} className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm">
           + 添加品牌
         </button>
       </div>
@@ -105,9 +154,9 @@ export default function BrandsPage() {
                         </label>
                       </div>
                       <div className="flex items-center gap-2 text-sm">
-                        <button onClick={() => setEditBrand(brand)} className="text-blue-600 hover:text-blue-800">编辑</button>
+                        <button onClick={() => openEdit(brand)} className="text-blue-600 hover:text-blue-800">编辑</button>
                         <span className="text-gray-300">|</span>
-                        <button className="text-red-600 hover:text-red-800">删除</button>
+                        <button onClick={() => handleDelete(brand.id)} className="text-red-600 hover:text-red-800">删除</button>
                       </div>
                     </div>
                   ))}
@@ -131,11 +180,11 @@ export default function BrandsPage() {
             <div className="p-5 space-y-4">
               <div>
                 <label className="block text-sm font-medium mb-1">品牌名称 <span className="text-red-500">*</span></label>
-                <input type="text" defaultValue={editBrand?.name} className="w-full px-3 py-2 border rounded text-sm" placeholder="输入品牌名称" />
+                <input type="text" value={formName} onChange={e => setFormName(e.target.value)} className="w-full px-3 py-2 border rounded text-sm" placeholder="输入品牌名称" />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">品牌首字母</label>
-                <input type="text" maxLength={1} defaultValue={editBrand?.name_initial} className="w-20 px-3 py-2 border rounded text-sm text-center" />
+                <label className="block text-sm font-medium mb-1">SEO链接</label>
+                <input type="text" value={formSlug} onChange={e => setFormSlug(e.target.value)} className="w-full px-3 py-2 border rounded text-sm" placeholder="留空自动生成" />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">品牌LOGO</label>
@@ -145,22 +194,22 @@ export default function BrandsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">品牌简介</label>
-                <textarea rows={3} className="w-full px-3 py-2 border rounded text-sm" placeholder="输入品牌简介" />
+                <textarea rows={3} value={formDesc} onChange={e => setFormDesc(e.target.value)} className="w-full px-3 py-2 border rounded text-sm" placeholder="输入品牌简介" />
               </div>
               <div className="flex items-center gap-6">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" defaultChecked={editBrand?.is_hot} className="w-4 h-4" />
+                  <input type="checkbox" defaultChecked className="w-4 h-4" />
                   <span className="text-sm">热销品牌</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" defaultChecked={editBrand?.is_visible !== false} className="w-4 h-4" />
+                  <input type="checkbox" defaultChecked className="w-4 h-4" />
                   <span className="text-sm">显示</span>
                 </label>
               </div>
             </div>
             <div className="px-5 py-3 border-t flex justify-end gap-3 bg-gray-50">
               <button onClick={() => { setShowAddModal(false); setEditBrand(null); }} className="px-4 py-2 border rounded text-sm hover:bg-gray-100">取消</button>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded text-sm hover:bg-blue-700">保存</button>
+              <button onClick={handleSave} disabled={saving} className="px-4 py-2 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 disabled:opacity-50">{saving ? '保存中...' : '保存'}</button>
             </div>
           </div>
         </div>

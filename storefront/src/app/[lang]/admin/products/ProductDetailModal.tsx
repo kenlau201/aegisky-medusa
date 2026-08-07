@@ -17,6 +17,8 @@ const steps = [
 
 export default function ProductDetailModal({ product, onClose }: ProductDetailModalProps) {
   const [currentStep, setCurrentStep] = useState('basic');
+  const [brands, setBrands] = useState<any[]>([]);
+  const [categories, setCategories] = useState<any[]>([]);
   const [formData, setFormData] = useState<any>({
     // 基本信息
     product_type: 'normal',
@@ -72,6 +74,9 @@ export default function ProductDetailModal({ product, onClose }: ProductDetailMo
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
+    // 加载品牌和分类
+    fetch('/api/admin/brands').then(r => r.json()).then(d => setBrands(d.brands || [])).catch(() => {});
+    fetch('/api/admin/categories').then(r => r.json()).then(d => setCategories(d.categories || [])).catch(() => {});
     return () => { document.body.style.overflow = 'auto'; };
   }, []);
 
@@ -230,13 +235,20 @@ export default function ProductDetailModal({ product, onClose }: ProductDetailMo
                   className="w-64 px-3 py-2 border rounded text-sm"
                 >
                   <option value="">选择品牌</option>
-                  {product.brands?.map((b: any) => <option key={b.id} value={b.name}>{b.name}</option>)}
+                  {brands.map((b: any) => <option key={b.id} value={b.name}>{b.name}</option>)}
                 </select>
               </InputField>
 
               <InputField label="商品类目" required>
-                <select className="w-64 px-3 py-2 border rounded text-sm">
-                  <option>选择商品类目</option>
+                <select
+                  value={formData.category_id}
+                  onChange={e => updateField('category_id', e.target.value)}
+                  className="w-64 px-3 py-2 border rounded text-sm"
+                >
+                  <option value="">选择商品类目</option>
+                  {categories.filter((c: any) => c.depth <= 1).map((c: any) => (
+                    <option key={c.id} value={c.id}>{c.name}</option>
+                  ))}
                 </select>
               </InputField>
 

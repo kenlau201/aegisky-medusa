@@ -8,6 +8,10 @@ export default function CategoriesPage() {
   const [expanded, setExpanded] = useState<Set<number>>(new Set());
   const [showAddModal, setShowAddModal] = useState(false);
   const [editCategory, setEditCategory] = useState<any>(null);
+  const [parentId, setParentId] = useState(0);
+  const [formName, setFormName] = useState('');
+  const [formSlug, setFormSlug] = useState('');
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     fetch('/api/admin/categories')
@@ -26,6 +30,61 @@ export default function CategoriesPage() {
       else next.add(id);
       return next;
     });
+  };
+
+  const openAddModal = (parent: number = 0) => {
+    setParentId(parent);
+    setEditCategory(null);
+    setFormName('');
+    setFormSlug('');
+    setShowAddModal(true);
+  };
+
+  const openEditModal = (cat: any) => {
+    setEditCategory(cat);
+    setParentId(cat.parent_id || 0);
+    setFormName(cat.name);
+    setFormSlug(cat.slug);
+    setShowAddModal(false);
+  };
+
+  const handleSave = async () => {
+    if (!formName.trim()) { alert('请输入分类名称'); return; }
+    setSaving(true);
+    try {
+      const slug = formSlug || formName.toLowerCase().replace(/[^a-z0-9\u4e00-\u9fa5]+/g, '-');
+      if (editCategory) {
+        await fetch(`/api/admin/categories/${editCategory.id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: formName, slug, parent_id: parentId })
+        });
+      } else {
+        await fetch('/api/admin/categories', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: formName, slug, parent_id: parentId })
+        });
+      }
+      // 刷新列表
+      const res = await fetch('/api/admin/categories');
+      const data = await res.json();
+      setCategories(data.categories || []);
+      setShowAddModal(false);
+      setEditCategory(null);
+    } catch (e) {
+      alert('保存失败');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleDelete = async (id: number) => {
+    if (!confirm('确定删除该分类？')) return;
+    await fetch(`/api/admin/categories/${id}`, { method: 'DELETE' });
+    const res = await fetch('/api/admin/categories');
+    const data = await res.json();
+    setCategories(data.categories || []);
   };
 
   // 构建树形结构
@@ -82,11 +141,11 @@ export default function CategoriesPage() {
           </td>
           <td className="px-4 py-3">
             <div className="flex items-center gap-2 text-sm">
-              <button onClick={() => setEditCategory(cat)} className="text-blue-600 hover:text-blue-800">编辑</button>
+              <button onClick={() => openEditModal(cat)} className="text-blue-600 hover:text-blue-800">编辑</button>
               <span className="text-gray-300">|</span>
-              <button onClick={() => setShowAddModal(true)} className="text-blue-600 hover:text-blue-800">添加子类</button>
+              <button onClick={() => openAddModal(cat.id)} className="text-blue-600 hover:text-blue-800">添加子类</button>
               <span className="text-gray-300">|</span>
-              <button className="text-red-600 hover:text-red-800">删除</button>
+              <button onClick={() => handleDelete(cat.id)} className="text-red-600 hover:text-red-800">删除</button>
             </div>
           </td>
         </tr>
@@ -104,7 +163,7 @@ export default function CategoriesPage() {
         </div>
         <div className="flex gap-2">
           <button className="border px-4 py-2 rounded-lg hover:bg-gray-50 text-sm">🌐 批量翻译</button>
-          <button onClick={() => setShowAddModal(true)} className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm">
+          <button onClick={() => openAddModal(0)} className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm">
             + 添加分类
           </button>
         </div>
@@ -145,13 +204,17 @@ export default function CategoriesPage() {
             <div className="p-5 space-y-4">
               <div>
                 <label className="block text-sm font-medium mb-1">分类名称 <span className="text-red-500">*</span></label>
-                <input type="text" defaultValue={editCategory?.name} className="w-full px-3 py-2 border rounded text-sm" placeholder="输入分类名称" />
+                <input type="text" value={formName} onChange={e => setFormName(e.target.value)} className="w-full px-3 py-2 border rounded text-sm" placeholder="输入分类名称" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">SEO链接</label>
+                <input type="text" value={formSlug} onChange={e => setFormSlug(e.target.value)} className="w-full px-3 py-2 border rounded text-sm" placeholder="留空自动生成" />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">上级分类</label>
-                <select className="w-full px-3 py-2 border rounded text-sm">
+                <select value={parentId} onChange={e => setParentId(Number(e.target.value))} className="w-full px-3 py-2 border rounded text-sm">
                   <option value={0}>顶级分类</option>
-                  {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+                  {categories.filter(c => c.parent_id === 0).map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
                 </select>
               </div>
               <div>
@@ -160,24 +223,20 @@ export default function CategoriesPage() {
                   {editCategory?.image ? <img src={editCategory.image} className="w-full h-full object-cover rounded" /> : '+'}
                 </div>
               </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">排序</label>
-                <input type="number" defaultValue={editCategory?.sort_order || 0} className="w-32 px-3 py-2 border rounded text-sm" />
-              </div>
               <div className="flex items-center gap-6">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" defaultChecked={editCategory?.is_hot} className="w-4 h-4" />
+                  <input type="checkbox" defaultChecked className="w-4 h-4" />
                   <span className="text-sm">设为热门</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" defaultChecked={editCategory?.is_visible !== false} className="w-4 h-4" />
+                  <input type="checkbox" defaultChecked className="w-4 h-4" />
                   <span className="text-sm">显示</span>
                 </label>
               </div>
             </div>
             <div className="px-5 py-3 border-t flex justify-end gap-3 bg-gray-50">
               <button onClick={() => { setShowAddModal(false); setEditCategory(null); }} className="px-4 py-2 border rounded text-sm hover:bg-gray-100">取消</button>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded text-sm hover:bg-blue-700">保存</button>
+              <button onClick={handleSave} disabled={saving} className="px-4 py-2 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 disabled:opacity-50">{saving ? '保存中...' : '保存'}</button>
             </div>
           </div>
         </div>

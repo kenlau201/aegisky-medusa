@@ -9,6 +9,29 @@ export default function ShopsAdminPage() {
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [selectedShop, setSelectedShop] = useState<any>(null);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [formData, setFormData] = useState({ name: '', contact_name: '', contact_phone: '', description: '' });
+  const [saving, setSaving] = useState(false);
+
+  const refreshShops = async () => {
+    const res = await fetch('/api/admin/shops');
+    const data = await res.json();
+    setShops(data.shops || []);
+  };
+
+  const handleAdd = async () => {
+    if (!formData.name.trim()) { alert('请输入店铺名称'); return; }
+    setSaving(true);
+    try {
+      await fetch('/api/admin/shops', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, status: 'pending', is_self_operated: false })
+      });
+      await refreshShops();
+      setShowAddModal(false);
+      setFormData({ name: '', contact_name: '', contact_phone: '', description: '' });
+    } catch (e) { alert('创建失败'); } finally { setSaving(false); }
+  };
 
   useEffect(() => {
     fetch('/api/admin/shops')
@@ -44,7 +67,7 @@ export default function ShopsAdminPage() {
           <h1 className="text-2xl font-bold text-gray-900">店铺管理</h1>
           <p className="text-gray-500 mt-1">共 {shops.length} 家店铺</p>
         </div>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm">
+        <button onClick={() => setShowAddModal(true)} className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm">
           + 新增店铺
         </button>
       </div>
@@ -161,6 +184,40 @@ export default function ShopsAdminPage() {
 
       {selectedShop && (
         <ShopDetailModal shop={selectedShop} onClose={() => setSelectedShop(null)} />
+      )}
+
+      {/* 新增店铺弹窗 */}
+      {showAddModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="bg-white rounded-lg shadow-2xl w-[500px]">
+            <div className="flex items-center justify-between px-5 py-3 border-b">
+              <h3 className="font-bold">新增店铺</h3>
+              <button onClick={() => setShowAddModal(false)} className="text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+            </div>
+            <div className="p-5 space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">店铺名称 <span className="text-red-500">*</span></label>
+                <input type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full px-3 py-2 border rounded text-sm" placeholder="输入店铺名称" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">联系人</label>
+                <input type="text" value={formData.contact_name} onChange={e => setFormData({...formData, contact_name: e.target.value})} className="w-full px-3 py-2 border rounded text-sm" placeholder="联系人姓名" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">联系电话</label>
+                <input type="text" value={formData.contact_phone} onChange={e => setFormData({...formData, contact_phone: e.target.value})} className="w-full px-3 py-2 border rounded text-sm" placeholder="联系电话" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">店铺描述</label>
+                <textarea rows={3} value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full px-3 py-2 border rounded text-sm" placeholder="店铺简介" />
+              </div>
+            </div>
+            <div className="px-5 py-3 border-t flex justify-end gap-3 bg-gray-50">
+              <button onClick={() => setShowAddModal(false)} className="px-4 py-2 border rounded text-sm hover:bg-gray-100">取消</button>
+              <button onClick={handleAdd} disabled={saving} className="px-4 py-2 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 disabled:opacity-50">{saving ? '创建中...' : '创建'}</button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

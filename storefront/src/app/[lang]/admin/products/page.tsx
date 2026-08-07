@@ -17,6 +17,12 @@ export default function ProductsAdminPage() {
   const [statusFilter, setStatusFilter] = useState('on_sale');
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
+  const [filterShops, setFilterShops] = useState<any[]>([]);
+  const [filterCategories, setFilterCategories] = useState<any[]>([]);
+  const [filterBrands, setFilterBrands] = useState<any[]>([]);
+  const [filterShop, setFilterShop] = useState('');
+  const [filterCategory, setFilterCategory] = useState('');
+  const [filterBrand, setFilterBrand] = useState('');
 
   // 弹窗状态
   const [showDetailModal, setShowDetailModal] = useState(false);
@@ -38,6 +44,13 @@ export default function ProductsAdminPage() {
       })
       .catch(() => setLoading(false));
   }, [page, search]);
+
+  useEffect(() => {
+    // 加载筛选下拉数据
+    fetch('/api/admin/shops').then(r => r.json()).then(d => setFilterShops(d.shops || [])).catch(() => {});
+    fetch('/api/admin/categories').then(r => r.json()).then(d => setFilterCategories((d.categories || []).filter((c: any) => c.depth <= 1))).catch(() => {});
+    fetch('/api/admin/brands').then(r => r.json()).then(d => setFilterBrands(d.brands || [])).catch(() => {});
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -119,20 +132,23 @@ export default function ProductsAdminPage() {
           </div>
           <div className="flex items-center gap-2">
             <label className="text-sm text-gray-600">店铺:</label>
-            <select className="px-3 py-1.5 border rounded text-sm w-44">
-              <option>请输入店铺名称</option>
+            <select value={filterShop} onChange={e => setFilterShop(e.target.value)} className="px-3 py-1.5 border rounded text-sm w-44">
+              <option value="">请输入店铺名称</option>
+              {filterShops.map((s: any) => <option key={s.id} value={s.id}>{s.name}</option>)}
             </select>
           </div>
           <div className="flex items-center gap-2">
             <label className="text-sm text-gray-600">分类:</label>
-            <select className="px-3 py-1.5 border rounded text-sm w-32">
-              <option>选择分类</option>
+            <select value={filterCategory} onChange={e => setFilterCategory(e.target.value)} className="px-3 py-1.5 border rounded text-sm w-32">
+              <option value="">选择分类</option>
+              {filterCategories.map((c: any) => <option key={c.id} value={c.id}>{c.name}</option>)}
             </select>
           </div>
           <div className="flex items-center gap-2">
             <label className="text-sm text-gray-600">品牌:</label>
-            <select className="px-3 py-1.5 border rounded text-sm w-32">
-              <option>选择品牌</option>
+            <select value={filterBrand} onChange={e => setFilterBrand(e.target.value)} className="px-3 py-1.5 border rounded text-sm w-32">
+              <option value="">选择品牌</option>
+              {filterBrands.map((b: any) => <option key={b.id} value={b.id}>{b.name}</option>)}
             </select>
           </div>
           <div className="flex items-center gap-2">
