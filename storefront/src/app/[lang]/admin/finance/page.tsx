@@ -1,67 +1,66 @@
-'use client';
+﻿'use client';
 
-import { useEffect, useState } from 'react';
-
-export default function FinanceAdminPage() {
-  const [stats, setStats] = useState({
-    totalBalance: 0,
-    totalRecharge: 0,
-    totalWithdraw: 0,
-    pendingWithdraw: 0,
-    totalCommission: 0,
-  });
-
-  useEffect(() => {
-    fetch('/api/admin/finance/stats')
-      .then(r => r.json())
-      .then(setStats)
-      .catch(() => {});
-  }, []);
-
-  const cards = [
-    { label: '用户总余额', value: `¥${stats.totalBalance.toLocaleString()}`, color: 'blue' },
-    { label: '累计充值', value: `¥${stats.totalRecharge.toLocaleString()}`, color: 'green' },
-    { label: '累计提现', value: `¥${stats.totalWithdraw.toLocaleString()}`, color: 'purple' },
-    { label: '待审核提现', value: stats.pendingWithdraw, color: 'orange' },
-    { label: '累计分销佣金', value: `¥${stats.totalCommission.toLocaleString()}`, color: 'red' },
-  ];
-
+export default function FinanceOverviewPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">财务管理</h1>
-        <p className="text-gray-500 mt-1">资金流水、充值提现、分账结算</p>
+        <h1 className="text-2xl font-bold">资金总览</h1>
       </div>
 
-      {/* 统计卡片 */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {cards.map(card => (
-          <div key={card.label} className="bg-white rounded-xl border p-5">
-            <div className="text-sm text-gray-500">{card.label}</div>
-            <div className={`text-2xl font-bold text-${card.color}-600 mt-2`}>{card.value}</div>
-          </div>
-        ))}
-      </div>
-
-      {/* 快捷入口 */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[
-          { label: '充值管理', href: '/admin/finance/recharges', icon: '💳' },
-          { label: '提现审核', href: '/admin/finance/withdrawals', icon: '💸' },
-          { label: '分账管理', href: '/admin/finance/settlements', icon: '📊' },
-          { label: '交易日志', href: '/admin/finance/transactions', icon: '📝' },
-        ].map(item => (
-          <a key={item.label} href={item.href} className="bg-white rounded-xl border p-6 hover:border-blue-300 hover:bg-blue-50 transition-colors flex flex-col items-center">
-            <span className="text-3xl">{item.icon}</span>
-            <span className="text-sm font-medium text-gray-700 mt-2">{item.label}</span>
-          </a>
-        ))}
-      </div>
-
-      {/* 最近交易 */}
+      {/* 日期范围 */}
       <div className="bg-white rounded-xl border p-6">
-        <h2 className="text-lg font-semibold mb-4">最近交易记录</h2>
-        <div className="text-center text-gray-400 py-8">交易记录加载中...</div>
+        <div className="flex items-center gap-4">
+          <span className="text-sm text-gray-600">日期范围：</span>
+          <input type="date" className="px-3 py-2 border rounded text-sm" />
+          <span className="text-gray-400">至</span>
+          <input type="date" className="px-3 py-2 border rounded text-sm" />
+          <button className="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700">搜索</button>
+          <button className="px-4 py-2 border rounded text-sm hover:bg-gray-50">重置</button>
+        </div>
+      </div>
+
+      {/* 客户账户信息 */}
+      <div className="bg-white rounded-xl border p-6">
+        <h2 className="text-base font-semibold mb-4 flex items-center gap-2">
+          <span className="w-1 h-4 bg-blue-600 rounded"></span>
+          客户账户信息
+        </h2>
+        <div className="grid grid-cols-3 gap-6">
+          <div>
+            <div className="text-sm text-gray-500 mb-1">客户充值总额</div>
+            <div className="text-2xl font-bold">¥520.02</div>
+          </div>
+          <div>
+            <div className="text-sm text-gray-500 mb-1">提现金额</div>
+            <div className="text-2xl font-bold">¥0.00</div>
+          </div>
+          <div>
+            <div className="text-sm text-gray-500 mb-1">客户余额变化金额</div>
+            <div className="text-2xl font-bold">¥10836171.14</div>
+          </div>
+          <div>
+            <div className="text-sm text-gray-500 mb-1">客户冻结变化金额</div>
+            <div className="text-2xl font-bold">¥10038.00</div>
+          </div>
+        </div>
+      </div>
+
+      {/* 余额使用信息 */}
+      <div className="bg-white rounded-xl border p-6">
+        <h2 className="text-base font-semibold mb-4 flex items-center gap-2">
+          <span className="w-1 h-4 bg-blue-600 rounded"></span>
+          余额使用信息
+        </h2>
+        <div className="grid grid-cols-2 gap-6">
+          <div>
+            <div className="text-sm text-gray-500 mb-1">交易使用余额</div>
+            <div className="text-2xl font-bold">¥553245.34</div>
+          </div>
+          <div>
+            <div className="text-sm text-gray-500 mb-1">交易使用积分</div>
+            <div className="text-2xl font-bold">¥19204.00</div>
+          </div>
+        </div>
       </div>
     </div>
   );
