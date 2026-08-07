@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import WithdrawalDetailModal from './WithdrawalDetailModal';
 
 const statusColors: Record<string, string> = {
   pending: 'bg-yellow-100 text-yellow-700',
@@ -22,6 +23,7 @@ export default function WithdrawalsAdminPage() {
   const [list, setList] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState('all');
+  const [selectedWithdrawal, setSelectedWithdrawal] = useState<any>(null);
   const tabs = [
     { key: 'all', label: '全部' },
     { key: 'pending', label: '待审核' },
@@ -60,14 +62,14 @@ export default function WithdrawalsAdminPage() {
         <table className="w-full">
           <thead className="bg-gray-50 border-b">
             <tr>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">用户</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">提现金额</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">手续费</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">实际到账</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">收款方式</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">状态</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">申请时间</th>
-              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">操作</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500">用户</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500">提现金额</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500">手续费</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500">实际到账</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500">收款方式</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500">状态</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500">申请时间</th>
+              <th className="text-left px-6 py-3 text-xs font-medium text-gray-500">操作</th>
             </tr>
           </thead>
           <tbody className="divide-y">
@@ -75,13 +77,13 @@ export default function WithdrawalsAdminPage() {
               <tr><td colSpan={8} className="px-6 py-12 text-center text-gray-400">加载中...</td></tr>
             ) : list.length > 0 ? list.map(w => (
               <tr key={w.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 font-medium">{w.user_name || '-'}</td>
-                <td className="px-6 py-4 font-medium">${(w.amount || 0).toFixed(2)}</td>
+                <td className="px-6 py-4 font-medium text-sm">{w.user_name || w.user_email || '-'}</td>
+                <td className="px-6 py-4 font-medium text-sm">${(w.amount || 0).toFixed(2)}</td>
                 <td className="px-6 py-4 text-sm text-gray-500">${(w.fee || 0).toFixed(2)}</td>
-                <td className="px-6 py-4 font-medium text-blue-600">${(w.actual_amount || 0).toFixed(2)}</td>
+                <td className="px-6 py-4 font-medium text-sm text-blue-600">${(w.actual_amount || w.amount - (w.fee || 0) || 0).toFixed(2)}</td>
                 <td className="px-6 py-4 text-sm">
-                  <div>{w.account_type === 'alipay' ? '支付宝' : w.account_type === 'wechat' ? '微信' : '银行卡'}</div>
-                  <div className="text-gray-500">{w.account_name}</div>
+                  <div>{w.account_type === 'alipay' ? '支付宝' : w.account_type === 'wechat' ? '微信' : '银行转账'}</div>
+                  <div className="text-gray-500 text-xs">{w.account_name || '-'}</div>
                 </td>
                 <td className="px-6 py-4">
                   <span className={`inline-flex px-2 py-1 text-xs rounded-full ${statusColors[w.status] || 'bg-gray-100'}`}>
@@ -90,15 +92,28 @@ export default function WithdrawalsAdminPage() {
                 </td>
                 <td className="px-6 py-4 text-sm text-gray-500">{new Date(w.created_at).toLocaleString()}</td>
                 <td className="px-6 py-4">
-                  {w.status === 'pending' && (
-                    <div className="flex gap-2">
-                      <button className="text-green-600 hover:underline text-sm">通过</button>
-                      <button className="text-red-600 hover:underline text-sm">拒绝</button>
-                    </div>
-                  )}
-                  {w.status === 'approved' && (
-                    <button className="text-blue-600 hover:underline text-sm">确认打款</button>
-                  )}
+                  <div className="flex items-center gap-2 text-sm whitespace-nowrap">
+                    <button
+                      onClick={() => setSelectedWithdrawal(w)}
+                      className="text-blue-600 hover:text-blue-800"
+                    >
+                      详情
+                    </button>
+                    {w.status === 'pending' && (
+                      <>
+                        <span className="text-gray-300">|</span>
+                        <button className="text-green-600 hover:text-green-800">通过</button>
+                        <span className="text-gray-300">|</span>
+                        <button className="text-red-600 hover:text-red-800">拒绝</button>
+                      </>
+                    )}
+                    {w.status === 'approved' && (
+                      <>
+                        <span className="text-gray-300">|</span>
+                        <button className="text-blue-600 hover:text-blue-800">打款</button>
+                      </>
+                    )}
+                  </div>
                 </td>
               </tr>
             )) : (
@@ -107,6 +122,14 @@ export default function WithdrawalsAdminPage() {
           </tbody>
         </table>
       </div>
+
+      {selectedWithdrawal && (
+        <WithdrawalDetailModal
+          withdrawal={selectedWithdrawal}
+          onClose={() => setSelectedWithdrawal(null)}
+          onUpdate={load}
+        />
+      )}
     </div>
   );
 }

@@ -4,14 +4,36 @@ import Link from 'next/link';
 import { usePathname, useParams } from 'next/navigation';
 import { useState } from 'react';
 
-const menuGroups = [
+interface MenuItem {
+  label: string;
+  href?: string;
+  children?: MenuItem[];
+}
+
+const menuGroups: { title: string; icon: string; items: MenuItem[] }[] = [
   {
     title: '商城',
     icon: '🏪',
     items: [
       { label: '概览', href: '/admin/dashboard' },
-      { label: '商品管理', href: '/admin/products' },
-      { label: '订单管理', href: '/admin/orders' },
+      {
+        label: '商品管理',
+        children: [
+          { label: '商品列表', href: '/admin/products' },
+          { label: '商品类目', href: '/admin/products/categories' },
+          { label: '商品品牌', href: '/admin/products/brands' },
+          { label: '商品评价', href: '/admin/products/reviews' },
+          { label: '商品审核', href: '/admin/products/audit' },
+          { label: '服务配置', href: '/admin/products/services' },
+        ]
+      },
+      {
+        label: '订单管理',
+        children: [
+          { label: '全部订单', href: '/admin/orders' },
+          { label: '订单导出', href: '/admin/orders/export' },
+        ]
+      },
       { label: '售后管理', href: '/admin/aftersales' },
     ]
   },
@@ -102,13 +124,80 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const params = useParams();
   const lang = params.lang as string;
   const [collapsed, setCollapsed] = useState(false);
+  const [expandedMenus, setExpandedMenus] = useState<Set<string>>(new Set(['商品管理', '订单管理']));
 
   const prefix = `/${lang}`;
+
+  const toggleExpand = (label: string) => {
+    setExpandedMenus(prev => {
+      const next = new Set(prev);
+      if (next.has(label)) next.delete(label);
+      else next.add(label);
+      return next;
+    });
+  };
+
+  const isItemActive = (item: MenuItem): boolean => {
+    if (item.href && (pathname === item.href || pathname?.startsWith(item.href + '/'))) return true;
+    if (item.children) return item.children.some(child => isItemActive(child));
+    return false;
+  };
+
+  const renderMenuItem = (item: MenuItem) => {
+    if (item.children) {
+      const isExpanded = expandedMenus.has(item.label);
+      const hasActiveChild = isItemActive(item);
+      return (
+        <div key={item.label}>
+          <button
+            onClick={() => toggleExpand(item.label)}
+            className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors ${
+              hasActiveChild ? 'text-blue-600 font-medium' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+            }`}
+          >
+            <span>{item.label}</span>
+            <span className={`text-xs transition-transform ${isExpanded ? 'rotate-90' : ''}`}>▶</span>
+          </button>
+          {isExpanded && (
+            <div className="bg-gray-50">
+              {item.children.map(child => (
+                <Link
+                  key={child.href}
+                  href={prefix + child.href}
+                  className={`flex items-center pl-8 pr-4 py-2 text-sm transition-colors ${
+                    child.href && (pathname === child.href || pathname?.startsWith(child.href + '/'))
+                      ? 'bg-blue-50 text-blue-600 border-r-2 border-blue-600 font-medium'
+                      : 'text-gray-500 hover:bg-gray-100 hover:text-gray-900'
+                  }`}
+                >
+                  {child.label}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    return (
+      <Link
+        key={item.href}
+        href={prefix + item.href}
+        className={`flex items-center px-4 py-2.5 text-sm transition-colors ${
+          item.href && (pathname === item.href || pathname?.startsWith(item.href + '/'))
+            ? 'bg-blue-50 text-blue-600 border-r-2 border-blue-600 font-medium'
+            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+        }`}
+      >
+        {item.label}
+      </Link>
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex">
       {/* Sidebar */}
-      <aside className={`bg-white border-r transition-all duration-300 ${collapsed ? 'w-16' : 'w-60'} flex flex-col`}>
+      <aside className={`bg-white border-r transition-all duration-300 ${collapsed ? 'w-16' : 'w-60'} flex flex-col flex-shrink-0`}>
         <div className="h-16 border-b flex items-center justify-between px-4">
           {!collapsed && <span className="font-bold text-lg text-blue-600">Aegisky Admin</span>}
           <button
@@ -126,32 +215,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   {group.title}
                 </div>
               )}
-              {group.items.map((item) => {
-                const isActive = pathname === item.href || pathname?.startsWith(item.href + '/');
-                return (
-                  <Link
-                    key={item.href}
-                    href={prefix + item.href}
-                    className={`flex items-center px-4 py-2.5 text-sm transition-colors ${
-                      isActive
-                        ? 'bg-blue-50 text-blue-600 border-r-2 border-blue-600 font-medium'
-                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                    }`}
-                  >
-                    {collapsed && <span className="text-lg">{group.icon}</span>}
-                    {!collapsed && <span>{item.label}</span>}
-                  </Link>
-                );
-              })}
+              {!collapsed && group.items.map(item => renderMenuItem(item))}
             </div>
           ))}
         </nav>
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col min-w-0">
         {/* Header */}
-        <header className="h-16 bg-white border-b flex items-center justify-between px-6">
+        <header className="h-16 bg-white border-b flex items-center justify-between px-6 flex-shrink-0">
           <div className="flex items-center gap-4">
             <h1 className="text-lg font-semibold text-gray-800">管理后台</h1>
           </div>
