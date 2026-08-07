@@ -1,0 +1,91 @@
+﻿Deleting old new categories...
+Creating new category tree...
+
+Created 74 new categories
+
+Mapping products to new categories...
+Mapped 853 products to new categories
+
+Updating product counts...
+
+=== NEW CATEGORY TREE ===
+
+[10000] UAV Complete Systems (uav-complete-systems)
+  [10001] Multirotor UAV (multirotor-uav)
+    [10002] FPV Racing & Freestyle Drones (fpv-racing-freestyle-drones)
+    [10003] Industrial Quadcopters (industrial-quadcopters)
+    [10004] Russian-Made Drones (russian-made-drones)
+    [10005] Training Drones (training-drones)
+    [10006] Waterproof Drones (waterproof-drones)
+  [10007] Fixed-Wing UAV (fixed-wing-uav)
+    [10008] Mapping & Survey Aircraft (mapping-survey-aircraft)
+    [10009] Long-Range Fixed-Wing (long-range-fixed-wing)
+  [10010] VTOL UAV (vtol-uav)
+  [10011] Thermal Imaging Drones (thermal-imaging-drones)
+  [10012] Underwater ROV & Drones (underwater-rov-drones)
+  [10013] Drone DIY Kits (drone-diy-kits)
+[10014] Propulsion Systems (propulsion-systems)
+  [10015] Brushless Motors (brushless-motors)
+  [10016] ESC (Electronic Speed Controllers) (esc)
+  [10017] Propellers & Blades (propellers-blades)
+    [10018] 2-Blade Propellers (2-blade-propellers)
+    [10019] 3-Blade Propellers (3-blade-propellers)
+    [10020] Folding Blades (folding-blades)
+  [10021] Servo Motors & Actuators (servo-motors-actuators)
+[10022] Flight Control & Navigation (flight-control-navigation)
+  [10023] Flight Controllers & Autopilots (flight-controllers-autopilots)
+  [10024] LiDAR & Distance Sensors (lidar-distance-sensors)
+  [10025] RF Spectrum Analyzers (rf-spectrum-analyzers)
+[10026] RC Control & Data Link (rc-control-data-link)
+  [10027] RC Transmitters (rc-transmitters)
+  [10028] RC Receivers (rc-receivers)
+  [10029] Antennas (antennas)
+  [10030] Video Transmitters (VTX) (video-transmitters-vtx)
+  [10031] Long-Range Radio Modems (long-range-radio-modems)
+  [10032] Two-Way Radios & Walkie-Talkies (two-way-radios)
+[10033] FPV Systems (fpv-systems)
+  [10034] FPV Goggles (fpv-goggles)
+  [10035] FPV Monitors & Displays (fpv-monitors-displays)
+[10036] Imaging & Payload Systems (imaging-payload-systems)
+  [10037] Cameras & Video Equipment (cameras-video-equipment)
+    [10038] FPV & Action Cameras (fpv-action-cameras)
+    [10039] Mirrorless & DSLR Cameras (mirrorless-dslr-cameras)
+    [10040] Camera Lenses (camera-lenses)
+    [10041] Tripods & Mounts (tripods-mounts)
+  [10042] Machine Vision Cameras (machine-vision-cameras)
+  [10043] Thermal Imaging Cameras (thermal-imaging-cameras)
+  [10044] Thermal Weapon Scopes (thermal-weapon-scopes)
+  [10045] Optical Scopes & Sights (optical-scopes-sights)
+  [10046] Gimbal Stabilizers (gimbal-stabilizers)
+  [10047] Counter-UAV & Anti-Drone Systems (counter-uav-systems)
+[10048] Power & Energy Systems (power-energy-systems)
+  [10049] LiPo/Li-ion Batteries (lipo-liion-batteries)
+  [10050] Battery Chargers (battery-chargers)
+  [10051] Portable Power Stations (portable-power-stations)
+  [10052] Solar Panels (solar-panels)
+[10053] Airframe & Mechanical Structures (airframe-mechanical-structures)
+  [10054] Drone Frames (drone-frames)
+  [10055] Carbon Fiber Materials (carbon-fiber-materials)
+[10056] Electronic Components (electronic-components)
+  [10057] ICs, Chips & Modules (ics-chips-modules)
+  [10058] Cables, Ribbons & Wiring (cables-ribbons-wiring)
+  [10059] Network Equipment (network-equipment)
+[10060] Embedded Computing & AI (embedded-computing-ai)
+  [10061] Single-Board Computers (single-board-computers)
+[10062] Robotics Systems (robotics-systems)
+[10063] Tools & Maintenance (tools-maintenance)
+  [10064] Assembly & Soldering Tools (assembly-soldering-tools)
+  [10065] Repair Kits & Spare Parts (repair-kits-spare-parts)
+[10066] Accessories (accessories)
+[10067] Lighting & Illumination (lighting-illumination)
+[10068] Electric Mobility (electric-mobility)
+  [10069] Electric Scooters (electric-scooters)
+  [10070] Electric Motorcycles (electric-motorcycles)
+[10071] Industrial & Other Equipment (industrial-other-equipment)
+  [10072] Game Consoles & Industrial PCs (industrial-pcs-consoles)
+  [10073] Miscellaneous (miscellaneous)
+
+Products with categories: 6375
+Products without new categories: 0
+
+Done!

@@ -1,0 +1,83 @@
+﻿Mapped 1052 old categories to new categories
+Mapped 6375 products
+Total products: 6375
+Unmapped: 0
+
+Updating counts...
+
+=== NEW CATEGORIES WITH COUNTS ===
+
+[10000] UAV Complete Systems: 0
+  [10001] Multirotor UAV: 0
+    [10002] FPV Racing & Freestyle Drones: 0
+    [10003] Industrial Quadcopters: 0
+    [10004] Russian-Made Drones: 0
+    [10005] Training Drones: 0
+    [10006] Waterproof Drones: 0
+  [10007] Fixed-Wing UAV: 0
+    [10008] Mapping & Survey Aircraft: 0
+    [10009] Long-Range Fixed-Wing: 0
+  [10010] VTOL UAV: 0
+  [10011] Thermal Imaging Drones: 0
+  [10012] Underwater ROV & Drones: 0
+  [10013] Drone DIY Kits: 0
+[10014] Propulsion Systems: 0
+  [10015] Brushless Motors: 0
+  [10016] ESC (Electronic Speed Controllers): 0
+  [10017] Propellers & Blades: 0
+    [10018] 2-Blade Propellers: 0
+    [10019] 3-Blade Propellers: 0
+    [10020] Folding Blades: 0
+  [10021] Servo Motors & Actuators: 0
+[10022] Flight Control & Navigation: 0
+  [10023] Flight Controllers & Autopilots: 0
+  [10024] LiDAR & Distance Sensors: 0
+  [10025] RF Spectrum Analyzers: 0
+[10026] RC Control & Data Link: 0
+  [10027] RC Transmitters: 0
+  [10028] RC Receivers: 0
+  [10029] Antennas: 0
+  [10030] Video Transmitters (VTX): 0
+  [10031] Long-Range Radio Modems: 0
+  [10032] Two-Way Radios & Walkie-Talkies: 0
+[10033] FPV Systems: 0
+  [10034] FPV Goggles: 0
+  [10035] FPV Monitors & Displays: 0
+[10036] Imaging & Payload Systems: 0
+  [10037] Cameras & Video Equipment: 0
+    [10038] FPV & Action Cameras: 0
+    [10039] Mirrorless & DSLR Cameras: 0
+    [10040] Camera Lenses: 0
+    [10041] Tripods & Mounts: 0
+  [10042] Machine Vision Cameras: 0
+  [10043] Thermal Imaging Cameras: 0
+  [10044] Thermal Weapon Scopes: 0
+  [10045] Optical Scopes & Sights: 0
+  [10046] Gimbal Stabilizers: 0
+  [10047] Counter-UAV & Anti-Drone Systems: 0
+[10048] Power & Energy Systems: 0
+  [10049] LiPo/Li-ion Batteries: 0
+  [10050] Battery Chargers: 0
+  [10051] Portable Power Stations: 0
+  [10052] Solar Panels: 0
+[10053] Airframe & Mechanical Structures: 0
+  [10054] Drone Frames: 0
+  [10055] Carbon Fiber Materials: 0
+[10056] Electronic Components: 0
+  [10057] ICs, Chips & Modules: 0
+  [10058] Cables, Ribbons & Wiring: 0
+  [10059] Network Equipment: 0
+[10060] Embedded Computing & AI: 0
+  [10061] Single-Board Computers: 0
+[10062] Robotics Systems: 0
+[10063] Tools & Maintenance: 0
+  [10064] Assembly & Soldering Tools: 0
+  [10065] Repair Kits & Spare Parts: 0
+[10066] Accessories: 0
+[10067] Lighting & Illumination: 0
+[10068] Electric Mobility: 0
+  [10069] Electric Scooters: 0
+  [10070] Electric Motorcycles: 0
+[10071] Industrial & Other Equipment: 0
+  [10072] Game Consoles & Industrial PCs: 0
+  [10073] Miscellaneous: 0

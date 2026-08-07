@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1399,
+    "name": "Развлечение",
+    "slug": "entertainment",
+    "count": 95
+  },
+  {
+    "id": 1400,
+    "name": "Для обучения",
+    "slug": "for_training",
+    "count": 69
+  },
+  {
+    "id": 1405,
+    "name": "Картография",
+    "slug": "cartography",
+    "count": 65
+  },
+  {
+    "id": 1404,
+    "name": "Геодезия",
+    "slug": "geodesy",
+    "count": 65
+  },
+  {
+    "id": 1402,
+    "name": "Электромонтаж",
+    "slug": "electrical_installation",
+    "count": 45
+  },
+  {
+    "id": 1403,
+    "name": "Промышленные работы",
+    "slug": "industrial_work",
+    "count": 44
+  },
+  {
+    "id": 1407,
+    "name": "Военного назначения",
+    "slug": "military_purpose",
+    "count": 41
+  },
+  {
+    "id": 1401,
+    "name": "Спасательные операции",
+    "slug": "rescue_operations",
+    "count": 30
+  },
+  {
+    "id": 1406,
+    "name": "Сельское хозяйство",
+    "slug": "agriculture",
+    "count": 16
+  }
+]

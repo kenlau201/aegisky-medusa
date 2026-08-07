@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-08-02T05:14:33.503Z",
+  "totalProducts": 6384,
+  "totalCategories": 1033,
+  "totalBrands": 438,
+  "totalAttributes": 130,
+  "totalImages": 20910,
+  "productsWithImages": 6379,
+  "productsWithGallery": 6379,
+  "productsWithPrice": 6197,
+  "productsInStock": 6344,
+  "averageRating": 0.015286654135338347,
+  "priceRange": {
+    "min": 100,
+    "max": 29490000
+  }
+}

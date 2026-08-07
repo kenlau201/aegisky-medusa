@@ -1,0 +1,84 @@
+version: "3.8"
+
+services:
+  medusa-postgres:
+    image: postgres:16-alpine
+    container_name: aegisky-medusa-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: medusa
+      POSTGRES_PASSWORD: medusa_password
+      POSTGRES_DB: medusa-aegisky
+    ports:
+      - "5434:5432"
+    volumes:
+      - medusa-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U medusa"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  medusa-redis:
+    image: redis:7-alpine
+    container_name: aegisky-medusa-redis
+    restart: unless-stopped
+    ports:
+      - "6380:6379"
+    volumes:
+      - medusa-redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.6
+    container_name: aegisky-medusa-meilisearch
+    restart: unless-stopped
+    environment:
+      MEILI_MASTER_KEY: aegisky-meilisearch-master-key-2026
+      MEILI_NO_ANALYTICS: "true"
+    ports:
+      - "7700:7700"
+    volumes:
+      - meilisearch-data:/meili_data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7700/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  medusa-server:
+    build: ./backend
+    container_name: aegisky-medusa-server
+    restart: unless-stopped
+    depends_on:
+      medusa-postgres:
+        condition: service_healthy
+      medusa-redis:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://medusa:medusa_password@medusa-postgres:5432/medusa-aegisky
+      REDIS_URL: redis://medusa-redis:6379
+      JWT_SECRET: aegisky-medusa-jwt-secret-2026-super-secure
+      COOKIE_SECRET: aegisky-medusa-cookie-secret-2026-super-secure
+      STORE_CORS: http://localhost:3000,http://localhost:8000
+      ADMIN_CORS: http://localhost:7001,http://localhost:9000
+      AUTH_CORS: http://localhost:3000,http://localhost:7001,http://localhost:9000
+      MEDUSA_BACKEND_URL: http://localhost:9000
+      ADMIN_EMAIL: admin@aegisky.com
+      ADMIN_PASSWORD: admin123456
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./backend:/app
+      - ./static:/app/static
+      - D:\scraper:/media
+    command: sh -c "npm run build && npx medusa db:migrate && npm run dev"
+
+volumes:
+  medusa-postgres-data:
+  medusa-redis-data:
+  meilisearch-data:

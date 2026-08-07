@@ -1,0 +1,7433 @@
+[
+  {
+    "id": 110,
+    "name": "Прочее",
+    "slug": "прочее",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 735,
+    "name": "Сервоприводы",
+    "slug": "сервоприводы-для-квадрокоптера",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 736,
+        "name": "Happymodel",
+        "slug": "happymodel",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 745,
+        "name": "Hitec",
+        "slug": "hitec",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 750,
+        "name": "Savox",
+        "slug": "savox",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1182,
+        "name": "KST",
+        "slug": "kst",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1203,
+        "name": "K-Power",
+        "slug": "k-power",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1206,
+        "name": "JX",
+        "slug": "jx",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1281,
+        "name": "Emax",
+        "slug": "emax",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1416,
+        "name": "MKS",
+        "slug": "сервоприводы-mks",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1626,
+        "name": "PowerHD",
+        "slug": "powerhd",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1628,
+        "name": "CORONA",
+        "slug": "corona",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1630,
+        "name": "HENGE",
+        "slug": "henge",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4067,
+        "name": "DSSERVO",
+        "slug": "dsservo",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4071,
+        "name": "Feetech",
+        "slug": "feetech",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4621,
+        "name": "GXservo",
+        "slug": "gxservo",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4868,
+        "name": "FrSky",
+        "slug": "frsky-сервоприводы-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5482,
+        "name": "HobbyPorter",
+        "slug": "hobbyporter",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5596,
+        "name": "Readytosky",
+        "slug": "readytosky-сервоприводы-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5600,
+        "name": "SURPASS",
+        "slug": "surpass-hobby",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5948,
+        "name": "9imod",
+        "slug": "9imod",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5949,
+        "name": "CYS",
+        "slug": "cys",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6386,
+        "name": "KingMax",
+        "slug": "kingmax",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6435,
+        "name": "Flashhobby",
+        "slug": "flashhobby-сервоприводы-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6460,
+        "name": "Futaba",
+        "slug": "futaba-сервоприводы-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6632,
+        "name": "AtomRC",
+        "slug": "atomrc-сервоприводы-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6713,
+        "name": "Dualsky",
+        "slug": "dualsky-сервоприводы-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7317,
+        "name": "SPT Servo",
+        "slug": "spt-servo",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7457,
+        "name": "Waveshare",
+        "slug": "waveshare-сервоприводы-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7461,
+        "name": "YANTRC",
+        "slug": "yantrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7570,
+        "name": "DSpower",
+        "slug": "dspower",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7573,
+        "name": "INJORA",
+        "slug": "injora",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7754,
+        "name": "WAVGAT",
+        "slug": "wavgat",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8042,
+        "name": "Lichuan",
+        "slug": "lichuan",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8108,
+        "name": "HawkSpeed",
+        "slug": "hawkspeed",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8268,
+        "name": "NeebRC",
+        "slug": "neebrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8271,
+        "name": "Oversky",
+        "slug": "oversky",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 737,
+    "name": "Микрокомпьютеры",
+    "slug": "микрокомпьютеры",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 738,
+        "name": "lattepanda",
+        "slug": "lattepanda",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 786,
+        "name": "Orange Pi",
+        "slug": "orange-pi",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 787,
+        "name": "Raspberry Pi",
+        "slug": "raspberry-pi",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 1419,
+            "name": "Аксессуары",
+            "slug": "аксессуары-для-микрокомпьютеров-raspberry-pi",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 892,
+        "name": "Nvidia",
+        "slug": "nvidia",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1202,
+        "name": "Khadas",
+        "slug": "khadas",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1352,
+        "name": "Banana Pi",
+        "slug": "banana-pi",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4460,
+        "name": "Arduino",
+        "slug": "arduino-микрокомпьютеры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4463,
+        "name": "Firefly",
+        "slug": "firefly",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4492,
+        "name": "RADXA",
+        "slug": "radxa",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5373,
+        "name": "Repka Pi",
+        "slug": "repka-pi",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7400,
+        "name": "LILYGO",
+        "slug": "lilygo-микрокомпьютеры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7515,
+        "name": "Flipper",
+        "slug": "flipper",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7519,
+        "name": "NanoPi",
+        "slug": "nanopi",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7712,
+        "name": "Bigtreetech",
+        "slug": "bigtreetech",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7816,
+        "name": "GMKtec",
+        "slug": "gmktec",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7962,
+        "name": "РЗЭ",
+        "slug": "рзэ",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 739,
+    "name": "Зарядные устроиства",
+    "slug": "зарядные-устроиства",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 740,
+        "name": "SKYRC",
+        "slug": "зарядное-устройство-skyrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 795,
+        "name": "Junsi iCharger",
+        "slug": "купить-зарядное-устройство-junsi-icharger",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 796,
+        "name": "EV-Peak",
+        "slug": "ev-peak-зу",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 797,
+        "name": "DJI",
+        "slug": "dji-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 861,
+        "name": "Другие производители",
+        "slug": "other_manufacturers",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 903,
+        "name": "Autel",
+        "slug": "autel-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1195,
+        "name": "LiitoKala",
+        "slug": "liitokala-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1261,
+        "name": "ARMYTEK",
+        "slug": "armytek-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1286,
+        "name": "BETAFPV",
+        "slug": "betafpv-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1346,
+        "name": "HTRC",
+        "slug": "зарядные-устройства-htrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1432,
+        "name": "ISDT",
+        "slug": "isdt",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1618,
+        "name": "ROBITON",
+        "slug": "robiton",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1633,
+        "name": "Korad",
+        "slug": "korad",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1635,
+        "name": "ToolkitRC",
+        "slug": "toolkitrc-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3348,
+        "name": "Ultrapower",
+        "slug": "ultrapower",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3352,
+        "name": "HOTA",
+        "slug": "hota",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3382,
+        "name": "Tattu",
+        "slug": "tattu-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3997,
+        "name": "Samsung",
+        "slug": "samsung-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4000,
+        "name": "VIFLY",
+        "slug": "vifly",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4002,
+        "name": "WORX",
+        "slug": "worx",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4611,
+        "name": "HGLRC",
+        "slug": "hglrc-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4614,
+        "name": "TopON",
+        "slug": "topon-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4789,
+        "name": "Hoco",
+        "slug": "hoco",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4791,
+        "name": "Nitecore",
+        "slug": "nitecore",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5804,
+        "name": "GEPRC",
+        "slug": "geprc-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6134,
+        "name": "Flysky",
+        "slug": "flysky-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6362,
+        "name": "GT Power",
+        "slug": "gt-power",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7215,
+        "name": "Дроны РФ",
+        "slug": "дроны-рф-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7585,
+        "name": "Jackery",
+        "slug": "jackery-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7676,
+        "name": "Flywoo",
+        "slug": "flywoo-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7680,
+        "name": "Imax",
+        "slug": "imax",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7840,
+        "name": "OKCELL",
+        "slug": "okcell",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7927,
+        "name": "Yakee",
+        "slug": "yakee",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8196,
+        "name": "GensAce",
+        "slug": "gensace-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8199,
+        "name": "Sub250",
+        "slug": "sub250-зарядные-устроиства",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 741,
+    "name": "Двигатели",
+    "slug": "двигатели",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 742,
+        "name": "Scorpion",
+        "slug": "scorpion",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 749,
+        "name": "iPower",
+        "slug": "ipower",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 758,
+        "name": "ARRIS",
+        "slug": "arris",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 763,
+        "name": "Flashhobby",
+        "slug": "flashhobby",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 785,
+        "name": "T-Motor",
+        "slug": "t-motor-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 788,
+        "name": "Dualsky",
+        "slug": "dualsky-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 801,
+        "name": "Emax",
+        "slug": "emax-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 825,
+        "name": "BrotherHobby",
+        "slug": "brotherhobby",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 848,
+        "name": "QX-motor",
+        "slug": "qx-motor",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 849,
+        "name": "IFlight",
+        "slug": "iflight-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 850,
+        "name": "JMT",
+        "slug": "jmt",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 873,
+        "name": "ReadyToSky",
+        "slug": "readytosky",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 874,
+        "name": "TAROT",
+        "slug": "tarot",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 887,
+        "name": "Hobbypower",
+        "slug": "hobbypower",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1080,
+        "name": "Foxeer",
+        "slug": "foxeer-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1183,
+        "name": "NTM",
+        "slug": "ntm",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1201,
+        "name": "JP Hobby",
+        "slug": "jp-hobby",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1278,
+        "name": "Sunnysky",
+        "slug": "sunnysky",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1283,
+        "name": "Freerchobby",
+        "slug": "freerchobby",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1285,
+        "name": "MAD",
+        "slug": "mad",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1305,
+        "name": "Diatone",
+        "slug": "diatone-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1306,
+        "name": "FATJAY",
+        "slug": "fatjay",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1325,
+        "name": "Skystars",
+        "slug": "skystars-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1340,
+        "name": "Maytech",
+        "slug": "maytech-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1391,
+        "name": "Hobbywing",
+        "slug": "hobbywing-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1412,
+        "name": "Flipsky",
+        "slug": "купить-двигатели-flipsky",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3054,
+        "name": "GEPRC",
+        "slug": "geprc-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3055,
+        "name": "SURPASS",
+        "slug": "surpass",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3959,
+        "name": "Другие производители",
+        "slug": "другие-производители-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3960,
+        "name": "DYS",
+        "slug": "dys",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3964,
+        "name": "Flywoo",
+        "slug": "flywoo-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3980,
+        "name": "Happymodel",
+        "slug": "happymodel-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4905,
+        "name": "BETAFPV",
+        "slug": "betafpv-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4930,
+        "name": "HGLRC",
+        "slug": "hglrc-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4931,
+        "name": "Hubsan",
+        "slug": "hubsan-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5432,
+        "name": "Axisflying",
+        "slug": "axisflying-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5490,
+        "name": "Lumenier",
+        "slug": "lumenier-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5638,
+        "name": "RCINPOWER",
+        "slug": "rcinpower",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5645,
+        "name": "Sparkhobby",
+        "slug": "sparkhobby",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5650,
+        "name": "SURPASS HOBBY",
+        "slug": "surpass-hobby-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5739,
+        "name": "Speedybee",
+        "slug": "speedybee-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5837,
+        "name": "SoloGood",
+        "slug": "sologood-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5851,
+        "name": "BEYONDSKY",
+        "slug": "beyondsky",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5854,
+        "name": "DarwinFPV",
+        "slug": "darwinfpv-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5859,
+        "name": "Holybro",
+        "slug": "holybro-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5860,
+        "name": "RUSHFPV",
+        "slug": "rushfpv-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5863,
+        "name": "VCIHOBBY",
+        "slug": "vcihobby",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6063,
+        "name": "Freerchhobby",
+        "slug": "freerchhobby",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6066,
+        "name": "HSKRC",
+        "slug": "hskrc-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6415,
+        "name": "BeastFPV",
+        "slug": "beastfpv-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6822,
+        "name": "FlyfishRC",
+        "slug": "flyfishrc-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7120,
+        "name": "Аэромехмаш",
+        "slug": "аэромехмаш",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7122,
+        "name": "МВМ-АВИА",
+        "slug": "мвм-авиа-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7127,
+        "name": "У-УППО",
+        "slug": "у-уппо",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7213,
+        "name": "DJI",
+        "slug": "dji-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7214,
+        "name": "FIMI",
+        "slug": "fimi-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7226,
+        "name": "Kubota",
+        "slug": "kubota",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7296,
+        "name": "DAMIAO",
+        "slug": "damiao",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7778,
+        "name": "COPTERPARTS",
+        "slug": "copterparts-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7986,
+        "name": "ATWAY",
+        "slug": "atway-двигатели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7993,
+        "name": "EtherCAT",
+        "slug": "ethercat",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7997,
+        "name": "Honpine",
+        "slug": "honpine",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 743,
+    "name": "Лопасти и пропеллеры",
+    "slug": "лопасти-и-пропеллеры",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 744,
+        "name": "Aeronaut CAM Carbon",
+        "slug": "aeronaut-cam-carbon",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 748,
+        "name": "T-Motor",
+        "slug": "t-motor-лопасти-и-пропеллеры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 778,
+        "name": "Пропеллеры, 2 лопасти",
+        "slug": "пропеллеры-2-лопасти",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 7151,
+            "name": "Завод №50",
+            "slug": "2-лопастные-пропеллеры-завод-№50",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7154,
+            "name": "МВМ-АВИА",
+            "slug": "мвм-авиа-пропеллеры-2-лопасти",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7155,
+            "name": "У-УППО",
+            "slug": "у-уппо-пропеллеры-2-лопасти",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 780,
+        "name": "Лопасти",
+        "slug": "лопасти",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 792,
+        "name": "Dualsky",
+        "slug": "dualsky-лопасти-и-пропеллеры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 826,
+        "name": "Пропеллеры, 3 лопасти",
+        "slug": "пропеллеры-3-лопасти",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 7156,
+            "name": "Завод №50",
+            "slug": "завод-№50-пропеллеры-3-лопасти",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 847,
+        "name": "Аксессуары",
+        "slug": "аксессуары-лопасти-и-пропеллеры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1303,
+        "name": "DJI",
+        "slug": "dji-лопасти-и-пропеллеры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3692,
+        "name": "Copterparts",
+        "slug": "copterparts-blades",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 746,
+    "name": "ESC Регуляторы",
+    "slug": "esc-регуляторы",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 747,
+        "name": "T-Motor",
+        "slug": "t-motor",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 764,
+        "name": "Другие производители",
+        "slug": "другие-производители",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 793,
+        "name": "DYS",
+        "slug": "dis-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 794,
+        "name": "Maytech",
+        "slug": "maytech",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 859,
+        "name": "FlashHobby",
+        "slug": "flashhobby-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 880,
+        "name": "HOBBYWING",
+        "slug": "hobbywing",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1193,
+        "name": "ReadyToSky",
+        "slug": "readytosky-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1196,
+        "name": "ZTW",
+        "slug": "ztw",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1207,
+        "name": "FRC",
+        "slug": "frc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1282,
+        "name": "RUSHFPV",
+        "slug": "rushfpv",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1288,
+        "name": "Foxeer",
+        "slug": "foxeer-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1289,
+        "name": "Hobbyking",
+        "slug": "hobbyking",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1290,
+        "name": "MAD",
+        "slug": "mad-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1435,
+        "name": "HAKRC",
+        "slug": "hakrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1619,
+        "name": "Flywoo",
+        "slug": "flywoo-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1620,
+        "name": "ZMR",
+        "slug": "zmr-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1621,
+        "name": "Skystars",
+        "slug": "skystars-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1622,
+        "name": "Cyclone",
+        "slug": "cyclone",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1624,
+        "name": "JHEMCU",
+        "slug": "jhemcu-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4089,
+        "name": "SEQURE",
+        "slug": "sequre",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4547,
+        "name": "Flipsky",
+        "slug": "flipsky",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4595,
+        "name": "DJI",
+        "slug": "dji-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4596,
+        "name": "Emax",
+        "slug": "emax-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4839,
+        "name": "GEPRC",
+        "slug": "geprc-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4842,
+        "name": "JMT",
+        "slug": "jmt-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5070,
+        "name": "Holybro",
+        "slug": "holybro-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5071,
+        "name": "Scorpion",
+        "slug": "scorpion-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5496,
+        "name": "Lumenier",
+        "slug": "lumenier-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5602,
+        "name": "Dualsky",
+        "slug": "dualsky",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5755,
+        "name": "Aocoda-RC",
+        "slug": "aocoda-rc-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5756,
+        "name": "Diatone",
+        "slug": "diatone-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5819,
+        "name": "Flycolor",
+        "slug": "flycolor",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5892,
+        "name": "HGLRC",
+        "slug": "hglrc-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5895,
+        "name": "IFlight",
+        "slug": "iflight-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5896,
+        "name": "SkyRC",
+        "slug": "skyrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5931,
+        "name": "SoloGood",
+        "slug": "sologood-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6118,
+        "name": "Makerbase",
+        "slug": "makerbase",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6121,
+        "name": "NeutronRC",
+        "slug": "neutronrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6641,
+        "name": "Axisflying",
+        "slug": "axisflying-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6730,
+        "name": "DarwinFPV",
+        "slug": "darwinfpv-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6854,
+        "name": "FATJAY",
+        "slug": "fatjay-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6917,
+        "name": "ISDT",
+        "slug": "isdt-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7093,
+        "name": "FOXAIR",
+        "slug": "foxair",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7095,
+        "name": "Spedix",
+        "slug": "spedix",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7097,
+        "name": "Sunnysky",
+        "slug": "sunnysky-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7100,
+        "name": "XXD",
+        "slug": "xxd",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7176,
+        "name": "МВМ-АВИА",
+        "slug": "мвм-авиа-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7883,
+        "name": "Furious Motor",
+        "slug": "furious-motor",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7985,
+        "name": "ATWAY",
+        "slug": "atway-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8048,
+        "name": "OddityRC",
+        "slug": "oddityrc-esc-регуляторы",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 751,
+    "name": "Камеры и видео",
+    "slug": "фото-и-видео",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 752,
+        "name": "Штативы",
+        "slug": "штативы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 755,
+        "name": "Фотоаппараты",
+        "slug": "фотоаппараты",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 6089,
+            "name": "Аксессуары",
+            "slug": "аксессуары-фотоаппараты",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 6502,
+            "name": "Sony",
+            "slug": "sony-фотоаппараты",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 756,
+        "name": "Объективы",
+        "slug": "объективы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 757,
+        "name": "Камеры",
+        "slug": "камеры",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 4541,
+            "name": "Caddx",
+            "slug": "caddx-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 4543,
+            "name": "Foxeer",
+            "slug": "foxeer-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 4545,
+            "name": "IFlight",
+            "slug": "iflight-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 4603,
+            "name": "Аксессуары",
+            "slug": "аксессуары-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 4604,
+            "name": "Другие производители",
+            "slug": "другие-производители-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 4605,
+            "name": "DJI",
+            "slug": "dji-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 4607,
+            "name": "Intel",
+            "slug": "intel",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 4608,
+            "name": "Viewpro",
+            "slug": "viewpro",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 4897,
+            "name": "BEASTFPV",
+            "slug": "beastfpv-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 4899,
+            "name": "Luxonis",
+            "slug": "luxonis",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 4901,
+            "name": "Runcam",
+            "slug": "runcam",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 4902,
+            "name": "Walksnail",
+            "slug": "walksnail-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 4960,
+            "name": "Mugin",
+            "slug": "mugin-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 5111,
+            "name": "GEPRC",
+            "slug": "geprc-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 5445,
+            "name": "BETAFPV",
+            "slug": "betafpv-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 5446,
+            "name": "Flywoo",
+            "slug": "flywoo-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 5447,
+            "name": "HDZero",
+            "slug": "hdzero-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 5805,
+            "name": "Axisflying",
+            "slug": "axisflying-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 5866,
+            "name": "Happymodel",
+            "slug": "happymodel-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 5867,
+            "name": "Jumpeak",
+            "slug": "jumpeak",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 5933,
+            "name": "Eachine",
+            "slug": "eachine-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 5934,
+            "name": "Skydroid",
+            "slug": "skydroid-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 5935,
+            "name": "Slonwake",
+            "slug": "slonwake",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 6083,
+            "name": "NAVITEL",
+            "slug": "navitel",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 6366,
+            "name": "Logitech",
+            "slug": "logitech",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 6424,
+            "name": "Khadas",
+            "slug": "khadas-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 6425,
+            "name": "Uniview",
+            "slug": "uniview",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 6450,
+            "name": "GoPro",
+            "slug": "gopro-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 6453,
+            "name": "Hikvision",
+            "slug": "hikvision",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 6605,
+            "name": "Aocoda-RC",
+            "slug": "aocoda-rc-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 6678,
+            "name": "Boscam",
+            "slug": "boscam-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 6682,
+            "name": "DarwinFPV",
+            "slug": "darwinfpv-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 6767,
+            "name": "SIYI",
+            "slug": "siyi-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 6883,
+            "name": "Insta360",
+            "slug": "insta360-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7216,
+            "name": "Autel",
+            "slug": "autel-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7217,
+            "name": "Zenchansi",
+            "slug": "zenchansi",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7230,
+            "name": "Topotek",
+            "slug": "topotek",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7300,
+            "name": "Orange Pi",
+            "slug": "orange-pi-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7617,
+            "name": "CHNSpec",
+            "slug": "chnspec",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 8003,
+            "name": "FLIR",
+            "slug": "flir-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 8005,
+            "name": "SingTown",
+            "slug": "singtown",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 8007,
+            "name": "Sipeed",
+            "slug": "sipeed-камеры",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 8009,
+            "name": "Stereolabs",
+            "slug": "stereolabs",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 759,
+        "name": "Устройство видеозахвата",
+        "slug": "устройство-видеозахвата",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 844,
+        "name": "Аксессуары",
+        "slug": "аксессуары-фото-и-видео",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3189,
+        "name": "Стабилизаторы",
+        "slug": "стабилизаторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3204,
+        "name": "Карты памяти",
+        "slug": "карты-памяти",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 753,
+    "name": "Инструмент",
+    "slug": "инструмент",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 754,
+        "name": "Наборы фрез",
+        "slug": "наборы-фрез",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 852,
+        "name": "Зажимы",
+        "slug": "зажимы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 853,
+        "name": "Тенты",
+        "slug": "тенты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 854,
+        "name": "Электричество",
+        "slug": "электричество",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 760,
+    "name": "Микросхемы чипы",
+    "slug": "микросхемы-чипы",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 6517,
+        "name": "Atmel",
+        "slug": "atmel",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6519,
+        "name": "BETAFPV",
+        "slug": "betafpv-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6520,
+        "name": "Castle Creations",
+        "slug": "castle-creations",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6522,
+        "name": "CUAV",
+        "slug": "cuav-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6523,
+        "name": "Diatone",
+        "slug": "diatone-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6524,
+        "name": "Dimiks",
+        "slug": "dimiks",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6526,
+        "name": "Drotek",
+        "slug": "drotek",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6528,
+        "name": "ELBEAR",
+        "slug": "elbear",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6530,
+        "name": "Feichao",
+        "slug": "feichao-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6531,
+        "name": "Flywoo",
+        "slug": "flywoo-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6532,
+        "name": "Foxeer",
+        "slug": "foxeer-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6533,
+        "name": "FrSky",
+        "slug": "frsky-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6534,
+        "name": "HGLRC",
+        "slug": "hglrc-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6535,
+        "name": "Holybro",
+        "slug": "holybro-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6536,
+        "name": "iCore",
+        "slug": "icore",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6538,
+        "name": "IFlight",
+        "slug": "iflight-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6539,
+        "name": "J-Link",
+        "slug": "j-link",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6541,
+        "name": "JHEMCU",
+        "slug": "jhemcu-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6542,
+        "name": "KROKS",
+        "slug": "kroks-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6543,
+        "name": "LILYGO",
+        "slug": "lilygo",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6545,
+        "name": "LORA",
+        "slug": "lora",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6547,
+        "name": "Mateksys",
+        "slug": "mateksys-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6548,
+        "name": "Matsutec",
+        "slug": "matsutec",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6549,
+        "name": "Pixhawk",
+        "slug": "pixhawk",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6550,
+        "name": "Quectel",
+        "slug": "quectel",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6552,
+        "name": "ReadyToSky",
+        "slug": "readytosky-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6553,
+        "name": "RunCam",
+        "slug": "runcam-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6554,
+        "name": "RUSHFPV",
+        "slug": "rushfpv-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6555,
+        "name": "Seneca",
+        "slug": "seneca",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6557,
+        "name": "Sipeed",
+        "slug": "sipeed",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6559,
+        "name": "SIYI",
+        "slug": "siyi-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6560,
+        "name": "Team BlackSheep",
+        "slug": "team-blacksheep-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6561,
+        "name": "TENSTAR",
+        "slug": "tenstar",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6563,
+        "name": "Turnigy",
+        "slug": "turnigy-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6564,
+        "name": "VEYE",
+        "slug": "veye",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6566,
+        "name": "Waveshare",
+        "slug": "waveshare",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6568,
+        "name": "Yahboom",
+        "slug": "yahboom-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6686,
+        "name": "Dualsky",
+        "slug": "dualsky-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6772,
+        "name": "Hobbywing",
+        "slug": "hobbywing-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6828,
+        "name": "FATJAY",
+        "slug": "fatjay-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6958,
+        "name": "Maytech",
+        "slug": "maytech-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7062,
+        "name": "VIFLY",
+        "slug": "vifly-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7158,
+        "name": "НПФ РЭТ",
+        "slug": "нпф-рэт",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7307,
+        "name": "Arduino",
+        "slug": "arduino-микросхемы-чипы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7308,
+        "name": "EZUAV",
+        "slug": "ezuav",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7368,
+        "name": "ICP-DAS",
+        "slug": "icp-das",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7371,
+        "name": "Mornsun",
+        "slug": "mornsun",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8049,
+        "name": "Omron",
+        "slug": "omron",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8050,
+        "name": "HAMGEEK",
+        "slug": "hamgeek",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8279,
+        "name": "TwinRX",
+        "slug": "twinrx",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 761,
+    "name": "Радиостанции",
+    "slug": "радиостанции",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1382,
+        "name": "Motorola",
+        "slug": "motorola",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1383,
+        "name": "Hytera",
+        "slug": "hytera",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1384,
+        "name": "Baofeng",
+        "slug": "baofeng",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1415,
+        "name": "Lira",
+        "slug": "lira-радиостанции",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4796,
+        "name": "Leixen",
+        "slug": "leixen",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4800,
+        "name": "Sennheiser",
+        "slug": "sennheiser",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4804,
+        "name": "TYT",
+        "slug": "tyt",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5377,
+        "name": "Anytone",
+        "slug": "anytone",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5379,
+        "name": "KIRISUN",
+        "slug": "kirisun",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7259,
+        "name": "Аргут",
+        "slug": "аргут",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7356,
+        "name": "D-Link",
+        "slug": "d-link",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7440,
+        "name": "Turbosky",
+        "slug": "turbosky",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7551,
+        "name": "Quansheng",
+        "slug": "quansheng",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7872,
+        "name": "MIMO",
+        "slug": "mimo",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8033,
+        "name": "ХАЙТ",
+        "slug": "хайт",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8036,
+        "name": "KINIQ",
+        "slug": "kiniq",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8040,
+        "name": "Pluto",
+        "slug": "pluto",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8098,
+        "name": "ТЕРЕК",
+        "slug": "терек",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8100,
+        "name": "Vector",
+        "slug": "vector",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8287,
+        "name": "Другие производители",
+        "slug": "другие-производители-радиостанции-2",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 762,
+    "name": "Мониторы",
+    "slug": "мониторы",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 6140,
+        "name": "CARCAM",
+        "slug": "carcam",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7218,
+        "name": "DJI",
+        "slug": "dji-мониторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7532,
+        "name": "Feelworld",
+        "slug": "feelworld",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8079,
+        "name": "DMKR",
+        "slug": "dmkr",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8081,
+        "name": "Eachine",
+        "slug": "eachine-мониторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8082,
+        "name": "Readytosky",
+        "slug": "readytosky-мониторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8223,
+        "name": "Другие производители",
+        "slug": "другие-производители-мониторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8224,
+        "name": "Accsoon",
+        "slug": "accsoon",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8226,
+        "name": "Osee",
+        "slug": "osee",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8228,
+        "name": "SEETEC",
+        "slug": "seetec",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8230,
+        "name": "Viltrox",
+        "slug": "viltrox",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 765,
+    "name": "Квадрокоптеры",
+    "slug": "квадрокоптеры",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 766,
+        "name": "DJI",
+        "slug": "dji",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 767,
+            "name": "Дроны с камерой",
+            "slug": "дроны-с-камерой",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 773,
+            "name": "Специализированные",
+            "slug": "купить-специализированные-квадрокоп",
+            "productCount": 0,
+            "children": [
+              {
+                "id": 774,
+                "name": "Для предприятий",
+                "slug": "купить-промышленные-квадрокоптеры",
+                "productCount": 0,
+                "children": []
+              },
+              {
+                "id": 807,
+                "name": "Сельское хозяйство",
+                "slug": "квадрокоптеры-для-сельского-хозяйст",
+                "productCount": 0,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": 1417,
+            "name": "Образовательные",
+            "slug": "образовательные",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 875,
+        "name": "Diatone",
+        "slug": "diatone",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 888,
+        "name": "JMT",
+        "slug": "jmt-квадрокоптеры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 889,
+        "name": "IFlight",
+        "slug": "iflight-квадрокоптеры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 902,
+        "name": "Autel",
+        "slug": "autel",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 1007,
+            "name": "Квадрокоптеры Autel",
+            "slug": "квадрокоптеры-autel",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 1008,
+            "name": "Промышленные дроны",
+            "slug": "промышленные-дроны",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 930,
+        "name": "GEPRC",
+        "slug": "gerpc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 931,
+        "name": "BetaFPV",
+        "slug": "betafpv-квадрокоптеры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1079,
+        "name": "Happymodel",
+        "slug": "happymodel-квадрокоптеры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1084,
+        "name": "EFT",
+        "slug": "eft",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1085,
+        "name": "SIYI",
+        "slug": "siyi",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 1165,
+            "name": "Сельскохозяйственные дроны",
+            "slug": "сельскохозяйственные-дроны",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 1166,
+            "name": "Квадрокоптеры",
+            "slug": "квадрокоптеры-siyi",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 1191,
+        "name": "FIMI",
+        "slug": "fimi",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1299,
+        "name": "Art-Tech",
+        "slug": "art-tech",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1307,
+        "name": "Hubsan",
+        "slug": "hubsan",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1308,
+        "name": "Walkera",
+        "slug": "walkera",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1327,
+        "name": "DarwinFPV",
+        "slug": "darwinfpv",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1347,
+        "name": "Производство РФ",
+        "slug": "дроны-российского-производства",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1396,
+        "name": "JSI",
+        "slug": "jsi",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 2138,
+        "name": "COPTERPARTS",
+        "slug": "copterparts-квадрокоптеры",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 2459,
+            "name": "Сельскохозяйственные дроны",
+            "slug": "сельхоз-дроны",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 2386,
+        "name": "FYXL",
+        "slug": "fyxl",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7233,
+        "name": "WAT",
+        "slug": "wat",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 770,
+    "name": "АКБ",
+    "slug": "акб",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 771,
+        "name": "DJI",
+        "slug": "dji-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 806,
+        "name": "GAONENG",
+        "slug": "gaoneng",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 827,
+        "name": "IFlight",
+        "slug": "iflight",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 828,
+        "name": "BETAFPV",
+        "slug": "betafpv",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 829,
+        "name": "Samsung",
+        "slug": "samsung",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 830,
+        "name": "RADIOMASTER",
+        "slug": "radiomaster",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 835,
+        "name": "Аксессуары",
+        "slug": "аксессуары-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 846,
+        "name": "Turnigy",
+        "slug": "turnigy",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 866,
+        "name": "B&amp;C",
+        "slug": "bc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 867,
+        "name": "GNB",
+        "slug": "gnb",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 868,
+        "name": "HRB",
+        "slug": "hrb",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 869,
+        "name": "LiitoKala",
+        "slug": "liitokala",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 870,
+        "name": "Sunpadow",
+        "slug": "sunpadow",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 871,
+        "name": "Tattu",
+        "slug": "tattu",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 890,
+        "name": "Peak Racing",
+        "slug": "peak-racing",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 891,
+        "name": "CNHL",
+        "slug": "cnhl",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 894,
+        "name": "Sigp",
+        "slug": "sigp",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1081,
+        "name": "ZOP POWER",
+        "slug": "zop-power",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1194,
+        "name": "GP",
+        "slug": "gp",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1204,
+        "name": "ToolkitRC",
+        "slug": "toolkitrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1205,
+        "name": "AHTECH",
+        "slug": "ahtech",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1212,
+        "name": "ARTELV",
+        "slug": "artelv-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1260,
+        "name": "ARMYTEK",
+        "slug": "armytek-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1276,
+        "name": "VANT",
+        "slug": "vant",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1284,
+        "name": "Molicel",
+        "slug": "molicel",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1291,
+        "name": "Panasonic",
+        "slug": "panasonic",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1292,
+        "name": "Sony",
+        "slug": "sony",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1294,
+        "name": "SIYI",
+        "slug": "siyi-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1295,
+        "name": "TopON",
+        "slug": "topon",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1298,
+        "name": "GEPRC",
+        "slug": "geprc-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1304,
+        "name": "ManiaX",
+        "slug": "maniax",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1339,
+        "name": "Black Magic",
+        "slug": "black-magic",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1631,
+        "name": "Youme",
+        "slug": "youme",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 2821,
+        "name": "Zeee Power",
+        "slug": "zeee-power",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 2823,
+        "name": "Happymodel",
+        "slug": "happymodel-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 2824,
+        "name": "Flywoo",
+        "slug": "flywoo-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 2825,
+        "name": "DarwinFPV",
+        "slug": "darwinfpv-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3943,
+        "name": "Другие производители",
+        "slug": "другие-производители-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4665,
+        "name": "RacePow",
+        "slug": "racepow",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4950,
+        "name": "GoPro",
+        "slug": "gopro",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6054,
+        "name": "JOUYM",
+        "slug": "jouym",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6058,
+        "name": "Speedway Slide",
+        "slug": "speedway-slide",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6061,
+        "name": "Z POWER",
+        "slug": "z-power",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6343,
+        "name": "Tiger Power",
+        "slug": "tiger-power",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6413,
+        "name": "GensAce",
+        "slug": "gensace",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6446,
+        "name": "Graphene",
+        "slug": "graphene",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7195,
+        "name": "Дроны РФ",
+        "slug": "дроны-рф-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7196,
+        "name": "Autel",
+        "slug": "autel-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7327,
+        "name": "Herewin",
+        "slug": "herewin",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7833,
+        "name": "T-Drones",
+        "slug": "t-drones",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7990,
+        "name": "ATWAY",
+        "slug": "atway-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7991,
+        "name": "ЧЕСТНАЯ БАТАРЕЯ",
+        "slug": "честная-батарея",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8053,
+        "name": "HGLRC",
+        "slug": "hglrc-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8185,
+        "name": "GAOLAG",
+        "slug": "gaolag",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8187,
+        "name": "MJX",
+        "slug": "mjx-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8188,
+        "name": "SMARTOOOLS",
+        "slug": "smartoools",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8190,
+        "name": "Sub250",
+        "slug": "sub250-акб",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8191,
+        "name": "TERANTY",
+        "slug": "teranty",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 775,
+    "name": "Тепловизоры",
+    "slug": "тепловизоры",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1214,
+        "name": "Тепловизионные измерительные монокуляры серии DV",
+        "slug": "timm_dv",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1215,
+        "name": "Тепловизионные монокуляры серии xEye N",
+        "slug": "тепловизионные-монокуляры-серии-xeye-n",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1216,
+        "name": "Тепловизионные монокуляры серии AFFO",
+        "slug": "тепловизионные-монокуляры-серии-affo",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1217,
+        "name": "Тепловизионные монокуляры серии xEye 2 v2",
+        "slug": "тепловизионные-монокуляры-серии-xeye-2-v2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1218,
+        "name": "Тепловизионные монокуляры серии xEye 2 v3",
+        "slug": "тепловизионные-монокуляры-серии-xeye-2-v3",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1219,
+        "name": "Тепловизионные монокуляры серии Eye III",
+        "slug": "тепловизионные-монокуляры-серии-eye-iii",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1220,
+        "name": "Тепловизионные монокуляры серии Cabin",
+        "slug": "тепловизионные-монокуляры-серии-cabin",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1221,
+        "name": "Тепловизионные монокуляры серии Finder",
+        "slug": "тепловизионные-монокуляры-серии-finder",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1222,
+        "name": "Тепловизионные монокуляры серии Unique",
+        "slug": "тепловизионные-монокуляры-серии-unique",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1223,
+        "name": "Тепловизионные монокуляры серии Zoom",
+        "slug": "тепловизионные-монокуляры-серии-zoom",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1224,
+        "name": "Тепловизионные монокуляры серии xMini",
+        "slug": "тепловизионные-монокуляры-серии-xmini",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1225,
+        "name": "Тепловизионный монокуляр серии Dual",
+        "slug": "тепловизионный-монокуляр-серии-dual",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1226,
+        "name": "Тепловизионные гибридные бинокли TOM",
+        "slug": "тепловизионные-гибридные-бинокли-tom",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1227,
+        "name": "Тепловизионные гибридные бинокли xFuse",
+        "slug": "тепловизионные-гибридные-бинокли-xfuse",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1228,
+        "name": "Тепловизионные камеры кругового обзора серии M6",
+        "slug": "тепловизионные-камеры-кругового-обз",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1237,
+        "name": "Тепловизионные предобъективные насадки Mate",
+        "slug": "тепловизионные-предобъективные-наса",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1238,
+        "name": "Мультифункциональные тепловизоры Rico Micro 25",
+        "slug": "мультифункциональные-тепловизоры-rico-micro-2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1239,
+        "name": "Тепловизионные измерительные камеры iRay",
+        "slug": "тепловизионные-измерительные-камеры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1240,
+        "name": "Тепловизионные измерительные насадки Xinfrared",
+        "slug": "тепловизионные-измерительные-насадк",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1241,
+        "name": "Аксессуары и Расходники iRay",
+        "slug": "аксессуары-и-расходники-iray",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1427,
+        "name": "Аксессуары",
+        "slug": "аксессуары-для-тепловизора",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1428,
+        "name": "Дальномеры",
+        "slug": "лазерные-дальномеры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7373,
+        "name": "Guide",
+        "slug": "guide",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7375,
+        "name": "Dedal",
+        "slug": "dedal",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7601,
+        "name": "Ermenrich",
+        "slug": "ermenrich",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7603,
+        "name": "Fluke",
+        "slug": "fluke",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7645,
+        "name": "ARTELV",
+        "slug": "artelv-тепловизоры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7879,
+        "name": "LZIRTEK",
+        "slug": "lzirtek",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7881,
+        "name": "RIKANV",
+        "slug": "rikanv",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8044,
+        "name": "EATECH",
+        "slug": "eatech",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8046,
+        "name": "Infiray",
+        "slug": "infiray",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 783,
+    "name": "Шлейфы",
+    "slug": "шлейфы",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 784,
+    "name": "Консоли и приставки",
+    "slug": "игровые-консоли-и-приставки",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 789,
+    "name": "Сетевое оборудование",
+    "slug": "сетевое-оборудование",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 799,
+    "name": "Ремкомплекты Kyocera",
+    "slug": "ремкомплекты-kyocera",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 800,
+    "name": "Подвесы",
+    "slug": "подвесы",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 2540,
+        "name": "Gremsy",
+        "slug": "gremsy",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 2542,
+        "name": "Tarot",
+        "slug": "tarot-подвесы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 2544,
+        "name": "Mugin",
+        "slug": "mugin",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 2546,
+        "name": "DJI",
+        "slug": "dji-подвесы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5376,
+        "name": "Caddx",
+        "slug": "caddx-подвесы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8088,
+        "name": "WOJO",
+        "slug": "wojo",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 804,
+    "name": "Пульты управления",
+    "slug": "пульты-управления",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 805,
+        "name": "Комплекты",
+        "slug": "комплекты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 832,
+        "name": "RADIOMASTER",
+        "slug": "radiomaster-пульты-управления",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 863,
+            "name": "Пульты управления",
+            "slug": "controlpanels",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 837,
+        "name": "BETAFPV",
+        "slug": "betafpv-пульты-управления",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 862,
+            "name": "Пульты управления",
+            "slug": "control_panels",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 877,
+        "name": "DJI",
+        "slug": "dji-пульты-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 878,
+        "name": "FlySky",
+        "slug": "flysky",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 879,
+        "name": "TBS",
+        "slug": "tbs",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 893,
+        "name": "Jumper",
+        "slug": "jumper",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 897,
+        "name": "FrSky",
+        "slug": "frsky",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 905,
+        "name": "IFlight",
+        "slug": "пульты-управления-iflight",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1011,
+        "name": "Autel",
+        "slug": "autel-пульты-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1086,
+        "name": "SIYI",
+        "slug": "siyi-пульты-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1280,
+        "name": "GEPRC",
+        "slug": "geprc-пульты-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1357,
+        "name": "Yahboom",
+        "slug": "yahboom-пульты-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1434,
+        "name": "Futaba",
+        "slug": "futaba-пульты-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3062,
+        "name": "Radiolink",
+        "slug": "radiolink",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3064,
+        "name": "STP",
+        "slug": "stp",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5476,
+        "name": "Skydroid",
+        "slug": "skydroid-пульты-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5747,
+        "name": "HGLRC",
+        "slug": "hglrc-пульты-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5748,
+        "name": "MicroZone",
+        "slug": "microzone",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5882,
+        "name": "FIMI",
+        "slug": "fimi-пульты-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5887,
+        "name": "HelloRadio",
+        "slug": "helloradio",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5937,
+        "name": "Emax",
+        "slug": "emax-пульты-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5939,
+        "name": "HotRC",
+        "slug": "hotrc-пульты-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6405,
+        "name": "ThrustMaster",
+        "slug": "thrustmaster",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6623,
+        "name": "Flipsky",
+        "slug": "flipsky-пульты-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7350,
+        "name": "CHINOWING",
+        "slug": "chinowing",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7431,
+        "name": "Caddx",
+        "slug": "caddx-пульты-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8251,
+        "name": "DumboRC",
+        "slug": "dumborc-пульты-управления",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 808,
+    "name": "FPV очки",
+    "slug": "fpv-очки",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 881,
+        "name": "DJI",
+        "slug": "dji-fpv-очки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 895,
+        "name": "Skyzone",
+        "slug": "skyzone-fpv-очки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 896,
+        "name": "Walksnail",
+        "slug": "walksnail",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1293,
+        "name": "HDZero",
+        "slug": "hdzero",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1297,
+        "name": "Flywoo",
+        "slug": "flywoo",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1309,
+        "name": "FatShark",
+        "slug": "fatshark",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1353,
+        "name": "Eachine",
+        "slug": "eachine-fpv-очки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1380,
+        "name": "SwellPro",
+        "slug": "swellpro",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1606,
+        "name": "BetaFPV",
+        "slug": "betafpv-fpv-очки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1607,
+        "name": "IFlight",
+        "slug": "iflight-fpv-очки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1608,
+        "name": "Emax",
+        "slug": "emax-fpv-очки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4806,
+        "name": "Другие производители",
+        "slug": "другие-производители-fpv-очки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5382,
+        "name": "Aomway",
+        "slug": "aomway-fpv-очки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5590,
+        "name": "Epson",
+        "slug": "epson",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5593,
+        "name": "GEPRC",
+        "slug": "geprc-fpv-очки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7102,
+        "name": "SLONWAKE",
+        "slug": "slonwake-fpv-очки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7474,
+        "name": "Hawkeye",
+        "slug": "hawkeye",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8116,
+        "name": "HGLRC",
+        "slug": "hglrc-fpv-очки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8117,
+        "name": "DarwinFPV",
+        "slug": "darwinfpv-fpv-очки",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 809,
+    "name": "Передатчики",
+    "slug": "передатчики",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 810,
+        "name": "Foxeer",
+        "slug": "foxeer",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 811,
+            "name": "Передатчики",
+            "slug": "передатчики-foxeer",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 812,
+        "name": "Team BlackSheep",
+        "slug": "tbs-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 813,
+        "name": "RUSHFPV",
+        "slug": "rushfpv-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 814,
+        "name": "SpeedyBee",
+        "slug": "speedybee-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 815,
+        "name": "AKK",
+        "slug": "akk-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 816,
+        "name": "Holybro",
+        "slug": "holybro-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 817,
+        "name": "Mamba System",
+        "slug": "mamba-system-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 833,
+        "name": "RADIOMASTER",
+        "slug": "radiomaster-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 838,
+        "name": "BETAFVP",
+        "slug": "betafvp-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 845,
+        "name": "EACHINE",
+        "slug": "eachine-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 856,
+        "name": "Skyzone",
+        "slug": "skyzone",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 857,
+        "name": "Другие производители",
+        "slug": "другие-производители-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 858,
+        "name": "Mateksys",
+        "slug": "mateksys",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 876,
+        "name": "RF Explorer",
+        "slug": "rf-explorer",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 898,
+        "name": "FrSky",
+        "slug": "frsky-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 900,
+        "name": "Boscam",
+        "slug": "boscam",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 932,
+        "name": "DJI",
+        "slug": "dji-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1082,
+        "name": "Partom",
+        "slug": "partom",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1087,
+        "name": "SIYI",
+        "slug": "siyi-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1277,
+        "name": "Happymodel",
+        "slug": "happymodel-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1279,
+        "name": "GEPRC",
+        "slug": "geprc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1287,
+        "name": "CUAV",
+        "slug": "cuav",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1300,
+        "name": "HackRF",
+        "slug": "hackrf",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1301,
+        "name": "HDZero",
+        "slug": "hdzero-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1326,
+        "name": "FlySky",
+        "slug": "flysky-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1345,
+        "name": "Garmin",
+        "slug": "garmin",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1389,
+        "name": "tBeacon",
+        "slug": "tbeacon-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1413,
+        "name": "FlyfishRC",
+        "slug": "передатчики-flyfishrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1414,
+        "name": "IFlight",
+        "slug": "iflight-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4025,
+        "name": "Axisflying",
+        "slug": "axisflying-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4027,
+        "name": "BEASTFPV",
+        "slug": "beastfpv-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4028,
+        "name": "BETAFPV",
+        "slug": "betafpv-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4032,
+        "name": "DarwinFPV",
+        "slug": "darwinfpv-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4037,
+        "name": "ITC",
+        "slug": "itc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4046,
+        "name": "JHEMCU",
+        "slug": "jhemcu-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4047,
+        "name": "NETOPTIC",
+        "slug": "netoptic",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4051,
+        "name": "Radiolink",
+        "slug": "radiolink-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4058,
+        "name": "Totem",
+        "slug": "totem",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4208,
+        "name": "Гермес",
+        "slug": "гермес",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4218,
+        "name": "SoloGood",
+        "slug": "sologood",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4220,
+        "name": "Walksnail",
+        "slug": "walksnail-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4528,
+        "name": "Caddx",
+        "slug": "caddx",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4642,
+        "name": "HGLRC",
+        "slug": "hglrc-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5075,
+        "name": "Flywoo",
+        "slug": "flywoo-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5081,
+        "name": "Runcam",
+        "slug": "runcam-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5454,
+        "name": "AvengeAngel",
+        "slug": "avengeangel",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5461,
+        "name": "Emax",
+        "slug": "emax-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5470,
+        "name": "Matsusec",
+        "slug": "matsusec",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5474,
+        "name": "TYT",
+        "slug": "tyt-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5582,
+        "name": "AtomRC",
+        "slug": "atomrc-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5617,
+        "name": "Jumper",
+        "slug": "jumper-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5620,
+        "name": "Readytosky",
+        "slug": "readytosky-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5621,
+        "name": "Retevis",
+        "slug": "retevis",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5746,
+        "name": "Flashhobby",
+        "slug": "flashhobby-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5824,
+        "name": "Aocoda-RC",
+        "slug": "aocoda-rc-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5825,
+        "name": "Diatone",
+        "slug": "diatone-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5918,
+        "name": "HotRC",
+        "slug": "hotrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5921,
+        "name": "Sparkhobby",
+        "slug": "sparkhobby-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6090,
+        "name": "Ajax",
+        "slug": "ajax",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6092,
+        "name": "B-CUBE",
+        "slug": "b-cube",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6098,
+        "name": "Humminbird",
+        "slug": "humminbird",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6618,
+        "name": "AOMWAY",
+        "slug": "aomway-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7066,
+        "name": "T-Motor",
+        "slug": "t-motor-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7162,
+        "name": "МВМ-АВИА",
+        "slug": "мвм-авиа-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7311,
+        "name": "E-POWER",
+        "slug": "e-power",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7313,
+        "name": "RCtoSky",
+        "slug": "rctosky",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8022,
+        "name": "Osnovo",
+        "slug": "osnovo",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8083,
+        "name": "Sub250",
+        "slug": "sub250",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8086,
+        "name": "ImmersionRC",
+        "slug": "immersionrc-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8232,
+        "name": "Accsoon",
+        "slug": "accsoon-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8233,
+        "name": "BAYCKRC",
+        "slug": "bayckrc-передатчики",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8238,
+        "name": "LILYGO",
+        "slug": "lilygo-передатчики",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 818,
+    "name": "Антенны",
+    "slug": "антенны",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 819,
+        "name": "SpeedyBee",
+        "slug": "speedybee-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 820,
+        "name": "RUSHFPV",
+        "slug": "rushfpv-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 821,
+        "name": "ORT",
+        "slug": "ort-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 822,
+        "name": "Team BlackSheep",
+        "slug": "team-blacksheep-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 823,
+        "name": "GEPRC",
+        "slug": "geprc-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 839,
+        "name": "BETAFPV",
+        "slug": "betafvp-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 842,
+        "name": "Foxeer",
+        "slug": "foxeer-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 851,
+        "name": "Другие производители",
+        "slug": "другие-производители-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 855,
+        "name": "Аксессуары",
+        "slug": "купить-усилители-антенн-для-квадроко",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 872,
+        "name": "Lumenier",
+        "slug": "lumenier",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 901,
+        "name": "Shakespeare",
+        "slug": "shakespeare",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 906,
+        "name": "IFlight",
+        "slug": "iflight-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 907,
+        "name": "WYFPV",
+        "slug": "wyfpv",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 908,
+        "name": "Maple",
+        "slug": "maple",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 909,
+        "name": "AOMWAY",
+        "slug": "aomway",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1083,
+        "name": "Superbat",
+        "slug": "superbat",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1088,
+        "name": "SIYI",
+        "slug": "siyi-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1371,
+        "name": "Starlink",
+        "slug": "starlink",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 1374,
+            "name": "Аксессуары",
+            "slug": "аксессуары-starlink",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 1392,
+        "name": "Alientech",
+        "slug": "alientech",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1393,
+        "name": "Lira",
+        "slug": "lira",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1394,
+        "name": "KROKS",
+        "slug": "kroks",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1395,
+        "name": "YAGI",
+        "slug": "yagi",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1397,
+        "name": "BEE FLY",
+        "slug": "bee-fly",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3053,
+        "name": "EMAX",
+        "slug": "emax-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3951,
+        "name": "GNSS",
+        "slug": "gnss-legacy",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3954,
+        "name": "Happymodel",
+        "slug": "happymodel-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3957,
+        "name": "Matek",
+        "slug": "matek",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4235,
+        "name": "AKK",
+        "slug": "akk",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5366,
+        "name": "TrueRC",
+        "slug": "truerc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5368,
+        "name": "Ubiquiti",
+        "slug": "ubiquiti",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5585,
+        "name": "ImmersionRC",
+        "slug": "immersionrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6131,
+        "name": "Harxon",
+        "slug": "harxon",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6349,
+        "name": "Walksnail",
+        "slug": "walksnail-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6350,
+        "name": "Zyxel",
+        "slug": "zyxel",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6863,
+        "name": "HGLRC",
+        "slug": "hglrc-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7115,
+        "name": "МВМ-АВИА",
+        "slug": "мвм-авиа-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7118,
+        "name": "BeastFPV",
+        "slug": "beastfpv-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7212,
+        "name": "Гермес",
+        "slug": "гермес-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7283,
+        "name": "Аргут",
+        "slug": "аргут-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7294,
+        "name": "HDZero",
+        "slug": "hdzero-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7476,
+        "name": "Axisflying",
+        "slug": "axisflying-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7480,
+        "name": "FatShark",
+        "slug": "fatshark-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7481,
+        "name": "FlyfishRC",
+        "slug": "flyfishrc-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7483,
+        "name": "Mypanda",
+        "slug": "mypanda",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7583,
+        "name": "Стезя",
+        "slug": "стезя",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7662,
+        "name": "BayckRC",
+        "slug": "bayckrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7667,
+        "name": "FlySky",
+        "slug": "flysky-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7670,
+        "name": "Flywoo",
+        "slug": "flywoo-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7836,
+        "name": "Holybro",
+        "slug": "holybro-антенны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8064,
+        "name": "Mitoot",
+        "slug": "mitoot",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8194,
+        "name": "Skyzone",
+        "slug": "skyzone-антенны",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 824,
+    "name": "Рамы",
+    "slug": "купить-раму-для-квадрокоптера",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1310,
+        "name": "IFlight",
+        "slug": "iflight-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1311,
+        "name": "Lumenier",
+        "slug": "lumenier-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1312,
+        "name": "Tarot",
+        "slug": "tarot-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1313,
+        "name": "Readytosky",
+        "slug": "readytosky-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1314,
+        "name": "GEPRC",
+        "slug": "geprc-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1315,
+        "name": "ZMR",
+        "slug": "zmr",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1418,
+        "name": "BetaFPV",
+        "slug": "betafpv-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1844,
+        "name": "Speedybee",
+        "slug": "speedybee-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1845,
+        "name": "HSKRC",
+        "slug": "hskrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1847,
+        "name": "Holybro",
+        "slug": "holybro-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1848,
+        "name": "HMF",
+        "slug": "hmf",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1850,
+        "name": "Foxeer",
+        "slug": "foxeer-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1851,
+        "name": "Emax",
+        "slug": "emax-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1852,
+        "name": "DJI",
+        "slug": "dji-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1853,
+        "name": "Axisflying",
+        "slug": "axisflying",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1855,
+        "name": "Align",
+        "slug": "align",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5381,
+        "name": "FlyfishRC",
+        "slug": "flyfishrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5495,
+        "name": "HGLRC",
+        "slug": "hglrc-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5839,
+        "name": "Apex",
+        "slug": "apex",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6106,
+        "name": "Feichao",
+        "slug": "feichao",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6109,
+        "name": "Happymodel",
+        "slug": "happymodel-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6630,
+        "name": "Team BlackSheep",
+        "slug": "team-blacksheep-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7170,
+        "name": "У-УППО",
+        "slug": "у-уппо-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7172,
+        "name": "BeastFPV",
+        "slug": "beastfpv-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7444,
+        "name": "Flywoo",
+        "slug": "flywoo-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7555,
+        "name": "AlfaRC",
+        "slug": "alfarc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7559,
+        "name": "OddityRC",
+        "slug": "oddityrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7562,
+        "name": "Oxbot",
+        "slug": "oxbot",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7565,
+        "name": "TurboRC",
+        "slug": "turborc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7977,
+        "name": "Уралхимаппарат",
+        "slug": "уралхимаппарат",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8258,
+        "name": "Sub250",
+        "slug": "sub250-купить-раму-для-квадрокоптера",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 831,
+    "name": "Автопилоты",
+    "slug": "автопилоты",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1316,
+        "name": "SIYI",
+        "slug": "siyi-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1317,
+        "name": "CUAV",
+        "slug": "cuav-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1318,
+        "name": "Holybro",
+        "slug": "holybro",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1320,
+        "name": "Mateksys",
+        "slug": "mateksys-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1321,
+        "name": "Speedybee",
+        "slug": "speedybee",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1322,
+        "name": "Skystars",
+        "slug": "skystars",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1323,
+        "name": "Foxeer",
+        "slug": "foxeer-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1324,
+        "name": "IFlight",
+        "slug": "iflight-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1344,
+        "name": "GEPRC",
+        "slug": "geprc-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1348,
+        "name": "Другие производители",
+        "slug": "другие-производители-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1379,
+        "name": "Sky-Drones",
+        "slug": "sky-drones",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1410,
+        "name": "JHEMCU",
+        "slug": "jhemcu",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1430,
+        "name": "Дополнительные модули",
+        "slug": "доп-модули",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3407,
+        "name": "Diatone",
+        "slug": "diatone-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3412,
+        "name": "DarwinFPV",
+        "slug": "darwinfpv-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3419,
+        "name": "Flywoo",
+        "slug": "flywoo-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3423,
+        "name": "T-Motor",
+        "slug": "t-motor-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3918,
+        "name": "HAKRC",
+        "slug": "hakrc-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3922,
+        "name": "Happymodel",
+        "slug": "happymodel-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3924,
+        "name": "HGLRC",
+        "slug": "hglrc-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3941,
+        "name": "RUSHFPV",
+        "slug": "rushfpv-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4430,
+        "name": "Arduino",
+        "slug": "arduino",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4432,
+        "name": "BETAFPV",
+        "slug": "betafpv-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4437,
+        "name": "Mamba",
+        "slug": "mamba",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5038,
+        "name": "Copterparts",
+        "slug": "copterparts-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5043,
+        "name": "FrSky",
+        "slug": "frsky-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5051,
+        "name": "Toothpick",
+        "slug": "toothpick",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5422,
+        "name": "Axisflying",
+        "slug": "axisflying-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5423,
+        "name": "DYS",
+        "slug": "dys-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5425,
+        "name": "Flashhobby",
+        "slug": "flashhobby-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5426,
+        "name": "HDZero",
+        "slug": "hdzero-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5574,
+        "name": "AtomRC",
+        "slug": "atomrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5575,
+        "name": "BeastFPV",
+        "slug": "beastfpv-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5576,
+        "name": "KISS",
+        "slug": "kiss",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5658,
+        "name": "Aocoda-RC",
+        "slug": "aocoda-rc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5666,
+        "name": "Hobbywing",
+        "slug": "hobbywing-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5667,
+        "name": "Radiolink",
+        "slug": "radiolink-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5728,
+        "name": "SoloGood",
+        "slug": "sologood-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5840,
+        "name": "Alloyseed",
+        "slug": "alloyseed",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5843,
+        "name": "Jijie",
+        "slug": "jijie",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5846,
+        "name": "Misnode",
+        "slug": "misnode",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5905,
+        "name": "Emax",
+        "slug": "emax-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5908,
+        "name": "RADIOMASTER",
+        "slug": "radiomaster-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6339,
+        "name": "SEQURE",
+        "slug": "sequre-автопилоты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7113,
+        "name": "МВМ-АВИА",
+        "slug": "мвм-авиа",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7324,
+        "name": "Oculus",
+        "slug": "oculus",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7984,
+        "name": "ATWAY",
+        "slug": "atway-автопилоты",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 834,
+    "name": "RADIOMASTER",
+    "slug": "radiomaster-%d0%b0%d0%bd%d1%82%d0%b5%d0%bd%d0%bd%d1%8b",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 1208,
+    "name": "Оптические прицелы",
+    "slug": "optical_sights",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 8020,
+        "name": "Veber",
+        "slug": "veber",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 1209,
+    "name": "ARTELV",
+    "slug": "artelv",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 1210,
+    "name": "Прицелы для ближней охоты (CRS)",
+    "slug": "crs",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 1211,
+    "name": "Прицелы для дальней охоты (LRS)",
+    "slug": "lrs",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 1242,
+    "name": "Фонари",
+    "slug": "lanterns",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1243,
+        "name": "ARMYTEK",
+        "slug": "armytek",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 1244,
+            "name": "Мультифонари",
+            "slug": "multi_flashlights",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 1247,
+            "name": "Наключные мультифонари",
+            "slug": "smmf",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 1253,
+            "name": "Свет на каждый день",
+            "slug": "light_for_every_day",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 1254,
+            "name": "Крепления",
+            "slug": "fastenings",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 1255,
+            "name": "Прочее",
+            "slug": "other",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 1262,
+            "name": "Крепления на оружие",
+            "slug": "крепления-armytek",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 1429,
+            "name": "Аксессуары и расходники",
+            "slug": "аксессуары-для-фонарей-armytek",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1267,
+    "name": "Дроны с тепловизором",
+    "slug": "дроны-с-тепловизором",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1268,
+        "name": "DJI",
+        "slug": "dji-дроны-с-тепловизором",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1269,
+        "name": "Autel",
+        "slug": "autel-дроны-с-тепловизором",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1275,
+        "name": "SIYI",
+        "slug": "siyi-дроны-с-тепловизором",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1350,
+        "name": "Производство РФ",
+        "slug": "производство-рф-дроны-с-тепловизором",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 1272,
+    "name": "Тепловизионные прицелы",
+    "slug": "тепловизионные-прицелы",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1229,
+        "name": "Цифровые прицелы день-ночь iRay",
+        "slug": "цифровые-прицелы-день-ночь-iray",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1230,
+        "name": "Тепловизионные прицелы серии Saim",
+        "slug": "тепловизионные-прицелы-серии-saim",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1231,
+        "name": "Тепловизионные прицелы серии Geni",
+        "slug": "тепловизионные-прицелы-серии-geni",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1232,
+        "name": "Тепловизионные коллиматоры серии xHolo",
+        "slug": "тепловизионные-коллиматоры-серии-xholo",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1233,
+        "name": "Тепловизионные коллиматоры серии Faster",
+        "slug": "тепловизионные-коллиматоры-серии-faster",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1234,
+        "name": "Тепловизионные прицелы серии Tube",
+        "slug": "тепловизионные-прицелы-серии-tube",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1235,
+        "name": "Тепловизионные прицелы серии Rico",
+        "slug": "тепловизионные-прицелы-серии-rico",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1236,
+        "name": "Тепловизионные прицелы серии Hybrid",
+        "slug": "тепловизионные-прицелы-серии-hybrid",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1426,
+        "name": "АКБ",
+        "slug": "акб-ts",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 1302,
+    "name": "FPV дроны",
+    "slug": "fpv-дроны",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1328,
+        "name": "Производство РФ",
+        "slug": "производство-рф",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1329,
+        "name": "EFT",
+        "slug": "eft-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1330,
+        "name": "SIYI",
+        "slug": "siyi-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1331,
+        "name": "DJI",
+        "slug": "dji-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1332,
+        "name": "Autel",
+        "slug": "autel-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1333,
+        "name": "IFlight",
+        "slug": "iflight-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1335,
+        "name": "Happymodel",
+        "slug": "happymodel-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1336,
+        "name": "GEPRC",
+        "slug": "geprc-fpv-дроны",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 6126,
+            "name": "Аксессуары",
+            "slug": "аксессуары-geprc-fpv-дроны",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 1337,
+        "name": "HGLRC",
+        "slug": "hglrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1338,
+        "name": "SpeedyBee",
+        "slug": "speedybee-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1341,
+        "name": "DarwinFPV",
+        "slug": "darwinfpv-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1385,
+        "name": "BeastFPV",
+        "slug": "beastfpv",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1386,
+        "name": "RUSHFPV",
+        "slug": "rushfpv-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1610,
+        "name": "Emax",
+        "slug": "emax-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1611,
+        "name": "EBOYU",
+        "slug": "eboyu",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1613,
+        "name": "LYZRC",
+        "slug": "lyzrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1616,
+        "name": "Flywoo",
+        "slug": "flywoo-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1617,
+        "name": "Foxeer",
+        "slug": "foxeer-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 2387,
+        "name": "Игрушечные дроны",
+        "slug": "игрушечные",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5053,
+        "name": "Caddx",
+        "slug": "caddx-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5059,
+        "name": "Diatone",
+        "slug": "diatone-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5383,
+        "name": "Другие производители",
+        "slug": "другие-производители-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5401,
+        "name": "Eachine",
+        "slug": "eachine-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5403,
+        "name": "FIMI",
+        "slug": "fimi-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5407,
+        "name": "Hubsan",
+        "slug": "hubsan-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5500,
+        "name": "Cheerson",
+        "slug": "cheerson",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5533,
+        "name": "MJX",
+        "slug": "mjx",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5544,
+        "name": "Parrot",
+        "slug": "parrot",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5548,
+        "name": "SJRC",
+        "slug": "sjrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5552,
+        "name": "SYMA",
+        "slug": "syma",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5563,
+        "name": "Walkera",
+        "slug": "walkera-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5564,
+        "name": "XIRO",
+        "slug": "xiro",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5566,
+        "name": "Yuneec",
+        "slug": "yuneec",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5570,
+        "name": "ZLRC",
+        "slug": "zlrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6127,
+        "name": "HOMFPV",
+        "slug": "homfpv",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6393,
+        "name": "COPTERPARTS",
+        "slug": "copterparts-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6737,
+        "name": "BEYONDSKY",
+        "slug": "beyondsky-fpv-дроны",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7942,
+        "name": "ATWAY",
+        "slug": "atway",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7954,
+        "name": "Rufly",
+        "slug": "rufly",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 1334,
+    "name": "BETAFPV",
+    "slug": "betafpv-fpv-%d0%b4%d1%80%d0%be%d0%bd%d1%8b",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 1342,
+    "name": "Комплекты для сборки дронов",
+    "slug": "комплекты-для-сборки-дронов",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1343,
+        "name": "JMT",
+        "slug": "jmt-комплекты-для-сборки-дронов",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1377,
+        "name": "QAV",
+        "slug": "qav",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1378,
+        "name": "Emax",
+        "slug": "emax-комплекты-для-сборки-дронов",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 1358,
+    "name": "Роботы",
+    "slug": "роботы",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1359,
+        "name": "Игрушки",
+        "slug": "игрушки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1360,
+        "name": "Обучающие",
+        "slug": "обучающие",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1361,
+        "name": "Двигатели",
+        "slug": "двигатели-роботы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1362,
+        "name": "Сервоприводы",
+        "slug": "сервоприводы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1363,
+        "name": "Шасси",
+        "slug": "шасси",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1457,
+        "name": "Роботы-собаки",
+        "slug": "роботы-собаки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1458,
+        "name": "Роботы-гуманоиды",
+        "slug": "роботы-гуманоиды",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1459,
+        "name": "Военные",
+        "slug": "военные",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7245,
+        "name": "Сервисные роботы",
+        "slug": "сервисные-роботы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7250,
+        "name": "Промышленные роботы",
+        "slug": "промышленные-роботы",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 1364,
+    "name": "Дроны РФ",
+    "slug": "дроны-рф",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1365,
+        "name": "Квадрокоптеры",
+        "slug": "квадрокоптеры-дроны-рф",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 7144,
+            "name": "МВМ-АВИА",
+            "slug": "мвм-авиа-квадрокоптеры-дроны-рф",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7149,
+            "name": "DRONAX",
+            "slug": "dronax",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 1366,
+        "name": "FPV дроны",
+        "slug": "fpv-дроны-дроны-рф",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1367,
+        "name": "Дроны с тепловизором",
+        "slug": "дроны-с-тепловизором-дроны-рф",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1409,
+        "name": "Военные",
+        "slug": "российские-военные-дроны",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 1387,
+    "name": "Противодействия дронам и БПЛА",
+    "slug": "противодействия-дронам-и-бпла",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 803,
+        "name": "Противодронные ружья",
+        "slug": "противодронные-ружья",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1381,
+        "name": "Детекторы дронов",
+        "slug": "другие-производители-радиостанции",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1460,
+        "name": "Противодронные установки",
+        "slug": "противодронные-установки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3057,
+        "name": "Подавление дронов",
+        "slug": "подавление-дронов",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8284,
+        "name": "Проотиводронные ружья",
+        "slug": "проотиводронные-ружья",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 1421,
+    "name": "Карбоновые материалы",
+    "slug": "карбоновые-материалы",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1422,
+        "name": "Препреги",
+        "slug": "препреги",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1423,
+        "name": "Трубы",
+        "slug": "трубы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1424,
+        "name": "Листы",
+        "slug": "листы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1425,
+        "name": "Панели",
+        "slug": "панели",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7903,
+        "name": "Углеткань",
+        "slug": "углеткань",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7904,
+        "name": "Углеродные нити",
+        "slug": "углеродные-нити",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 1477,
+    "name": "Средства передвижения",
+    "slug": "средства-передвижения",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1478,
+        "name": "Электросамокаты",
+        "slug": "электросамокаты",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 1479,
+            "name": "Copterparts",
+            "slug": "copterparts",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 1480,
+        "name": "Мотоциклы",
+        "slug": "мотоциклы",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 1481,
+            "name": "Copterparts",
+            "slug": "copterparts-мотоциклы",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2537,
+    "name": "Дроны для обучения",
+    "slug": "дроны-для-обучения",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 2538,
+        "name": "Футбол",
+        "slug": "футбол",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 2539,
+        "name": "Дроны",
+        "slug": "дрон-мячи-для-обучения",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 3991,
+        "name": "Аксессуары",
+        "slug": "аксессуары-дроны-для-обучения",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 3563,
+    "name": "Подводные дроны",
+    "slug": "подводные-дроны",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 3575,
+        "name": "Fifish",
+        "slug": "fifish",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 5719,
+    "name": "Водонепроницаемые дроны",
+    "slug": "водонепроницаемые-дроны",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 5720,
+        "name": "SwellPro",
+        "slug": "swellpro-водонепроницаемые-дроны",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 5769,
+    "name": "Приёмники",
+    "slug": "приёмники",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 5770,
+        "name": "Другие производители",
+        "slug": "другие-производители-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5771,
+        "name": "Walksnail",
+        "slug": "walksnail-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5772,
+        "name": "Team Blacksheep",
+        "slug": "team-blacksheep",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5773,
+        "name": "SpeedyBee",
+        "slug": "speedybee-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5774,
+        "name": "SoloGood",
+        "slug": "sologood-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5775,
+        "name": "Skyzone",
+        "slug": "skyzone-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5776,
+        "name": "Skydroid",
+        "slug": "skydroid-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5777,
+        "name": "RADIOMASTER",
+        "slug": "radiomaster-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5778,
+        "name": "Radiolink",
+        "slug": "radiolink-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5779,
+        "name": "Mateksys",
+        "slug": "mateksys-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5780,
+        "name": "JHEMCU",
+        "slug": "jhemcu-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5781,
+        "name": "HDZero",
+        "slug": "hdzero-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5782,
+        "name": "Happymodel",
+        "slug": "happymodel-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5783,
+        "name": "Futaba",
+        "slug": "futaba-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5784,
+        "name": "FrSky",
+        "slug": "frsky-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5785,
+        "name": "Foxeer",
+        "slug": "foxeer-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5786,
+        "name": "FlySky",
+        "slug": "flysky-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5787,
+        "name": "EACHINE",
+        "slug": "eachine-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5788,
+        "name": "CUAV",
+        "slug": "cuav-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5789,
+        "name": "BETAFPV",
+        "slug": "betafpv-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5790,
+        "name": "BEASTFPV",
+        "slug": "beastfpv-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5791,
+        "name": "AKK",
+        "slug": "akk-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5869,
+        "name": "Corona",
+        "slug": "corona-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5870,
+        "name": "FOXWEY",
+        "slug": "foxwey",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5873,
+        "name": "HGLRC",
+        "slug": "hglrc-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5923,
+        "name": "Flywoo",
+        "slug": "flywoo-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5924,
+        "name": "GEPRC",
+        "slug": "geprc-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5925,
+        "name": "HackRF",
+        "slug": "hackrf-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 5927,
+        "name": "IFlight",
+        "slug": "iflight-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6103,
+        "name": "Axisflying",
+        "slug": "axisflying-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6104,
+        "name": "RunCam",
+        "slug": "runcam-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6499,
+        "name": "Insta360",
+        "slug": "insta360",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6620,
+        "name": "Aocoda-RC",
+        "slug": "aocoda-rc-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6691,
+        "name": "Emax",
+        "slug": "emax-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6780,
+        "name": "HotRC",
+        "slug": "hotrc-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7165,
+        "name": "МВМ-АВИА",
+        "slug": "мвм-авиа-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7220,
+        "name": "AtomRC",
+        "slug": "atomrc-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7221,
+        "name": "Jumper",
+        "slug": "jumper-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7222,
+        "name": "Matsutec",
+        "slug": "matsutec-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7223,
+        "name": "PandaRC",
+        "slug": "pandarc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7377,
+        "name": "Maytech",
+        "slug": "maytech-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7378,
+        "name": "ATA",
+        "slug": "ata",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7429,
+        "name": "DumboRC",
+        "slug": "dumborc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7627,
+        "name": "PrinCe",
+        "slug": "prince",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7726,
+        "name": "MKronRC",
+        "slug": "mkronrc",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7730,
+        "name": "RedCon",
+        "slug": "redcon",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7733,
+        "name": "Spektrum",
+        "slug": "spektrum",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7966,
+        "name": "РЗЭ",
+        "slug": "рзэ-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8027,
+        "name": "Flyto",
+        "slug": "flyto",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8029,
+        "name": "FPVspeed",
+        "slug": "fpvspeed",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8240,
+        "name": "BAYCKRC",
+        "slug": "bayckrc-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8241,
+        "name": "BrotherHobby",
+        "slug": "brotherhobby-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8242,
+        "name": "FlytoFPV",
+        "slug": "flytofpv",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8245,
+        "name": "HelloRadio",
+        "slug": "helloradio-приёмники",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8246,
+        "name": "RUSHFPV",
+        "slug": "rushfpv-приёмники",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 7067,
+    "name": "Портативные электростанции",
+    "slug": "портативные-электростанции-2",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 7068,
+        "name": "TopON",
+        "slug": "topon-портативные-электростанции-2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7103,
+        "name": "Ecoflow",
+        "slug": "ecoflow-портативные-электростанции-2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7106,
+        "name": "Allpowers",
+        "slug": "allpowers",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7107,
+        "name": "Jackery",
+        "slug": "jackery",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7109,
+        "name": "Romoss",
+        "slug": "romoss",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7419,
+        "name": "ARTELV",
+        "slug": "artelv-портативные-электростанции-2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7420,
+        "name": "Bluetti",
+        "slug": "bluetti",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7422,
+        "name": "CTECHI",
+        "slug": "ctechi",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7424,
+        "name": "CTOLITY",
+        "slug": "ctolity",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7535,
+        "name": "DJI",
+        "slug": "dji-портативные-электростанции-2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7536,
+        "name": "Flashfish",
+        "slug": "flashfish",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7538,
+        "name": "Gizzu",
+        "slug": "gizzu",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7540,
+        "name": "MARSRIVA",
+        "slug": "marsriva",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7543,
+        "name": "Silasolar",
+        "slug": "silasolar-портативные-электростанции-2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7544,
+        "name": "UGreen",
+        "slug": "ugreen",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7546,
+        "name": "Wattbox",
+        "slug": "wattbox",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7599,
+        "name": "AFERIY",
+        "slug": "aferiy",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8024,
+        "name": "CyberPower",
+        "slug": "cyberpower",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8091,
+        "name": "Delta",
+        "slug": "delta-портативные-электростанции-2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8093,
+        "name": "Artway",
+        "slug": "artway",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8095,
+        "name": "Finepower",
+        "slug": "finepower",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 7091,
+    "name": "Солнечные панели",
+    "slug": "солнечные-панели-2",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 7092,
+        "name": "TopON",
+        "slug": "topon-солнечные-панели-2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7104,
+        "name": "Delta",
+        "slug": "delta-солнечные-панели-2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7105,
+        "name": "Ecoflow",
+        "slug": "ecoflow-солнечные-панели-2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7463,
+        "name": "Allpowers",
+        "slug": "allpowers-солнечные-панели-2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7464,
+        "name": "Dokio",
+        "slug": "dokio",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7467,
+        "name": "Silasolar",
+        "slug": "silasolar",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7470,
+        "name": "Smartools",
+        "slug": "smartools",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7472,
+        "name": "Topcon",
+        "slug": "topcon",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7642,
+        "name": "ARTELV",
+        "slug": "artelv-солнечные-панели-2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8113,
+        "name": "Choetech",
+        "slug": "choetech",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8115,
+        "name": "Romoss",
+        "slug": "romoss-солнечные-панели-2",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 7178,
+    "name": "Лидары",
+    "slug": "лидары",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 7179,
+        "name": "Livox",
+        "slug": "livox",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7180,
+        "name": "Ouster",
+        "slug": "ouster",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7181,
+        "name": "YDLIDAR",
+        "slug": "ydlidar-лидары",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7182,
+        "name": "DJI",
+        "slug": "dji-лидары",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7183,
+        "name": "Velodyne",
+        "slug": "velodyne",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7184,
+        "name": "Benewake",
+        "slug": "benewake",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7185,
+        "name": "Slamtec",
+        "slug": "slamtec-лидары",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7304,
+        "name": "RPLIDAR",
+        "slug": "rplidar",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7337,
+        "name": "AlphaAir",
+        "slug": "alphaair",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7380,
+        "name": "Akusense",
+        "slug": "akusense",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7396,
+        "name": "FDROBOT",
+        "slug": "fdrobot",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7494,
+        "name": "Fordrone Pod",
+        "slug": "fordrone-pod",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7497,
+        "name": "Hesai",
+        "slug": "hesai",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7500,
+        "name": "HinSon",
+        "slug": "hinson",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7505,
+        "name": "Waveshare",
+        "slug": "waveshare-лидары",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7507,
+        "name": "Yahboom",
+        "slug": "yahboom-лидары",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7696,
+        "name": "RoboSense",
+        "slug": "robosense",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7700,
+        "name": "SICK",
+        "slug": "sick",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7851,
+        "name": "Другие производители",
+        "slug": "другие-производители-лидары",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7854,
+        "name": "RangeVision",
+        "slug": "rangevision",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7859,
+        "name": "Seyond",
+        "slug": "seyond",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8069,
+        "name": "SDKELI",
+        "slug": "sdkeli",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8074,
+        "name": "Siminics",
+        "slug": "siminics",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8204,
+        "name": "FaseLase",
+        "slug": "faselase",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8206,
+        "name": "Intel",
+        "slug": "intel-лидары",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8208,
+        "name": "LDROBOT",
+        "slug": "ldrobot",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8213,
+        "name": "Unitree",
+        "slug": "unitree",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 7197,
+    "name": "Аксессуары",
+    "slug": "аксессуары",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 1609,
+        "name": "Аксессуары для FPV-очков",
+        "slug": "аксессуары-fpv-очки",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 1857,
+        "name": "Аксессуары для мониторов",
+        "slug": "аксессуары-мониторы",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 4456,
+        "name": "Аксессуары для микрокомпьютеров",
+        "slug": "аксессуары-микрокомпьютеры",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7194,
+        "name": "Аксессуары для подводных дронов",
+        "slug": "подводные-аксессуары",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 3693,
+            "name": "Fifish",
+            "slug": "аксессуары-fifish",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 7198,
+        "name": "Аксессуары для АКБ",
+        "slug": "аксессуары-для-акб",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 7199,
+            "name": "Разъёмы",
+            "slug": "разъёмы",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7200,
+            "name": "Ремешки",
+            "slug": "ремешки",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7201,
+            "name": "Сумки, кейсы",
+            "slug": "сумки-кейсы",
+            "productCount": 0,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 7202,
+        "name": "Аксессуары для дронов",
+        "slug": "аксессуары-для-дронов",
+        "productCount": 0,
+        "children": [
+          {
+            "id": 769,
+            "name": "Комплекты DJI",
+            "slug": "mini-3-pro",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 1074,
+            "name": "Комплекты Autel",
+            "slug": "комплекты-autel",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7203,
+            "name": "Взлёт, посадка",
+            "slug": "взлёт-посадка",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7204,
+            "name": "Программное обеспечение",
+            "slug": "программное-обеспечение",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7205,
+            "name": "Системы сброса груза",
+            "slug": "системы-сброса-груза",
+            "productCount": 0,
+            "children": []
+          },
+          {
+            "id": 7206,
+            "name": "Сумки, кейсы",
+            "slug": "сумки-кейсы-аксессуары-для-дронов",
+            "productCount": 0,
+            "children": [
+              {
+                "id": 7207,
+                "name": "Autel",
+                "slug": "autel-сумки-кейсы-аксессуары-для-дронов",
+                "productCount": 0,
+                "children": []
+              },
+              {
+                "id": 7208,
+                "name": "DJI",
+                "slug": "dji-сумки-кейсы-аксессуары-для-дронов",
+                "productCount": 0,
+                "children": []
+              },
+              {
+                "id": 7209,
+                "name": "HGLRC",
+                "slug": "hglrc-сумки-кейсы-аксессуары-для-дронов",
+                "productCount": 0,
+                "children": []
+              },
+              {
+                "id": 7210,
+                "name": "IFlight",
+                "slug": "iflight-сумки-кейсы-аксессуары-для-дронов",
+                "productCount": 0,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 7211,
+        "name": "Аксессуары для пультов управления",
+        "slug": "аксессуары-для-пультов-управления",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7219,
+        "name": "Аксессуары для подвесов",
+        "slug": "аксессуары-подвесы",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 7765,
+    "name": "Дроны с вертикальным взлётом и посадкой",
+    "slug": "дроны-с-вертикальным-взлётом-и-посадк",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 6569,
+        "name": "Skywalker",
+        "slug": "skywalker",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6572,
+        "name": "Hee Wing",
+        "slug": "hee-wing-дроны-самолётного-типа",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 6573,
+        "name": "Autel",
+        "slug": "autel-дроны-самолётного-типа",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7767,
+        "name": "Makeflyeasy",
+        "slug": "makeflyeasy",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7787,
+        "name": "Производство РФ",
+        "slug": "российское-производство-верт",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 7766,
+    "name": "Дроны с неподвижным крылом",
+    "slug": "дроны-с-неподвижным-крылом",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 6574,
+        "name": "Производство РФ",
+        "slug": "проиводство-рф-самолеты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7771,
+        "name": "Skywalker",
+        "slug": "skywalker-дроны-с-неподвижным-крылом",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7772,
+        "name": "MFD",
+        "slug": "mfd",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7774,
+        "name": "Makeflyeasy",
+        "slug": "makeflyeasy-дроны-с-неподвижным-крылом",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7775,
+        "name": "Skyeye",
+        "slug": "skyeye",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7784,
+        "name": "Parrot",
+        "slug": "parrot-дроны-с-неподвижным-крылом",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7785,
+        "name": "VCIHOBBY",
+        "slug": "vcihobby-дроны-с-неподвижным-крылом",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7786,
+        "name": "AtomRC",
+        "slug": "atomrc-дроны-с-неподвижным-крылом",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 7781,
+    "name": "Мультикоптеры",
+    "slug": "мультикоптеры",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 7788,
+    "name": "Дроны самолётного типа",
+    "slug": "дроны-самолётного-типа",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 7789,
+        "name": "Производство РФ",
+        "slug": "производство-рф-самолёты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7790,
+        "name": "AtomRC",
+        "slug": "atomrc-самолёты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7791,
+        "name": "Skywalker",
+        "slug": "skywalker-самолёты",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7792,
+        "name": "Parrot",
+        "slug": "parrot-дроны-самолётного-типа",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7793,
+        "name": "Makeflyeasy",
+        "slug": "makeflyeasy-дроны-самолётного-типа",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7794,
+        "name": "VCIHOBBY",
+        "slug": "vcihobby-дроны-самолётного-типа",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7795,
+        "name": "MFD",
+        "slug": "mfd-дроны-самолётного-типа",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7796,
+        "name": "Skyeye",
+        "slug": "skyeye-дроны-самолётного-типа",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7797,
+        "name": "Autel",
+        "slug": "autel-дроны-самолётного-типа-2",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 7798,
+        "name": "Hee Wing",
+        "slug": "hee-wing-дроны-самолётного-типа-2",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 7808,
+    "name": "Анализаторы спектра",
+    "slug": "анализаторы-спектра",
+    "productCount": 0,
+    "children": [
+      {
+        "id": 8055,
+        "name": "Gaqqee",
+        "slug": "gaqqee",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8058,
+        "name": "SeeSii",
+        "slug": "seesii",
+        "productCount": 0,
+        "children": []
+      },
+      {
+        "id": 8060,
+        "name": "OWON",
+        "slug": "owon",
+        "productCount": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 7930,
+    "name": "Sony",
+    "slug": "sony-%d0%ba%d0%b0%d0%bc%d0%b5%d1%80%d1%8b",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 7969,
+    "name": "Транспорт Будущего",
+    "slug": "%d1%82%d1%80%d0%b0%d0%bd%d1%81%d0%bf%d0%be%d1%80%d1%82-%d0%b1%d1%83%d0%b4%d1%83%d1%89%d0%b5%d0%b3%d0%be",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 7973,
+    "name": "Транспорт Будущего",
+    "slug": "%d1%82%d1%80%d0%b0%d0%bd%d1%81%d0%bf%d0%be%d1%80%d1%82-%d0%b1%d1%83%d0%b4%d1%83%d1%89%d0%b5%d0%b3%d0%be-%d0%b0%d0%ba%d0%b1",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 7975,
+    "name": "Транспорт Будущего",
+    "slug": "%d1%82%d1%80%d0%b0%d0%bd%d1%81%d0%bf%d0%be%d1%80%d1%82-%d0%b1%d1%83%d0%b4%d1%83%d1%89%d0%b5%d0%b3%d0%be-%d0%b4%d0%b2%d0%b8%d0%b3%d0%b0%d1%82%d0%b5%d0%bb%d0%b8",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 7981,
+    "name": "Транспорт Будущего",
+    "slug": "%d1%82%d1%80%d0%b0%d0%bd%d1%81%d0%bf%d0%be%d1%80%d1%82-%d0%b1%d1%83%d0%b4%d1%83%d1%89%d0%b5%d0%b3%d0%be-fpv-%d0%b4%d1%80%d0%be%d0%bd%d1%8b",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 8051,
+    "name": "Дальнобойные системы радиометрии",
+    "slug": "дальнобойные-системы-радиометрии",
+    "productCount": 0,
+    "children": []
+  },
+  {
+    "id": 8052,
+    "name": "Камеры машинного зрения",
+    "slug": "камеры-машинного-зрения",
+    "productCount": 0,
+    "children": []
+  }
+]

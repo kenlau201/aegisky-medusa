@@ -1,0 +1,1483 @@
+﻿全球无人机及配件跨境B2B+SaaS供应链控制塔系统技术与工程落地白皮书
+
+本白皮书旨在基于第一性原理，从零搭建一套符合全球顶级标准的无人机、特殊电子配件及元器件跨境B2B交易、SaaS渠道赋能与多仓合规控制塔系统。本系统针对双用途（Dual-use）管制无人机、配件和元器件跨境贸易的物理本质（合规合法的绝对控制力、去中心化物理履约网络、高粘性销售终端绑定）进行深度重构。
+
+为了实现100%可复制、可执行、零删减、开箱即用的工程落地，本白皮书拒绝伪代码，提供生产级骨架源码，并采用 Go 1.20+ (Golang) 与 Next.js 13+ (React TypeScript) 的现代高并发架构。系统原生支持多租户数据逻辑隔离、动态多语言可扩展结构、多仓智能调度算法及硬核数字化最终用户声明（EUS）合规审查流。
+
+系统工程总构与目录拓扑
+
+项目采用前后端完全分离的企业级微服务/单体模块化演进架构。通过统一的容器化编排，开发者可在任意主流 Linux 服务器（Ubuntu/CentOS/Debian）上实现一键编译与分布式部署。
+
+1.1 完整工程目录结构
+
+请在服务器中严格创建以下目录树及文件（若无特定文件，请创建为空白文本文件以待后续填入代码）：
+
+Plaintext
+
+aegisky-platform/
+
+├── docker-compose.yml               # 全局容器化联动编排脚本
+
+├── backend/
+
+│   ├── Dockerfile                   # 后端多阶段构建生产级 Dockerfile
+
+│   ├── go.mod                       # 依赖声明
+
+│   ├── go.sum                       # 依赖哈希锁定
+
+│   └── cmd/
+
+│       └── main.go                  # 后端系统唯一启动入口
+
+│   └── internal/
+
+│       ├── model/
+
+│       │   └── models.go            # 生产级多租户、多语言多属性数据库模型
+
+│       ├── middleware/
+
+│       │   └── tenant.go            # 防务级 SaaS 隔离与动态语言上下文中间件
+
+│       └── handler/
+
+│           ├── compliance.go        # 核心：数字化 KYC 与 EUS 合规审查网关
+
+│           └── inventory.go         # 核心：全球去中心化多仓智能调度引擎
+
+└── frontend/
+
+├── Dockerfile                   # 前端生产级 SSR 部署 Dockerfile
+
+    ├── package.json                 # 依赖包管理
+
+├── tsconfig.json                # TypeScript 严谨模式配置
+
+├── tailwind.config.js           # 苹果/大疆级暗黑极简高感视觉主题配置
+
+└── app/
+
+├── globals.css              # 全局原子化样式及高斯模糊动画注入
+
+        ├── layout.tsx               # 全局持久化极简高感导航骨架
+
+        ├── page.tsx                 # 平台数字化供应链控制塔主工作盘
+
+└── components/
+
+└── ComplianceForm.tsx   # 核心：多语言动态合规声明数字签章交互组件
+
+高并发后端合规引擎（Golang 生产级源码）
+
+后端基于 Gin-Gonic 框架与 GORM 2.0 构建，天然具备强悍的内存控制与水平扩展能力。编译后仅生成单个二进制文件，大幅度降低运维门槛。
+
+后端依赖声明：backend/go.mod
+
+Go
+
+module aegisky-platform
+
+go 1.20
+
+require (
+
+	github.com/gin-gonic/gin v1.9.1
+
+	github.com/google/uuid v1.3.0
+
+	gorm.io/driver/postgres v1.5.2
+
+	gorm.io/gorm v1.25.1
+
+)
+
+核心多租户与多语言数据库模型：backend/internal/model/models.go
+
+Go
+
+package model
+
+import (
+
+	"time"
+
+	"github.com/google/uuid"
+
+	"gorm.io/gorm"
+
+)
+
+// BaseTenantModel 确保系统内任意一条记录都打上 SaaS 隔离烙印，物理/逻辑层彻底切断越权隐患type BaseTenantModel struct {
+
+	ID        uuid.UUID      `gorm:"type:uuid;primaryKey;" json:"id"`
+
+	TenantID  uuid.UUID      `gorm:"type:uuid;not null;index" json:"tenant_id"` // SaaS 租户唯一识别符
+
+	CreatedAt time.Time      `json:"created_at"`
+
+	UpdatedAt time.Time      `json:"updated_at"`
+
+	DeletedAt gorm.DeletedAt `gorm:"index" json:"-"`
+
+}
+
+// BeforeCreate 自动挂载分布式唯一性 UUIDfunc (b *BaseTenantModel) BeforeCreate(tx *gorm.DB) (err error) {
+
+	if b.ID == uuid.Nil {
+
+		b.ID = uuid.New()
+
+	}
+
+	return
+
+}
+
+// Product 无人机核心配件全参数商品主表type Product struct {
+
+	BaseTenantModel
+
+	SKU          string           `gorm:"type:varchar(64);uniqueIndex;not null" json:"sku"`
+
+	Category     string           `gorm:"type:varchar(64);index" json:"category"` // FPV_V_TX, BLDC_MOTOR, FLIGHT_CTRL
+
+	WeightGrams  int              `json:"weight_grams"`
+
+	IsDualUse    bool             `gorm:"default:false" json:"is_dual_use"` // 是否属于涉军/涉工双用途管制无人机、配件和元器件
+
+	Translations []ProductTrans   `gorm:"foreignKey:ProductID" json:"translations"`
+
+	Stocks       []InventoryStock `gorm:"foreignKey:ProductID" json:"stocks"`
+
+}
+
+// ProductTrans 动态国际化多语言隔离表，通过语种编码与主表一对多关联type ProductTrans struct {
+
+	ID           uint      `gorm:"primaryKey"`
+
+	ProductID    uuid.UUID `gorm:"type:uuid;index;not null"`
+
+	LanguageCode string    `gorm:"type:varchar(10);not null"` // en, uk, pl, de
+
+	Name         string    `gorm:"type:varchar(255);not null"`
+
+	Description  string    `gorm:"type:text"`
+
+}
+
+// InventoryStock 覆盖全球各大战术中转节点的多仓实时库存账本type InventoryStock struct {
+
+	ID        uint      `gorm:"primaryKey"`
+
+	ProductID uuid.UUID `gorm:"type:uuid;index;not null"`
+
+	Warehouse string    `gorm:"type:varchar(64);not null"` // Poland_Central, Germany_North, UAE_Freezone
+
+	Quantity  int       `json:"quantity"`
+
+}
+
+// ComplianceAudit 全球跨境无人机贸易核心合规防务数字化审计电子存证表type ComplianceAudit struct {
+
+	BaseTenantModel
+
+	BuyerCompanyName string    `gorm:"type:varchar(255);not null" json:"buyer_company_name"`
+
+	TargetCountry    string    `gorm:"type:varchar(10);not null" json:"target_country"` // 目的国 ISO 二位简码
+
+	EndUserStatement string    `gorm:"type:text;not null" json:"end_user_statement"`    // 最终用户法律合规承诺原件存证
+
+	Status           string    `gorm:"type:varchar(32);default:'PENDING'" json:"status"` // PENDING, APPROVED, REJECTED
+
+	AuditLog         string    `gorm:"type:text" json:"audit_log"`
+
+}
+
+防务级租户控制中间件：backend/internal/middleware/tenant.go
+
+Go
+
+package middleware
+
+import (
+
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+
+	"github.com/google/uuid"
+
+)
+
+// TenantContextInterceptor 强行过滤全部入栈请求，无有效租户指纹者一律拦截，确保多B端租户资产绝对安全func TenantContextInterceptor() gin.HandlerFunc {
+
+	return func(c *gin.Context) {
+
+		tenantHeader := c.GetHeader("X-AEGISKY-TENANT-ID")
+
+		if tenantHeader == "" {
+
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "Security Breach: Missing Security Access Fingerprint"})
+
+			c.Abort()
+
+			return
+
+		}
+
+		tenantID, err := uuid.Parse(tenantHeader)
+
+		if err != nil {
+
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Security Breach: Tampered or Corrupted Tenant Token"})
+
+			c.Abort()
+
+			return
+
+		}
+
+		// 将已验证的隔离域标识符无缝写入上下文字典
+
+		c.Set("tenant_id", tenantID)
+
+		// 捕获客户端首选交互语言，默认为英语
+
+		lang := c.GetHeader("Accept-Language")
+
+		if lang == "" {
+
+			lang = "en"
+
+		}
+
+		c.Set("language", lang)
+
+		c.Next()
+
+	}
+
+}
+
+数字化 KYC 与 EUS 合规审查网关：backend/internal/handler/compliance.go
+
+Go
+
+package handler
+
+import (
+
+	"net/http"
+
+	"aegisky-platform/internal/model"
+
+	"github.com/gin-gonic/gin"
+
+	"github.com/google/uuid"
+
+	"gorm.io/gorm"
+
+)
+
+type ComplianceHandler struct {
+
+	DB *gorm.DB
+
+}
+
+type SubmissionRequest struct {
+
+	BuyerCompanyName string `json:"buyer_company_name" binding:"required"`
+
+	TargetCountry    string `json:"target_country" binding:"required"`
+
+	EndUserStatement string `json:"end_user_statement" binding:"required"`
+
+}
+
+// SubmitAudit 执行数字化合规审计流。第一性原理指出：跨境管制的红线必须在订单创建的毫秒级内完成自动化熔断。func (h *ComplianceHandler) SubmitAudit(c *gin.Context) {
+
+	tenantID, _ := c.Get("tenant_id").(uuid.UUID)
+
+	var req SubmissionRequest
+
+	if err := c.ShouldBindJSON(&req); err != nil {
+
+		c.JSON(http.StatusBadRequest, gin.H{"status": "error", "message": err.Error()})
+
+		return
+
+	}
+
+	// 自动化红线拦截机制：国际制裁清单（OFAC/欧盟双用途禁运国）硬编码级强制阻断
+
+	if req.TargetCountry == "RU" || req.TargetCountry == "IR" || req.TargetCountry == "KP" || req.TargetCountry == "SY" {
+
+		c.JSON(http.StatusForbidden, gin.H{
+
+			"status":  "REJECTED_BY_REGULATORY_SYSTEM",
+
+			"message": "Critical Compliance Infringement: Targeted destination country is under absolute dual-use embargo.",
+
+		})
+
+		return
+
+	}
+
+	audit := model.ComplianceAudit{
+
+		BaseTenantModel:  model.BaseTenantModel{TenantID: tenantID},
+
+		BuyerCompanyName: req.BuyerCompanyName,
+
+		TargetCountry:    req.TargetCountry,
+
+		EndUserStatement: req.EndUserStatement,
+
+		Status:           "PENDING",
+
+		AuditLog:         "Initial programmatic policy screening: PASSED. Pending secure ledger human clearance.",
+
+	}
+
+	if err := h.DB.Create(&audit).Error; err != nil {
+
+		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": "Secure ledger failure"})
+
+		return
+
+	}
+
+	c.JSON(http.StatusAccepted, gin.H{
+
+		"status":   "RECORDED_AND_PENDING",
+
+		"audit_id": audit.ID,
+
+		"message":  "End-User Certificate recorded securely. Initialized background compliance analysis.",
+
+	})
+
+}
+
+全球多仓智能调度引擎：backend/internal/handler/inventory.go
+
+Go
+
+package handler
+
+import (
+
+	"net/http"
+
+	"aegisky-platform/internal/model"
+
+	"github.com/gin-gonic/gin"
+
+	"github.com/google/uuid"
+
+	"gorm.io/gorm"
+
+)
+
+type InventoryHandler struct {
+
+	DB *gorm.DB
+
+}
+
+type DispatchRequest struct {
+
+	ProductID uuid.UUID `json:"product_id" binding:"required"`
+
+	Quantity  int       `json:"quantity" binding:"required"`
+
+	Zone      string    `json:"zone" binding:"required"` // EU_EAST, EU_WEST, MIDDLE_EAST
+
+}
+
+// AllocateStock 依据地缘就近原则及供应链清关便利度，执行智能分仓锁库算法func (h *InventoryHandler) AllocateStock(c *gin.Context) {
+
+	tenantID, _ := c.Get("tenant_id").(uuid.UUID)
+
+	var req DispatchRequest
+
+	if err := c.ShouldBindJSON(&req); err != nil {
+
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+
+		return
+
+	}
+
+	var product model.Product
+
+	if err := h.DB.Where("id = ? AND tenant_id = ?", req.ProductID, tenantID).First(&product).Error; err != nil {
+
+		c.JSON(http.StatusNotFound, gin.H{"error": "Component profiling matching failed under current tenant environment"})
+
+		return
+
+	}
+
+	// 动态路由分派决策矩阵
+
+	var preferredWarehouse string
+
+	switch req.Zone {
+
+	case "EU_EAST":
+
+		preferredWarehouse = "Poland_Central" // 前沿高保障时效补货仓
+
+	case "EU_WEST":
+
+		preferredWarehouse = "Germany_North"   // 西欧核心工业件备用节点
+
+	case "MIDDLE_EAST":
+
+		preferredWarehouse = "UAE_Freezone"   // 中东自由贸易免税转运港
+
+	default:
+
+		preferredWarehouse = "Poland_Central"
+
+	}
+
+	// 开启悲观锁（SELECT FOR UPDATE），防范极端高并发下的库存超卖击穿
+
+	tx := h.DB.Begin()
+
+	var stock model.InventoryStock
+
+	if err := tx.Set("gorm:query_option", "FOR UPDATE").
+
+		Where("product_id = ? AND warehouse = ?", req.ProductID, preferredWarehouse).
+
+		First(&stock).Error; err != nil || stock.Quantity < req.Quantity {
+
+		tx.Rollback()
+
+		c.JSON(http.StatusConflict, gin.H{
+
+			"status":             "INVENTORY_DEFICIT",
+
+			"selected_depot":     preferredWarehouse,
+
+			"current_available":  stock.Quantity,
+
+			"recommended_action": "Initiate peer-to-peer backordered transit routing via SaaS control tower.",
+
+		})
+
+		return
+
+	}
+
+	// 执行物理扣减
+
+	stock.Quantity -= req.Quantity
+
+	tx.Save(&stock)
+
+	tx.Commit()
+
+	c.JSON(http.StatusOK, gin.H{
+
+		"status":              "ROUTING_AUTHORIZED",
+
+		"allocated_warehouse": preferredWarehouse,
+
+		"dispatched_quantity": req.Quantity,
+
+	})
+
+}
+
+系统主入口组装服务器：backend/cmd/main.go
+
+Go
+
+package main
+
+import (
+
+	"log"
+
+	"aegisky-platform/internal/handler"
+
+	"aegisky-platform/internal/middleware"
+
+	"aegisky-platform/internal/model"
+
+	"github.com/gin-gonic/gin"
+
+	"gorm.io/driver/postgres"
+
+	"gorm.io/gorm"
+
+)
+
+func main() {
+
+	// 组装高稳定性企业级关系型数据引擎 PostgreSQL
+
+	dsn := "host=db user=aegisky password=aegisky_secure dbname=aegisky_prod port=5432 sslmode=disable"
+
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+
+	if err != nil {
+
+		log.Fatalf("Fatal: Terminating core system. Database layer handshake failed: %v", err)
+
+	}
+
+	// 全自动执行数据架构表实体向底层映射及无损对齐（DDL 自动化演进）
+
+	db.AutoMigrate(&model.Product{}, &model.ProductTrans{}, &model.InventoryStock{}, &model.ComplianceAudit{})
+
+	// 生产模式硬编码注入
+
+	gin.SetMode(gin.ReleaseMode)
+
+	router := gin.New()
+
+	router.Use(gin.Recovery())
+
+	compHandler := &handler.ComplianceHandler{DB: db}
+
+	invHandler := &handler.InventoryHandler{DB: db}
+
+	// 核心受保护防务API网关域
+
+	api := router.Group("/api/v1")
+
+	api.Use(middleware.TenantContextInterceptor())
+
+	{
+
+		api.POST("/compliance/submit", compHandler.SubmitAudit)
+
+		api.POST("/inventory/allocate", invHandler.AllocateStock)
+
+	}
+
+	log.Println("[AEGISKY SYSTEM] Production Control Tower Engine Online on SSL/Port :8080")
+
+	if err := router.Run(":8080"); err != nil {
+
+		log.Fatalf("Fatal: Web listener network port bind crash: %v", err)
+
+	}
+
+}
+
+大疆/苹果级暗黑科技质感前端（Next.js 13+）
+
+前端界面摒弃传统市集电商的杂乱与冗余，采用极致极简的高端工业暗黑风视觉（纯黑背景、细边框分割线、视网膜层级高斯模糊、苹果同款渐变字），烘托高科技、重度安全的工业级跨境 B2B 平台氛围。
+
+前端环境依赖清单：frontend/package.json
+
+JSON
+
+{
+
+"name": "aegisky-frontend",
+
+"version": "1.0.0",
+
+"private": true,
+
+"scripts": {
+
+"dev": "next dev",
+
+"build": "next build",
+
+"start": "next start"
+
+},
+
+"dependencies": {
+
+"react": "^18.2.0",
+
+"react-dom": "^18.2.0",
+
+"next": "^13.4.12",
+
+"tailwindcss": "^3.3.3",
+
+"typescript": "^5.1.6"
+
+  }
+
+}
+
+严谨级 TypeScript 编译器设定：frontend/tsconfig.json
+
+JSON
+
+{
+
+"compilerOptions": {
+
+"target": "es5",
+
+"lib": ["dom", "dom.iterable", "esnext"],
+
+"allowJs": true,
+
+"skipLibCheck": true,
+
+"strict": true,
+
+"forceConsistentCasingInFileNames": true,
+
+"noEmit": true,
+
+"esModuleInterop": true,
+
+"module": "esnext",
+
+"moduleResolution": "node",
+
+"resolveJsonModule": true,
+
+"isolatedModules": true,
+
+"jsx": "preserve",
+
+"incremental": true,
+
+"plugins": [
+
+      {
+
+"name": "next"
+
+      }
+
+],
+
+"paths": {
+
+"@/*": ["./*"]
+
+    }
+
+},
+
+"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+
+"exclude": ["node_modules"]
+
+}
+
+视觉控制中枢：frontend/tailwind.config.js
+
+JavaScript
+
+/** @type {import('tailwindcss').Config} */module.exports = {
+
+content: [
+
+"./app/**/*.{js,ts,jsx,tsx}",
+
+"./components/**/*.{js,ts,jsx,tsx}",
+
+],
+
+darkMode: 'class',
+
+theme: {
+
+extend: {
+
+colors: {
+
+appleBg: '#000000',
+
+appleCard: '#1C1C1E',
+
+appleBorder: '#2D2D2E',
+
+appleBlue: '#0071E3',
+
+appleGrayText: '#86868B',
+
+},
+
+},
+
+},
+
+plugins: [],
+
+}
+
+基础原子化样式表：frontend/app/globals.css
+
+CSS
+
+@tailwind base;@tailwind components;@tailwind utilities;
+
+@layer base {
+
+body {
+
+@apply bg-black text-[#F5F5F7] antialiased;
+
+  }
+
+}
+
+@keyframes fadeIn {
+
+from { opacity: 0; transform: translateY(8px); }
+
+to { opacity: 1; transform: translateY(0); }
+
+}
+
+.animate-fadeIn {
+
+animation: fadeIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+
+}
+
+高感光全局持久框架：frontend/app/layout.tsx
+
+TypeScript
+
+import './globals.css';
+
+import React from 'react';
+
+export const metadata = {
+
+title: 'AEGISKY GLOBAL SECURITY CONTROL TOWER',
+
+description: 'Next-Generation Secure UAV & Dual-Use Components B2B Supply Chain SaaS Platform',
+
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+
+return (
+
+<html lang="en" className="dark">
+
+<body className="bg-black text-[#F5F5F7] font-sans antialiased selection:bg-[#0071E3] selection:text-white">
+
+{/* 大疆级流光磨砂导航天际线 */}
+
+<nav className="sticky top-0 z-50 border-b border-[#2D2D2E] bg-black/70 backdrop-blur-md">
+
+<div className="mx-auto max-w-7xl px-6 h-14 flex items-center justify-between">
+
+<span className="text-xs font-semibold tracking-[0.2em] bg-gradient-to-r from-white via-[#E5E5EA] to-[#86868B] bg-clip-text text-transparent">
+
+AEGISKY INDUSTRIAL CONTROL TOWER
+
+</span>
+
+<div className="flex items-center space-x-8 text-[11px] text-[#86868B] tracking-wider">
+
+<span className="hover:text-white transition-colors duration-200 cursor-pointer font-medium">SUPPLY CORE</span>
+
+<span className="hover:text-white transition-colors duration-200 cursor-pointer font-medium">EUS GATEWAY</span>
+
+<div className="h-3 w-[1px] bg-[#2D2D2E]"></div>
+
+<span className="text-white bg-[#0071E3] px-3 py-1 rounded-full text-[10px] font-semibold tracking-widest shadow-lg shadow-[#0071E3]/20">
+
+                SECURE INSTANCE ACTIVE
+
+              </span>
+
+</div>
+
+</div>
+
+</nav>
+
+<main className="mx-auto max-w-7xl px-6 py-12">{children}</main>
+
+</body>
+
+</html>
+
+);
+
+}
+
+数字化供应链主工作盘大屏：frontend/app/page.tsx
+
+TypeScript
+
+'use client';
+
+import React, { useState } from 'react';
+
+import ComplianceForm from './components/ComplianceForm';
+
+export default function MainControlDashboard() {
+
+const [telemetryLog, setTelemetryLog] = useState<string>('System on standby. Core telemetry data link established.');
+
+const [loading, setLoading] = useState<boolean>(false);
+
+const executeSmartRouting = async (targetZone: string) => {
+
+setLoading(false);
+
+setLoading(true);
+
+try {
+
+const response = await fetch('/api/v1/inventory/allocate', {
+
+method: 'POST',
+
+headers: {
+
+'Content-Type': 'application/json',
+
+'X-AEGISKY-TENANT-ID': '4a8b9c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d', // 高度拟真企业端 SaaS 租户凭证
+
+},
+
+body: JSON.stringify({
+
+product_id: '99999999-9999-9999-9999-999999999999', // 模拟受控大扭矩电机元器件唯一码
+
+quantity: 120,
+
+zone: targetZone,
+
+}),
+
+});
+
+const data = await response.json();
+
+if (response.status === 200) {
+
+setTelemetryLog(`[ROUTING SUCCESS] Targeted Hub: ${data.allocated_warehouse} | Dispatch Vol: ${data.dispatched_quantity} units.`);
+
+} else {
+
+setTelemetryLog(`[ROUTING BLOCKED] Reason: ${data.status} | Shortage Action Required.`);
+
+      }
+
+} catch {
+
+setTelemetryLog('[CRITICAL ERROR] Core pipeline telemetry handshake synchronization timeout.');
+
+} finally {
+
+setLoading(false);
+
+    }
+
+};
+
+return (
+
+<div className="space-y-12 animate-fadeIn">
+
+{/* 苹果风简练深邃标语 */}
+
+<div className="space-y-3">
+
+<h1 className="text-4xl font-normal tracking-tight sm:text-5xl text-white">
+
+Supply control tower. <span className="text-[#86868B]">Legal compliance by design.</span>
+
+</h1>
+
+<p className="max-w-3xl text-sm text-[#86868B] leading-relaxed">
+
+Operational matrix platform built for global UAV manufacturers and licensed distributors. Absolute regulatory safety, structural logical multi-tenant isolation, and dynamic peer-to-peer real-time overseas warehouse cross-docking.
+
+</p>
+
+</div>
+
+<div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+
+{/* 左侧大版块：多语言数字加密式 EUS 签章上链输入 */}
+
+<div className="lg:col-span-2 bg-[#1C1C1E] rounded-2xl border border-[#2D2D2E] p-8 shadow-2xl flex flex-col justify-between">
+
+<div>
+
+<h2 className="text-lg font-medium text-white mb-2">Dual-Use Policy Endorsement</h2>
+
+<p className="text-xs text-[#86868B] mb-6">Programmatic international trade embargo filtering system operating on first-principles verification.</p>
+
+<ComplianceForm />
+
+</div>
+
+</div>
+
+{/* 右侧：海外仓智能物流流向实时干预系统 */}
+
+<div className="bg-[#1C1C1E] rounded-2xl border border-[#2D2D2E] p-8 flex flex-col justify-between shadow-2xl">
+
+<div>
+
+<h3 className="text-lg font-medium text-white mb-2">Automated Cargo Routing</h3>
+
+<p className="text-xs text-[#86868B] mb-6">Simulate and dispatch cross-border inventory allocation instantly based on target destination vectors.</p>
+
+            
+
+<div className="space-y-3">
+
+              <button
+
+onClick={() => executeSmartRouting('EU_EAST')}
+
+                disabled={loading}
+
+className="w-full text-left px-4 py-4 bg-[#2C2C2E] hover:bg-[#3A3A3C] rounded-xl text-xs transition-all border border-[#3A3A3C] flex justify-between items-center group"
+
+              >
+
+<span className="font-medium text-white">Eastern Europe Corridor (Poland Node)</span>
+
+<span className="text-[#0071E3] group-hover:translate-x-1 transition-transform">Dispatch →</span>
+
+              </button>
+
+              <button
+
+onClick={() => executeSmartRouting('MIDDLE_EAST')}
+
+                disabled={loading}
+
+className="w-full text-left px-4 py-4 bg-[#2C2C2E] hover:bg-[#3A3A3C] rounded-xl text-xs transition-all border border-[#3A3A3C] flex justify-between items-center group"
+
+              >
+
+<span className="font-medium text-white">Middle East Freezone Hub (UAE Node)</span>
+
+<span className="text-[#0071E3] group-hover:translate-x-1 transition-transform">Dispatch →</span>
+
+              </button>
+
+</div>
+
+</div>
+
+<div className="mt-8 pt-6 border-t border-[#2D2D2E]">
+
+<span className="text-[10px] tracking-[0.15em] text-[#86868B] block mb-3 font-mono font-semibold">REAL-TIME INFRASTRUCTURE SYSTEM LOG</span>
+
+<div className="bg-black p-4 rounded-xl border border-[#2D2D2E] text-[11px] font-mono text-[#30D158] leading-relaxed break-all">
+
+              {telemetryLog}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+);
+
+}
+
+多语言动态合规声明交互组件：frontend/app/components/ComplianceForm.tsx
+
+TypeScript
+
+'use client';
+
+import React, { useState } from 'react';
+
+// 完全解耦结构化字典。支持动态全球多语种无缝平滑切换，无页面重载开销。
+
+const LOCALE_DICTIONARY = {
+
+en: {
+
+title: 'End-User Statement (EUS) Certification Framework',
+
+company: 'Buyer Corporate Legal Name (Verified)',
+
+country: 'Destination Country Alpha-2 ISO Code',
+
+statement: 'Legal End-Use Affirmation & Anti-Diversion Statement Clause',
+
+submit: 'Execute Digital Legal Endorsement',
+
+},
+
+uk: {
+
+title: 'Сертифікація заяви кінцевого користувача (EUS)',
+
+company: 'Юридична назва компанії-покупця (Перевірено)',
+
+country: 'Код країни призначення (ISO Alpha-2)',
+
+statement: 'Юридична заява про кінцеве використання та нерозповсюдження',
+
+submit: 'Виконати цифрове завірення',
+
+},
+
+pl: {
+
+title: 'Certyfikacja Oświadczenia Końcowego Użytkownika (EUS)',
+
+company: 'Prawna Nazwa Firmy Kupującej (Zweryfikowana)',
+
+country: 'Kod ISO Kraju Docelowego (Alpha-2)',
+
+statement: 'Prawne Oświadczenie o Przeznaczeniu i Zakazie Reeksportu',
+
+submit: 'Podpisz Cyfrowo i Prześlij',
+
+  }
+
+};
+
+type LanguageSupportKey = 'en' | 'uk' | 'pl';
+
+export default function ComplianceForm() {
+
+const [activeLang, setActiveLang] = useState<LanguageSupportKey>('en');
+
+const [corporateName, setCorporateName] = useState('');
+
+const [targetIso, setTargetIso] = useState('');
+
+const [legalBody, setLegalBody] = useState('');
+
+const [networkBanner, setNetworkBanner] = useState<string | null>(null);
+
+const processFormSubmission = async (event: React.FormEvent) => {
+
+event.preventDefault();
+
+setNetworkBanner(null);
+
+try {
+
+const apiResponse = await fetch('/api/v1/compliance/submit', {
+
+method: 'POST',
+
+headers: {
+
+'Content-Type': 'application/json',
+
+'X-AEGISKY-TENANT-ID': '4a8b9c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d',
+
+},
+
+body: JSON.stringify({
+
+buyer_company_name: corporateName,
+
+target_country: targetIso.toUpperCase().trim(),
+
+end_user_statement: legalBody,
+
+}),
+
+});
+
+const responsePayload = await apiResponse.json();
+
+      
+
+if (apiResponse.status === 202) {
+
+setNetworkBanner(`✓ SYSTEM COMPLIANCE PASS: Audit tracking hash deployed -> ${responsePayload.audit_id}`);
+
+} else {
+
+setNetworkBanner(`✕ SYSTEM REGULATORY BLOCK: ${responsePayload.message}`);
+
+      }
+
+} catch {
+
+setNetworkBanner('✕ SYSTEM EXCEPTION: Edge gateway connection fallback.');
+
+    }
+
+};
+
+return (
+
+<div className="space-y-6">
+
+{/* 极简无界高感光多语种快速分切控制条 */}
+
+<div className="flex bg-[#2C2C2E] p-1 rounded-xl w-fit border border-[#3A3A3C]">
+
+{(Object.keys(LOCALE_DICTIONARY) as LanguageSupportKey[]).map((langToken) => (
+
+<button
+
+key={langToken}
+
+type="button"
+
+onClick={() => setActiveLang(langToken)}
+
+className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 ${
+
+activeLang === langToken ? 'bg-[#0071E3] text-white shadow-md' : 'text-[#86868B] hover:text-white'
+
+}`}
+
+          >
+
+{langToken.toUpperCase()}
+
+</button>
+
+))}
+
+</div>
+
+<form onSubmit={processFormSubmission} className="space-y-5">
+
+<div>
+
+<label className="block text-xs font-medium text-[#86868B] mb-2">{LOCALE_DICTIONARY[activeLang].company}</label>
+
+<input
+
+type="text"
+
+value={corporateName}
+
+onChange={(e) => setCorporateName(e.target.value)}
+
+className="w-full bg-[#2C2C2E] border border-[#3A3A3C] rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#0071E3] transition-colors font-mono"
+
+placeholder="e.g. NATO Procurement Agency Eastern Division Sp. z o.o."
+
+required
+
+/>
+
+</div>
+
+<div>
+
+<label className="block text-xs font-medium text-[#86868B] mb-2">{LOCALE_DICTIONARY[activeLang].country}</label>
+
+<input
+
+type="text"
+
+maxLength={2}
+
+value={targetIso}
+
+onChange={(e) => setTargetIso(e.target.value)}
+
+className="w-full bg-[#2C2C2E] border border-[#3A3A3C] rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#0071E3] transition-colors font-mono"
+
+placeholder="e.g. PL, UA, DE"
+
+required
+
+/>
+
+</div>
+
+<div>
+
+<label className="block text-xs font-medium text-[#86868B] mb-2">{LOCALE_DICTIONARY[activeLang].statement}</label>
+
+<textarea
+
+value={legalBody}
+
+onChange={(e) => setLegalBody(e.target.value)}
+
+rows={5}
+
+className="w-full bg-[#2C2C2E] border border-[#3A3A3C] rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#0071E3] transition-colors font-mono leading-relaxed"
+
+placeholder="The importing enterprise officially declares under penalty of international law that the requested avionics payloads will be solely integrated for lawful defensive reconnaissance, strictly prohibiting illicit uncertified routing."
+
+required
+
+/>
+
+</div>
+
+<button
+
+type="submit"
+
+className="w-full bg-[#0071E3] hover:bg-[#147CE5] text-white font-medium text-xs py-3 px-4 rounded-xl transition-all duration-200 transform active:scale-[0.99] shadow-lg shadow-[#0071E3]/20"
+
+        >
+
+{LOCALE_DICTIONARY[activeLang].submit}
+
+</button>
+
+</form>
+
+{networkBanner && (
+
+<div className={`p-4 rounded-xl border text-xs font-mono transition-all duration-300 animate-fadeIn ${
+
+networkBanner.startsWith('✓') ? 'bg-[#1C3D22] border-[#30D158] text-[#30D158]' : 'bg-[#3A1C1C] border-[#FF453A] text-[#FF453A]'
+
+}`}>
+
+{networkBanner}
+
+</div>
+
+)}
+
+</div>
+
+);
+
+}
+
+生产级多阶段容器化及极简化集群编排
+
+为了杜绝在不同Linux服务器上因为各种运行环境依赖缺失造成的“在我机器上能跑，但在服务器上报错”等经典问题，系统全程通过 Docker Engine 进行沙盒化强硬隔离与发布。
+
+后端多阶段编译构建脚本：backend/Dockerfile
+
+Dockerfile
+
+# 阶段一：使用轻量 Golang 环境进行源码静态编译FROM golang:1.20-alpine AS builderWORKDIR /appCOPY go.mod go.sum ./RUN go mod downloadCOPY . .RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./cmd/main.go
+
+# 阶段二：剔除全部编译期冗余，仅保留最小轻量级运行底座FROM alpine:latestRUN apk --no-cache add ca-certificates tzdataWORKDIR /root/COPY --from=builder /app/main .EXPOSE 8080CMD ["./main"]
+
+前端 SSR 高并发部署脚本：frontend/Dockerfile
+
+Dockerfile
+
+# 阶段一：依赖下载与生产静态构建FROM node:18-alpine AS builderWORKDIR /appCOPY package.json ./RUN npm installCOPY . .RUN npm run build
+
+# 阶段二：生成极小化运行时环境，确保线上极致渲染FROM node:18-alpineWORKDIR /appCOPY --from=builder /app ./EXPOSE 3000CMD ["npm", "run", "start"]
+
+全栈多链路联合发布编排：docker-compose.yml
+
+YAML
+
+version: '3.8'
+
+services:
+
+# 高可靠性数据底座
+
+db:
+
+image: postgres:15-alpine
+
+container_name: aegisky-postgres-prod
+
+environment:
+
+POSTGRES_USER: aegisky
+
+POSTGRES_PASSWORD: aegisky_secure
+
+POSTGRES_DB: aegisky_prod
+
+ports:
+
+- "5432:5432"
+
+volumes:
+
+- postgres_production_data:/var/lib/postgresql/data
+
+restart: always
+
+# Go 高并发后端合规网关核心
+
+backend:
+
+build:
+
+context: ./backend
+
+container_name: aegisky-backend-api
+
+ports:
+
+- "8080:8080"
+
+depends_on:
+
+- db
+
+restart: always
+
+# Next.js 极简高感光大屏前端
+
+frontend:
+
+build:
+
+context: ./frontend
+
+container_name: aegisky-frontend-ui
+
+ports:
+
+- "3000:3000"
+
+depends_on:
+
+- backend
+
+restart: always
+
+volumes:
+
+postgres_production_data:
+
+driver: local
+
+一键部署与系统测试运行指南
+
+本套系统针对零基础开发者进行了最大化的容器级封装，仅需4步即可拉起整套符合顶级跨国合规标准的数字工作盘。
+
+运行部署命令
+
+登录目标 Linux 服务器，在根目录下创建一个名为 aegisky-platform 的文件夹，将上述所有对应文件严格按前文描述的代码内容写入对应的路径中。然后进入该根目录，执行以下命令：
+
+Bash
+
+# 1. 检查并确保 Docker 与 Docker-Compose 处于就绪状态
+
+docker --version && docker-compose --version
+
+# 2. 启动一键拉起编译链路（系统会自动全自动下载底层依赖、完成编译、数据库表结构迁移与数据双链路绑定）
+
+docker-compose up --build -d
+
+# 3. 查看容器健康生存监控状态
+
+docker-compose ps
+
+生产网关接口端对端可用性实测（端点检测验证）
+
+系统正常拉起后，可直接在服务器或本地终端通过 curl 命令，高仿真模拟 B 端租户注入身份指纹，对合规熔断红线进行高压测试。
+
+测试场景 A：发送货品至合规目的地（PL - 波兰节点），预期系统应当无摩擦放行：
+
+Bash
+
+curl -X POST http://localhost:8080/api/v1/compliance/submit \
+
+-H "X-AEGISKY-TENANT-ID: 4a8b9c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d" \
+
+-H "Content-Type: application/json" \
+
+-d '{
+
+"buyer_company_name": "Aegisky Europe Distribution Ltd.",
+
+"target_country": "PL",
+
+"end_user_statement": "Verified industrial deployment on border monitoring drones."
+
+}'
+
+预期后端返回值： {"status":"RECORDED_AND_PENDING","audit_id":"...","message":"..."}，同时状态码返回 202 Accepted。
+
+测试场景 B：发送敏感无人机无人机配件和元器件至强力禁运管制国（RU），验证第一性原理熔断器是否生效：
+
+Bash
+
+curl -X POST http://localhost:8080/api/v1/compliance/submit \
+
+-H "X-AEGISKY-TENANT-ID: 4a8b9c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d" \
+
+-H "Content-Type: application/json" \
+
+-d '{
+
+"buyer_company_name": "Prohibited Entity Intermediary",
+
+"target_country": "RU",
+
+"end_user_statement": "Illegal redirection attempts."
+
+}'
+
+预期后端返回值： 系统直接抛出状态码 403 Forbidden 并返回：{"status":"REJECTED_BY_REGULATORY_SYSTEM","message":"Critical Compliance Infringement: Targeted destination country is under absolute dual-use embargo."}，实现了毫秒级自动风控熔断，彻底阻断了违规违法的跨境贸易行为。
+
+生产环境接入建议
+
+当本系统部署于公网生产服务器时，建议在最前置节点挂载 Nginx 并为其配置免费的 Let's Encrypt SSL 证书。通过反向代理，将公网的 443 HTTPS 流量切入前端的 3000 端口，并将 /api 相关的路径转发至后端的 8080 端口。这不仅能全方位确保跨境大宗采购的资金流和 KYC 合规证书流在全链路加密（HTTPS）下高速运转，还能提供极佳的防外部探测与防篡改保护。
+
+备注：
+
+核心功能模块工程实现
+
+补充：
+
+智能合规防火墙 (Compliance-as-Code)
+
+这是平台的最核心壁垒。
+
+逻辑流： 每一个订单在创建前，必须经过 RuleEngine。
+
+代码示例 (Pseudo-Go)：
+
+Go
+
+func ValidateTransaction(buyer Buyer, item DualUseItem) (bool, error) {
+
+// 1. 检查全球制裁名单 (OFAC, UN, EU)
+
+isSanctioned(buyer.EntityName) {
+
+return false, errors.New("ENTITY_IN_SANCTION_LIST")
+
+    }
+
+// 2. 判定商品受控级别 (ECCN 编码匹配)
+
+licenseRequired := checkExportLicenseNeed(item.HSCode, buyer.Country)
+
+licenseRequired && !buyer.HasValidLicense {
+
+return false, errors.New("EXPORT_LICENSE_REQUIRED")
+
+    }
+
+return true, nil
+
+}
+
+工业级参数矩阵 (Technical Matrix)
+
+不再提供模糊的描述，而是结构化的 Schema。
+
+UAV 组件属性： 包含 MTBF（平均故障间隔）、频段跳变能力、抗电磁干扰级别、波束宽度等关键战术指标。
+
+3D 模型集成： 支持浏览器内预览 .step 或 .obj 格式零件模型，方便下游工程师直接进行装配验证。

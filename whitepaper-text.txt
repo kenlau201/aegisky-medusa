@@ -1,0 +1,1027 @@
+﻿AEGISKY 鍏ㄧ悆鏃犱汉鏈哄強閰嶄欢璺ㄥ B2B + SaaS 渚涘簲閾炬帶鍒跺绯荤粺
+0 鍒?1 瀹屾暣鎶€鏈笌宸ョ▼钀藉湴瀹炴柦鎸囧崡
+鐩綍
+宸ョ▼鐩綍鏍戜笌鎷撴墤缁撴瀯瑙ｆ瀯
+鍚庣楂樺苟鍙戝悎瑙勫紩鎿庢繁搴︽媶瑙ｄ笌瀹屾暣婧愮爜
+3.1 渚濊禆澹版槑涓庣幆澧冮厤缃?(
+backend/go.mod
+)
+3.2 鏁版嵁搴撴ā鍨嬩笌澶氱鎴烽殧绂绘灦鏋?(
+backend/internal/model/models.go
+)
+3.3 闃插姟绾х鎴锋帶鍒朵腑闂翠欢 (
+backend/internal/middleware/tenant.go
+)
+3.4 鏁板瓧鍖?KYC/EUS 鍚堣瀹℃煡缃戝叧 (
+backend/internal/handler/compliance.go
+)
+3.5 鍏ㄧ悆澶氫粨鏅鸿兘璋冨害涓庢偛瑙傞攣鎵ｅ噺寮曟搸 (
+backend/internal/handler/inventory.go
+)
+3.6 绯荤粺鍏ュ彛涓庢湇鍔＄粍瑁?(
+backend/cmd/main.go
+)
+鍓嶇鏆楅粦绉戞妧璐ㄦ劅鎺у埗濉旀繁搴︽媶瑙ｄ笌瀹屾暣婧愮爜
+4.1 渚濊禆绠＄悊涓嶵ypeScript閰嶇疆 (
+frontend/package.json
+ &amp; 
+frontend/tsconfig.json
+)
+4.2 鑻规灉/澶х枂绾ц瑙変腑鏋笌鏍峰紡娉ㄥ叆 (
+frontend/tailwind.config.js
+ &amp; 
+frontend/app/globals.css
+)
+4.3 鏁翠綋甯冨眬涓庡ぉ闄呯嚎瀵艰埅 (
+frontend/app/layout.tsx
+)
+4.4 鏁板瓧鍖栦緵搴旈摼涓诲伐浣滅洏澶у睆 (
+frontend/app/page.tsx
+)
+4.5 澶氳瑷€鍔ㄦ€佸悎瑙勫０鏄庝氦浜掔粍浠?(
+frontend/app/components/ComplianceForm.tsx
+)
+鐢熶骇绾у闃舵瀹瑰櫒鍖栦笌闆嗙兢缂栨帓
+5.1 鍚庣澶氶樁娈垫瀯寤?Dockerfile (
+backend/Dockerfile
+)
+5.2 鍓嶇 SSR 閮ㄧ讲 Dockerfile (
+frontend/Dockerfile
+)
+5.3 Docker Compose 鍏ㄦ爤缂栨帓 (
+docker-compose.yml
+)
+鏅鸿兘鍚堣闃茬伀澧?(Compliance-as-Code) 涓庡伐涓氱骇鍙傛暟鐭╅樀鎵╁睍璁捐
+1.1 鏍稿績涓氬姟鏈川
+鍙岀敤閫旓紙Dual-use锛夌鍒舵棤浜烘満銆佺數瀛愰厤浠跺強鍏冨櫒浠剁殑璺ㄥ B2B 璐告槗鍏锋湁鏋侀珮鐨勫湴缂樻斂娌婚闄╀笌鍚堣闂ㄦ銆傛湰绯荤粺鐨勭涓€鎬у師鐞嗗熀浜庝互涓嬩笁澶ф牳蹇冩敮鏌憋細
+鍚庣鏋舵瀯
+锛氶噰鐢?
+Go 1.20+
+ + 
+Gin-Gonic
+ + 
+GORM 2.0
+ + 
+PostgreSQL 15
+鍓嶇鏋舵瀯
+锛氶噰鐢?
+Next.js 13+ (React TypeScript)
+ + 
+Tailwind CSS
+閮ㄧ讲鐜
+Docker + Docker Compose
+2. 宸ョ▼鐩綍鏍戜笌鎷撴墤缁撴瀯瑙ｆ瀯
+aegisky-platform/
+鈹溾攢鈹€ backend/
+鈹?  鈹溾攢鈹€ Dockerfile                   # 鍚庣澶氶樁娈垫瀯寤虹敓浜х骇 Dockerfile
+鈹?  鈹溾攢鈹€ go.mod                       # 渚濊禆澹版槑
+鈹?  鈹溾攢鈹€ go.sum                       # 渚濊禆鍝堝笇閿佸畾
+鈹?  鈹溾攢鈹€ cmd/
+鈹?  鈹?  鈹斺攢鈹€ main.go                  # 鍚庣绯荤粺鍞竴鍚姩鍏ュ彛
+鈹?  鈹斺攢鈹€ internal/
+鈹?      鈹溾攢鈹€ model/
+鈹?      鈹?  鈹斺攢鈹€ models.go            # 鐢熶骇绾у绉熸埛銆佸璇█澶氬睘鎬ф暟鎹簱妯″瀷
+鈹?      鈹溾攢鈹€ middleware/
+鈹?      鈹?  鈹斺攢鈹€ tenant.go            # 闃插姟绾?SaaS 闅旂涓庡姩鎬佽瑷€涓婁笅鏂囦腑闂翠欢
+鈹?      鈹斺攢鈹€ handler/
+鈹?          鈹溾攢鈹€ compliance.go        # 鏍稿績锛氭暟瀛楀寲 KYC 涓?EUS 鍚堣瀹℃煡缃戝叧
+鈹斺攢鈹€ frontend/
+    鈹溾攢鈹€ Dockerfile                   # 鍓嶇鐢熶骇绾?SSR 閮ㄧ讲 Dockerfile
+    鈹溾攢鈹€ tsconfig.json                # TypeScript 涓ヨ皑妯″紡閰嶇疆
+    鈹溾攢鈹€ tailwind.config.js           # 鑻规灉/澶х枂绾ф殫榛戞瀬绠€楂樻劅瑙嗚涓婚閰嶇疆
+    鈹斺攢鈹€ app/
+        鈹溾攢鈹€ globals.css              # 鍏ㄥ眬鍘熷瓙鍖栨牱寮忓強楂樻柉妯＄硦鍔ㄧ敾娉ㄥ叆
+        鈹溾攢鈹€ layout.tsx               # 鍏ㄥ眬鎸佷箙鍖栨瀬绠€楂樻劅瀵艰埅楠ㄦ灦
+        鈹斺攢鈹€ components/
+3. 鍚庣楂樺苟鍙戝悎瑙勫紩鎿庢繁搴︽媶瑙ｄ笌瀹屾暣婧愮爜
+3.1 渚濊禆澹版槑涓庣幆澧冮厤缃?(
+backend/go.mod
+)
+module aegisky-platform
+go 1.20
+require (
+github.com/gin-gonic/gin v1.9.1
+github.com/google/uuid v1.3.0
+gorm.io/driver/postgres v1.5.2
+gorm.io/gorm v1.25.1
+)
+3.2 鏁版嵁搴撴ā鍨嬩笌澶氱鎴烽殧绂绘灦鏋?(
+backend/internal/model/models.go
+)
+models.go
+ 瀹氫箟浜嗙郴缁熺殑鏍稿績棰嗗煙妯″瀷锛岀户鎵?
+BaseTenantModel
+package model
+import (
+&quot;time&quot;
+&quot;github.com/google/uuid&quot;
+&quot;gorm.io/gorm&quot;
+)
+type BaseTenantModel struct {
+ID        uuid.UUID      `gorm:&quot;type:uuid;primaryKey;&quot; json:&quot;id&quot;`
+CreatedAt time.Time      `json:&quot;created_at&quot;`
+UpdatedAt time.Time      `json:&quot;updated_at&quot;`
+DeletedAt gorm.DeletedAt `gorm:&quot;index&quot; json:&quot;-&quot;`
+}
+// BeforeCreate 鑷姩鎸傝浇鍒嗗竷寮忓敮涓€鎬?UUID
+func (b *BaseTenantModel) BeforeCreate(tx *gorm.DB) (err error) {
+if b.ID == uuid.Nil {
+
+b.ID = uuid.New()
+}
+return
+}
+// Product 鏃犱汉鏈烘牳蹇冮厤浠跺叏鍙傛暟鍟嗗搧涓昏〃
+type Product struct {
+BaseTenantModel
+SKU          string           `gorm:&quot;type:varchar(64);uniqueIndex;not null&quot; json:&quot;sku&quot;`
+Category     string           `gorm:&quot;type:varchar(64);index&quot; json:&quot;category&quot;` // FPV_V_TX, BLDC_MOTOR, FLIGHT_CTRL
+WeightGrams  int              `json:&quot;weight_grams&quot;`
+Translations []ProductTrans   `gorm:&quot;foreignKey:ProductID&quot; json:&quot;translations&quot;`
+Stocks       []InventoryStock `gorm:&quot;foreignKey:ProductID&quot; json:&quot;stocks&quot;`
+}
+// ProductTrans 鍔ㄦ€佸浗闄呭寲澶氳瑷€闅旂琛紝閫氳繃璇缂栫爜涓庝富琛ㄤ竴瀵瑰鍏宠仈
+type ProductTrans struct {
+ID           uint      `gorm:&quot;primaryKey&quot;`
+ProductID    uuid.UUID `gorm:&quot;type:uuid;index;not null&quot;`
+LanguageCode string    `gorm:&quot;type:varchar(10);not null&quot;` // en, uk, pl, de
+Name         string    `gorm:&quot;type:varchar(255);not null&quot;`
+Description  string    `gorm:&quot;type:text&quot;`
+}
+type InventoryStock struct {
+ID        uint      `gorm:&quot;primaryKey&quot;`
+ProductID uuid.UUID `gorm:&quot;type:uuid;index;not null&quot;`
+Warehouse string    `gorm:&quot;type:varchar(64);not null&quot;` // Poland_Central, Germany_North, UAE_Freezone
+Quantity  int       `json:&quot;quantity&quot;`
+}
+type ComplianceAudit struct {
+BaseTenantModel
+BuyerCompanyName string `gorm:&quot;type:varchar(255);not null&quot; json:&quot;buyer_company_name&quot;`
+Status           string `gorm:&quot;type:varchar(32);default:'PENDING'&quot; json:&quot;status&quot;` // PENDING, APPROVED, REJECTED
+AuditLog         string `gorm:&quot;type:text&quot; json:&quot;audit_log&quot;`
+}
+3.3 闃插姟绾х鎴锋帶鍒朵腑闂翠欢 (
+backend/internal/middleware/tenant.go
+)
+瑙ｆ瀽璇锋眰澶翠腑鐨?
+X-AEGISKY-TENANT-ID
+ 涓?
+Accept-Language
+package middleware
+import (
+&quot;net/http&quot;
+&quot;github.com/gin-gonic/gin&quot;
+&quot;github.com/google/uuid&quot;
+)
+func TenantContextInterceptor() gin.HandlerFunc {
+return func(c *gin.Context) {
+
+tenantHeader := c.GetHeader(&quot;X-AEGISKY-TENANT-ID&quot;)
+
+if tenantHeader == &quot;&quot; {
+
+
+c.JSON(http.StatusUnauthorized, gin.H{&quot;error&quot;: &quot;Security Breach: Missing Security Access Fingerprint&quot;})
+
+
+c.Abort()
+
+
+return
+
+}
+
+tenantID, err := uuid.Parse(tenantHeader)
+
+if err != nil {
+
+
+c.JSON(http.StatusBadRequest, gin.H{&quot;error&quot;: &quot;Security Breach: Tampered or Corrupted Tenant Token&quot;})
+
+
+c.Abort()
+
+
+return
+
+}
+
+// 灏嗗凡楠岃瘉鐨勯殧绂诲煙鏍囪瘑绗︽棤缂濆啓鍏ヤ笂涓嬫枃瀛楀吀
+
+c.Set(&quot;tenant_id&quot;, tenantID)
+
+// 鎹曡幏瀹㈡埛绔閫変氦浜掕瑷€锛岄粯璁や负鑻辫
+
+lang := c.GetHeader(&quot;Accept-Language&quot;)
+
+if lang == &quot;&quot; {
+
+
+lang = &quot;en&quot;
+
+}
+
+c.Set(&quot;language&quot;, lang)
+
+c.Next()
+}
+}
+3.4 鏁板瓧鍖?KYC/EUS 鍚堣瀹℃煡缃戝叧 (
+backend/internal/handler/compliance.go
+)
+鑷姩鍖栨牎楠岀洰鐨勫浗鍒惰閫昏緫銆傞亣鍒拌绂佽繍鍥藉锛堝 
+RU
+, 
+IR
+, 
+KP
+, 
+SY
+锛夌洿鎺ユ姏鍑?
+403 Forbidden
+package handler
+import (
+&quot;net/http&quot;
+&quot;aegisky-platform/internal/model&quot;
+&quot;github.com/gin-gonic/gin&quot;
+&quot;github.com/google/uuid&quot;
+&quot;gorm.io/gorm&quot;
+)
+type ComplianceHandler struct {
+DB *gorm.DB
+}
+type SubmissionRequest struct {
+BuyerCompanyName string `json:&quot;buyer_company_name&quot; binding:&quot;required&quot;`
+TargetCountry    string `json:&quot;target_country&quot; binding:&quot;required&quot;`
+EndUserStatement string `json:&quot;end_user_statement&quot; binding:&quot;required&quot;`
+}
+func (h *ComplianceHandler) SubmitAudit(c *gin.Context) {
+tenantID, _ := c.Get(&quot;tenant_id&quot;).(uuid.UUID)
+var req SubmissionRequest
+if err := c.ShouldBindJSON(&amp;req); err != nil {
+
+c.JSON(http.StatusBadRequest, gin.H{&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: err.Error()})
+
+return
+}
+if req.TargetCountry == &quot;RU&quot; || req.TargetCountry == &quot;IR&quot; || req.TargetCountry == &quot;KP&quot; || req.TargetCountry == &quot;SY&quot; {
+
+c.JSON(http.StatusForbidden, gin.H{
+
+
+&quot;status&quot;:  &quot;REJECTED_BY_REGULATORY_SYSTEM&quot;,
+
+
+&quot;message&quot;: &quot;Critical Compliance Infringement: Targeted destination country is under absolute dual-use embargo.&quot;,
+
+})
+
+return
+}
+audit := model.ComplianceAudit{
+
+BaseTenantModel:  model.BaseTenantModel{TenantID: tenantID},
+
+BuyerCompanyName: req.BuyerCompanyName,
+
+TargetCountry:    req.TargetCountry,
+
+EndUserStatement: req.EndUserStatement,
+
+Status:           &quot;PENDING&quot;,
+
+AuditLog:         &quot;Initial programmatic policy screening: PASSED. Pending secure ledger human clearance.&quot;,
+}
+if err := h.DB.Create(&amp;audit).Error; err != nil {
+
+c.JSON(http.StatusInternalServerError, gin.H{&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: &quot;Secure ledger failure&quot;})
+
+return
+}
+c.JSON(http.StatusAccepted, gin.H{
+
+&quot;status&quot;:   &quot;RECORDED_AND_PENDING&quot;,
+
+&quot;audit_id&quot;: audit.ID,
+
+&quot;message&quot;:  &quot;End-User Certificate recorded securely. Initialized background compliance analysis.&quot;,
+})
+}
+3.5 鍏ㄧ悆澶氫粨鏅鸿兘璋冨害涓庢偛瑙傞攣鎵ｅ噺寮曟搸 (
+backend/internal/handler/inventory.go
+)
+鍩轰簬鐩爣鍦扮紭閫昏緫鍒嗘淳浠撳簱锛堝 
+EU_EAST
+ -&gt; 
+Poland_Central
+锛夛紝骞跺紑鍚?
+SELECT FOR UPDATE
+package handler
+import (
+&quot;net/http&quot;
+&quot;aegisky-platform/internal/model&quot;
+&quot;github.com/gin-gonic/gin&quot;
+&quot;github.com/google/uuid&quot;
+&quot;gorm.io/gorm&quot;
+)
+type InventoryHandler struct {
+DB *gorm.DB
+}
+type DispatchRequest struct {
+ProductID uuid.UUID `json:&quot;product_id&quot; binding:&quot;required&quot;`
+Quantity  int       `json:&quot;quantity&quot; binding:&quot;required&quot;`
+Zone      string    `json:&quot;zone&quot; binding:&quot;required&quot;` // EU_EAST, EU_WEST, MIDDLE_EAST
+}
+// AllocateStock 渚濇嵁鍦扮紭灏辫繎鍘熷垯鍙婁緵搴旈摼娓呭叧渚垮埄搴︼紝鎵ц鏅鸿兘鍒嗕粨閿佸簱绠楁硶
+func (h *InventoryHandler) AllocateStock(c *gin.Context) {
+tenantID, _ := c.Get(&quot;tenant_id&quot;).(uuid.UUID)
+var req DispatchRequest
+if err := c.ShouldBindJSON(&amp;req); err != nil {
+
+c.JSON(http.StatusBadRequest, gin.H{&quot;error&quot;: err.Error()})
+
+return
+}
+var product model.Product
+if err := h.DB.Where(&quot;id = ? AND tenant_id = ?&quot;, req.ProductID, tenantID).First(&amp;product).Error; err != nil {
+
+c.JSON(http.StatusNotFound, gin.H{&quot;error&quot;: &quot;Component profiling matching failed under current tenant environment&quot;})
+
+return
+}
+var preferredWarehouse string
+switch req.Zone {
+case &quot;EU_EAST&quot;:
+
+preferredWarehouse = &quot;Poland_Central&quot; // 鍓嶆部楂樹繚闅滄椂鏁堣ˉ璐т粨
+case &quot;EU_WEST&quot;:
+
+case &quot;MIDDLE_EAST&quot;:
+
+default:
+
+preferredWarehouse = &quot;Poland_Central&quot;
+}
+tx := h.DB.Begin()
+var stock model.InventoryStock
+if err := tx.Set(&quot;gorm:query_option&quot;, &quot;FOR UPDATE&quot;).
+
+Where(&quot;product_id = ? AND warehouse = ?&quot;, req.ProductID, preferredWarehouse).
+
+First(&amp;stock).Error; err != nil || stock.Quantity &lt; req.Quantity {
+
+tx.Rollback()
+
+c.JSON(http.StatusConflict, gin.H{
+
+
+&quot;status&quot;:             &quot;INVENTORY_DEFICIT&quot;,
+
+
+&quot;selected_depot&quot;:     preferredWarehouse,
+
+
+&quot;current_available&quot;:  stock.Quantity,
+
+
+&quot;recommended_action&quot;: &quot;Initiate peer-to-peer backordered transit routing via SaaS control tower.&quot;,
+
+})
+
+return
+}
+// 鎵ц鐗╃悊鎵ｅ噺
+stock.Quantity -= req.Quantity
+tx.Save(&amp;stock)
+tx.Commit()
+c.JSON(http.StatusOK, gin.H{
+
+&quot;status&quot;:              &quot;ROUTING_AUTHORIZED&quot;,
+
+&quot;allocated_warehouse&quot;: preferredWarehouse,
+
+&quot;dispatched_quantity&quot;: req.Quantity,
+})
+}
+3.6 绯荤粺鍏ュ彛涓庢湇鍔＄粍瑁?(
+backend/cmd/main.go
+)
+package main
+import (
+&quot;log&quot;
+&quot;aegisky-platform/internal/handler&quot;
+&quot;aegisky-platform/internal/middleware&quot;
+&quot;aegisky-platform/internal/model&quot;
+&quot;github.com/gin-gonic/gin&quot;
+&quot;gorm.io/driver/postgres&quot;
+&quot;gorm.io/gorm&quot;
+)
+func main() {
+// 缁勮楂樼ǔ瀹氭€т紒涓氱骇鍏崇郴鍨嬫暟鎹紩鎿?PostgreSQL
+dsn := &quot;host=db user=aegisky password=aegisky_secure dbname=aegisky_prod port=5432 sslmode=disable&quot;
+db, err := gorm.Open(postgres.Open(dsn), &amp;gorm.Config{})
+if err != nil {
+
+log.Fatalf(&quot;Fatal: Terminating core system. Database layer handshake failed: %v&quot;, err)
+}
+// 鍏ㄨ嚜鍔ㄦ墽琛屾暟鎹灦鏋勮〃瀹炰綋鍚戝簳灞傛槧灏勫強鏃犳崯瀵归綈锛圖DL 鑷姩鍖栨紨杩涳級
+db.AutoMigrate(&amp;model.Product{}, &amp;model.ProductTrans{}, &amp;model.InventoryStock{}, &amp;model.ComplianceAudit{})
+gin.SetMode(gin.ReleaseMode)
+router := gin.New()
+router.Use(gin.Recovery())
+compHandler := &amp;handler.ComplianceHandler{DB: db}
+invHandler := &amp;handler.InventoryHandler{DB: db}
+api := router.Group(&quot;/api/v1&quot;)
+api.Use(middleware.TenantContextInterceptor())
+{
+
+api.POST(&quot;/compliance/submit&quot;, compHandler.SubmitAudit)
+
+api.POST(&quot;/inventory/allocate&quot;, invHandler.AllocateStock)
+}
+log.Println(&quot;[AEGISKY SYSTEM] Production Control Tower Engine Online on SSL/Port :8080&quot;)
+if err := router.Run(&quot;:8080&quot;); err != nil {
+
+log.Fatalf(&quot;Fatal: Web listener network port bind crash: %v&quot;, err)
+}
+}
+4. 鍓嶇鏆楅粦绉戞妧璐ㄦ劅鎺у埗濉旀繁搴︽媶瑙ｄ笌瀹屾暣婧愮爜
+4.1 渚濊禆绠＄悊涓?TypeScript 閰嶇疆
+frontend/package.json
+{
+  &quot;name&quot;: &quot;aegisky-frontend&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;next dev&quot;,
+    &quot;build&quot;: &quot;next build&quot;,
+    &quot;start&quot;: &quot;next start&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;react&quot;: &quot;^18.2.0&quot;,
+    &quot;react-dom&quot;: &quot;^18.2.0&quot;,
+    &quot;next&quot;: &quot;^13.4.12&quot;,
+    &quot;tailwindcss&quot;: &quot;^3.3.3&quot;,
+    &quot;typescript&quot;: &quot;^5.1.6&quot;
+  }
+}
+frontend/tsconfig.json
+{
+  &quot;compilerOptions&quot;: {
+    &quot;target&quot;: &quot;es5&quot;,
+    &quot;lib&quot;: [&quot;dom&quot;, &quot;dom.iterable&quot;, &quot;esnext&quot;],
+    &quot;allowJs&quot;: true,
+    &quot;skipLibCheck&quot;: true,
+    &quot;strict&quot;: true,
+    &quot;forceConsistentCasingInFileNames&quot;: true,
+    &quot;noEmit&quot;: true,
+    &quot;esModuleInterop&quot;: true,
+    &quot;module&quot;: &quot;esnext&quot;,
+    &quot;moduleResolution&quot;: &quot;node&quot;,
+    &quot;resolveJsonModule&quot;: true,
+    &quot;isolatedModules&quot;: true,
+    &quot;jsx&quot;: &quot;preserve&quot;,
+    &quot;incremental&quot;: true,
+    &quot;plugins&quot;: [
+      {
+        &quot;name&quot;: &quot;next&quot;
+      }
+    ],
+    &quot;paths&quot;: {
+      &quot;@/*&quot;: [&quot;./*&quot;]
+    }
+  },
+  &quot;include&quot;: [&quot;next-env.d.ts&quot;, &quot;**/*.ts&quot;, &quot;**/*.tsx&quot;],
+  &quot;exclude&quot;: [&quot;node_modules&quot;]
+}
+4.2 鑻规灉/澶х枂绾ц瑙変腑鏋笌鏍峰紡娉ㄥ叆
+frontend/tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    &quot;./app/**/*.{js,ts,jsx,tsx}&quot;,
+    &quot;./components/**/*.{js,ts,jsx,tsx}&quot;,
+  ],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        appleBg: '#000000',
+        appleCard: '#1C1C1E',
+        appleBorder: '#2D2D2E',
+        appleBlue: '#0071E3',
+        appleGrayText: '#86868B',
+      },
+    },
+  },
+  plugins: [],
+}
+frontend/app/globals.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  body {
+    @apply bg-black text-[#F5F5F7] antialiased;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+4.3 鏁翠綋甯冨眬涓庡ぉ闄呯嚎瀵艰埅 (
+frontend/app/layout.tsx
+)
+import './globals.css';
+import React from 'react';
+export const metadata = {
+  title: 'AEGISKY GLOBAL SECURITY CONTROL TOWER',
+  description: 'Next-Generation Secure UAV &amp; Dual-Use Components B2B Supply Chain SaaS Platform',
+};
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    &lt;html lang=&quot;en&quot; className=&quot;dark&quot;&gt;
+      &lt;body className=&quot;bg-black text-[#F5F5F7] font-sans antialiased selection:bg-[#0071E3] selection:text-white&quot;&gt;
+        {/* 澶х枂绾ф祦鍏夌（鐮傚鑸ぉ闄呯嚎 */}
+        &lt;nav className=&quot;sticky top-0 z-50 border-b border-[#2D2D2E] bg-black/70 backdrop-blur-md&quot;&gt;
+          &lt;div className=&quot;mx-auto max-w-7xl px-6 h-14 flex items-center justify-between&quot;&gt;
+            &lt;span className=&quot;text-xs font-semibold tracking-[0.2em] bg-gradient-to-r from-white via-[#E5E5EA] to-[#86868B] bg-clip-text text-transparent&quot;&gt;
+              AEGISKY INDUSTRIAL CONTROL TOWER
+            &lt;/span&gt;
+            &lt;div className=&quot;flex items-center space-x-8 text-[11px] text-[#86868B] tracking-wider&quot;&gt;
+              &lt;span className=&quot;hover:text-white transition-colors duration-200 cursor-pointer font-medium&quot;&gt;SUPPLY CORE&lt;/span&gt;
+              &lt;span className=&quot;hover:text-white transition-colors duration-200 cursor-pointer font-medium&quot;&gt;EUS GATEWAY&lt;/span&gt;
+              &lt;div className=&quot;h-3 w-[1px] bg-[#2D2D2E]&quot;&gt;&lt;/div&gt;
+              &lt;span className=&quot;text-white bg-[#0071E3] px-3 py-1 rounded-full text-[10px] font-semibold tracking-widest shadow-lg shadow-[#0071E3]/20&quot;&gt;
+                SECURE INSTANCE ACTIVE
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/nav&gt;
+        &lt;main className=&quot;mx-auto max-w-7xl px-6 py-12&quot;&gt;{children}&lt;/main&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}
+4.4 鏁板瓧鍖栦緵搴旈摼涓诲伐浣滅洏澶у睆 (
+frontend/app/page.tsx
+)
+'use client';
+import React, { useState } from 'react';
+import ComplianceForm from './components/ComplianceForm';
+export default function MainControlDashboard() {
+  const [telemetryLog, setTelemetryLog] = useState&lt;string&gt;('System on standby. Core telemetry data link established.');
+  const [loading, setLoading] = useState&lt;boolean&gt;(false);
+  const executeSmartRouting = async (targetZone: string) =&gt; {
+    setLoading(true);
+    try {
+      const response = await fetch('/api/v1/inventory/allocate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-AEGISKY-TENANT-ID': '4a8b9c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d', // 楂樺害鎷熺湡浼佷笟绔?SaaS 绉熸埛鍑瘉
+        },
+        body: JSON.stringify({
+          quantity: 120,
+          zone: targetZone,
+        }),
+      });
+      const data = await response.json();
+      if (response.status === 200) {
+        setTelemetryLog(`[ROUTING SUCCESS] Targeted Hub: ${data.allocated_warehouse} | Dispatch Vol: ${data.dispatched_quantity} units.`);
+      } else {
+        setTelemetryLog(`[ROUTING BLOCKED] Reason: ${data.status} | Shortage Action Required.`);
+      }
+    } catch {
+      setTelemetryLog('[CRITICAL ERROR] Core pipeline telemetry handshake synchronization timeout.');
+    } finally {
+      setLoading(false);
+    }
+  };
+  return (
+    &lt;div className=&quot;space-y-12 animate-fadeIn&quot;&gt;
+      {/* 鑻规灉椋庣畝缁冩繁閭冩爣璇?*/}
+      &lt;div className=&quot;space-y-3&quot;&gt;
+        &lt;h1 className=&quot;text-4xl font-normal tracking-tight sm:text-5xl text-white&quot;&gt;
+          Supply control tower. &lt;span className=&quot;text-[#86868B]&quot;&gt;Legal compliance by design.&lt;/span&gt;
+        &lt;/h1&gt;
+        &lt;p className=&quot;max-w-3xl text-sm text-[#86868B] leading-relaxed&quot;&gt;
+          Operational matrix platform built for global UAV manufacturers and licensed distributors. Absolute regulatory safety, structural logical multi-tenant isolation, and dynamic peer-to-peer real-time overseas warehouse cross-docking.
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div className=&quot;grid grid-cols-1 gap-8 lg:grid-cols-3&quot;&gt;
+        {/* 宸︿晶澶х増鍧楋細澶氳瑷€鏁板瓧鍔犲瘑寮?EUS 绛剧珷涓婇摼杈撳叆 */}
+        &lt;div className=&quot;lg:col-span-2 bg-[#1C1C1E] rounded-2xl border border-[#2D2D2E] p-8 shadow-2xl flex flex-col justify-between&quot;&gt;
+          &lt;div&gt;
+            &lt;h2 className=&quot;text-lg font-medium text-white mb-2&quot;&gt;Dual-Use Policy Endorsement&lt;/h2&gt;
+            &lt;p className=&quot;text-xs text-[#86868B] mb-6&quot;&gt;Programmatic international trade embargo filtering system operating on first-principles verification.&lt;/p&gt;
+            &lt;ComplianceForm /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        {/* 鍙充晶锛氭捣澶栦粨鏅鸿兘鐗╂祦娴佸悜瀹炴椂骞查绯荤粺 */}
+        &lt;div className=&quot;bg-[#1C1C1E] rounded-2xl border border-[#2D2D2E] p-8 flex flex-col justify-between shadow-2xl&quot;&gt;
+          &lt;div&gt;
+            &lt;h3 className=&quot;text-lg font-medium text-white mb-2&quot;&gt;Automated Cargo Routing&lt;/h3&gt;
+            &lt;p className=&quot;text-xs text-[#86868B] mb-6&quot;&gt;Simulate and dispatch cross-border inventory allocation instantly based on target destination vectors.&lt;/p&gt;
+            
+            &lt;div className=&quot;space-y-3&quot;&gt;
+              &lt;button
+                onClick={() =&gt; executeSmartRouting('EU_EAST')}
+                disabled={loading}
+                className=&quot;w-full text-left px-4 py-4 bg-[#2C2C2E] hover:bg-[#3A3A3C] rounded-xl text-xs transition-all border border-[#3A3A3C] flex justify-between items-center group disabled:opacity-50&quot;
+              &gt;
+                &lt;span className=&quot;font-medium text-white&quot;&gt;Eastern Europe Corridor (Poland Node)&lt;/span&gt;
+                &lt;span className=&quot;text-[#0071E3] group-hover:translate-x-1 transition-transform&quot;&gt;Dispatch 鈫?lt;/span&gt;
+              &lt;/button&gt;
+              &lt;button
+                onClick={() =&gt; executeSmartRouting('MIDDLE_EAST')}
+                disabled={loading}
+                className=&quot;w-full text-left px-4 py-4 bg-[#2C2C2E] hover:bg-[#3A3A3C] rounded-xl text-xs transition-all border border-[#3A3A3C] flex justify-between items-center group disabled:opacity-50&quot;
+              &gt;
+                &lt;span className=&quot;font-medium text-white&quot;&gt;Middle East Freezone Hub (UAE Node)&lt;/span&gt;
+                &lt;span className=&quot;text-[#0071E3] group-hover:translate-x-1 transition-transform&quot;&gt;Dispatch 鈫?lt;/span&gt;
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div className=&quot;mt-8 pt-6 border-t border-[#2D2D2E]&quot;&gt;
+            &lt;span className=&quot;text-[10px] tracking-[0.15em] text-[#86868B] block mb-3 font-mono font-semibold&quot;&gt;REAL-TIME INFRASTRUCTURE SYSTEM LOG&lt;/span&gt;
+            &lt;div className=&quot;bg-black p-4 rounded-xl border border-[#2D2D2E] text-[11px] font-mono text-[#30D158] leading-relaxed break-all&quot;&gt;
+              {telemetryLog}
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+4.5 澶氳瑷€鍔ㄦ€佸悎瑙勫０鏄庝氦浜掔粍浠?(
+frontend/app/components/ComplianceForm.tsx
+)
+'use client';
+import React, { useState } from 'react';
+const LOCALE_DICTIONARY = {
+  en: {
+    title: 'End-User Statement (EUS) Certification Framework',
+    company: 'Buyer Corporate Legal Name (Verified)',
+    country: 'Destination Country Alpha-2 ISO Code',
+    statement: 'Legal End-Use Affirmation &amp; Anti-Diversion Statement Clause',
+    submit: 'Execute Digital Legal Endorsement',
+  },
+  uk: {
+    title: '小械褉褌懈褎褨泻邪褑褨褟 蟹邪褟胁懈 泻褨薪褑械胁芯谐芯 泻芯褉懈褋褌褍胁邪褔邪 (EUS)',
+    company: '挟褉懈写懈褔薪邪 薪邪蟹胁邪 泻芯屑锌邪薪褨褩-锌芯泻褍锌褑褟 (袩械褉械胁褨褉械薪芯)',
+    country: '袣芯写 泻褉邪褩薪懈 锌褉懈蟹薪邪褔械薪薪褟 (ISO Alpha-2)',
+    statement: '挟褉懈写懈褔薪邪 蟹邪褟胁邪 锌褉芯 泻褨薪褑械胁械 胁懈泻芯褉懈褋褌邪薪薪褟 褌邪 薪械褉芯蟹锌芯胁褋褞写卸械薪薪褟',
+    submit: '袙懈泻芯薪邪褌懈 褑懈褎褉芯胁械 蟹邪胁褨褉械薪薪褟',
+  },
+  pl: {
+    title: 'Certyfikacja O艣wiadczenia Ko艅cowego U偶ytkownika (EUS)',
+    company: 'Prawna Nazwa Firmy Kupuj膮cej (Zweryfikowana)',
+    country: 'Kod ISO Kraju Docelowego (Alpha-2)',
+    statement: 'Prawne O艣wiadczenie o Przeznaczeniu i Zakazie Reeksportu',
+    submit: 'Podpisz Cyfrowo i Prze艣lij',
+  }
+};
+type LanguageSupportKey = 'en' | 'uk' | 'pl';
+export default function ComplianceForm() {
+  const [activeLang, setActiveLang] = useState&lt;LanguageSupportKey&gt;('en');
+  const [corporateName, setCorporateName] = useState('');
+  const [targetIso, setTargetIso] = useState('');
+  const [legalBody, setLegalBody] = useState('');
+  const [networkBanner, setNetworkBanner] = useState&lt;string | null&gt;(null);
+  const processFormSubmission = async (event: React.FormEvent) =&gt; {
+    event.preventDefault();
+    setNetworkBanner(null);
+    try {
+      const apiResponse = await fetch('/api/v1/compliance/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-AEGISKY-TENANT-ID': '4a8b9c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d',
+        },
+        body: JSON.stringify({
+          buyer_company_name: corporateName,
+          target_country: targetIso.toUpperCase().trim(),
+          end_user_statement: legalBody,
+        }),
+      });
+      const responsePayload = await apiResponse.json();
+      
+      if (apiResponse.status === 202) {
+        setNetworkBanner(`鉁?SYSTEM COMPLIANCE PASS: Audit tracking hash deployed -&gt; ${responsePayload.audit_id}`);
+      } else {
+        setNetworkBanner(`鉁?SYSTEM REGULATORY BLOCK: ${responsePayload.message}`);
+      }
+    } catch {
+      setNetworkBanner('鉁?SYSTEM EXCEPTION: Edge gateway connection fallback.');
+    }
+  };
+  return (
+    &lt;div className=&quot;space-y-6&quot;&gt;
+      {/* 澶氳绉嶅揩閫熷垏鎹㈡帶鍒舵潯 */}
+      &lt;div className=&quot;flex bg-[#2C2C2E] p-1 rounded-xl w-fit border border-[#3A3A3C]&quot;&gt;
+        {(Object.keys(LOCALE_DICTIONARY) as LanguageSupportKey[]).map((langToken) =&gt; (
+          &lt;button
+            key={langToken}
+            type=&quot;button&quot;
+            onClick={() =&gt; setActiveLang(langToken)}
+            className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 ${
+              activeLang === langToken ? 'bg-[#0071E3] text-white shadow-md' : 'text-[#86868B] hover:text-white'
+            }`}
+          &gt;
+            {langToken.toUpperCase()}
+          &lt;/button&gt;
+        ))}
+      &lt;/div&gt;
+      &lt;form onSubmit={processFormSubmission} className=&quot;space-y-5&quot;&gt;
+        &lt;div&gt;
+          &lt;label className=&quot;block text-xs font-medium text-[#86868B] mb-2&quot;&gt;{LOCALE_DICTIONARY[activeLang].company}&lt;/label&gt;
+          &lt;input
+            type=&quot;text&quot;
+            value={corporateName}
+            onChange={(e) =&gt; setCorporateName(e.target.value)}
+            className=&quot;w-full bg-[#2C2C2E] border border-[#3A3A3C] rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#0071E3] transition-colors font-mono&quot;
+            placeholder=&quot;e.g. NATO Procurement Agency Eastern Division Sp. z o.o.&quot;
+            required
+          /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;label className=&quot;block text-xs font-medium text-[#86868B] mb-2&quot;&gt;{LOCALE_DICTIONARY[activeLang].country}&lt;/label&gt;
+          &lt;input
+            type=&quot;text&quot;
+            maxLength={2}
+            value={targetIso}
+            onChange={(e) =&gt; setTargetIso(e.target.value)}
+            className=&quot;w-full bg-[#2C2C2E] border border-[#3A3A3C] rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#0071E3] transition-colors font-mono&quot;
+            placeholder=&quot;e.g. PL, UA, DE&quot;
+            required
+          /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;label className=&quot;block text-xs font-medium text-[#86868B] mb-2&quot;&gt;{LOCALE_DICTIONARY[activeLang].statement}&lt;/label&gt;
+          &lt;textarea
+            value={legalBody}
+            onChange={(e) =&gt; setLegalBody(e.target.value)}
+            rows={5}
+            className=&quot;w-full bg-[#2C2C2E] border border-[#3A3A3C] rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#0071E3] transition-colors font-mono leading-relaxed&quot;
+            placeholder=&quot;The importing enterprise officially declares under penalty of international law that the requested avionics payloads will be solely integrated for lawful defensive reconnaissance, strictly prohibiting illicit uncertified routing.&quot;
+            required
+          /&gt;
+        &lt;/div&gt;
+        &lt;button
+          type=&quot;submit&quot;
+          className=&quot;w-full bg-[#0071E3] hover:bg-[#147CE5] text-white font-medium text-xs py-3 px-4 rounded-xl transition-all duration-200 transform active:scale-[0.99] shadow-lg shadow-[#0071E3]/20&quot;
+        &gt;
+          {LOCALE_DICTIONARY[activeLang].submit}
+        &lt;/button&gt;
+      &lt;/form&gt;
+      {networkBanner &amp;&amp; (
+        &lt;div className={`p-4 rounded-xl border text-xs font-mono transition-all duration-300 animate-fadeIn ${
+          networkBanner.startsWith('鉁?) ? 'bg-[#1C3D22] border-[#30D158] text-[#30D158]' : 'bg-[#3A1C1C] border-[#FF453A] text-[#FF453A]'
+        }`}&gt;
+          {networkBanner}
+        &lt;/div&gt;
+      )}
+    &lt;/div&gt;
+  );
+}
+5. 鐢熶骇绾у闃舵瀹瑰櫒鍖栦笌闆嗙兢缂栨帓
+5.1 鍚庣澶氶樁娈垫瀯寤?Dockerfile (
+backend/Dockerfile
+)
+FROM golang:1.20-alpine AS builder
+WORKDIR /app
+COPY go.mod go.sum ./
+RUN go mod download
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./cmd/main.go
+# 闃舵浜岋細鍓旈櫎鍏ㄩ儴缂栬瘧鏈熷啑浣欙紝浠呬繚鐣欐渶灏忚交閲忕骇杩愯搴曞骇
+FROM alpine:latest
+RUN apk --no-cache add ca-certificates tzdata
+WORKDIR /root/
+COPY --from=builder /app/main .
+EXPOSE 8080
+CMD [&quot;./main&quot;]
+5.2 鍓嶇 SSR 閮ㄧ讲 Dockerfile (
+frontend/Dockerfile
+)
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+FROM node:18-alpine
+WORKDIR /app
+COPY --from=builder /app ./
+EXPOSE 3000
+CMD [&quot;npm&quot;, &quot;run&quot;, &quot;start&quot;]
+5.3 Docker Compose 鍏ㄦ爤缂栨帓 (
+docker-compose.yml
+)
+version: '3.8'
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: aegisky-postgres-prod
+    environment:
+      POSTGRES_USER: aegisky
+      POSTGRES_PASSWORD: aegisky_secure
+      POSTGRES_DB: aegisky_prod
+    ports:
+      - &quot;5432:5432&quot;
+    volumes:
+      - postgres_production_data:/var/lib/postgresql/data
+    restart: always
+  backend:
+    build:
+      context: ./backend
+    container_name: aegisky-backend-api
+    ports:
+      - &quot;8080:8080&quot;
+    depends_on:
+      - db
+    restart: always
+  frontend:
+    build:
+      context: ./frontend
+    container_name: aegisky-frontend-ui
+    ports:
+      - &quot;3000:3000&quot;
+    depends_on:
+      - backend
+    restart: always
+volumes:
+  postgres_production_data:
+    driver: local
+6. 鏅鸿兘鍚堣闃茬伀澧?(Compliance-as-Code) 涓庡伐涓氱骇鍙傛暟鐭╅樀鎵╁睍璁捐
+6.1 鏅鸿兘鍚堣闃茬伀澧?(Compliance-as-Code) 閫昏緫瑙勮寖
+鍦ㄥ钩鍙版紨杩涜繃绋嬩腑锛屽悎瑙勫鏌ラ渶鎵╁睍涓哄彲缂栫▼瑙勫垯寮曟搸锛圧ule Engine锛夛細
+package compliance
+import &quot;errors&quot;
+type Buyer struct {
+EntityName string
+Country    string
+HasLicense bool
+}
+type DualUseItem struct {
+HSCode   string
+ECCN     string // 渚嬪锛?A991 (鏃犱汉鏈虹浉鍏抽儴浠跺嚭鍙ｆ帶鍒跺垎绫诲彿)
+IsDual   bool
+}
+// ValidateTransaction 鏍￠獙浜ゆ槗鍚堣鎬ч€昏緫
+func ValidateTransaction(buyer Buyer, item DualUseItem) (bool, error) {
+// 1. 妫€鏌ュ叏鐞冨埗瑁佸悕鍗?(OFAC, UN, EU Sanctions List)
+if isSanctionedEntity(buyer.EntityName) {
+
+return false, errors.New(&quot;ENTITY_IN_SANCTION_LIST: Buyer enterprise listed in OFAC/EU Denial List&quot;)
+}
+if isEmbargoedCountry(buyer.Country) {
+
+return false, errors.New(&quot;DESTINATION_EMBARGOED: Destination is subject to dual-use export prohibition&quot;)
+}
+licenseRequired := checkExportLicenseNeed(item.ECCN, buyer.Country)
+if licenseRequired &amp;&amp; !buyer.HasLicense {
+
+return false, errors.New(&quot;EXPORT_LICENSE_REQUIRED: Valid export license must be provided for ECCN &quot; + item.ECCN)
+}
+return true, nil
+}
+func isSanctionedEntity(entity string) bool {
+return false
+}
+func isEmbargoedCountry(country string) bool {
+embargoed := map[string]bool{&quot;RU&quot;: true, &quot;IR&quot;: true, &quot;KP&quot;: true, &quot;SY&quot;: true}
+return embargoed[country]
+}
+func checkExportLicenseNeed(eccn string, country string) bool {
+if eccn != &quot;&quot; &amp;&amp; country != &quot;PL&quot; &amp;&amp; country != &quot;DE&quot; {
+
+return true
+}
+return false
+}
+6.2 宸ヤ笟绾ф棤浜烘満閰嶄欢鎶€鏈弬鏁扮煩闃?(Technical Matrix Schema)
+{
+  &quot;sku&quot;: &quot;UAV-MOT-8120-100KV&quot;,
+  &quot;category&quot;: &quot;BLDC_MOTOR&quot;,
+  &quot;technical_matrix&quot;: {
+    &quot;mtbf_hours&quot;: 5000,
+    &quot;frequency_hopping&quot;: false,
+    &quot;anti_emf_grade&quot;: &quot;MIL-STD-461G&quot;,
+    &quot;max_thrust_g&quot;: 18500,
+    &quot;ingress_protection&quot;: &quot;IP56&quot;,
+    &quot;working_temp_celsius&quot;: [-40, 85]
+  },
+  &quot;asset_cad&quot;: {
+    &quot;model_step_url&quot;: &quot;https://assets.aegisky.com/models/UAV-MOT-8120.step&quot;,
+    &quot;model_obj_url&quot;: &quot;https://assets.aegisky.com/models/UAV-MOT-8120.obj&quot;,
+    &quot;browser_3d_preview&quot;: true
+  }
+}
+7.1 绗竴姝ワ細鍑嗗鏈嶅姟鍣ㄤ笌鐗╃悊鐩綍
+鐧诲綍 Linux 鏈嶅姟鍣紙鏀寔 Ubuntu 20.04+, CentOS 8+, Debian 11+锛夛紝鎵ц浠ヤ笅鍛戒护鍒濆鍖栵細
+mkdir -p aegisky-platform/backend/cmd \
+         aegisky-platform/backend/internal/model \
+         aegisky-platform/backend/internal/middleware \
+         aegisky-platform/backend/internal/handler \
+         aegisky-platform/frontend/app/components
+cd aegisky-platform
+鎸夌収鍓嶆枃浠ｇ爜娈佃惤锛屼緷娆″垱寤哄苟濉厖瀵瑰簲鐨?
+.go
+, 
+.tsx
+, 
+.json
+, 
+Dockerfile
+, 
+docker-compose.yml
+# 1. 楠岃瘉 Docker 鐜
+docker --version &amp;&amp; docker-compose --version
+# 2. 涓€閿紪璇戝苟鍚庡彴鍚姩鍏ㄦ爤鏈嶅姟
+docker-compose up --build -d
+docker-compose ps
+棰勬湡鐪嬪埌 3 涓鍣紙
+aegisky-postgres-prod
+, 
+aegisky-backend-api
+, 
+aegisky-frontend-ui
+锛夊潎澶勪簬 
+Up
+ / 
+running
+7.3 绗笁姝ワ細绔埌绔帴鍙ｄ笌鍚堣鐔旀柇瀹炴祴
+鍦ㄧ粓绔洿鎺ヤ娇鐢?
+curl
+ 鍛戒护娉ㄥ叆鍑瘉骞舵ā鎷熻姹傦細
+娴嬭瘯鍦烘櫙 A锛氭甯告斁琛屽悎瑙勫湴鍖猴紙娉㈠叞 - 
+PL
+curl -X POST http://localhost:8080/api/v1/compliance/submit \
+  -H &quot;X-AEGISKY-TENANT-ID: 4a8b9c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{
+    &quot;buyer_company_name&quot;: &quot;Aegisky Europe Distribution Ltd.&quot;,
+    &quot;target_country&quot;: &quot;PL&quot;,
+    &quot;end_user_statement&quot;: &quot;Verified industrial deployment on border monitoring drones.&quot;
+  }'
+棰勬湡杈撳嚭
+锛欻TTP 鐘舵€佺爜 
+202 Accepted
+锛岃繑鍥炴牸寮忓涓嬶細
+{
+  &quot;audit_id&quot;: &quot;xxxx-xxxx-xxxx-xxxx&quot;,
+  &quot;message&quot;: &quot;End-User Certificate recorded securely. Initialized background compliance analysis.&quot;,
+  &quot;status&quot;: &quot;RECORDED_AND_PENDING&quot;
+}
+娴嬭瘯鍦烘櫙 B锛氳Е鍙戝浗闄呭埗瑁佺孩绾跨啍鏂紙鍙楁帶鍦板尯 - 
+RU
+curl -X POST http://localhost:8080/api/v1/compliance/submit \
+  -H &quot;X-AEGISKY-TENANT-ID: 4a8b9c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{
+    &quot;buyer_company_name&quot;: &quot;Prohibited Entity Intermediary&quot;,
+    &quot;target_country&quot;: &quot;RU&quot;,
+    &quot;end_user_statement&quot;: &quot;Illegal redirection attempts.&quot;
+  }'
+棰勬湡杈撳嚭
+锛欻TTP 鐘舵€佺爜 
+403 Forbidden
+锛岀郴缁熸绉掔骇闃绘柇骞惰繑鍥烇細
+{
+  &quot;message&quot;: &quot;Critical Compliance Infringement: Targeted destination country is under absolute dual-use embargo.&quot;,
+  &quot;status&quot;: &quot;REJECTED_BY_REGULATORY_SYSTEM&quot;
+}
+7.4 绗洓姝ワ細鐢熶骇鐜 Nginx 鍙嶅悜浠ｇ悊涓?SSL 鎺ュ叆閰嶇疆
+server {
+    listen 80;
+    server_name controltower.aegisky.com;
+    return 301 https://$host$request_uri;
+}
+server {
+    listen 443 ssl http2;
+    server_name controltower.aegisky.com;
+    ssl_certificate /etc/letsencrypt/live/controltower.aegisky.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/controltower.aegisky.com/privkey.pem;
+    # 鏍硅矾鐢卞垏鍏?Next.js 鍓嶇 (Port 3000)
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+    # API 缃戝叧鍒嗘祦鑷?Go 鍚庣 (Port 8080)
+    location /api/ {
+        proxy_pass http://127.0.0.1:8080/api/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}

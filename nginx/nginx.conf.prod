@@ -1,0 +1,199 @@
+# ============================================================
+# Aegisky Medusa - Production Nginx Configuration
+# Sprint 4: Staging/Production deployment
+#
+# Replace YOUR_DOMAIN with actual domain
+# SSL certificates via Let's Encrypt (certbot)
+# ============================================================
+
+# Rate limiting zones
+limit_req_zone $binary_remote_addr zone=api_limit:10m rate=30r/s;
+limit_req_zone $binary_remote_addr zone=general_limit:10m rate=50r/s;
+
+# Upstream backends
+upstream medusa_backend {
+    server 127.0.0.1:9000;
+    keepalive 32;
+}
+
+upstream nextjs_frontend {
+    server 127.0.0.1:8000;
+    keepalive 32;
+}
+
+# HTTP -> HTTPS redirect
+server {
+    listen 80;
+    listen [::]:80;
+    server_name aegisky.com www.aegisky.com staging.aegisky.com;
+
+    # Let's Encrypt challenge
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+# HTTPS - Main site
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name aegisky.com www.aegisky.com;
+
+    # SSL Configuration (Let's Encrypt)
+    ssl_certificate /etc/letsencrypt/live/aegisky.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/aegisky.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384;
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 1d;
+    ssl_session_tickets off;
+
+    # HSTS
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+
+    # Security headers
+    add_header X-Frame-Options DENY always;
+    add_header X-Content-Type-Options nosniff always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Referrer-Policy strict-origin-when-cross-origin always;
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://api.stripe.com; frame-src https://js.stripe.com https://hooks.stripe.com; media-src 'self' blob:;" always;
+    add_header Permissions-Policy "camera=(), microphone=(), geolocation=()" always;
+
+    # Gzip compression
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css text/xml text/javascript application/javascript application/json application/xml+rss application/rss+xml image/svg+xml;
+
+    # Client body size (for uploads)
+    client_max_body_size 50M;
+
+    # API routes - proxy to Medusa backend
+    location /store/ {
+        limit_req zone=api_limit burst=50 nodelay;
+
+        proxy_pass http://medusa_backend;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header Connection "";
+
+        proxy_connect_timeout 30s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+    }
+
+    # Medusa Admin (restrict by IP in production)
+    location /app {
+        proxy_pass http://medusa_backend;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+
+        # Restrict admin to office IPs (uncomment and set)
+        # allow YOUR_OFFICE_IP;
+        # deny all;
+    }
+
+    # Stripe webhooks (no rate limit)
+    location /store/webhooks/ {
+        proxy_pass http://medusa_backend;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_request_buffering off;
+    }
+
+    # Static assets - Next.js
+    location /_next/static/ {
+        proxy_pass http://nextjs_frontend;
+        proxy_cache_valid 200 365d;
+        expires 365d;
+        add_header Cache-Control "public, immutable";
+    }
+
+    # Images and media
+    location ~* \.(jpg|jpeg|png|gif|ico|webp|avif|svg|woff2?|mp4|webm)$ {
+        proxy_pass http://nextjs_frontend;
+        expires 30d;
+        add_header Cache-Control "public, no-transform";
+    }
+
+    # Frontend - Next.js (catch-all)
+    location / {
+        limit_req zone=general_limit burst=100 nodelay;
+
+        proxy_pass http://nextjs_frontend;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header Connection "";
+
+        proxy_connect_timeout 30s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+    }
+
+    # Block access to sensitive paths
+    location ~ /\. {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
+
+    location ~* (wp-admin|wp-login|\.env|\.git|\.sql|backup) {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
+}
+
+# Staging environment
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name staging.aegisky.com;
+
+    ssl_certificate /etc/letsencrypt/live/staging.aegisky.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/staging.aegisky.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    add_header X-Frame-Options DENY always;
+    add_header X-Content-Type-Options nosniff always;
+    add_header Strict-Transport-Security "max-age=31536000" always;
+
+    # Basic auth for staging
+    auth_basic "Staging - Restricted Access";
+    auth_basic_user_file /etc/nginx/.htpasswd;
+
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+    }
+
+    location /store/ {
+        proxy_pass http://127.0.0.1:9000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+    }
+}

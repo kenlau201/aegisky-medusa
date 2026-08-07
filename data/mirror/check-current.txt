@@ -1,0 +1,192 @@
+﻿=== ALL CATEGORIES (ID >= 10000) ===
+
+[10000] UAV Complete Systems | parent: (root) | products: 676 | slug: uav-complete-systems
+[10001] Multirotor UAV | parent: UAV Complete Systems | products: 604 | slug: multirotor-uav
+[10002] FPV Racing & Freestyle Drones | parent: Multirotor UAV | products: 391 | slug: fpv-racing-freestyle-drones
+[10003] Industrial Quadcopters | parent: Multirotor UAV | products: 187 | slug: industrial-quadcopters
+[10004] Russian-Made Drones | parent: Multirotor UAV | products: 98 | slug: russian-made-drones
+[10005] Training Drones | parent: Multirotor UAV | products: 19 | slug: training-drones
+[10006] Waterproof Drones | parent: Multirotor UAV | products: 4 | slug: waterproof-drones
+[10007] Fixed-Wing UAV | parent: UAV Complete Systems | products: 35 | slug: fixed-wing-uav
+[10008] Mapping & Survey Aircraft | parent: Fixed-Wing UAV | products: 28 | slug: mapping-survey-aircraft
+[10009] Long-Range Fixed-Wing | parent: Fixed-Wing UAV | products: 33 | slug: long-range-fixed-wing
+[10010] VTOL UAV | parent: UAV Complete Systems | products: 11 | slug: vtol-uav
+[10011] Thermal Imaging Drones | parent: UAV Complete Systems | products: 24 | slug: thermal-imaging-drones
+[10012] Underwater ROV & Drones | parent: UAV Complete Systems | products: 28 | slug: underwater-rov-drones
+[10013] Drone DIY Kits | parent: UAV Complete Systems | products: 17 | slug: drone-diy-kits
+[10014] Propulsion Systems | parent: (root) | products: 1494 | slug: propulsion-systems
+[10015] Brushless Motors | parent: Propulsion Systems | products: 636 | slug: brushless-motors
+[10016] ESC (Electronic Speed Controllers) | parent: Propulsion Systems | products: 302 | slug: esc
+[10017] Propellers & Blades | parent: Propulsion Systems | products: 247 | slug: propellers-blades
+[10018] 2-Blade Propellers | parent: Propellers & Blades | products: 76 | slug: 2-blade-propellers
+[10019] 3-Blade Propellers | parent: Propellers & Blades | products: 136 | slug: 3-blade-propellers
+[10020] Folding Blades | parent: Propellers & Blades | products: 2 | slug: folding-blades
+[10021] Servo Motors & Actuators | parent: Propulsion Systems | products: 309 | slug: servo-motors-actuators
+[10022] Flight Control & Navigation | parent: (root) | products: 522 | slug: flight-control-navigation
+[10023] Flight Controllers & Autopilots | parent: Flight Control & Navigation | products: 375 | slug: flight-controllers-autopilots
+[10024] LiDAR & Distance Sensors | parent: Flight Control & Navigation | products: 111 | slug: lidar-distance-sensors
+[10025] RF Spectrum Analyzers | parent: Flight Control & Navigation | products: 36 | slug: rf-spectrum-analyzers
+[10026] RC Control & Data Link | parent: (root) | products: 1028 | slug: rc-control-data-link
+[10027] RC Transmitters | parent: RC Control & Data Link | products: 153 | slug: rc-transmitters
+[10028] RC Receivers | parent: RC Control & Data Link | products: 250 | slug: rc-receivers
+[10029] Antennas | parent: RC Control & Data Link | products: 189 | slug: antennas
+[10030] Video Transmitters (VTX) | parent: RC Control & Data Link | products: 311 | slug: video-transmitters-vtx
+[10031] Long-Range Radio Modems | parent: RC Control & Data Link | products: 6 | slug: long-range-radio-modems
+[10032] Two-Way Radios & Walkie-Talkies | parent: RC Control & Data Link | products: 125 | slug: two-way-radios
+[10033] FPV Systems | parent: (root) | products: 130 | slug: fpv-systems
+[10034] FPV Goggles | parent: FPV Systems | products: 70 | slug: fpv-goggles
+[10035] FPV Monitors & Displays | parent: FPV Systems | products: 60 | slug: fpv-monitors-displays
+[10036] Imaging & Payload Systems | parent: (root) | products: 606 | slug: imaging-payload-systems
+[10037] Cameras & Video Equipment | parent: Imaging & Payload Systems | products: 360 | slug: cameras-video-equipment
+[10038] FPV & Action Cameras | parent: Cameras & Video Equipment | products: 283 | slug: fpv-action-cameras
+[10039] Mirrorless & DSLR Cameras | parent: Cameras & Video Equipment | products: 9 | slug: mirrorless-dslr-cameras
+[10040] Camera Lenses | parent: Cameras & Video Equipment | products: 10 | slug: camera-lenses
+[10041] Tripods & Mounts | parent: Cameras & Video Equipment | products: 2 | slug: tripods-mounts
+[10042] Machine Vision Cameras | parent: Imaging & Payload Systems | products: 4 | slug: machine-vision-cameras
+[10043] Thermal Imaging Cameras | parent: Imaging & Payload Systems | products: 82 | slug: thermal-imaging-cameras
+[10044] Thermal Weapon Scopes | parent: Imaging & Payload Systems | products: 30 | slug: thermal-weapon-scopes
+[10045] Optical Scopes & Sights | parent: Imaging & Payload Systems | products: 22 | slug: optical-scopes-sights
+[10046] Gimbal Stabilizers | parent: Imaging & Payload Systems | products: 61 | slug: gimbal-stabilizers
+[10047] Counter-UAV & Anti-Drone Systems | parent: Imaging & Payload Systems | products: 52 | slug: counter-uav-systems
+[10048] Power & Energy Systems | parent: (root) | products: 682 | slug: power-energy-systems
+[10049] LiPo/Li-ion Batteries | parent: Power & Energy Systems | products: 316 | slug: lipo-liion-batteries
+[10050] Battery Chargers | parent: Power & Energy Systems | products: 250 | slug: battery-chargers
+[10051] Portable Power Stations | parent: Power & Energy Systems | products: 70 | slug: portable-power-stations
+[10052] Solar Panels | parent: Power & Energy Systems | products: 46 | slug: solar-panels
+[10053] Airframe & Mechanical Structures | parent: (root) | products: 200 | slug: airframe-mechanical-structures
+[10054] Drone Frames | parent: Airframe & Mechanical Structures | products: 184 | slug: drone-frames
+[10055] Carbon Fiber Materials | parent: Airframe & Mechanical Structures | products: 16 | slug: carbon-fiber-materials
+[10056] Electronic Components | parent: (root) | products: 186 | slug: electronic-components
+[10057] ICs, Chips & Modules | parent: Electronic Components | products: 174 | slug: ics-chips-modules
+[10058] Cables, Ribbons & Wiring | parent: Electronic Components | products: 2 | slug: cables-ribbons-wiring
+[10059] Network Equipment | parent: Electronic Components | products: 10 | slug: network-equipment
+[10060] Embedded Computing & AI | parent: (root) | products: 162 | slug: embedded-computing-ai
+[10061] Single-Board Computers | parent: Embedded Computing & AI | products: 162 | slug: single-board-computers
+[10062] Robotics Systems | parent: (root) | products: 138 | slug: robotics-systems
+[10063] Tools & Maintenance | parent: (root) | products: 223 | slug: tools-maintenance
+[10064] Assembly & Soldering Tools | parent: Tools & Maintenance | products: 199 | slug: assembly-soldering-tools
+[10065] Repair Kits & Spare Parts | parent: Tools & Maintenance | products: 24 | slug: repair-kits-spare-parts
+[10066] Accessories | parent: (root) | products: 201 | slug: accessories
+[10067] Lighting & Illumination | parent: (root) | products: 120 | slug: lighting-illumination
+[10068] Electric Mobility | parent: (root) | products: 39 | slug: electric-mobility
+[10069] Electric Scooters | parent: Electric Mobility | products: 37 | slug: electric-scooters
+[10070] Electric Motorcycles | parent: Electric Mobility | products: 2 | slug: electric-motorcycles
+[10071] Industrial & Other Equipment | parent: (root) | products: 33 | slug: industrial-other-equipment
+[10072] Game Consoles & Industrial PCs | parent: Industrial & Other Equipment | products: 20 | slug: industrial-pcs-consoles
+[10073] Miscellaneous | parent: Industrial & Other Equipment | products: 13 | slug: miscellaneous
+[10074] Military & Defense UAV | parent: UAV Complete Systems | products: 35 | slug: military-defense-uav
+[10075] Combat & Strike Drones | parent: Military & Defense UAV | products: 17 | slug: combat-strike-drones
+[10076] Heavy-Lift Cargo Drones | parent: Military & Defense UAV | products: 4 | slug: heavy-lift-cargo-drones
+[10077] Tethered Drone Systems | parent: Military & Defense UAV | products: 3 | slug: tethered-drone-systems
+[10078] Munitions & Payload Systems | parent: Military & Defense UAV | products: 5 | slug: munitions-payload-systems
+[10079] Unmanned Ground Vehicles | parent: Military & Defense UAV | products: 6 | slug: unmanned-ground-vehicles
+[10080] Micro FPV Motors (11xx-15xx) | parent: Brushless Motors | products: 91 | slug: micro-fpv-motors
+[10081] Racing & Freestyle Motors (18xx-23xx) | parent: Brushless Motors | products: 306 | slug: racing-freestyle-motors
+[10082] Cinelifter & X-Class Motors (24xx-29xx) | parent: Brushless Motors | products: 51 | slug: cinelifter-xclass-motors
+[10083] Industrial & Heavy-Lift Motors (30xx+) | parent: Brushless Motors | products: 188 | slug: industrial-heavylift-motors
+[10084] Mini & Whoop ESC (≤20A) | parent: ESC (Electronic Speed Controllers) | products: 24 | slug: mini-whoop-esc
+[10085] FPV Racing ESC (25-55A) | parent: ESC (Electronic Speed Controllers) | products: 128 | slug: fpv-racing-esc
+[10086] HV & Industrial ESC (≥60A) | parent: ESC (Electronic Speed Controllers) | products: 150 | slug: hv-industrial-esc
+[10087] Micro & Mini Servos | parent: Servo Motors & Actuators | products: 3 | slug: micro-mini-servos
+[10088] Standard & Digital Servos | parent: Servo Motors & Actuators | products: 306 | slug: standard-digital-servos
+[10089] High-Torque & Industrial Servos | parent: Servo Motors & Actuators | products: 0 | slug: high-torque-industrial-servos
+[10090] 5.8GHz Video Transmitters | parent: Video Transmitters (VTX) | products: 246 | slug: 5-8ghz-vtx
+[10091] 1.2/1.3GHz Video Transmitters | parent: Video Transmitters (VTX) | products: 21 | slug: 1-2-1-3ghz-vtx
+[10092] Other Frequency VTX & VRX | parent: Video Transmitters (VTX) | products: 44 | slug: other-frequency-vtx-vrx
+[10093] ELRS Receivers (ExpressLRS) | parent: RC Receivers | products: 52 | slug: elrs-receivers
+[10094] Crossfire & 900MHz Receivers | parent: RC Receivers | products: 8 | slug: crossfire-900mhz-receivers
+[10095] FrSky & 2.4GHz Receivers | parent: RC Receivers | products: 57 | slug: frsky-2-4ghz-receivers
+[10096] Other RC Receivers | parent: RC Receivers | products: 133 | slug: other-rc-receivers
+[10097] 5.8GHz FPV Antennas | parent: Antennas | products: 163 | slug: 5-8ghz-fpv-antennas
+[10098] 433/868/915MHz Long-Range Antennas | parent: Antennas | products: 10 | slug: sub-ghz-long-range-antennas
+[10099] 2.4GHz WiFi & RC Antennas | parent: Antennas | products: 13 | slug: 2-4ghz-wifi-rc-antennas
+[10100] Multi-band & Cellular Antennas | parent: Antennas | products: 3 | slug: multiband-cellular-antennas
+[10101] FPV Flight Controllers (F4/F7/AIO) | parent: Flight Controllers & Autopilots | products: 250 | slug: fpv-flight-controllers
+[10102] Industrial Autopilots (Pixhawk/CUAV) | parent: Flight Controllers & Autopilots | products: 38 | slug: industrial-autopilots
+[10103] GPS & Navigation Modules | parent: Flight Controllers & Autopilots | products: 84 | slug: gps-navigation-modules
+[10104] PDB, PMU & FC Accessories | parent: Flight Controllers & Autopilots | products: 3 | slug: pdb-pmu-fc-accessories
+[10105] 1-3S LiPo Batteries | parent: LiPo/Li-ion Batteries | products: 55 | slug: 1-3s-lipo-batteries
+[10106] 4-6S LiPo Batteries | parent: LiPo/Li-ion Batteries | products: 202 | slug: 4-6s-lipo-batteries
+[10107] 6S+ LiPo & Li-ion Batteries | parent: LiPo/Li-ion Batteries | products: 39 | slug: 6s-plus-lipo-liion-batteries
+[10108] Smart & Intelligent Batteries | parent: LiPo/Li-ion Batteries | products: 20 | slug: smart-intelligent-batteries
+[10109] RC/FPV Balance Chargers | parent: Battery Chargers | products: 236 | slug: rc-fpv-balance-chargers
+[10110] Industrial & Multi-Chemistry Chargers | parent: Battery Chargers | products: 0 | slug: industrial-multichemistry-chargers
+[10111] Power Supplies & Adapters | parent: Battery Chargers | products: 14 | slug: power-supplies-adapters
+[10112] Quadruped Robot Dogs | parent: Robotics Systems | products: 5 | slug: quadruped-robot-dogs
+[10113] UGV & Tracked Robots | parent: Robotics Systems | products: 3 | slug: ugv-tracked-robots
+[10114] Robot Parts & Controllers | parent: Robotics Systems | products: 130 | slug: robot-parts-controllers
+[10115] Handheld Thermal Cameras | parent: Thermal Imaging Cameras | products: 0 | slug: handheld-thermal-cameras
+[10116] Drone-Mounted Thermal Cameras | parent: Thermal Imaging Cameras | products: 82 | slug: drone-mounted-thermal-cameras
+[10117] FPV & Action Camera Gimbals | parent: Gimbal Stabilizers | products: 4 | slug: fpv-action-camera-gimbals
+[10118] Camera & Payload Gimbals | parent: Gimbal Stabilizers | products: 57 | slug: camera-payload-gimbals
+
+Total products: 6375, with categories: 6375
+
+=== Russian-Made Drones product names (first 30) ===
+  [29824] Дрон DHF-25 - 8593200.00
+  [59841] Дрон Лифт В-200 (200 кг) - 7612800.00
+  [31812] Квадрокоптер FY-X30 pro с привязной системой подачи питания - 5872500.00
+  [29705] Робот-собака DB2 - 5392000.00
+  [28684] Крылатый ударный беспилотник на электрической тяге - 4590000.00
+  [29818] Система боеприпасов DLM-15 - 4368000.00
+  [28688] Крылатый ударный беспилотник с электрической силовой установкой - 4080000.00
+  [59839] Дрон Грузовик CP150-X4 (150 кг) - 3696000.00
+  [29816] Система боеприпасов DLM-10 - 3549000.00
+  [59835] Дрон Грузовик CP100-X4 (100 кг) - 3360000.00
+  [26029] Квадрокоптер Спасатель-650 - 2958400.00
+  [29814] Система боеприпасов DLM-05 - 2730000.00
+  [28568] Дрон с грузоподъемностью 25-30 кг - 2570400.00
+  [25638] Промышленный квадрокоптер Гигант-1900-A - 2536200.00
+  [26025] Квадрокоптер Водяной-630 - 1929400.00
+  [31806] Квадрокоптер FYXL-TD0 с привязной системой подачи питания - 1875990.00
+  [31809] Квадрокоптер FY-X1000 pro с привязной системой подачи питания - 1875990.00
+  [29284] Сельскохозяйственный дрон F50 - 1190990.00
+  [26033] Квадрокоптер Разведчик-405 - 942700.00
+  [25632] Промышленный квадрокоптер Охранник-3T - 629700.00
+  [59953] Дрон Грузовик 50 кг - 619200.00
+  [25634] Промышленный квадрокоптер Гигант-300B-2 - 537200.00
+  [25525] Квадрокоптер Охранник-M300 - 530000.00
+  [28681] Летающий гранатомёт - 510000.00
+  [29707] Робот-собака DG2 - 338600.00
+  [36505] Квадрокоптер F580 - 300000.00
+  [58385] Противодронная установка AY-UAV4-FD250 - 279600.00
+  [25642] Промышленный квадрокоптер Гигант-400 (Помощник) - 262500.00
+  [76574] FPV-дрон ATWAY ПУТЬ 18 X8 - 239900.00
+  [76578] FPV-дрон ATWAY ПУТЬ 22 FPV - 209900.00
+
+=== Current Military & Defense products ===
+  [29824] Дрон DHF-25 - 8593200.00
+  [59841] Дрон Лифт В-200 (200 кг) - 7612800.00
+  [31812] Квадрокоптер FY-X30 pro с привязной системой подачи питания - 5872500.00
+  [29705] Робот-собака DB2 - 5392000.00
+  [28684] Крылатый ударный беспилотник на электрической тяге - 4590000.00
+  [29818] Система боеприпасов DLM-15 - 4368000.00
+  [28688] Крылатый ударный беспилотник с электрической силовой установкой - 4080000.00
+  [59839] Дрон Грузовик CP150-X4 (150 кг) - 3696000.00
+  [29816] Система боеприпасов DLM-10 - 3549000.00
+  [59835] Дрон Грузовик CP100-X4 (100 кг) - 3360000.00
+  [29881] Робот DFL-1201 - 2730000.00
+  [29879] Робот DFL-1079 - 2730000.00
+  [29814] Система боеприпасов DLM-05 - 2730000.00
+  [31809] Квадрокоптер FY-X1000 pro с привязной системой подачи питания - 1875990.00
+  [31806] Квадрокоптер FYXL-TD0 с привязной системой подачи питания - 1875990.00
+  [59953] Дрон Грузовик 50 кг - 619200.00
+  [28681] Летающий гранатомёт - 510000.00
+  [29707] Робот-собака DG2 - 338600.00
+  [29877] Робот DFL-1070 - 327600.00
+  [58385] Противодронная установка AY-UAV4-FD250 - 279600.00
+  [30095] Дрон Надзиратель 13 дюймов - 67800.00
+  [30093] Дрон Надзиратель 10 дюймов - 60000.00
+  [30091] Дрон Надзиратель 9 дюймов - 56000.00
+  [36944] FPV дрон 10 дюймов Зверобой 750Mhz 1.2GHz - 48500.00
+  [30089] Дрон Надзиратель 7 дюймов - 45600.00
+  [29041] Многоцелевой ударный бомбардировщик - null
+  [28456] Крылатый ударный комплекс - null
+  [29709] Робот-гуманоид G1 - null
+  [29822] Дрон DLM-100 - null
+  [57894] ПВО система борьбы с БПЛА – Капюшон v 2.0 - null
+  [29044] Ударный крылатый бомбардировщик БПЛА - null
+  [29403] Крылатый ударный беспилотник с электрической силовой установкой 10кг - null
+  [29826] Дрон DHF-60 - null
+  [29820] Дрон DLM-30 - null
+  [29828] Дрон DHF-300 - null

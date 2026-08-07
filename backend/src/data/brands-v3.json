@@ -1,0 +1,2630 @@
+[
+  {
+    "id": "7873",
+    "name": "MIMO",
+    "slug": "mimo",
+    "is_active": false
+  },
+  {
+    "id": "8286",
+    "name": "Skydroid",
+    "slug": "skydroid",
+    "is_active": false
+  },
+  {
+    "id": "8280",
+    "name": "TwinRX",
+    "slug": "twinrx",
+    "is_active": false
+  },
+  {
+    "id": "8277",
+    "name": "Segger",
+    "slug": "segger",
+    "is_active": false
+  },
+  {
+    "id": "7589",
+    "name": "CHCNAV",
+    "slug": "chcnav",
+    "is_active": false
+  },
+  {
+    "id": "6309",
+    "name": "ToolkitRC",
+    "slug": "toolkitrc",
+    "is_active": false
+  },
+  {
+    "id": "6276",
+    "name": "ReadyToSky",
+    "slug": "readytosky",
+    "is_active": false
+  },
+  {
+    "id": "8272",
+    "name": "Oversky",
+    "slug": "oversky",
+    "is_active": false
+  },
+  {
+    "id": "8269",
+    "name": "NeebRC",
+    "slug": "neebrc",
+    "is_active": false
+  },
+  {
+    "id": "6231",
+    "name": "JX",
+    "slug": "jx",
+    "is_active": false
+  },
+  {
+    "id": "7574",
+    "name": "INJORA",
+    "slug": "injora",
+    "is_active": false
+  },
+  {
+    "id": "6165",
+    "name": "CORONA",
+    "slug": "corona",
+    "is_active": false
+  },
+  {
+    "id": "8084",
+    "name": "Sub250",
+    "slug": "sub250",
+    "is_active": false
+  },
+  {
+    "id": "6034",
+    "name": "Holybro",
+    "slug": "holybro",
+    "is_active": false
+  },
+  {
+    "id": "6044",
+    "name": "Happymodel",
+    "slug": "happymodel",
+    "is_active": false
+  },
+  {
+    "id": "6033",
+    "name": "GEPRC",
+    "slug": "geprc",
+    "is_active": false
+  },
+  {
+    "id": "6113",
+    "name": "Flywoo",
+    "slug": "flywoo",
+    "is_active": false
+  },
+  {
+    "id": "6039",
+    "name": "Axisflying",
+    "slug": "axisflying",
+    "is_active": false
+  },
+  {
+    "id": "7430",
+    "name": "DumboRC",
+    "slug": "dumborc",
+    "is_active": false
+  },
+  {
+    "id": "6197",
+    "name": "Gemfan",
+    "slug": "gemfan",
+    "is_active": false
+  },
+  {
+    "id": "6168",
+    "name": "Dalprop",
+    "slug": "dalprop",
+    "is_active": false
+  },
+  {
+    "id": "6041",
+    "name": "Foxeer",
+    "slug": "foxeer",
+    "is_active": false
+  },
+  {
+    "id": "6100",
+    "name": "RUSHFPV",
+    "slug": "rushfpv",
+    "is_active": false
+  },
+  {
+    "id": "6206",
+    "name": "HelloRadio",
+    "slug": "helloradio",
+    "is_active": false
+  },
+  {
+    "id": "6193",
+    "name": "Futaba",
+    "slug": "futaba",
+    "is_active": false
+  },
+  {
+    "id": "8243",
+    "name": "FlytoFPV",
+    "slug": "flytofpv",
+    "is_active": false
+  },
+  {
+    "id": "6135",
+    "name": "Flysky",
+    "slug": "flysky",
+    "is_active": false
+  },
+  {
+    "id": "6178",
+    "name": "Emax",
+    "slug": "emax",
+    "is_active": false
+  },
+  {
+    "id": "6159",
+    "name": "BrotherHobby",
+    "slug": "brotherhobby",
+    "is_active": false
+  },
+  {
+    "id": "7663",
+    "name": "BayckRC",
+    "slug": "bayckrc",
+    "is_active": false
+  },
+  {
+    "id": "6544",
+    "name": "LILYGO",
+    "slug": "lilygo",
+    "is_active": false
+  },
+  {
+    "id": "6123",
+    "name": "DJI",
+    "slug": "dji",
+    "is_active": false
+  },
+  {
+    "id": "6158",
+    "name": "Boscam",
+    "slug": "boscam",
+    "is_active": false
+  },
+  {
+    "id": "8225",
+    "name": "Accsoon",
+    "slug": "accsoon",
+    "is_active": false
+  },
+  {
+    "id": "8231",
+    "name": "Viltrox",
+    "slug": "viltrox",
+    "is_active": false
+  },
+  {
+    "id": "8229",
+    "name": "SEETEC",
+    "slug": "seetec",
+    "is_active": false
+  },
+  {
+    "id": "8227",
+    "name": "Osee",
+    "slug": "osee",
+    "is_active": false
+  },
+  {
+    "id": "7520",
+    "name": "NanoPi",
+    "slug": "nanopi",
+    "is_active": false
+  },
+  {
+    "id": "8216",
+    "name": "lattepanda",
+    "slug": "lattepanda",
+    "is_active": false
+  },
+  {
+    "id": "7713",
+    "name": "Bigtreetech",
+    "slug": "bigtreetech",
+    "is_active": false
+  },
+  {
+    "id": "8214",
+    "name": "Unitree",
+    "slug": "unitree",
+    "is_active": false
+  },
+  {
+    "id": "7697",
+    "name": "RoboSense",
+    "slug": "robosense",
+    "is_active": false
+  },
+  {
+    "id": "7017",
+    "name": "Livox",
+    "slug": "livox",
+    "is_active": false
+  },
+  {
+    "id": "8209",
+    "name": "LDROBOT",
+    "slug": "ldrobot",
+    "is_active": false
+  },
+  {
+    "id": "6082",
+    "name": "Intel",
+    "slug": "intel",
+    "is_active": false
+  },
+  {
+    "id": "8205",
+    "name": "FaseLase",
+    "slug": "faselase",
+    "is_active": false
+  },
+  {
+    "id": "6217",
+    "name": "HTRC",
+    "slug": "htrc",
+    "is_active": false
+  },
+  {
+    "id": "6414",
+    "name": "GensAce",
+    "slug": "gensace",
+    "is_active": false
+  },
+  {
+    "id": "6301",
+    "name": "Superbat",
+    "slug": "superbat",
+    "is_active": false
+  },
+  {
+    "id": "6292",
+    "name": "Skyzone",
+    "slug": "skyzone",
+    "is_active": false
+  },
+  {
+    "id": "8192",
+    "name": "TERANTY",
+    "slug": "teranty",
+    "is_active": false
+  },
+  {
+    "id": "8189",
+    "name": "SMARTOOOLS",
+    "slug": "smartoools",
+    "is_active": false
+  },
+  {
+    "id": "6252",
+    "name": "MJX",
+    "slug": "mjx",
+    "is_active": false
+  },
+  {
+    "id": "6097",
+    "name": "HGLRC",
+    "slug": "hglrc",
+    "is_active": false
+  },
+  {
+    "id": "8186",
+    "name": "GAOLAG",
+    "slug": "gaolag",
+    "is_active": false
+  },
+  {
+    "id": "6114",
+    "name": "Hobbywing",
+    "slug": "hobbywing",
+    "is_active": false
+  },
+  {
+    "id": "6305",
+    "name": "T-Motor",
+    "slug": "t-motor",
+    "is_active": false
+  },
+  {
+    "id": "6215",
+    "name": "HQProp",
+    "slug": "hqprop",
+    "is_active": false
+  },
+  {
+    "id": "6261",
+    "name": "Nvidia",
+    "slug": "nvidia",
+    "is_active": false
+  },
+  {
+    "id": "6047",
+    "name": "B&amp;C",
+    "slug": "bc",
+    "is_active": false
+  },
+  {
+    "id": "6306",
+    "name": "Tarot",
+    "slug": "tarot",
+    "is_active": false
+  },
+  {
+    "id": "6567",
+    "name": "Waveshare",
+    "slug": "waveshare",
+    "is_active": false
+  },
+  {
+    "id": "6040",
+    "name": "DarwinFPV",
+    "slug": "darwinfpv",
+    "is_active": false
+  },
+  {
+    "id": "7475",
+    "name": "Hawkeye",
+    "slug": "hawkeye",
+    "is_active": false
+  },
+  {
+    "id": "6442",
+    "name": "Romoss",
+    "slug": "romoss",
+    "is_active": false
+  },
+  {
+    "id": "8114",
+    "name": "Choetech",
+    "slug": "choetech",
+    "is_active": false
+  },
+  {
+    "id": "8109",
+    "name": "HawkSpeed",
+    "slug": "hawkspeed",
+    "is_active": false
+  },
+  {
+    "id": "6172",
+    "name": "Dualsky",
+    "slug": "dualsky",
+    "is_active": false
+  },
+  {
+    "id": "6308",
+    "name": "Team BlackSheep",
+    "slug": "team-blacksheep",
+    "is_active": false
+  },
+  {
+    "id": "6068",
+    "name": "IFlight",
+    "slug": "iflight",
+    "is_active": false
+  },
+  {
+    "id": "8101",
+    "name": "Vector",
+    "slug": "vector",
+    "is_active": false
+  },
+  {
+    "id": "7441",
+    "name": "Turbosky",
+    "slug": "turbosky",
+    "is_active": false
+  },
+  {
+    "id": "8099",
+    "name": "ТЕРЕК",
+    "slug": "%d1%82%d0%b5%d1%80%d0%b5%d0%ba",
+    "is_active": false
+  },
+  {
+    "id": "6214",
+    "name": "HotRC",
+    "slug": "hotrc",
+    "is_active": false
+  },
+  {
+    "id": "8096",
+    "name": "Finepower",
+    "slug": "finepower",
+    "is_active": false
+  },
+  {
+    "id": "8094",
+    "name": "Artway",
+    "slug": "artway",
+    "is_active": false
+  },
+  {
+    "id": "6169",
+    "name": "Delta",
+    "slug": "delta",
+    "is_active": false
+  },
+  {
+    "id": "6148",
+    "name": "ARTELV",
+    "slug": "artelv",
+    "is_active": false
+  },
+  {
+    "id": "7418",
+    "name": "Allpowers",
+    "slug": "allpowers",
+    "is_active": false
+  },
+  {
+    "id": "8089",
+    "name": "WOJO",
+    "slug": "wojo",
+    "is_active": false
+  },
+  {
+    "id": "6045",
+    "name": "JHEMCU",
+    "slug": "jhemcu",
+    "is_active": false
+  },
+  {
+    "id": "8087",
+    "name": "ImmersionRC",
+    "slug": "immersionrc",
+    "is_active": false
+  },
+  {
+    "id": "6160",
+    "name": "Caddx",
+    "slug": "caddx",
+    "is_active": false
+  },
+  {
+    "id": "7533",
+    "name": "Feelworld",
+    "slug": "feelworld",
+    "is_active": false
+  },
+  {
+    "id": "6174",
+    "name": "EACHINE",
+    "slug": "eachine",
+    "is_active": false
+  },
+  {
+    "id": "8080",
+    "name": "DMKR",
+    "slug": "dmkr",
+    "is_active": false
+  },
+  {
+    "id": "7187",
+    "name": "Slamtec",
+    "slug": "slamtec",
+    "is_active": false
+  },
+  {
+    "id": "8075",
+    "name": "Siminics",
+    "slug": "siminics",
+    "is_active": false
+  },
+  {
+    "id": "7701",
+    "name": "SICK",
+    "slug": "sick",
+    "is_active": false
+  },
+  {
+    "id": "8070",
+    "name": "SDKELI",
+    "slug": "sdkeli",
+    "is_active": false
+  },
+  {
+    "id": "6291",
+    "name": "SKYRC",
+    "slug": "skyrc",
+    "is_active": false
+  },
+  {
+    "id": "6318",
+    "name": "Ultrapower",
+    "slug": "ultrapower",
+    "is_active": false
+  },
+  {
+    "id": "6314",
+    "name": "TrueRC",
+    "slug": "truerc",
+    "is_active": false
+  },
+  {
+    "id": "6246",
+    "name": "Maple",
+    "slug": "maple",
+    "is_active": false
+  },
+  {
+    "id": "8065",
+    "name": "Mitoot",
+    "slug": "mitoot",
+    "is_active": false
+  },
+  {
+    "id": "7847",
+    "name": "OWON",
+    "slug": "owon",
+    "is_active": false
+  },
+  {
+    "id": "8059",
+    "name": "SeeSii",
+    "slug": "seesii",
+    "is_active": false
+  },
+  {
+    "id": "8056",
+    "name": "Gaqqee",
+    "slug": "gaqqee",
+    "is_active": false
+  },
+  {
+    "id": "6048",
+    "name": "CNHL",
+    "slug": "cnhl",
+    "is_active": false
+  },
+  {
+    "id": "7560",
+    "name": "OddityRC",
+    "slug": "oddityrc",
+    "is_active": false
+  },
+  {
+    "id": "6204",
+    "name": "HAKRC",
+    "slug": "hakrc",
+    "is_active": false
+  },
+  {
+    "id": "8047",
+    "name": "Infiray",
+    "slug": "infiray",
+    "is_active": false
+  },
+  {
+    "id": "8045",
+    "name": "EATECH",
+    "slug": "eatech",
+    "is_active": false
+  },
+  {
+    "id": "8043",
+    "name": "Lichuan",
+    "slug": "lichuan",
+    "is_active": false
+  },
+  {
+    "id": "8041",
+    "name": "Pluto",
+    "slug": "pluto",
+    "is_active": false
+  },
+  {
+    "id": "8037",
+    "name": "KINIQ",
+    "slug": "kiniq",
+    "is_active": false
+  },
+  {
+    "id": "8034",
+    "name": "ХАЙТ",
+    "slug": "%d1%85%d0%b0%d0%b9%d1%82",
+    "is_active": false
+  },
+  {
+    "id": "6144",
+    "name": "RADIOMASTER",
+    "slug": "radiomaster",
+    "is_active": false
+  },
+  {
+    "id": "6124",
+    "name": "FIMI",
+    "slug": "fimi",
+    "is_active": false
+  },
+  {
+    "id": "6101",
+    "name": "Walksnail",
+    "slug": "walksnail",
+    "is_active": false
+  },
+  {
+    "id": "8030",
+    "name": "FPVspeed",
+    "slug": "fpvspeed",
+    "is_active": false
+  },
+  {
+    "id": "8025",
+    "name": "CyberPower",
+    "slug": "cyberpower",
+    "is_active": false
+  },
+  {
+    "id": "6307",
+    "name": "tBeacon",
+    "slug": "tbeacon",
+    "is_active": false
+  },
+  {
+    "id": "8023",
+    "name": "Osnovo",
+    "slug": "osnovo",
+    "is_active": false
+  },
+  {
+    "id": "8021",
+    "name": "Veber",
+    "slug": "veber",
+    "is_active": false
+  },
+  {
+    "id": "6565",
+    "name": "VEYE",
+    "slug": "veye",
+    "is_active": false
+  },
+  {
+    "id": "8017",
+    "name": "HAMGEEK",
+    "slug": "hamgeek",
+    "is_active": false
+  },
+  {
+    "id": "8016",
+    "name": "Omron",
+    "slug": "omron",
+    "is_active": false
+  },
+  {
+    "id": "7015",
+    "name": "FDROBOT",
+    "slug": "fdrobot",
+    "is_active": false
+  },
+  {
+    "id": "6321",
+    "name": "Viewpro",
+    "slug": "viewpro",
+    "is_active": false
+  },
+  {
+    "id": "8010",
+    "name": "Stereolabs",
+    "slug": "stereolabs",
+    "is_active": false
+  },
+  {
+    "id": "6558",
+    "name": "Sipeed",
+    "slug": "sipeed",
+    "is_active": false
+  },
+  {
+    "id": "8006",
+    "name": "SingTown",
+    "slug": "singtown",
+    "is_active": false
+  },
+  {
+    "id": "8004",
+    "name": "FLIR",
+    "slug": "flir",
+    "is_active": false
+  },
+  {
+    "id": "8000",
+    "name": "NetAlly",
+    "slug": "netally",
+    "is_active": false
+  },
+  {
+    "id": "6071",
+    "name": "RCINPOWER",
+    "slug": "rcinpower",
+    "is_active": false
+  },
+  {
+    "id": "6271",
+    "name": "QX-Motor",
+    "slug": "qx-motor",
+    "is_active": false
+  },
+  {
+    "id": "7998",
+    "name": "Honpine",
+    "slug": "honpine",
+    "is_active": false
+  },
+  {
+    "id": "7994",
+    "name": "EtherCAT",
+    "slug": "ethercat",
+    "is_active": false
+  },
+  {
+    "id": "7992",
+    "name": "ЧЕСТНАЯ БАТАРЕЯ",
+    "slug": "%d1%87%d0%b5%d1%81%d1%82%d0%bd%d0%b0%d1%8f-%d0%b1%d0%b0%d1%82%d0%b0%d1%80%d0%b5%d1%8f",
+    "is_active": false
+  },
+  {
+    "id": "7943",
+    "name": "ATWAY",
+    "slug": "atway",
+    "is_active": false
+  },
+  {
+    "id": "7970",
+    "name": "Транспорт Будущего",
+    "slug": "%d1%82%d1%80%d0%b0%d0%bd%d1%81%d0%bf%d0%be%d1%80%d1%82-%d0%b1%d1%83%d0%b4%d1%83%d1%89%d0%b5%d0%b3%d0%be",
+    "is_active": false
+  },
+  {
+    "id": "7978",
+    "name": "Уралхимаппарат",
+    "slug": "%d1%83%d1%80%d0%b0%d0%bb%d1%85%d0%b8%d0%bc%d0%b0%d0%bf%d0%bf%d0%b0%d1%80%d0%b0%d1%82",
+    "is_active": false
+  },
+  {
+    "id": "7963",
+    "name": "РЗЭ",
+    "slug": "%d1%80%d0%b7%d1%8d",
+    "is_active": false
+  },
+  {
+    "id": "7955",
+    "name": "Rufly",
+    "slug": "rufly",
+    "is_active": false
+  },
+  {
+    "id": "6242",
+    "name": "Lumenier",
+    "slug": "lumenier",
+    "is_active": false
+  },
+  {
+    "id": "6085",
+    "name": "RunCam",
+    "slug": "runcam",
+    "is_active": false
+  },
+  {
+    "id": "6153",
+    "name": "BeastFPV",
+    "slug": "beastfpv",
+    "is_active": false
+  },
+  {
+    "id": "6295",
+    "name": "Sony",
+    "slug": "sony",
+    "is_active": false
+  },
+  {
+    "id": "7928",
+    "name": "Yakee",
+    "slug": "yakee",
+    "is_active": false
+  },
+  {
+    "id": "6021",
+    "name": "AKK",
+    "slug": "akk",
+    "is_active": false
+  },
+  {
+    "id": "6319",
+    "name": "VANT",
+    "slug": "vant",
+    "is_active": false
+  },
+  {
+    "id": "6216",
+    "name": "HRB",
+    "slug": "hrb",
+    "is_active": false
+  },
+  {
+    "id": "6049",
+    "name": "GNB",
+    "slug": "gnb",
+    "is_active": false
+  },
+  {
+    "id": "6094",
+    "name": "BETAFPV",
+    "slug": "betafpv",
+    "is_active": false
+  },
+  {
+    "id": "7128",
+    "name": "У-УППО",
+    "slug": "%d1%83-%d1%83%d0%bf%d0%bf%d0%be",
+    "is_active": false
+  },
+  {
+    "id": "7885",
+    "name": "Волгаэнергохим",
+    "slug": "%d0%b2%d0%be%d0%bb%d0%b3%d0%b0%d1%8d%d0%bd%d0%b5%d1%80%d0%b3%d0%be%d1%85%d0%b8%d0%bc",
+    "is_active": false
+  },
+  {
+    "id": "6297",
+    "name": "Speedybee",
+    "slug": "speedybee",
+    "is_active": false
+  },
+  {
+    "id": "6037",
+    "name": "Mateksys",
+    "slug": "mateksys",
+    "is_active": false
+  },
+  {
+    "id": "7884",
+    "name": "Furious Motor",
+    "slug": "furious-motor",
+    "is_active": false
+  },
+  {
+    "id": "7882",
+    "name": "RIKANV",
+    "slug": "rikanv",
+    "is_active": false
+  },
+  {
+    "id": "7880",
+    "name": "LZIRTEK",
+    "slug": "lzirtek",
+    "is_active": false
+  },
+  {
+    "id": "6238",
+    "name": "KST",
+    "slug": "kst",
+    "is_active": false
+  },
+  {
+    "id": "6219",
+    "name": "Hytera",
+    "slug": "hytera",
+    "is_active": false
+  },
+  {
+    "id": "7867",
+    "name": "aSel",
+    "slug": "asel",
+    "is_active": false
+  },
+  {
+    "id": "6275",
+    "name": "Raspberry Pi",
+    "slug": "raspberry-pi",
+    "is_active": false
+  },
+  {
+    "id": "6274",
+    "name": "RADXA",
+    "slug": "radxa",
+    "is_active": false
+  },
+  {
+    "id": "7860",
+    "name": "Seyond",
+    "slug": "seyond",
+    "is_active": false
+  },
+  {
+    "id": "7855",
+    "name": "RangeVision",
+    "slug": "rangevision",
+    "is_active": false
+  },
+  {
+    "id": "6095",
+    "name": "HDZero",
+    "slug": "hdzero",
+    "is_active": false
+  },
+  {
+    "id": "7848",
+    "name": "Amperin",
+    "slug": "amperin",
+    "is_active": false
+  },
+  {
+    "id": "7770",
+    "name": "Skywalker",
+    "slug": "skywalker",
+    "is_active": false
+  },
+  {
+    "id": "6244",
+    "name": "MAD",
+    "slug": "mad",
+    "is_active": false
+  },
+  {
+    "id": "7834",
+    "name": "T-Drones",
+    "slug": "t-drones",
+    "is_active": false
+  },
+  {
+    "id": "6281",
+    "name": "Savox",
+    "slug": "savox",
+    "is_active": false
+  },
+  {
+    "id": "6262",
+    "name": "Orange Pi",
+    "slug": "orange-pi",
+    "is_active": false
+  },
+  {
+    "id": "7817",
+    "name": "GMKtec",
+    "slug": "gmktec",
+    "is_active": false
+  },
+  {
+    "id": "6076",
+    "name": "Sunnysky",
+    "slug": "sunnysky",
+    "is_active": false
+  },
+  {
+    "id": "6164",
+    "name": "Copterparts",
+    "slug": "copterparts",
+    "is_active": false
+  },
+  {
+    "id": "7776",
+    "name": "Skyeye",
+    "slug": "skyeye",
+    "is_active": false
+  },
+  {
+    "id": "7768",
+    "name": "Makeflyeasy",
+    "slug": "makeflyeasy",
+    "is_active": false
+  },
+  {
+    "id": "7773",
+    "name": "MFD",
+    "slug": "mfd",
+    "is_active": false
+  },
+  {
+    "id": "7755",
+    "name": "WAVGAT",
+    "slug": "wavgat",
+    "is_active": false
+  },
+  {
+    "id": "7734",
+    "name": "Spektrum",
+    "slug": "spektrum",
+    "is_active": false
+  },
+  {
+    "id": "7731",
+    "name": "RedCon",
+    "slug": "redcon",
+    "is_active": false
+  },
+  {
+    "id": "7727",
+    "name": "MKronRC",
+    "slug": "mkronrc",
+    "is_active": false
+  },
+  {
+    "id": "7188",
+    "name": "YDLIDAR",
+    "slug": "ydlidar",
+    "is_active": false
+  },
+  {
+    "id": "6322",
+    "name": "VIFLY",
+    "slug": "vifly",
+    "is_active": false
+  },
+  {
+    "id": "7681",
+    "name": "Imax",
+    "slug": "imax",
+    "is_active": false
+  },
+  {
+    "id": "6213",
+    "name": "HOTA",
+    "slug": "hota",
+    "is_active": false
+  },
+  {
+    "id": "6182",
+    "name": "FatShark",
+    "slug": "fatshark",
+    "is_active": false
+  },
+  {
+    "id": "7152",
+    "name": "Завод №50",
+    "slug": "%d0%b7%d0%b0%d0%b2%d0%be%d0%b4-%e2%84%9650",
+    "is_active": false
+  },
+  {
+    "id": "6183",
+    "name": "Feetech",
+    "slug": "feetech",
+    "is_active": false
+  },
+  {
+    "id": "7376",
+    "name": "PrinCe",
+    "slug": "prince",
+    "is_active": false
+  },
+  {
+    "id": "7498",
+    "name": "Hesai",
+    "slug": "hesai",
+    "is_active": false
+  },
+  {
+    "id": "6177",
+    "name": "EFT",
+    "slug": "eft",
+    "is_active": false
+  },
+  {
+    "id": "7626",
+    "name": "Leica",
+    "slug": "leica",
+    "is_active": false
+  },
+  {
+    "id": "7621",
+    "name": "Аргот",
+    "slug": "%d0%b0%d1%80%d0%b3%d0%be%d1%82",
+    "is_active": false
+  },
+  {
+    "id": "7618",
+    "name": "CHNSpec",
+    "slug": "chnspec",
+    "is_active": false
+  },
+  {
+    "id": "7607",
+    "name": "КБ-Спектр",
+    "slug": "%d0%ba%d0%b1-%d1%81%d0%bf%d0%b5%d0%ba%d1%82%d1%80",
+    "is_active": false
+  },
+  {
+    "id": "7600",
+    "name": "AFERIY",
+    "slug": "aferiy",
+    "is_active": false
+  },
+  {
+    "id": "7604",
+    "name": "Fluke",
+    "slug": "fluke",
+    "is_active": false
+  },
+  {
+    "id": "7602",
+    "name": "Ermenrich",
+    "slug": "ermenrich",
+    "is_active": false
+  },
+  {
+    "id": "7351",
+    "name": "CHINOWING",
+    "slug": "chinowing",
+    "is_active": false
+  },
+  {
+    "id": "6035",
+    "name": "CUAV",
+    "slug": "cuav",
+    "is_active": false
+  },
+  {
+    "id": "7591",
+    "name": "AVMATRIX",
+    "slug": "avmatrix",
+    "is_active": false
+  },
+  {
+    "id": "7587",
+    "name": "Sokkia",
+    "slug": "sokkia",
+    "is_active": false
+  },
+  {
+    "id": "7586",
+    "name": "Jackery",
+    "slug": "jackery",
+    "is_active": false
+  },
+  {
+    "id": "6180",
+    "name": "EV-Peak",
+    "slug": "ev-peak",
+    "is_active": false
+  },
+  {
+    "id": "6302",
+    "name": "SURPASS",
+    "slug": "surpass",
+    "is_active": false
+  },
+  {
+    "id": "6019",
+    "name": "Стезя",
+    "slug": "%d1%81%d1%82%d0%b5%d0%b7%d1%8f",
+    "is_active": false
+  },
+  {
+    "id": "7318",
+    "name": "SPT Servo",
+    "slug": "spt-servo",
+    "is_active": false
+  },
+  {
+    "id": "7571",
+    "name": "DSpower",
+    "slug": "dspower",
+    "is_active": false
+  },
+  {
+    "id": "7449",
+    "name": "9imod",
+    "slug": "9imod",
+    "is_active": false
+  },
+  {
+    "id": "7566",
+    "name": "TurboRC",
+    "slug": "turborc",
+    "is_active": false
+  },
+  {
+    "id": "7563",
+    "name": "Oxbot",
+    "slug": "oxbot",
+    "is_active": false
+  },
+  {
+    "id": "7556",
+    "name": "AlfaRC",
+    "slug": "alfarc",
+    "is_active": false
+  },
+  {
+    "id": "6316",
+    "name": "TYT",
+    "slug": "tyt",
+    "is_active": false
+  },
+  {
+    "id": "7552",
+    "name": "Quansheng",
+    "slug": "quansheng",
+    "is_active": false
+  },
+  {
+    "id": "6152",
+    "name": "Baofeng",
+    "slug": "baofeng",
+    "is_active": false
+  },
+  {
+    "id": "6273",
+    "name": "Radiolink",
+    "slug": "radiolink",
+    "is_active": false
+  },
+  {
+    "id": "7547",
+    "name": "Wattbox",
+    "slug": "wattbox",
+    "is_active": false
+  },
+  {
+    "id": "7545",
+    "name": "UGreen",
+    "slug": "ugreen",
+    "is_active": false
+  },
+  {
+    "id": "7468",
+    "name": "Silasolar",
+    "slug": "silasolar",
+    "is_active": false
+  },
+  {
+    "id": "7541",
+    "name": "MARSRIVA",
+    "slug": "marsriva",
+    "is_active": false
+  },
+  {
+    "id": "7539",
+    "name": "Gizzu",
+    "slug": "gizzu",
+    "is_active": false
+  },
+  {
+    "id": "7537",
+    "name": "Flashfish",
+    "slug": "flashfish",
+    "is_active": false
+  },
+  {
+    "id": "7421",
+    "name": "Bluetti",
+    "slug": "bluetti",
+    "is_active": false
+  },
+  {
+    "id": "7516",
+    "name": "Flipper",
+    "slug": "flipper",
+    "is_active": false
+  },
+  {
+    "id": "6151",
+    "name": "Banana Pi",
+    "slug": "banana-pi",
+    "is_active": false
+  },
+  {
+    "id": "7509",
+    "name": "Dronetech",
+    "slug": "dronetech",
+    "is_active": false
+  },
+  {
+    "id": "6328",
+    "name": "Yahboom",
+    "slug": "yahboom",
+    "is_active": false
+  },
+  {
+    "id": "7501",
+    "name": "HinSon",
+    "slug": "hinson",
+    "is_active": false
+  },
+  {
+    "id": "7495",
+    "name": "Fordrone Pod",
+    "slug": "fordrone-pod",
+    "is_active": false
+  },
+  {
+    "id": "7484",
+    "name": "Mypanda",
+    "slug": "mypanda",
+    "is_active": false
+  },
+  {
+    "id": "6188",
+    "name": "FlyfishRC",
+    "slug": "flyfishrc",
+    "is_active": false
+  },
+  {
+    "id": "7473",
+    "name": "Topcon",
+    "slug": "topcon",
+    "is_active": false
+  },
+  {
+    "id": "7471",
+    "name": "Smartools",
+    "slug": "smartools",
+    "is_active": false
+  },
+  {
+    "id": "6176",
+    "name": "Ecoflow",
+    "slug": "ecoflow",
+    "is_active": false
+  },
+  {
+    "id": "7465",
+    "name": "Dokio",
+    "slug": "dokio",
+    "is_active": false
+  },
+  {
+    "id": "7462",
+    "name": "YANTRC",
+    "slug": "yantrc",
+    "is_active": false
+  },
+  {
+    "id": "7425",
+    "name": "CTOLITY",
+    "slug": "ctolity",
+    "is_active": false
+  },
+  {
+    "id": "7423",
+    "name": "CTECHI",
+    "slug": "ctechi",
+    "is_active": false
+  },
+  {
+    "id": "6518",
+    "name": "Atmel",
+    "slug": "atmel",
+    "is_active": false
+  },
+  {
+    "id": "6155",
+    "name": "Benewake",
+    "slug": "benewake",
+    "is_active": false
+  },
+  {
+    "id": "7381",
+    "name": "Akusense",
+    "slug": "akusense",
+    "is_active": false
+  },
+  {
+    "id": "7372",
+    "name": "Guide",
+    "slug": "guide",
+    "is_active": false
+  },
+  {
+    "id": "7374",
+    "name": "Dedal",
+    "slug": "dedal",
+    "is_active": false
+  },
+  {
+    "id": "7357",
+    "name": "D-Link",
+    "slug": "d-link",
+    "is_active": false
+  },
+  {
+    "id": "6287",
+    "name": "SIYI",
+    "slug": "siyi",
+    "is_active": false
+  },
+  {
+    "id": "6249",
+    "name": "Maytech",
+    "slug": "maytech",
+    "is_active": false
+  },
+  {
+    "id": "7379",
+    "name": "ATA",
+    "slug": "ata",
+    "is_active": false
+  },
+  {
+    "id": "7370",
+    "name": "Mornsun",
+    "slug": "mornsun",
+    "is_active": false
+  },
+  {
+    "id": "7369",
+    "name": "ICP-DAS",
+    "slug": "icp-das",
+    "is_active": false
+  },
+  {
+    "id": "7338",
+    "name": "AlphaAir",
+    "slug": "alphaair",
+    "is_active": false
+  },
+  {
+    "id": "6335",
+    "name": "ZTW",
+    "slug": "ztw",
+    "is_active": false
+  },
+  {
+    "id": "6221",
+    "name": "ISDT",
+    "slug": "isdt",
+    "is_active": false
+  },
+  {
+    "id": "7328",
+    "name": "Herewin",
+    "slug": "herewin",
+    "is_active": false
+  },
+  {
+    "id": "7325",
+    "name": "Oculus",
+    "slug": "oculus",
+    "is_active": false
+  },
+  {
+    "id": "6187",
+    "name": "Flipsky",
+    "slug": "flipsky",
+    "is_active": false
+  },
+  {
+    "id": "7314",
+    "name": "RCtoSky",
+    "slug": "%d1%82%d0%b5%d0%bb%d0%b5%d0%bc%d0%b5%d1%82%d1%80%d0%b8%d1%8f-rctosky",
+    "is_active": false
+  },
+  {
+    "id": "7312",
+    "name": "E-POWER",
+    "slug": "e-power",
+    "is_active": false
+  },
+  {
+    "id": "7309",
+    "name": "EZUAV",
+    "slug": "ezuav",
+    "is_active": false
+  },
+  {
+    "id": "6029",
+    "name": "Arduino",
+    "slug": "arduino",
+    "is_active": false
+  },
+  {
+    "id": "7303",
+    "name": "Netac",
+    "slug": "netac",
+    "is_active": false
+  },
+  {
+    "id": "7298",
+    "name": "ROBITON",
+    "slug": "robiton",
+    "is_active": false
+  },
+  {
+    "id": "7297",
+    "name": "DAMIAO",
+    "slug": "damiao",
+    "is_active": false
+  },
+  {
+    "id": "7292",
+    "name": "SunnyLife",
+    "slug": "sunnylife",
+    "is_active": false
+  },
+  {
+    "id": "6060",
+    "name": "Tattu",
+    "slug": "tattu",
+    "is_active": false
+  },
+  {
+    "id": "6254",
+    "name": "Molicel",
+    "slug": "molicel",
+    "is_active": false
+  },
+  {
+    "id": "7260",
+    "name": "Аргут",
+    "slug": "%d0%b0%d1%80%d0%b3%d1%83%d1%82",
+    "is_active": false
+  },
+  {
+    "id": "7240",
+    "name": "VVP Group",
+    "slug": "vvp-group",
+    "is_active": false
+  },
+  {
+    "id": "7234",
+    "name": "WAT",
+    "slug": "wat",
+    "is_active": false
+  },
+  {
+    "id": "7231",
+    "name": "Topotek",
+    "slug": "topotek",
+    "is_active": false
+  },
+  {
+    "id": "7227",
+    "name": "Kubota",
+    "slug": "kubota",
+    "is_active": false
+  },
+  {
+    "id": "7114",
+    "name": "МВМ-АВИА",
+    "slug": "%d0%bc%d0%b2%d0%bc-%d0%b0%d0%b2%d0%b8%d0%b0",
+    "is_active": false
+  },
+  {
+    "id": "7159",
+    "name": "НПФ РЭТ",
+    "slug": "%d0%bd%d0%bf%d1%84-%d1%80%d1%8d%d1%82",
+    "is_active": false
+  },
+  {
+    "id": "7150",
+    "name": "DRONAX",
+    "slug": "dronax",
+    "is_active": false
+  },
+  {
+    "id": "7121",
+    "name": "Аэромехмаш",
+    "slug": "%d0%b0%d1%8d%d1%80%d0%be%d0%bc%d0%b5%d1%85%d0%bc%d0%b0%d1%88",
+    "is_active": false
+  },
+  {
+    "id": "6317",
+    "name": "Ubiquiti",
+    "slug": "ubiquiti",
+    "is_active": false
+  },
+  {
+    "id": "6293",
+    "name": "Slonwake",
+    "slug": "slonwake",
+    "is_active": false
+  },
+  {
+    "id": "7101",
+    "name": "XXD",
+    "slug": "xxd",
+    "is_active": false
+  },
+  {
+    "id": "7096",
+    "name": "Spedix",
+    "slug": "spedix",
+    "is_active": false
+  },
+  {
+    "id": "7094",
+    "name": "FOXAIR",
+    "slug": "foxair",
+    "is_active": false
+  },
+  {
+    "id": "6311",
+    "name": "TopON",
+    "slug": "topon",
+    "is_active": false
+  },
+  {
+    "id": "6278",
+    "name": "RF Explorer",
+    "slug": "rf-explorer",
+    "is_active": false
+  },
+  {
+    "id": "6320",
+    "name": "VCIHOBBY",
+    "slug": "vcihobby",
+    "is_active": false
+  },
+  {
+    "id": "6207",
+    "name": "Hitec",
+    "slug": "hitec",
+    "is_active": false
+  },
+  {
+    "id": "6454",
+    "name": "Hikvision",
+    "slug": "hikvision",
+    "is_active": false
+  },
+  {
+    "id": "7018",
+    "name": "AXIS",
+    "slug": "axis",
+    "is_active": false
+  },
+  {
+    "id": "7019",
+    "name": "MAISHENG",
+    "slug": "maisheng",
+    "is_active": false
+  },
+  {
+    "id": "7016",
+    "name": "Ouster",
+    "slug": "ouster",
+    "is_active": false
+  },
+  {
+    "id": "6119",
+    "name": "Makerbase",
+    "slug": "makerbase",
+    "is_active": false
+  },
+  {
+    "id": "6232",
+    "name": "K-Power",
+    "slug": "k-power",
+    "is_active": false
+  },
+  {
+    "id": "6230",
+    "name": "Junsi iCharger",
+    "slug": "junsi-icharger",
+    "is_active": false
+  },
+  {
+    "id": "6500",
+    "name": "Insta360",
+    "slug": "insta360",
+    "is_active": false
+  },
+  {
+    "id": "6220",
+    "name": "iPower",
+    "slug": "ipower",
+    "is_active": false
+  },
+  {
+    "id": "6112",
+    "name": "Flycolor",
+    "slug": "flycolor",
+    "is_active": false
+  },
+  {
+    "id": "6186",
+    "name": "Flashhobby",
+    "slug": "flashhobby",
+    "is_active": false
+  },
+  {
+    "id": "6181",
+    "name": "FATJAY",
+    "slug": "fatjay",
+    "is_active": false
+  },
+  {
+    "id": "6191",
+    "name": "Freerchobby",
+    "slug": "freerchobby",
+    "is_active": false
+  },
+  {
+    "id": "6229",
+    "name": "Jumper",
+    "slug": "jumper",
+    "is_active": false
+  },
+  {
+    "id": "6192",
+    "name": "FrSky",
+    "slug": "frsky",
+    "is_active": false
+  },
+  {
+    "id": "6540",
+    "name": "J-Link",
+    "slug": "j-link",
+    "is_active": false
+  },
+  {
+    "id": "6017",
+    "name": "Autel",
+    "slug": "autel",
+    "is_active": false
+  },
+  {
+    "id": "6203",
+    "name": "HackRF",
+    "slug": "hackrf",
+    "is_active": false
+  },
+  {
+    "id": "6170",
+    "name": "Diatone",
+    "slug": "diatone",
+    "is_active": false
+  },
+  {
+    "id": "6156",
+    "name": "BEYONDSKY",
+    "slug": "beyondsky",
+    "is_active": false
+  },
+  {
+    "id": "6173",
+    "name": "DYS",
+    "slug": "dys",
+    "is_active": false
+  },
+  {
+    "id": "6171",
+    "name": "DSSERVO",
+    "slug": "dsservo",
+    "is_active": false
+  },
+  {
+    "id": "6026",
+    "name": "Aocoda-RC",
+    "slug": "aocoda-rc",
+    "is_active": false
+  },
+  {
+    "id": "6149",
+    "name": "AtomRC",
+    "slug": "atomrc",
+    "is_active": false
+  },
+  {
+    "id": "6027",
+    "name": "AOMWAY",
+    "slug": "aomway",
+    "is_active": false
+  },
+  {
+    "id": "6132",
+    "name": "Harxon",
+    "slug": "harxon",
+    "is_active": false
+  },
+  {
+    "id": "6240",
+    "name": "LiitoKala",
+    "slug": "liitokala",
+    "is_active": false
+  },
+  {
+    "id": "6241",
+    "name": "Lira",
+    "slug": "lira",
+    "is_active": false
+  },
+  {
+    "id": "6185",
+    "name": "Firefly",
+    "slug": "firefly",
+    "is_active": false
+  },
+  {
+    "id": "6199",
+    "name": "GoPro",
+    "slug": "gopro",
+    "is_active": false
+  },
+  {
+    "id": "6447",
+    "name": "Graphene",
+    "slug": "graphene",
+    "is_active": false
+  },
+  {
+    "id": "6537",
+    "name": "iCore",
+    "slug": "icore",
+    "is_active": false
+  },
+  {
+    "id": "6426",
+    "name": "Uniview",
+    "slug": "uniview",
+    "is_active": false
+  },
+  {
+    "id": "6233",
+    "name": "Khadas",
+    "slug": "khadas",
+    "is_active": false
+  },
+  {
+    "id": "6406",
+    "name": "ThrustMaster",
+    "slug": "thrustmaster",
+    "is_active": false
+  },
+  {
+    "id": "6141",
+    "name": "CARCAM",
+    "slug": "carcam",
+    "is_active": false
+  },
+  {
+    "id": "6128",
+    "name": "HOMFPV",
+    "slug": "homfpv",
+    "is_active": false
+  },
+  {
+    "id": "6387",
+    "name": "KingMax",
+    "slug": "kingmax",
+    "is_active": false
+  },
+  {
+    "id": "6367",
+    "name": "Logitech",
+    "slug": "logitech",
+    "is_active": false
+  },
+  {
+    "id": "6363",
+    "name": "GT Power",
+    "slug": "gt-power",
+    "is_active": false
+  },
+  {
+    "id": "6351",
+    "name": "Zyxel",
+    "slug": "zyxel",
+    "is_active": false
+  },
+  {
+    "id": "6344",
+    "name": "Tiger Power",
+    "slug": "tiger-power",
+    "is_active": false
+  },
+  {
+    "id": "6056",
+    "name": "ManiaX",
+    "slug": "maniax",
+    "is_active": false
+  },
+  {
+    "id": "6284",
+    "name": "SEQURE",
+    "slug": "sequre",
+    "is_active": false
+  },
+  {
+    "id": "6122",
+    "name": "NeutronRC",
+    "slug": "neutronrc",
+    "is_active": false
+  },
+  {
+    "id": "6107",
+    "name": "Feichao",
+    "slug": "feichao",
+    "is_active": false
+  },
+  {
+    "id": "6099",
+    "name": "Humminbird",
+    "slug": "humminbird",
+    "is_active": false
+  },
+  {
+    "id": "6093",
+    "name": "B-CUBE",
+    "slug": "b-cube",
+    "is_active": false
+  },
+  {
+    "id": "6091",
+    "name": "Аякс",
+    "slug": "%d0%b0%d1%8f%d0%ba%d1%81",
+    "is_active": false
+  },
+  {
+    "id": "6084",
+    "name": "NAVITEL",
+    "slug": "navitel",
+    "is_active": false
+  },
+  {
+    "id": "6046",
+    "name": "Skystars",
+    "slug": "skystars",
+    "is_active": false
+  },
+  {
+    "id": "6067",
+    "name": "HSKRC",
+    "slug": "hskrc",
+    "is_active": false
+  },
+  {
+    "id": "6062",
+    "name": "Z POWER",
+    "slug": "z-power",
+    "is_active": false
+  },
+  {
+    "id": "6059",
+    "name": "Speedway Slide",
+    "slug": "speedway-slide",
+    "is_active": false
+  },
+  {
+    "id": "6055",
+    "name": "JOUYM",
+    "slug": "jouym",
+    "is_active": false
+  },
+  {
+    "id": "6298",
+    "name": "Starlink",
+    "slug": "starlink",
+    "is_active": false
+  },
+  {
+    "id": "6184",
+    "name": "Fifish",
+    "slug": "fifish",
+    "is_active": false
+  },
+  {
+    "id": "6294",
+    "name": "SoloGood",
+    "slug": "sologood",
+    "is_active": false
+  },
+  {
+    "id": "6296",
+    "name": "Sparkhobby",
+    "slug": "sparkhobby",
+    "is_active": false
+  },
+  {
+    "id": "6189",
+    "name": "FOXWEY",
+    "slug": "foxwey",
+    "is_active": false
+  },
+  {
+    "id": "6228",
+    "name": "Jumpeak",
+    "slug": "jumpeak",
+    "is_active": false
+  },
+  {
+    "id": "6251",
+    "name": "Misnode",
+    "slug": "misnode",
+    "is_active": false
+  },
+  {
+    "id": "6224",
+    "name": "Jijie",
+    "slug": "jijie",
+    "is_active": false
+  },
+  {
+    "id": "6024",
+    "name": "Alloyseed",
+    "slug": "alloyseed",
+    "is_active": false
+  },
+  {
+    "id": "6269",
+    "name": "PowerHD",
+    "slug": "powerhd",
+    "is_active": false
+  },
+  {
+    "id": "6167",
+    "name": "CYS",
+    "slug": "cys",
+    "is_active": false
+  },
+  {
+    "id": "6028",
+    "name": "Apex",
+    "slug": "apex",
+    "is_active": false
+  },
+  {
+    "id": "6562",
+    "name": "TENSTAR",
+    "slug": "tenstar",
+    "is_active": false
+  },
+  {
+    "id": "6250",
+    "name": "MicroZone",
+    "slug": "microzone",
+    "is_active": false
+  },
+  {
+    "id": "6303",
+    "name": "SwellPro",
+    "slug": "swellpro",
+    "is_active": false
+  },
+  {
+    "id": "6022",
+    "name": "Alientech",
+    "slug": "alientech",
+    "is_active": false
+  },
+  {
+    "id": "6179",
+    "name": "Epson",
+    "slug": "epson",
+    "is_active": false
+  },
+  {
+    "id": "6556",
+    "name": "Seneca",
+    "slug": "seneca",
+    "is_active": false
+  },
+  {
+    "id": "6235",
+    "name": "KISS",
+    "slug": "kiss",
+    "is_active": false
+  },
+  {
+    "id": "6265",
+    "name": "Parrot",
+    "slug": "parrot",
+    "is_active": false
+  },
+  {
+    "id": "6332",
+    "name": "ZLRC",
+    "slug": "zlrc",
+    "is_active": false
+  },
+  {
+    "id": "6330",
+    "name": "Yuneec",
+    "slug": "yuneec",
+    "is_active": false
+  },
+  {
+    "id": "6326",
+    "name": "XIRO",
+    "slug": "xiro",
+    "is_active": false
+  },
+  {
+    "id": "6323",
+    "name": "Walkera",
+    "slug": "walkera",
+    "is_active": false
+  },
+  {
+    "id": "6304",
+    "name": "SYMA",
+    "slug": "syma",
+    "is_active": false
+  },
+  {
+    "id": "6288",
+    "name": "SJRC",
+    "slug": "sjrc",
+    "is_active": false
+  },
+  {
+    "id": "6218",
+    "name": "Hubsan",
+    "slug": "hubsan",
+    "is_active": false
+  },
+  {
+    "id": "6163",
+    "name": "Cheerson",
+    "slug": "cheerson",
+    "is_active": false
+  },
+  {
+    "id": "6210",
+    "name": "HobbyPorter",
+    "slug": "hobbyporter",
+    "is_active": false
+  },
+  {
+    "id": "6247",
+    "name": "Matsutec",
+    "slug": "matsutec",
+    "is_active": false
+  },
+  {
+    "id": "6196",
+    "name": "Garmin",
+    "slug": "garmin",
+    "is_active": false
+  },
+  {
+    "id": "6150",
+    "name": "AvengeAngel",
+    "slug": "avengeangel",
+    "is_active": false
+  },
+  {
+    "id": "6161",
+    "name": "Canon",
+    "slug": "canon",
+    "is_active": false
+  },
+  {
+    "id": "6234",
+    "name": "KIRISUN",
+    "slug": "kirisun",
+    "is_active": false
+  },
+  {
+    "id": "6025",
+    "name": "Anytone",
+    "slug": "anytone",
+    "is_active": false
+  },
+  {
+    "id": "6237",
+    "name": "KROKS",
+    "slug": "kroks",
+    "is_active": false
+  },
+  {
+    "id": "6268",
+    "name": "Pixhawk",
+    "slug": "pixhawk",
+    "is_active": false
+  },
+  {
+    "id": "6529",
+    "name": "ELBEAR",
+    "slug": "elbear",
+    "is_active": false
+  },
+  {
+    "id": "6277",
+    "name": "Repka Pi",
+    "slug": "repka-pi",
+    "is_active": false
+  },
+  {
+    "id": "6236",
+    "name": "Korad",
+    "slug": "korad",
+    "is_active": false
+  },
+  {
+    "id": "6282",
+    "name": "Scorpion",
+    "slug": "scorpion",
+    "is_active": false
+  },
+  {
+    "id": "6310",
+    "name": "Toothpick",
+    "slug": "toothpick",
+    "is_active": false
+  },
+  {
+    "id": "6333",
+    "name": "ZMR",
+    "slug": "zmr",
+    "is_active": false
+  },
+  {
+    "id": "6225",
+    "name": "JMT",
+    "slug": "jmt",
+    "is_active": false
+  },
+  {
+    "id": "6283",
+    "name": "Sennheiser",
+    "slug": "sennheiser",
+    "is_active": false
+  },
+  {
+    "id": "6551",
+    "name": "Quectel",
+    "slug": "quectel",
+    "is_active": false
+  },
+  {
+    "id": "6259",
+    "name": "Nitecore",
+    "slug": "nitecore",
+    "is_active": false
+  },
+  {
+    "id": "6212",
+    "name": "Hoco",
+    "slug": "hoco",
+    "is_active": false
+  },
+  {
+    "id": "6331",
+    "name": "Zeee Power",
+    "slug": "zeee-power",
+    "is_active": false
+  },
+  {
+    "id": "6329",
+    "name": "Youme",
+    "slug": "youme",
+    "is_active": false
+  },
+  {
+    "id": "6272",
+    "name": "RacePow",
+    "slug": "racepow",
+    "is_active": false
+  },
+  {
+    "id": "6202",
+    "name": "GXservo",
+    "slug": "gxservo",
+    "is_active": false
+  },
+  {
+    "id": "6195",
+    "name": "GAONENG",
+    "slug": "gaoneng",
+    "is_active": false
+  },
+  {
+    "id": "6245",
+    "name": "Mamba System",
+    "slug": "mamba-system",
+    "is_active": false
+  },
+  {
+    "id": "7186",
+    "name": "Velodyne",
+    "slug": "velodyne",
+    "is_active": false
+  },
+  {
+    "id": "6279",
+    "name": "Samsung",
+    "slug": "samsung",
+    "is_active": false
+  },
+  {
+    "id": "6018",
+    "name": "Гермес",
+    "slug": "%d0%b3%d0%b5%d1%80%d0%bc%d0%b5%d1%81",
+    "is_active": false
+  },
+  {
+    "id": "6313",
+    "name": "Totem",
+    "slug": "totem",
+    "is_active": false
+  },
+  {
+    "id": "6258",
+    "name": "NETOPTIC",
+    "slug": "netoptic",
+    "is_active": false
+  },
+  {
+    "id": "6222",
+    "name": "ITC",
+    "slug": "itc",
+    "is_active": false
+  },
+  {
+    "id": "6324",
+    "name": "WORX",
+    "slug": "worx",
+    "is_active": false
+  },
+  {
+    "id": "6198",
+    "name": "GNSS",
+    "slug": "gnss",
+    "is_active": false
+  },
+  {
+    "id": "6280",
+    "name": "SanDisk",
+    "slug": "sandisk",
+    "is_active": false
+  },
+  {
+    "id": "6256",
+    "name": "Mugin",
+    "slug": "mugin",
+    "is_active": false
+  },
+  {
+    "id": "6312",
+    "name": "Torvol",
+    "slug": "torvol",
+    "is_active": false
+  },
+  {
+    "id": "6201",
+    "name": "Gremsy",
+    "slug": "gremsy",
+    "is_active": false
+  },
+  {
+    "id": "6194",
+    "name": "FYXL",
+    "slug": "fyxl",
+    "is_active": false
+  },
+  {
+    "id": "6023",
+    "name": "Align",
+    "slug": "align",
+    "is_active": false
+  },
+  {
+    "id": "6208",
+    "name": "HMF",
+    "slug": "hmf",
+    "is_active": false
+  },
+  {
+    "id": "6546",
+    "name": "LORA",
+    "slug": "lora",
+    "is_active": false
+  },
+  {
+    "id": "6166",
+    "name": "Cyclone",
+    "slug": "cyclone",
+    "is_active": false
+  },
+  {
+    "id": "6175",
+    "name": "EBOYU",
+    "slug": "eboyu",
+    "is_active": false
+  },
+  {
+    "id": "6243",
+    "name": "LYZRC",
+    "slug": "lyzrc",
+    "is_active": false
+  },
+  {
+    "id": "6253",
+    "name": "MKS",
+    "slug": "mks",
+    "is_active": false
+  },
+  {
+    "id": "6227",
+    "name": "JSI",
+    "slug": "jsi",
+    "is_active": false
+  },
+  {
+    "id": "6154",
+    "name": "BEE FLY",
+    "slug": "bee-fly",
+    "is_active": false
+  },
+  {
+    "id": "6299",
+    "name": "Suin",
+    "slug": "suin",
+    "is_active": false
+  },
+  {
+    "id": "6289",
+    "name": "Sky-Drones",
+    "slug": "sky-drones",
+    "is_active": false
+  },
+  {
+    "id": "6157",
+    "name": "Black Magic",
+    "slug": "black-magic",
+    "is_active": false
+  },
+  {
+    "id": "6223",
+    "name": "Jea.Love",
+    "slug": "jea-love",
+    "is_active": false
+  },
+  {
+    "id": "6270",
+    "name": "QAV",
+    "slug": "qav",
+    "is_active": false
+  },
+  {
+    "id": "6226",
+    "name": "JP Hobby",
+    "slug": "jp-hobby",
+    "is_active": false
+  },
+  {
+    "id": "6031",
+    "name": "Art-Tech",
+    "slug": "art-tech",
+    "is_active": false
+  },
+  {
+    "id": "6264",
+    "name": "Panasonic",
+    "slug": "panasonic",
+    "is_active": false
+  },
+  {
+    "id": "6209",
+    "name": "Hobbyking",
+    "slug": "hobbyking",
+    "is_active": false
+  },
+  {
+    "id": "6300",
+    "name": "Sunpadow",
+    "slug": "sunpadow",
+    "is_active": false
+  },
+  {
+    "id": "6525",
+    "name": "Dimiks",
+    "slug": "dimiks",
+    "is_active": false
+  },
+  {
+    "id": "6521",
+    "name": "Castle Creations",
+    "slug": "castle-creations",
+    "is_active": false
+  },
+  {
+    "id": "6190",
+    "name": "FRC",
+    "slug": "frc",
+    "is_active": false
+  },
+  {
+    "id": "6020",
+    "name": "AHTECH",
+    "slug": "ahtech",
+    "is_active": false
+  },
+  {
+    "id": "6200",
+    "name": "GP",
+    "slug": "gp",
+    "is_active": false
+  },
+  {
+    "id": "6260",
+    "name": "NTM",
+    "slug": "ntm",
+    "is_active": false
+  },
+  {
+    "id": "6266",
+    "name": "Partom",
+    "slug": "%d0%b2%d0%b8%d0%b4%d0%b5%d0%be%d0%bf%d1%80%d0%b8%d0%b5%d0%bc%d0%bd%d0%b8%d0%ba%d0%b8-partom",
+    "is_active": false
+  },
+  {
+    "id": "6334",
+    "name": "ZOP POWER",
+    "slug": "zop-power",
+    "is_active": false
+  },
+  {
+    "id": "6325",
+    "name": "WYFPV",
+    "slug": "wyfpv",
+    "is_active": false
+  },
+  {
+    "id": "6285",
+    "name": "Shakespeare",
+    "slug": "shakespeare",
+    "is_active": false
+  },
+  {
+    "id": "6527",
+    "name": "Drotek",
+    "slug": "drotek",
+    "is_active": false
+  },
+  {
+    "id": "6327",
+    "name": "YAGI",
+    "slug": "yagi",
+    "is_active": false
+  },
+  {
+    "id": "6286",
+    "name": "Sigp",
+    "slug": "sigp",
+    "is_active": false
+  },
+  {
+    "id": "6267",
+    "name": "Peak Racing",
+    "slug": "peak-racing",
+    "is_active": false
+  },
+  {
+    "id": "6315",
+    "name": "Turnigy",
+    "slug": "turnigy",
+    "is_active": false
+  },
+  {
+    "id": "6211",
+    "name": "Hobbypower",
+    "slug": "hobbypower",
+    "is_active": false
+  },
+  {
+    "id": "6263",
+    "name": "ORT",
+    "slug": "ort",
+    "is_active": false
+  },
+  {
+    "id": "6255",
+    "name": "Motorola",
+    "slug": "motorola",
+    "is_active": false
+  },
+  {
+    "id": "6030",
+    "name": "ARRIS",
+    "slug": "arris",
+    "is_active": false
+  }
+]

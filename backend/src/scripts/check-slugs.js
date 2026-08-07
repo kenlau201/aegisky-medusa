@@ -1,0 +1,16 @@
+const { Client } = require('pg');
+(async () => {
+  const c = new Client({ host:'localhost', port:5434, user:'medusa', password:'medusa_password', database:'medusa-aegisky' });
+  await c.connect();
+  const newSlugs = ['uav-platforms','multirotor-uav','micro-quadcopters','racing-fpv','freestyle-fpv','long-range-fpv','industrial-multirotor','heavy-lift-uav','fixed-wing-uav','vtol-uav','cargo-uav','autonomous-drone-system','airframe-mechanical-structures','frames','fpv-carbon-frame','industrial-frame','folding-frame','custom-airframe','arms','landing-gear','payload-mount','gimbal-mount','carbon-fiber-material','mechanical-hardware','propulsion-systems','brushless-motors','fpv-motor','industrial-motor','high-torque-motor','waterproof-motor','gimbal-motor','esc','single-esc','4-in-1-esc','high-current-esc','industrial-esc','propellers','carbon-propeller','folding-propeller','fpv-propeller','industrial-propeller','servo-systems','motor-accessories','flight-control-navigation','flight-controller','f405-series','f722-series','f743-series','h7-series','custom-fc','autopilot','px4-ecosystem','ardupilot-ecosystem','industrial-autopilot','navigation','gps-module','gnss','rtk','ins','imu','compass','flight-software','communication-data-link','rc-control-system','transmitter','receiver','industrial-remote-controller','telemetry-system','long-range-radio','digital-data-link','antenna-system','ground-station','network-equipment','imaging-payload-systems','eo-camera','industrial-camera','zoom-camera','machine-vision-camera','thermal-imaging','thermal-camera','thermal-sensor','infrared-module','night-vision','lidar','mapping-lidar','distance-lidar','3d-scanner','radar-sensor','gimbal-system','payload-controller','fpv-systems','fpv-camera','analog-video-system','digital-video-system','video-transmitter-vtx','fpv-goggles','fpv-monitor','fpv-accessories','power-energy','battery','lipo-battery','li-ion-battery','smart-battery','industrial-battery-pack','charger','power-module','bms','power-distribution-board','portable-power-station','embedded-computing-ai','embedded-computer','arm-board','industrial-computer','edge-computer','ai-accelerator','gpu-module','micro-computer','chips','development-board','ai-vision-module','robotics-systems','ground-robot','mobile-robot','autonomous-vehicle','robot-controller','robot-sensors','robot-components','counter-uav-systems','drone-detection','rf-detection','radar-detection','optical-detection','counter-drone-equipment','rf-jammer','anti-drone-system','protection-system','electronics-components','pcb-modules','sensors','connectors','cables','communication-modules','electronic-accessories','manufacturing-maintenance','assembly-tools','soldering-equipment','testing-equipment','spare-parts','repair-kits','consumables','industrial-equipment-extension','solar-energy','electric-mobility','portable-energy','marine-drone','underwater-robot','industrial-accessories'];
+  let conflicts = 0;
+  for (const s of newSlugs) {
+    const r = await c.query('SELECT id, name FROM aegisky_categories WHERE slug = $1', [s]);
+    if (r.rows.length > 0) {
+      console.log('CONFLICT: slug=' + s + ' -> [' + r.rows[0].id + '] ' + r.rows[0].name);
+      conflicts++;
+    }
+  }
+  console.log('\nTotal conflicts: ' + conflicts);
+  await c.end();
+})();

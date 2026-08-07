@@ -1,0 +1,566 @@
+﻿=== CURRENT CATEGORY TREE WITH COUNTS ===
+
+[10014] Propulsion Systems: 1494
+  [10015] Brushless Motors: 636
+    [10081] Racing & Freestyle Motors (18xx-23xx): 306
+    [10083] Industrial & Heavy-Lift Motors (30xx+): 188
+    [10080] Micro FPV Motors (11xx-15xx): 91
+    [10082] Cinelifter & X-Class Motors (24xx-29xx): 51
+  [10021] Servo Motors & Actuators: 309
+    [10088] Standard & Digital Servos: 306
+    [10087] Micro & Mini Servos: 3
+    [10089] High-Torque & Industrial Servos: 0
+  [10016] ESC (Electronic Speed Controllers): 302
+    [10086] HV & Industrial ESC (≥60A): 150
+    [10085] FPV Racing ESC (25-55A): 128
+    [10084] Mini & Whoop ESC (≤20A): 24
+  [10017] Propellers & Blades: 247
+    [10019] 3-Blade Propellers: 136
+    [10018] 2-Blade Propellers: 76
+    [10020] Folding Blades: 2
+[10026] RC Control & Data Link: 1028
+  [10030] Video Transmitters (VTX): 311
+    [10090] 5.8GHz Video Transmitters: 246
+    [10092] Other Frequency VTX & VRX: 44
+    [10091] 1.2/1.3GHz Video Transmitters: 21
+  [10028] RC Receivers: 250
+    [10096] Other RC Receivers: 133
+    [10095] FrSky & 2.4GHz Receivers: 57
+    [10093] ELRS Receivers (ExpressLRS): 52
+    [10094] Crossfire & 900MHz Receivers: 8
+  [10029] Antennas: 189
+    [10097] 5.8GHz FPV Antennas: 163
+    [10099] 2.4GHz WiFi & RC Antennas: 13
+    [10098] 433/868/915MHz Long-Range Antennas: 10
+    [10100] Multi-band & Cellular Antennas: 3
+  [10027] RC Transmitters: 153
+  [10032] Two-Way Radios & Walkie-Talkies: 125
+  [10031] Long-Range Radio Modems: 6
+[10048] Power & Energy Systems: 682
+  [10049] LiPo/Li-ion Batteries: 316
+    [10106] 4-6S LiPo Batteries: 202
+    [10105] 1-3S LiPo Batteries: 55
+    [10107] 6S+ LiPo & Li-ion Batteries: 39
+    [10108] Smart & Intelligent Batteries: 20
+  [10050] Battery Chargers: 250
+    [10109] RC/FPV Balance Chargers: 236
+    [10111] Power Supplies & Adapters: 14
+    [10110] Industrial & Multi-Chemistry Chargers: 0
+  [10051] Portable Power Stations: 70
+  [10052] Solar Panels: 46
+[10000] UAV Complete Systems: 676
+  [10001] Multirotor UAV: 604
+    [10002] FPV Racing & Freestyle Drones: 391
+    [10003] Industrial Quadcopters: 187
+    [10004] Russian-Made Drones: 98
+    [10005] Training Drones: 19
+    [10006] Waterproof Drones: 4
+  [10074] Military & Defense UAV: 35
+    [10075] Combat & Strike Drones: 17
+    [10079] Unmanned Ground Vehicles: 6
+    [10078] Munitions & Payload Systems: 5
+    [10076] Heavy-Lift Cargo Drones: 4
+    [10077] Tethered Drone Systems: 3
+  [10007] Fixed-Wing UAV: 35
+    [10009] Long-Range Fixed-Wing: 33
+    [10008] Mapping & Survey Aircraft: 28
+  [10012] Underwater ROV & Drones: 28
+  [10011] Thermal Imaging Drones: 24
+  [10013] Drone DIY Kits: 17
+  [10010] VTOL UAV: 11
+[10036] Imaging & Payload Systems: 606
+  [10037] Cameras & Video Equipment: 360
+    [10038] FPV & Action Cameras: 283
+    [10040] Camera Lenses: 10
+    [10039] Mirrorless & DSLR Cameras: 9
+    [10041] Tripods & Mounts: 2
+  [10043] Thermal Imaging Cameras: 82
+    [10116] Drone-Mounted Thermal Cameras: 82
+    [10115] Handheld Thermal Cameras: 0
+  [10046] Gimbal Stabilizers: 61
+    [10118] Camera & Payload Gimbals: 57
+    [10117] FPV & Action Camera Gimbals: 4
+  [10047] Counter-UAV & Anti-Drone Systems: 52
+  [10044] Thermal Weapon Scopes: 30
+  [10045] Optical Scopes & Sights: 22
+  [10042] Machine Vision Cameras: 4
+[10022] Flight Control & Navigation: 522
+  [10023] Flight Controllers & Autopilots: 375
+    [10101] FPV Flight Controllers (F4/F7/AIO): 250
+    [10103] GPS & Navigation Modules: 84
+    [10102] Industrial Autopilots (Pixhawk/CUAV): 38
+    [10104] PDB, PMU & FC Accessories: 3
+  [10024] LiDAR & Distance Sensors: 111
+  [10025] RF Spectrum Analyzers: 36
+[10063] Tools & Maintenance: 223
+  [10064] Assembly & Soldering Tools: 199
+  [10065] Repair Kits & Spare Parts: 24
+[10066] Accessories: 201
+[10053] Airframe & Mechanical Structures: 200
+  [10054] Drone Frames: 184
+  [10055] Carbon Fiber Materials: 16
+[10056] Electronic Components: 186
+  [10057] ICs, Chips & Modules: 174
+  [10059] Network Equipment: 10
+  [10058] Cables, Ribbons & Wiring: 2
+[10060] Embedded Computing & AI: 162
+  [10061] Single-Board Computers: 162
+[10062] Robotics Systems: 138
+  [10114] Robot Parts & Controllers: 130
+  [10112] Quadruped Robot Dogs: 5
+  [10113] UGV & Tracked Robots: 3
+[10033] FPV Systems: 130
+  [10034] FPV Goggles: 70
+  [10035] FPV Monitors & Displays: 60
+[10067] Lighting & Illumination: 120
+[10068] Electric Mobility: 39
+  [10069] Electric Scooters: 37
+  [10070] Electric Motorcycles: 2
+[10071] Industrial & Other Equipment: 33
+  [10072] Game Consoles & Industrial PCs: 20
+  [10073] Miscellaneous: 13
+
+=== ANALYZING LARGE CATEGORIES FOR SUBDIVISION ===
+
+
+--- FPV Racing & Freestyle Drones (391 products) ---
+  FPV дрон BetaFPV Meteor65 Acro 19500KV
+  FPV дрон DarwinFPV HULK Waterproof FPV 6S Green
+  FPV дрон Diatone KN-106
+  FPV дрон Happymodel Mobula6 2024 ELRS
+  FPV дрон Happymodel Mobula8 SPI ELRS
+  FPV дрон iFlight Alpha
+  FPV дрон iFlight ProTek25 HD
+  FPV-дрон ATWAY ПУТЬ 10
+  FPV-дрон ATWAY ПУТЬ 10 Х6
+  FPV-дрон ATWAY ПУТЬ 10 Х8
+  FPV-дрон ATWAY ПУТЬ 13
+  FPV-дрон ATWAY ПУТЬ 15
+  FPV-дрон ATWAY ПУТЬ 17
+  FPV-дрон ATWAY ПУТЬ 17 X6
+  FPV-дрон ATWAY ПУТЬ 18
+
+--- Industrial Quadcopters (187 products) ---
+  FPV дрон iFlight ProTek25 HD
+  FPV-комплект Cetus Pro Kit
+  Беспилотный дрон-отпугиватель птиц
+  Грузовой агродрон Корвет
+  Дрон DJI FlyCart 30
+  Дрон Diatone Roma F5 V2 6S DJI+tbs
+  Дрон Diatone Roma F7 6S Vista TBS
+  Дрон Гонщик-1
+  Дрон Гонщик-2
+  Дрон Гонщик-3
+  Дрон Гонщик-3T
+  Дрон Гонщик-4T
+  Квадрокоптер AUTEL EVO 2 Pro RTK V3
+  Квадрокоптер Autel Alpha
+  Квадрокоптер Autel EVO Lite Plus Premium Bundle
+
+--- Brushless Motors (636 products) ---
+  Mотор BeastFPV 4216 550kv
+  T-Motor AT2826
+  T-Motor F100
+  T-Motor F40 III KV2400 v3
+  T-Motor F40PRO Ⅳ KV2400
+  T-Motor F60PRO Ⅳ V2.0 KV2550
+  T-Motor F90 1300KV
+  T-Motor MN2806 KV650
+  T-Motor MN4014 KV400
+  T-Motor MN5212 KV420
+  T-Motor MT2216 KV900
+  T-Motor P60 KV340
+  T-Motor P80Ⅲ KV100
+  T-Motor U11Ⅱ KV120
+  T-Motor U13 KV100
+
+--- ESC (302 products) ---
+  ESC Регулятор Flywoo Goku BS13A
+  ESC Регулятор Foxeer Reaper F4 Mini 128K 45A BL32 4in1
+  ESC Регулятор HAKRC 4255 12S 120A
+  ESC Регулятор MAD BLHeli-32 50A 8S-12S 4IN1
+  ESC контроллер Hobbywing Xrotor AM32 65A G2
+  ESC контроллер NeutronRC Thunderbolt 80A AM32
+  ESC плата для Mavic 3
+  ESC регулятор 9imod 18A
+  ESC регулятор ATWAY 120A
+  ESC регулятор Aocoda-RC 2065
+  ESC регулятор Aocoda-RC 3060AM32
+  ESC регулятор Aocoda-RC 3065
+  ESC регулятор Aocoda-RC 3080
+  ESC регулятор Aocoda-RC 35A
+  ESC регулятор Aocoda-RC 70A 48K AM32
+
+--- Servo Motors & Actuators (309 products) ---
+  Cервопривод HobbyPorter HP200 Plus
+  Cервопривод JX PDI-HV2107MG
+  Cервопривод KST MS805 (6.5-8.2кг/0.045-0.035сек)
+  Cервопривод KST X15-1809 V8.0
+  HiTec HS-225MG
+  HiTec HS-7980TH
+  HiTec LX DS3325MG
+  Hitec D625MW
+  Hitec HS-311
+  Hitec HS-5245MG
+  Hitec HS-5485HB
+  Hitec HS-5665MH
+  Hitec HS-65MG
+  Hitec HS-7955TG
+  Savox SB-2290SG HV Monster Torque Brushless Steel Gear Servo
+
+--- Flight Controllers & Autopilots (375 products) ---
+  GNSS модуль Unicore UM982
+  GNSS система Holybro H-RTK F9P Rover lite
+  GNSS система Holybro H-RTK Unicore UM982 (Dual Antenna)
+  GNSS система Holybro H-RTK ZED-F9P Rover DroneCAN 4-Pin (CAN Port)
+  GNSS система Holybro H-RTK mosaic-H
+  GNSS-приемник Leica GS18 T LTE &amp; UHF Unlimited
+  GNSS-приемник PrinCe i90
+  GNSS-приёмник PrinCe i30 VR
+  GNSS-система Holybro DroneCAN M8N
+  GPS Модуль HGLRC M100-5883 с компасом
+  GPS модуль CUAV NEO 3 Pro
+  GPS модуль CUAV NEO V2
+  GPS модуль Flywoo GOKU GM10 Mini V3 с компасом
+  GPS модуль Flywoo GOKU GM10 Nano V3
+  GPS модуль GEPRC GEP M10
+
+--- RC Transmitters (153 products) ---
+  Аппаратура радиоуправления FlySky i4x
+  Аппаратура радиоуправления FrSky Taranis X9D Plus 2019 ACCESS 2.4ГГц
+  Аппаратура управления DJI Inspire 1
+  Аппаратура управления DumboRC DDF-350 M1
+  Аппаратура управления FLYSKY FS-ST8 2.4G
+  Аппаратура управления FrSky Ethos TANDEM X20
+  Аппаратура управления FrSky Horus X10S Express Carbon 2.4 ГГц
+  Аппаратура управления FrSky TWIN X14
+  Аппаратура управления FrSky TWIN X14S
+  Аппаратура управления FrSky Tandem X18
+  Аппаратура управления FrSky Tandem X20S
+  Аппаратура управления FrSky Taranis Q X7
+  Аппаратура управления FrSky Taranis Q X7 White 2.4 ГГц 24 канала ACCESS
+  Аппаратура управления FrSky Taranis Q X7S
+  Аппаратура управления FrSky Taranis X-Lite Pro
+
+--- RC Receivers (250 products) ---
+  8-канальный приемник FlySky A8S
+  Bидеоприемник FS3364R 3.3G 64CH VRX
+  FPV приемник RX3364-CPB
+  SDR приёмник PortaPack H2M
+  SDR трансивер RZE-B200mini-i
+  SDR трансивер RZE-B205mini-i
+  SDR трансивер RZE-B210
+  ВЧ плата приемника связи «Гермес»
+  Видеоприемник AKK Diversity RX All Channels Version 4,9G to 5.8G
+  Видеоприемник FPV BEASTFPV 4.9 GHz 8CH
+  Видеоприемник FPV BeastFpv 3.3 GHz 32 CH
+  Видеоприемник FPVspeed VRX FS3138RX
+  Видеоприемник Mateksys VRX 1G3 V2
+  Видеоприемник Mateksys VRX-1G3 V2 600мВт
+  Видеоприемник SM333R
+
+--- Antennas (189 products) ---
+  FPV антенна Pagoda Array 5.8 ГГц 14DBi
+  FPV антенна Pagoda Array 5.8 ГГц 14DBi
+  GNSS антенна HolyBro HANT-X601A
+  VTX-фильтр GEPRC 1.2G
+  WiFi антенна 5 dBi SMA-P
+  WiFi антенна Waveshare для Raspberry Pi CM4 2.4/5ГГц
+  Аварийная судовая антенна морская антенна Shakespeare 5911
+  Адаптер Starlink Ethernet Adapter
+  Антеннa iFlight Albatross SMA 5.8GHz
+  Антеннa направленная WYFPV WY-LX16D
+  Антенна 2 шт. Speedy Bee 5.8 GHz (RHCP/LHCP)
+  Антенна 2 шт. Speedy Bee 5.8 GHz (RHCP/LHCP)
+  Антенна 2,4-10,5 Ггц
+  Антенна 2G/3G/4G, 700-2700 МГц, разъем SMA «папа»
+  Антенна 4.9G
+
+--- Video Transmitters (VTX) (311 products) ---
+  DVR-модуль ImmersionRC PowerPlay
+  ELRS модуль RADIOMASTER Ranger 2.4ГГц
+  ELRS модуль Ranger Micro 2.4ГГц
+  ELRS модуль Ranger Nano 2.4ГГц
+  FPV видеопередатчик E-POWER RC 5.8G 4 Вт 48CH
+  Portapack h2 + sdr приёмник hackrf one
+  SDR приёмник HackRF One в металлическом корпусе
+  SK1200-SPI (V1.1) &#8212; Модуль видео 1.2G 1.3G 1.7G 2.2G
+  SK3500-SPI (V1.1) Модуль Видео (3100 МГц &#8212; 3800 МГц)
+  SK7200-SPI (V1.2) Модуль Виде (6000Мгц-8260 Мгц)
+  Адаптер для Micro-Nano модуля
+  Акустическая модульная колонна Turbosound iP3000
+  Беспроводной аналоговый приемный модуль передачи видео FS1264R VRX 64 канала 108
+  ВЧ модуль BETAFPV ELRS Nano TX V2 (868 МГц)
+  ВЧ модуль HGLRC ELRS T ONE TX (915 МГц)
+
+--- Two-Way Radios & Walkie-Talkies (125 products) ---
+  Hytera AP 585
+  Hytera BP515 DMR
+  Hytera PD705
+  Motorola DP4400E PBER302C 136-174МГц
+  Peтpанcлятоp Hytera HR1065 VHF
+  Блок питания Аргут PS20P
+  Бортовая система связи XK-F358
+  Декодер голоса Аргут DMR-1
+  Коммутатор управляемый D-Link DGS-1510-28XMP/A1A L2+
+  Портативная радиостанция ANYTONE AT-D878S
+  Портативная радиостанция KIRISUN DP990
+  Программно-определяемое радио Pluto+SDR Pluto
+  Пульт удалённого управления по IP-сети Аргут ПУ-02
+  Пульт удалённого управления по IP-сети Аргут ПУ-03
+  Радиоретранслятор Аргут DR-100
+
+--- FPV Goggles (70 products) ---
+  Eachine EV100 720*540 5.8G 72CH FPV очки с двумя антеннами
+  FPV видео-очки DJI Goggles 2 Motion Combo
+  FPV видео-очки Skyzone SKY04O Pro
+  FPV видео-очки SwellPro GL1 Goggles
+  FPV видео-очки Walksnail Avatar HD
+  FPV видео-очки Walksnail Avatar HD X
+  FPV видео-шлем Flywoo VR008 Pro FPV
+  FPV видео-шлем GEPRC TinyGo Goggles
+  FPV видео-шлем Skyzone COBRA SD
+  FPV видео-шлем iFlight Goggles
+  FPV очки Aomway Commander Goggles V1
+  FPV очки BeeRotor DVR V2
+  FPV очки DJI Goggles N3
+  FPV очки EPSON Moverio BT-300
+  FPV очки EPSON Moverio Pro BT-2200
+
+--- FPV & Action Cameras (283 products) ---
+  2-осевой подвес Skydroid
+  3D-камера Intel RealSense D435f
+  Autel Robotics EVO II 8k Только стабилизатор/камера
+  Autel Robotics EVO II Dual 640T Тепловизионная карданная камера
+  Autel Robotics EVO II Pro 1” 6k Карданная камера
+  FPV Камера Caddx Nebula Micro и цифровая система Caddx Vista
+  FPV Камера Caddx Nebula Pro Nano (Кабель 8 см) (Чёрный) + цифровая система Caddx
+  FPV Камера Caddx Peanut
+  FPV Камера Caddx Ratel 2
+  FPV Камера Caddx Ratel Pro
+  FPV Камера DarwinFPV Darwin129
+  FPV Камера DarwinFPV HULK
+  FPV Камера Foxeer Cat 3 Micro
+  FPV Камера Foxeer Mini Predator 5
+  FPV Камера Foxeer Nano Predator 5 (Красный) (С коннектором)
+
+--- Thermal Imaging Cameras (82 products) ---
+  MicaSense Altum-PT Мультиспектральный сенсор с тепловизором
+  Аккумуляторная батарея для CBL 19
+  Аккумуляторная батарея для FL 35R
+  Аккумуляторная батарея для серии Rico
+  Бинокуляр ночного видения KELUSI Corus ONV2 4&#215;60
+  Защитный кейс мобильной тепловизионной камеры T2PRO
+  Защитный кейс мобильной тепловизионной камеры T3
+  Измерительная двухспектральная камера DTC 300
+  Измерительная двухспектральная камера IRS-FB222-H3D2A
+  Измерительная камера AT 300
+  Измерительный двухспектральный планшет IRS-AC822-H
+  Кронштейн для крепления на шлем монокуляра xMini MH 25W
+  Кронштейн на планку пикатинни для серии Mate
+  Лазерный дальномер Artelv OREOL 1200
+  Лазерный дальномер для серии Hybrid, 1000 м
+
+--- Gimbal Stabilizers (61 products) ---
+  3-осевой бесщеточный карданный подвес Storm32 Controller легкий FPV
+  3-осевой карданный подвес FPV XF-C-20T (Standard)
+  3-осевой подвес Tarot 5D для серии X TL5D001
+  3-осевой подвес Tarot FLIR VUE PRO TL03FLIR
+  3-осевой подвес Tarot T10X Plus
+  3-осевой подвес Tarot T10X-3AT
+  3-осевой стабилизатор Tarot ZYX Flamingo Smart Tracking -PRO ZYX02
+  Громкоговоритель DJI Zenmuse V1
+  Камера DJI Zenmuse H20N
+  Камера DJI Zenmuse H20T
+  Контроллер для трёхосевого подвеса Alexmos SimpleBGC 32bit v3.6 (без корпуса)
+  Подвес 1-осевой Caddx GM1
+  Подвес 2-осевой Caddx GM2
+  Подвес 3-осевой Caddx GM3
+  Подвес DJI Zenmuse L1
+
+--- Counter-UAV & Anti-Drone Systems (52 products) ---
+  Автомобильный подавитель FPV дронов Богомол Авто-6
+  Блокиратор дронов 120w 6 каналов (антидроновое ружьё)
+  Блокиратор дронов ГАРПИЯ ПРО 120W
+  Глушитель дронов
+  Детектор дронов Asel V3
+  Детектор дронов LDK-DW01
+  Детектор дронов aSel Labs H231b
+  Детектор дронов Булат v4
+  Детектор дронов Ястреб S10 Skydroid
+  Детектор дронов с экраном F8
+  ИИ-модуль воздушно-наземного наведения YB-T1
+  Модуль взрывного предохранителя
+  Модуль против помех MO-GNSSAK2
+  Обнаружитель дронов DFL-1042
+  ПВО система борьбы с БПЛА – Капюшон v 2.0
+
+--- LiPo/Li-ion Batteries (316 products) ---
+  Aккумулятор GNB 6000 mAh 70A
+  Aккумулятор GNB Lipo 3500 mAh 2s
+  Li-Ion аккумулятор Molicel INR18650-M35A (3.6B; 3500мАч; литий-ионный, -40,18650
+  Li-Po Аккумулятор TATTU 6S HV 40000мАч 22,8В 10C
+  АКБ CNHL LiPo 4S 2000mAh 100C XT60
+  АКБ Gens Ace BSR 4000mAh 4S1P 30C 14.8V Lipo Battery Pack Soaring
+  АКБ для квадрокоптера Малыш
+  АКБ для квадрокоптера Малыш-2
+  АКБ для квадрокоптера Охранник-2 PRO
+  АКБ для квадрокоптера Охранник-2 SE
+  Аккумулятор 18S 30000mAH
+  Аккумулятор 2S (7.4v) 21700 5000mah
+  Аккумулятор AHTECH 2200mAh 95c 4s (14.8V)
+  Аккумулятор ATWAY 22000mAh 12S 44.4V 35C
+  Аккумулятор Armytek 21700 Li-Ion 5000 мАч
+
+--- Battery Chargers (250 products) ---
+  Autel Robotics EVO Nano Адаптер питания для дронов
+  EV-Peak A1 Touch Balance Charger 10A 12/220V 100W
+  EV-Peak CQ2 4 Port Balance Charger 6A 12/220V 50Wx4
+  Junsi iCharger 308DUO DC Battery Charger 8S 30A 1300W 10-30V
+  Автомобильное зарядное устройство Autel Robotics EVO II для аккумулятора и контр
+  Автомобильное зарядное устройство DJI Mavic 2 car Charger (part 11)
+  Адаптер питания 220В на 24В 10А EU Plug
+  Адаптер питания серии Autel Robotics EVO Lite для дронов Lite/ Lite+
+  Анализатор разряда аккумуляторной батареи SkyRC BD380+
+  Балансирующее зарядное устройство ToolkitRC M7
+  Балансирующее зарядное устройство для литиевых аккумуляторов EV-PEAK A9
+  Блок питания HOTA H24
+  Блок питания HOTA T240
+  Блок питания Suin SK13530К, 35v 30A
+  Блок питания ToolkitRC ADP100 100Вт 20В 5А
+
+--- Drone Frames (184 products) ---
+  424 мм 10-дюймовая рамка из углеродного волокна
+  Капот для мультикоптеров Tarot Х-серии
+  Карбоновая рама Mark 4 5 дюймов
+  Карбоновая рама гексакоптера TAROT T810 TL810A
+  Карбоновая рама квадрокоптера MARK4 V2 (10 дюймов)
+  Карбоновая рама квадрокоптера MARK4 V2 (5 дюймов)
+  Карбоновая рама квадрокоптера MARK4 V2 (7 дюймов)
+  Карбоновая рама квадрокоптера MARK4 V2 13 дюймов
+  Карбоновая рама квадрокоптера MARK4 V2 15 дюймов
+  Карбоновая рама квадрокоптера MARK4 V2 9 дюймов
+  Карбоновая рама квадрокоптера TAROT X4 складная
+  Карбоновая рама октокоптера TAROT X8 Lite складная
+  Каркас из углеродного волокна 598 мм
+  Комплект Holybro X500
+  Комплект рамы ZD850
+
+--- ICs, Chips & Modules (174 products) ---
+  3-канальный модуль видеопереключателя W8010S 11V
+  3-осевой гироскоп + акселерометр GY-521
+  AIS буй сети с GPS RS-109M
+  BEC модуль iFlight BLITZ BEC 5/12V 2A
+  BEC-модуль HGLRC 5-12В
+  BEC-модуль HGLRC SPECTER 12S PDB
+  CAN-модуль TJA1050 / MCP2515 (SPI CAN)
+  DVR-модуль RunCam
+  HF3FD/005-ZST, Реле 1 переключ. 5VDC
+  Intel Wireless-AC 18265NG +карта P/N 8F3Y8 CN-08F3Y8
+  LED-контроллер HGLRC W2812 Mini
+  LED-модуль Diatone Mamba MXC 3 TAYCAN
+  SDR плата разработки HAMGEEK Zynq7020+AD9363
+  UBEC-модуль FATJAY 12A
+  UBEC-модуль FATJAY 6A
+
+--- Single-Board Computers (162 products) ---
+  2МП модуль камеры Arducam с глобальным затвором для Raspberry Pi
+  Raspberry Pi 4 Model B 2GB
+  Raspberry Pi 4 Model B 4Gb
+  Raspberry Pi 4 Model B 8Gb
+  Базовая плата Orange Pi CM4
+  Вычислительный модуль Orange Pi Compute Module 4 2GB RAM, 32GB eMMC
+  Вычислительный модуль Orange Pi Compute Module 4 4GB RAM, 32GB eMMC
+  Вычислительный модуль Orange Pi Compute Module 4 8GB RAM, 64GB eMMC
+  Вычислительный модуль Radxa Rock 3 2GB RAM, 16GB eMMC
+  Вычислительный модуль Raspberry Pi CM 5 16GB
+  ЖК дисплей 2004 + I2C LCD 2004 20x4A для Arduino
+  Индустриальный LTE-WiFi роутер RZE БР-02
+  Камера VEYE-MIPI-IMX462 YT1.8-2.8I lens
+  Комплект разработчика Jetson Xavier NX &#8212; SUB 8GB RAM eMMC Version
+  Комплект разработчика NVIDIA Jetson AGX Orin 64Gb
+
+--- Robotics Systems (138 products) ---
+  24-канальная отладочная плата сервопривода Yahboom с двойным ШИМ (плата)
+  24-канальная отладочная плата сервопривода Yahboom с двойным ШИМ (плата, пульт)
+  24-канальная отладочная плата сервопривода Yahboom с двойным ШИМ (плата, пульт, 
+  Металлический цифровой сервопривод Yahboom (15kg.cm-180°, rudder arm)
+  Металлический цифровой сервопривод Yahboom (15kg.cm-180°, steering wheel)
+  Металлический цифровой сервопривод Yahboom (20kg.cm-180°, rudder arm)
+  Металлический цифровой сервопривод Yahboom (20kg.cm-180°, steering wheel)
+  Металлический цифровой сервопривод Yahboom (20kg.cm-270°, rudder arm)
+  Металлический цифровой сервопривод Yahboom (20kg.cm-270°, steering wheel)
+  Металлический цифровой сервопривод Yahboom (25kg.cm-180°, rudder arm)
+  Металлический цифровой сервопривод Yahboom (25kg.cm-180°, steering wheel)
+  Мотор-редуктор с энкодером Yahboom 310DC (мотор)
+  Мотор-редуктор с энкодером Yahboom 310DC (мотор, кронштейн)
+  Мотор-редуктор с энкодером Yahboom 310DC (мотор, кронштейн, резина)
+  Мотор-редуктор с энкодером Yahboom 310DC (мотор, кронштейн, резина, муфта 3мм)
+
+--- Assembly & Soldering Tools (199 products) ---
+  3D-принтер FLYING BEAR Ghost 6
+  ARINST VNA-DL 1-8800 MHz двухпортовый векторный анализатор цепей
+  Data-кабель USB-microUSB
+  LCR-метр MS5308
+  USB логический анализатор DreamSourceLab DSLogic Plus
+  USB логический анализатор-приставка DreamSourceLab DSLogic U3Pro16
+  USB-измеритель мощности U2062XA
+  Автостриппер ILSINTECH ATS-250/900
+  Адаптер J-LINK PRO, USB-JTAG/SWD
+  Адаптер SMA (male) &#8212; F (female)
+  Адаптер SpeedyBee 3 WiFi/Bluetooth
+  Адаптер Speedybee RunCam Adapter
+  Адаптер ToolkitRC ADP750
+  Адаптер интерфейсов Cablexpert USB-CM 6-в-1
+  Аккумуляторный бесщеточный реноватор WORX Professional WU690.1
+
+--- Accessories (201 products) ---
+  Autel Robotics EVO II Сумка через плечо/мягкая дорожная сумка
+  Autel Robotics EVO II/ Pro Крышка стабилизатора
+  LED маяк квадрокоптера SunnyLife
+  ND-фильтр BETAFPV для DJI O4 Pro
+  Автомобильное зарядное устройство Водяной Гладиус Мини S
+  Адаптер HDMI для подводного дрона QYSEA
+  Адаптер Lightning-Ethernet для серии Fifish V6
+  Аккумулятор Водяной PRO 300 Втч
+  Аккумулятор Водяной PRO 700 Втч
+  Аккумулятор Водяной PRO MAX 300 Втч
+  Аккумулятор Водяной PRO MAX 700 Втч
+  Аккумулятор Водяной S 200 Втч
+  Аккумулятор Водяной S 97 Втч
+  Аккумулятор Ф1
+  Алюминиевый корпус Argon NEO 5 BRED для Raspberry Pi 5
+
+--- Lighting & Illumination (120 products) ---
+  Armytek Crystal (белый и красный свет)
+  Armytek Elf C1 Micro USB (белый свет)
+  Armytek Elf C1 Micro USB (теплый свет)
+  Armytek Elf C2 Micro USB (белый свет)
+  Armytek Elf C2 Micro USB (теплый свет)
+  Armytek Partner C2 Magnet USB (белый свет)
+  Armytek Partner C2 Magnet USB (теплый свет)
+  Armytek Prime C1 Pro Magnet USB (белый свет)
+  Armytek Prime C1 Pro Magnet USB (теплый свет)
+  Armytek Prime C2 Magnet USB (белый свет)
+  Armytek Prime C2 Magnet USB (теплый свет)
+  Armytek Prime C2 Pro Magnet US (белый свет)
+  Armytek Prime C2 Pro Magnet USB (теплый свет)
+  Armytek Prime C2 Pro Max Magnet USB (Warm) (теплый свет)
+  Armytek Prime C2 Pro Max Magnet USB (белый свет)
+
+--- Russian-Made Drones (98 products) ---
+  FPV дрон &#171;Девятый&#187;
+  FPV дрон 10 дюймов Зверобой 750Mhz 1.2GHz
+  FPV дрон Ведьма 7&#187;
+  FPV дрон Победитель 7 дюймов
+  FPV-дрон ATWAY ПУТЬ 10
+  FPV-дрон ATWAY ПУТЬ 10 Х6
+  FPV-дрон ATWAY ПУТЬ 10 Х8
+  FPV-дрон ATWAY ПУТЬ 13
+  FPV-дрон ATWAY ПУТЬ 15
+  FPV-дрон ATWAY ПУТЬ 17
+  FPV-дрон ATWAY ПУТЬ 17 X6
+  FPV-дрон ATWAY ПУТЬ 18
+  FPV-дрон ATWAY ПУТЬ 18 X8
+  FPV-дрон ATWAY ПУТЬ 18 X8-L8 FPV
+  FPV-дрон ATWAY ПУТЬ 22 FPV

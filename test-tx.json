@@ -1,0 +1,12 @@
+{
+  "buyer_name": "Iranian Trading Co",
+  "buyer_country": "IR",
+  "product_id": "uav-001",
+  "product_name": "Heavy Lift Drone",
+  "eccn_code": "9A012",
+  "quantity": 20,
+  "unit_value": 5000,
+  "currency": "USD",
+  "destination_country": "IR",
+  "end_user_statement": ""
+}

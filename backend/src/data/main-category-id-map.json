@@ -1,0 +1,398 @@
+[
+  {
+    "name": "Квадрокоптеры",
+    "cn": "四旋翼机",
+    "expected": 179,
+    "id": 1365,
+    "slug": "%d0%ba%d0%b2%d0%b0%d0%b4%d1%80%d0%be%d0%ba%d0%be%d0%bf%d1%82%d0%b5%d1%80%d1%8b-%d0%b4%d1%80%d0%be%d0%bd%d1%8b-%d1%80%d1%84",
+    "actualCount": 18,
+    "diff": -161
+  },
+  {
+    "name": "Дроны для обучения",
+    "cn": "训练用无人机",
+    "expected": 19,
+    "id": 2537,
+    "slug": "%d0%b4%d1%80%d0%be%d0%bd%d1%8b-%d0%b4%d0%bb%d1%8f-%d0%be%d0%b1%d1%83%d1%87%d0%b5%d0%bd%d0%b8%d1%8f",
+    "actualCount": 1,
+    "diff": -18
+  },
+  {
+    "name": "Дроны с тепловизором",
+    "cn": "热成像无人机",
+    "expected": 24,
+    "id": 1267,
+    "slug": "%d0%b4%d1%80%d0%be%d0%bd%d1%8b-%d1%81-%d1%82%d0%b5%d0%bf%d0%bb%d0%be%d0%b2%d0%b8%d0%b7%d0%be%d1%80%d0%be%d0%bc",
+    "actualCount": 19,
+    "diff": -5
+  },
+  {
+    "name": "Водонепроницаемые дроны",
+    "cn": "防水无人机",
+    "expected": 4,
+    "id": 5719,
+    "slug": "%d0%b2%d0%be%d0%b4%d0%be%d0%bd%d0%b5%d0%bf%d1%80%d0%be%d0%bd%d0%b8%d1%86%d0%b0%d0%b5%d0%bc%d1%8b%d0%b5-%d0%b4%d1%80%d0%be%d0%bd%d1%8b",
+    "actualCount": 4,
+    "diff": 0
+  },
+  {
+    "name": "FPV дроны",
+    "cn": "FPV无人机",
+    "expected": 393,
+    "id": 1302,
+    "slug": "fpv-%d0%b4%d1%80%d0%be%d0%bd%d1%8b",
+    "actualCount": 32,
+    "diff": -361
+  },
+  {
+    "name": "Дроны РФ",
+    "cn": "俄罗斯联邦无人机",
+    "expected": 98,
+    "id": 1364,
+    "slug": "%d0%b4%d1%80%d0%be%d0%bd%d1%8b-%d1%80%d1%84",
+    "actualCount": 34,
+    "diff": -64
+  },
+  {
+    "name": "Мультикоптеры",
+    "cn": "多旋翼机",
+    "expected": 8,
+    "id": 7781,
+    "slug": "%d0%bc%d1%83%d0%bb%d1%8c%d1%82%d0%b8%d0%ba%d0%be%d0%bf%d1%82%d0%b5%d1%80%d1%8b",
+    "actualCount": 8,
+    "diff": 0
+  },
+  {
+    "name": "Дроны самолётного типа",
+    "cn": "航空型无人机",
+    "expected": 33,
+    "id": 2539,
+    "slug": "%d0%b4%d1%80%d0%be%d0%bd-%d0%bc%d1%8f%d1%87%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%be%d0%b1%d1%83%d1%87%d0%b5%d0%bd%d0%b8%d1%8f",
+    "actualCount": 5,
+    "diff": -28
+  },
+  {
+    "name": "Дроны с вертикальным взлётом и посадкой",
+    "cn": "垂直起降无人机",
+    "expected": 11,
+    "id": 2539,
+    "slug": "%d0%b4%d1%80%d0%be%d0%bd-%d0%bc%d1%8f%d1%87%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%be%d0%b1%d1%83%d1%87%d0%b5%d0%bd%d0%b8%d1%8f",
+    "actualCount": 5,
+    "diff": -6
+  },
+  {
+    "name": "Дроны с неподвижным крылом",
+    "cn": "固定翼无人机",
+    "expected": 28,
+    "id": 2539,
+    "slug": "%d0%b4%d1%80%d0%be%d0%bd-%d0%bc%d1%8f%d1%87%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%be%d0%b1%d1%83%d1%87%d0%b5%d0%bd%d0%b8%d1%8f",
+    "actualCount": 5,
+    "diff": -23
+  },
+  {
+    "name": "Аксессуары",
+    "cn": "通用配件",
+    "expected": 201,
+    "id": 844,
+    "slug": "%d0%b0%d0%ba%d1%81%d0%b5%d1%81%d1%81%d1%83%d0%b0%d1%80%d1%8b-%d1%84%d0%be%d1%82%d0%be-%d0%b8-%d0%b2%d0%b8%d0%b4%d0%b5%d0%be",
+    "actualCount": 20,
+    "diff": -181
+  },
+  {
+    "name": "Роботы",
+    "cn": "机器人",
+    "expected": 138,
+    "id": 1358,
+    "slug": "%d1%80%d0%be%d0%b1%d0%be%d1%82%d1%8b",
+    "actualCount": 1,
+    "diff": -137
+  },
+  {
+    "name": "Подводные дроны",
+    "cn": "水下无人机",
+    "expected": 28,
+    "id": 3563,
+    "slug": "%d0%bf%d0%be%d0%b4%d0%b2%d0%be%d0%b4%d0%bd%d1%8b%d0%b5-%d0%b4%d1%80%d0%be%d0%bd%d1%8b",
+    "actualCount": 21,
+    "diff": -7
+  },
+  {
+    "name": "Комплекты для сборки дронов",
+    "cn": "无人机组装套件",
+    "expected": 17,
+    "id": 1342,
+    "slug": "%d0%ba%d0%be%d0%bc%d0%bf%d0%bb%d0%b5%d0%ba%d1%82%d1%8b-%d0%b4%d0%bb%d1%8f-%d1%81%d0%b1%d0%be%d1%80%d0%ba%d0%b8-%d0%b4%d1%80%d0%be%d0%bd%d0%be%d0%b2",
+    "actualCount": 8,
+    "diff": -9
+  },
+  {
+    "name": "Противодействия дронам и БПЛА",
+    "cn": "反无人机系统",
+    "expected": 49,
+    "id": 1387,
+    "slug": "%d0%bf%d1%80%d0%be%d1%82%d0%b8%d0%b2%d0%be%d0%b4%d0%b5%d0%b9%d1%81%d1%82%d0%b2%d0%b8%d1%8f-%d0%b4%d1%80%d0%be%d0%bd%d0%b0%d0%bc-%d0%b8-%d0%b1%d0%bf%d0%bb%d0%b0",
+    "actualCount": 7,
+    "diff": -42
+  },
+  {
+    "name": "Рамы",
+    "cn": "机架/框架",
+    "expected": 174,
+    "id": 824,
+    "slug": "%d0%ba%d1%83%d0%bf%d0%b8%d1%82%d1%8c-%d1%80%d0%b0%d0%bc%d1%83-%d0%b4%d0%bb%d1%8f-%d0%ba%d0%b2%d0%b0%d0%b4%d1%80%d0%be%d0%ba%d0%be%d0%bf%d1%82%d0%b5%d1%80%d0%b0",
+    "actualCount": 34,
+    "diff": -140
+  },
+  {
+    "name": "Автопилоты",
+    "cn": "自动驾驶仪/飞控",
+    "expected": 376,
+    "id": 831,
+    "slug": "%d0%b0%d0%b2%d1%82%d0%be%d0%bf%d0%b8%d0%bb%d0%be%d1%82%d1%8b",
+    "actualCount": 31,
+    "diff": -345
+  },
+  {
+    "name": "Лидары",
+    "cn": "激光雷达",
+    "expected": 100,
+    "id": 7178,
+    "slug": "%d0%bb%d0%b8%d0%b4%d0%b0%d1%80%d1%8b",
+    "actualCount": 10,
+    "diff": -90
+  },
+  {
+    "name": "Передатчики",
+    "cn": "图传发射器",
+    "expected": 298,
+    "id": 809,
+    "slug": "%d0%bf%d0%b5%d1%80%d0%b5%d0%b4%d0%b0%d1%82%d1%87%d0%b8%d0%ba%d0%b8",
+    "actualCount": 6,
+    "diff": -292
+  },
+  {
+    "name": "Приёмники",
+    "cn": "接收器",
+    "expected": 239,
+    "id": 5769,
+    "slug": "%d0%bf%d1%80%d0%b8%d1%91%d0%bc%d0%bd%d0%b8%d0%ba%d0%b8",
+    "actualCount": 1,
+    "diff": -238
+  },
+  {
+    "name": "Дальнобойные системы радиометрии",
+    "cn": "远程辐射测量系统",
+    "expected": 6,
+    "id": 8051,
+    "slug": "%d0%b4%d0%b0%d0%bb%d1%8c%d0%bd%d0%be%d0%b1%d0%be%d0%b9%d0%bd%d1%8b%d0%b5-%d1%81%d0%b8%d1%81%d1%82%d0%b5%d0%bc%d1%8b-%d1%80%d0%b0%d0%b4%d0%b8%d0%be%d0%bc%d0%b5%d1%82%d1%80%d0%b8%d0%b8",
+    "actualCount": 6,
+    "diff": 0
+  },
+  {
+    "name": "Пульты управления",
+    "cn": "遥控器",
+    "expected": 151,
+    "id": 862,
+    "slug": "control_panels",
+    "actualCount": 4,
+    "diff": -147
+  },
+  {
+    "name": "Антенны",
+    "cn": "天线",
+    "expected": 192,
+    "id": 818,
+    "slug": "%d0%b0%d0%bd%d1%82%d0%b5%d0%bd%d0%bd%d1%8b",
+    "actualCount": 6,
+    "diff": -186
+  },
+  {
+    "name": "Двигатели",
+    "cn": "电机",
+    "expected": 639,
+    "id": 1361,
+    "slug": "%d0%b4%d0%b2%d0%b8%d0%b3%d0%b0%d1%82%d0%b5%d0%bb%d0%b8-%d1%80%d0%be%d0%b1%d0%be%d1%82%d1%8b",
+    "actualCount": 16,
+    "diff": -623
+  },
+  {
+    "name": "Сервоприводы",
+    "cn": "舵机",
+    "expected": 300,
+    "id": 1362,
+    "slug": "%d1%81%d0%b5%d1%80%d0%b2%d0%be%d0%bf%d1%80%d0%b8%d0%b2%d0%be%d0%b4%d1%8b",
+    "actualCount": 17,
+    "diff": -283
+  },
+  {
+    "name": "Лопасти и пропеллеры",
+    "cn": "螺旋桨",
+    "expected": 240,
+    "id": 780,
+    "slug": "%d0%bb%d0%be%d0%bf%d0%b0%d1%81%d1%82%d0%b8",
+    "actualCount": 2,
+    "diff": -238
+  },
+  {
+    "name": "Камеры и видео",
+    "cn": "摄像机与视频",
+    "expected": 363,
+    "id": 751,
+    "slug": "%d1%84%d0%be%d1%82%d0%be-%d0%b8-%d0%b2%d0%b8%d0%b4%d0%b5%d0%be",
+    "actualCount": 8,
+    "diff": -355
+  },
+  {
+    "name": "Камеры машинного зрения",
+    "cn": "机器视觉相机",
+    "expected": 4,
+    "id": 8052,
+    "slug": "%d0%ba%d0%b0%d0%bc%d0%b5%d1%80%d1%8b-%d0%bc%d0%b0%d1%88%d0%b8%d0%bd%d0%bd%d0%be%d0%b3%d0%be-%d0%b7%d1%80%d0%b5%d0%bd%d0%b8%d1%8f",
+    "actualCount": 4,
+    "diff": 0
+  },
+  {
+    "name": "Анализаторы спектра",
+    "cn": "频谱分析仪",
+    "expected": 36,
+    "id": 7808,
+    "slug": "%d0%b0%d0%bd%d0%b0%d0%bb%d0%b8%d0%b7%d0%b0%d1%82%d0%be%d1%80%d1%8b-%d1%81%d0%bf%d0%b5%d0%ba%d1%82%d1%80%d0%b0",
+    "actualCount": 31,
+    "diff": -5
+  },
+  {
+    "name": "FPV очки",
+    "cn": "FPV眼镜",
+    "expected": 70,
+    "id": 808,
+    "slug": "fpv-%d0%be%d1%87%d0%ba%d0%b8",
+    "actualCount": 9,
+    "diff": -61
+  },
+  {
+    "name": "ESC регуляторы",
+    "cn": "ESC电调",
+    "expected": 302,
+    "id": 746,
+    "slug": "esc-%d1%80%d0%b5%d0%b3%d1%83%d0%bb%d1%8f%d1%82%d0%be%d1%80%d1%8b",
+    "actualCount": 1,
+    "diff": -301
+  },
+  {
+    "name": "АКБ",
+    "cn": "电池",
+    "expected": 310,
+    "id": 1426,
+    "slug": "%d0%b0%d0%ba%d0%b1-ts",
+    "actualCount": 1,
+    "diff": -309
+  },
+  {
+    "name": "Тепловизионные прицелы",
+    "cn": "热成像瞄准镜",
+    "expected": 30,
+    "id": 1234,
+    "slug": "%d1%82%d0%b5%d0%bf%d0%bb%d0%be%d0%b2%d0%b8%d0%b7%d0%b8%d0%be%d0%bd%d0%bd%d1%8b%d0%b5-%d0%bf%d1%80%d0%b8%d1%86%d0%b5%d0%bb%d1%8b-%d1%81%d0%b5%d1%80%d0%b8%d0%b8-tube",
+    "actualCount": 6,
+    "diff": -24
+  },
+  {
+    "name": "Инструмент",
+    "cn": "工具",
+    "expected": 195,
+    "id": 753,
+    "slug": "%d0%b8%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%bc%d0%b5%d0%bd%d1%82",
+    "actualCount": 1,
+    "diff": -194
+  },
+  {
+    "name": "Микрокомпьютеры",
+    "cn": "微型计算机",
+    "expected": 153,
+    "id": 737,
+    "slug": "%d0%bc%d0%b8%d0%ba%d1%80%d0%be%d0%ba%d0%be%d0%bc%d0%bf%d1%8c%d1%8e%d1%82%d0%b5%d1%80%d1%8b",
+    "actualCount": 4,
+    "diff": -149
+  },
+  {
+    "name": "Микросхемы чипы",
+    "cn": "芯片",
+    "expected": 173,
+    "id": 760,
+    "slug": "%d0%bc%d0%b8%d0%ba%d1%80%d0%be%d1%81%d1%85%d0%b5%d0%bc%d1%8b-%d1%87%d0%b8%d0%bf%d1%8b",
+    "actualCount": 59,
+    "diff": -114
+  },
+  {
+    "name": "Мониторы",
+    "cn": "监视器",
+    "expected": 52,
+    "id": 762,
+    "slug": "%d0%bc%d0%be%d0%bd%d0%b8%d1%82%d0%be%d1%80%d1%8b",
+    "actualCount": 39,
+    "diff": -13
+  },
+  {
+    "name": "Радиостанции",
+    "cn": "对讲机/电台",
+    "expected": 121,
+    "id": 761,
+    "slug": "%d1%80%d0%b0%d0%b4%d0%b8%d0%be%d1%81%d1%82%d0%b0%d0%bd%d1%86%d0%b8%d0%b8",
+    "actualCount": 8,
+    "diff": -113
+  },
+  {
+    "name": "Подвесы",
+    "cn": "云台",
+    "expected": 61,
+    "id": 800,
+    "slug": "%d0%bf%d0%be%d0%b4%d0%b2%d0%b5%d1%81%d1%8b",
+    "actualCount": 16,
+    "diff": -45
+  },
+  {
+    "name": "Тепловизоры",
+    "cn": "热成像相机",
+    "expected": 82,
+    "id": 775,
+    "slug": "%d1%82%d0%b5%d0%bf%d0%bb%d0%be%d0%b2%d0%b8%d0%b7%d0%be%d1%80%d1%8b",
+    "actualCount": 11,
+    "diff": -71
+  },
+  {
+    "name": "Шлейфы",
+    "cn": "FFC排线",
+    "expected": 2,
+    "id": 783,
+    "slug": "%d1%88%d0%bb%d0%b5%d0%b9%d1%84%d1%8b",
+    "actualCount": 2,
+    "diff": 0
+  },
+  {
+    "name": "Сетевое оборудование",
+    "cn": "网络设备",
+    "expected": 10,
+    "id": 789,
+    "slug": "%d1%81%d0%b5%d1%82%d0%b5%d0%b2%d0%be%d0%b5-%d0%be%d0%b1%d0%be%d1%80%d1%83%d0%b4%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5",
+    "actualCount": 10,
+    "diff": 0
+  },
+  {
+    "name": "Ремкомплекты Kyocera",
+    "cn": "京瓷维修套件",
+    "expected": 24,
+    "id": 799,
+    "slug": "%d1%80%d0%b5%d0%bc%d0%ba%d0%be%d0%bc%d0%bf%d0%bb%d0%b5%d0%ba%d1%82%d1%8b-kyocera",
+    "actualCount": 24,
+    "diff": 0
+  },
+  {
+    "name": "Консоли и приставки",
+    "cn": "游戏/迷你主机",
+    "expected": 20,
+    "id": 784,
+    "slug": "%d0%b8%d0%b3%d1%80%d0%be%d0%b2%d1%8b%d0%b5-%d0%ba%d0%be%d0%bd%d1%81%d0%be%d0%bb%d0%b8-%d0%b8-%d0%bf%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%b2%d0%ba%d0%b8",
+    "actualCount": 20,
+    "diff": 0
+  }
+]

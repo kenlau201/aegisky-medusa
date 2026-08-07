@@ -1,0 +1,1206 @@
+[
+  {
+    "id": 10000,
+    "name": "UAV Platforms",
+    "slug": "uav-platforms",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10001,
+    "name": "Multirotor UAV",
+    "slug": "multirotor-uav",
+    "parent": 10000,
+    "depth": 1
+  },
+  {
+    "id": 10002,
+    "name": "Micro Quadcopters",
+    "slug": "micro-quadcopters",
+    "parent": 10001,
+    "depth": 2
+  },
+  {
+    "id": 10003,
+    "name": "Racing FPV",
+    "slug": "racing-fpv",
+    "parent": 10001,
+    "depth": 2
+  },
+  {
+    "id": 10004,
+    "name": "Freestyle FPV",
+    "slug": "freestyle-fpv",
+    "parent": 10001,
+    "depth": 2
+  },
+  {
+    "id": 10005,
+    "name": "Long Range FPV",
+    "slug": "long-range-fpv",
+    "parent": 10001,
+    "depth": 2
+  },
+  {
+    "id": 10006,
+    "name": "Industrial Multirotor",
+    "slug": "industrial-multirotor",
+    "parent": 10001,
+    "depth": 2
+  },
+  {
+    "id": 10007,
+    "name": "Heavy Lift UAV",
+    "slug": "heavy-lift-uav",
+    "parent": 10001,
+    "depth": 2
+  },
+  {
+    "id": 10008,
+    "name": "Fixed Wing UAV",
+    "slug": "fixed-wing-uav",
+    "parent": 10000,
+    "depth": 1
+  },
+  {
+    "id": 10009,
+    "name": "Mapping Aircraft",
+    "slug": "mapping-aircraft",
+    "parent": 10008,
+    "depth": 2
+  },
+  {
+    "id": 10010,
+    "name": "Surveillance UAV",
+    "slug": "surveillance-uav",
+    "parent": 10008,
+    "depth": 2
+  },
+  {
+    "id": 10011,
+    "name": "Long Endurance",
+    "slug": "long-endurance",
+    "parent": 10008,
+    "depth": 2
+  },
+  {
+    "id": 10012,
+    "name": "Hybrid Aircraft",
+    "slug": "hybrid-aircraft",
+    "parent": 10008,
+    "depth": 2
+  },
+  {
+    "id": 10013,
+    "name": "VTOL UAV",
+    "slug": "vtol-uav",
+    "parent": 10000,
+    "depth": 1
+  },
+  {
+    "id": 10014,
+    "name": "QuadPlane",
+    "slug": "quadplane",
+    "parent": 10013,
+    "depth": 2
+  },
+  {
+    "id": 10015,
+    "name": "Tilt Rotor",
+    "slug": "tilt-rotor",
+    "parent": 10013,
+    "depth": 2
+  },
+  {
+    "id": 10016,
+    "name": "Tail Sitter",
+    "slug": "tail-sitter",
+    "parent": 10013,
+    "depth": 2
+  },
+  {
+    "id": 10017,
+    "name": "Hybrid VTOL",
+    "slug": "hybrid-vtol",
+    "parent": 10013,
+    "depth": 2
+  },
+  {
+    "id": 10018,
+    "name": "Cargo UAV",
+    "slug": "cargo-uav",
+    "parent": 10000,
+    "depth": 1
+  },
+  {
+    "id": 10019,
+    "name": "Delivery UAV",
+    "slug": "delivery-uav",
+    "parent": 10018,
+    "depth": 2
+  },
+  {
+    "id": 10020,
+    "name": "Heavy Cargo UAV",
+    "slug": "heavy-cargo-uav",
+    "parent": 10018,
+    "depth": 2
+  },
+  {
+    "id": 10021,
+    "name": "Autonomous Delivery System",
+    "slug": "autonomous-delivery-system",
+    "parent": 10018,
+    "depth": 2
+  },
+  {
+    "id": 10022,
+    "name": "Autonomous Drone System",
+    "slug": "autonomous-drone-system",
+    "parent": 10000,
+    "depth": 1
+  },
+  {
+    "id": 10023,
+    "name": "Drone-in-a-Box",
+    "slug": "drone-in-a-box",
+    "parent": 10022,
+    "depth": 2
+  },
+  {
+    "id": 10024,
+    "name": "Dock Station",
+    "slug": "dock-station",
+    "parent": 10022,
+    "depth": 2
+  },
+  {
+    "id": 10025,
+    "name": "Autonomous Charging",
+    "slug": "autonomous-charging",
+    "parent": 10022,
+    "depth": 2
+  },
+  {
+    "id": 10026,
+    "name": "Fleet Management",
+    "slug": "fleet-management",
+    "parent": 10022,
+    "depth": 2
+  },
+  {
+    "id": 10027,
+    "name": "Airframe & Mechanical Structures",
+    "slug": "airframe-mechanical-structures",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10028,
+    "name": "Frames",
+    "slug": "frames",
+    "parent": 10027,
+    "depth": 1
+  },
+  {
+    "id": 10029,
+    "name": "FPV Carbon Frame",
+    "slug": "fpv-carbon-frame",
+    "parent": 10028,
+    "depth": 2
+  },
+  {
+    "id": 10030,
+    "name": "Industrial Frame",
+    "slug": "industrial-frame",
+    "parent": 10028,
+    "depth": 2
+  },
+  {
+    "id": 10031,
+    "name": "Folding Frame",
+    "slug": "folding-frame",
+    "parent": 10028,
+    "depth": 2
+  },
+  {
+    "id": 10032,
+    "name": "Custom Airframe",
+    "slug": "custom-airframe",
+    "parent": 10028,
+    "depth": 2
+  },
+  {
+    "id": 10033,
+    "name": "Arms",
+    "slug": "arms",
+    "parent": 10027,
+    "depth": 1
+  },
+  {
+    "id": 10034,
+    "name": "Landing Gear",
+    "slug": "landing-gear",
+    "parent": 10027,
+    "depth": 1
+  },
+  {
+    "id": 10035,
+    "name": "Payload Mount",
+    "slug": "payload-mount",
+    "parent": 10027,
+    "depth": 1
+  },
+  {
+    "id": 10036,
+    "name": "Gimbal Mount",
+    "slug": "gimbal-mount",
+    "parent": 10027,
+    "depth": 1
+  },
+  {
+    "id": 10037,
+    "name": "Carbon Fiber Material",
+    "slug": "carbon-fiber-material",
+    "parent": 10027,
+    "depth": 1
+  },
+  {
+    "id": 10038,
+    "name": "Mechanical Hardware",
+    "slug": "mechanical-hardware",
+    "parent": 10027,
+    "depth": 1
+  },
+  {
+    "id": 10039,
+    "name": "Propulsion Systems",
+    "slug": "propulsion-systems",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10040,
+    "name": "Brushless Motors",
+    "slug": "brushless-motors",
+    "parent": 10039,
+    "depth": 1
+  },
+  {
+    "id": 10041,
+    "name": "FPV Motor",
+    "slug": "fpv-motor",
+    "parent": 10040,
+    "depth": 2
+  },
+  {
+    "id": 10042,
+    "name": "Industrial Motor",
+    "slug": "industrial-motor",
+    "parent": 10040,
+    "depth": 2
+  },
+  {
+    "id": 10043,
+    "name": "High Torque Motor",
+    "slug": "high-torque-motor",
+    "parent": 10040,
+    "depth": 2
+  },
+  {
+    "id": 10044,
+    "name": "Waterproof Motor",
+    "slug": "waterproof-motor",
+    "parent": 10040,
+    "depth": 2
+  },
+  {
+    "id": 10045,
+    "name": "Gimbal Motor",
+    "slug": "gimbal-motor",
+    "parent": 10040,
+    "depth": 2
+  },
+  {
+    "id": 10046,
+    "name": "ESC",
+    "slug": "esc",
+    "parent": 10039,
+    "depth": 1
+  },
+  {
+    "id": 10047,
+    "name": "Single ESC",
+    "slug": "single-esc",
+    "parent": 10046,
+    "depth": 2
+  },
+  {
+    "id": 10048,
+    "name": "4-in-1 ESC",
+    "slug": "4-in-1-esc",
+    "parent": 10046,
+    "depth": 2
+  },
+  {
+    "id": 10049,
+    "name": "High Current ESC",
+    "slug": "high-current-esc",
+    "parent": 10046,
+    "depth": 2
+  },
+  {
+    "id": 10050,
+    "name": "Industrial ESC",
+    "slug": "industrial-esc",
+    "parent": 10046,
+    "depth": 2
+  },
+  {
+    "id": 10051,
+    "name": "Propellers",
+    "slug": "propellers",
+    "parent": 10039,
+    "depth": 1
+  },
+  {
+    "id": 10052,
+    "name": "Carbon Propeller",
+    "slug": "carbon-propeller",
+    "parent": 10051,
+    "depth": 2
+  },
+  {
+    "id": 10053,
+    "name": "Folding Propeller",
+    "slug": "folding-propeller",
+    "parent": 10051,
+    "depth": 2
+  },
+  {
+    "id": 10054,
+    "name": "FPV Propeller",
+    "slug": "fpv-propeller",
+    "parent": 10051,
+    "depth": 2
+  },
+  {
+    "id": 10055,
+    "name": "Industrial Propeller",
+    "slug": "industrial-propeller",
+    "parent": 10051,
+    "depth": 2
+  },
+  {
+    "id": 10056,
+    "name": "Servo Systems",
+    "slug": "servo-systems",
+    "parent": 10039,
+    "depth": 1
+  },
+  {
+    "id": 10057,
+    "name": "Motor Accessories",
+    "slug": "motor-accessories",
+    "parent": 10039,
+    "depth": 1
+  },
+  {
+    "id": 10058,
+    "name": "Flight Control & Navigation",
+    "slug": "flight-control-navigation",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10059,
+    "name": "Flight Controller",
+    "slug": "flight-controller",
+    "parent": 10058,
+    "depth": 1
+  },
+  {
+    "id": 10060,
+    "name": "F405 Series",
+    "slug": "f405-series",
+    "parent": 10059,
+    "depth": 2
+  },
+  {
+    "id": 10061,
+    "name": "F722 Series",
+    "slug": "f722-series",
+    "parent": 10059,
+    "depth": 2
+  },
+  {
+    "id": 10062,
+    "name": "F743 Series",
+    "slug": "f743-series",
+    "parent": 10059,
+    "depth": 2
+  },
+  {
+    "id": 10063,
+    "name": "H7 Series",
+    "slug": "h7-series",
+    "parent": 10059,
+    "depth": 2
+  },
+  {
+    "id": 10064,
+    "name": "Custom FC",
+    "slug": "custom-fc",
+    "parent": 10059,
+    "depth": 2
+  },
+  {
+    "id": 10065,
+    "name": "Autopilot",
+    "slug": "autopilot",
+    "parent": 10058,
+    "depth": 1
+  },
+  {
+    "id": 10066,
+    "name": "PX4 Ecosystem",
+    "slug": "px4-ecosystem",
+    "parent": 10065,
+    "depth": 2
+  },
+  {
+    "id": 10067,
+    "name": "Ardupilot Ecosystem",
+    "slug": "ardupilot-ecosystem",
+    "parent": 10065,
+    "depth": 2
+  },
+  {
+    "id": 10068,
+    "name": "Industrial Autopilot",
+    "slug": "industrial-autopilot",
+    "parent": 10065,
+    "depth": 2
+  },
+  {
+    "id": 10069,
+    "name": "Navigation",
+    "slug": "navigation",
+    "parent": 10058,
+    "depth": 1
+  },
+  {
+    "id": 10070,
+    "name": "GPS Module",
+    "slug": "gps-module",
+    "parent": 10069,
+    "depth": 2
+  },
+  {
+    "id": 10071,
+    "name": "GNSS",
+    "slug": "gnss",
+    "parent": 10069,
+    "depth": 2
+  },
+  {
+    "id": 10072,
+    "name": "RTK",
+    "slug": "rtk",
+    "parent": 10069,
+    "depth": 2
+  },
+  {
+    "id": 10073,
+    "name": "INS",
+    "slug": "ins",
+    "parent": 10069,
+    "depth": 2
+  },
+  {
+    "id": 10074,
+    "name": "IMU",
+    "slug": "imu",
+    "parent": 10058,
+    "depth": 1
+  },
+  {
+    "id": 10075,
+    "name": "Compass",
+    "slug": "compass",
+    "parent": 10058,
+    "depth": 1
+  },
+  {
+    "id": 10076,
+    "name": "Flight Software",
+    "slug": "flight-software",
+    "parent": 10058,
+    "depth": 1
+  },
+  {
+    "id": 10077,
+    "name": "Communication & Data Link",
+    "slug": "communication-data-link",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10078,
+    "name": "RC Control System",
+    "slug": "rc-control-system",
+    "parent": 10077,
+    "depth": 1
+  },
+  {
+    "id": 10079,
+    "name": "Transmitter",
+    "slug": "transmitter",
+    "parent": 10078,
+    "depth": 2
+  },
+  {
+    "id": 10080,
+    "name": "Receiver",
+    "slug": "receiver",
+    "parent": 10078,
+    "depth": 2
+  },
+  {
+    "id": 10081,
+    "name": "Industrial Remote Controller",
+    "slug": "industrial-remote-controller",
+    "parent": 10078,
+    "depth": 2
+  },
+  {
+    "id": 10082,
+    "name": "Telemetry System",
+    "slug": "telemetry-system",
+    "parent": 10077,
+    "depth": 1
+  },
+  {
+    "id": 10083,
+    "name": "Long Range Radio",
+    "slug": "long-range-radio",
+    "parent": 10077,
+    "depth": 1
+  },
+  {
+    "id": 10084,
+    "name": "Digital Data Link",
+    "slug": "digital-data-link",
+    "parent": 10077,
+    "depth": 1
+  },
+  {
+    "id": 10085,
+    "name": "Antenna System",
+    "slug": "antenna-system",
+    "parent": 10077,
+    "depth": 1
+  },
+  {
+    "id": 10086,
+    "name": "Ground Station",
+    "slug": "ground-station",
+    "parent": 10077,
+    "depth": 1
+  },
+  {
+    "id": 10087,
+    "name": "Network Equipment",
+    "slug": "network-equipment",
+    "parent": 10077,
+    "depth": 1
+  },
+  {
+    "id": 10088,
+    "name": "Imaging & Payload Systems",
+    "slug": "imaging-payload-systems",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10089,
+    "name": "EO Camera",
+    "slug": "eo-camera",
+    "parent": 10088,
+    "depth": 1
+  },
+  {
+    "id": 10090,
+    "name": "Industrial Camera",
+    "slug": "industrial-camera",
+    "parent": 10089,
+    "depth": 2
+  },
+  {
+    "id": 10091,
+    "name": "Zoom Camera",
+    "slug": "zoom-camera",
+    "parent": 10089,
+    "depth": 2
+  },
+  {
+    "id": 10092,
+    "name": "Machine Vision Camera",
+    "slug": "machine-vision-camera",
+    "parent": 10089,
+    "depth": 2
+  },
+  {
+    "id": 10093,
+    "name": "Thermal Imaging",
+    "slug": "thermal-imaging",
+    "parent": 10088,
+    "depth": 1
+  },
+  {
+    "id": 10094,
+    "name": "Thermal Camera",
+    "slug": "thermal-camera",
+    "parent": 10093,
+    "depth": 2
+  },
+  {
+    "id": 10095,
+    "name": "Thermal Sensor",
+    "slug": "thermal-sensor",
+    "parent": 10093,
+    "depth": 2
+  },
+  {
+    "id": 10096,
+    "name": "Infrared Module",
+    "slug": "infrared-module",
+    "parent": 10093,
+    "depth": 2
+  },
+  {
+    "id": 10097,
+    "name": "Night Vision",
+    "slug": "night-vision",
+    "parent": 10088,
+    "depth": 1
+  },
+  {
+    "id": 10098,
+    "name": "LiDAR",
+    "slug": "lidar",
+    "parent": 10088,
+    "depth": 1
+  },
+  {
+    "id": 10099,
+    "name": "Mapping LiDAR",
+    "slug": "mapping-lidar",
+    "parent": 10098,
+    "depth": 2
+  },
+  {
+    "id": 10100,
+    "name": "Distance LiDAR",
+    "slug": "distance-lidar",
+    "parent": 10098,
+    "depth": 2
+  },
+  {
+    "id": 10101,
+    "name": "3D Scanner",
+    "slug": "3d-scanner",
+    "parent": 10098,
+    "depth": 2
+  },
+  {
+    "id": 10102,
+    "name": "Radar Sensor",
+    "slug": "radar-sensor",
+    "parent": 10088,
+    "depth": 1
+  },
+  {
+    "id": 10103,
+    "name": "Gimbal System",
+    "slug": "gimbal-system",
+    "parent": 10088,
+    "depth": 1
+  },
+  {
+    "id": 10104,
+    "name": "Payload Controller",
+    "slug": "payload-controller",
+    "parent": 10088,
+    "depth": 1
+  },
+  {
+    "id": 10105,
+    "name": "FPV Systems",
+    "slug": "fpv-systems",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10106,
+    "name": "FPV Camera",
+    "slug": "fpv-camera",
+    "parent": 10105,
+    "depth": 1
+  },
+  {
+    "id": 10107,
+    "name": "Analog Video System",
+    "slug": "analog-video-system",
+    "parent": 10105,
+    "depth": 1
+  },
+  {
+    "id": 10108,
+    "name": "Digital Video System",
+    "slug": "digital-video-system",
+    "parent": 10105,
+    "depth": 1
+  },
+  {
+    "id": 10109,
+    "name": "Video Transmitter (VTX)",
+    "slug": "video-transmitter-vtx",
+    "parent": 10105,
+    "depth": 1
+  },
+  {
+    "id": 10110,
+    "name": "FPV Goggles",
+    "slug": "fpv-goggles",
+    "parent": 10105,
+    "depth": 1
+  },
+  {
+    "id": 10111,
+    "name": "FPV Monitor",
+    "slug": "fpv-monitor",
+    "parent": 10105,
+    "depth": 1
+  },
+  {
+    "id": 10112,
+    "name": "FPV Accessories",
+    "slug": "fpv-accessories",
+    "parent": 10105,
+    "depth": 1
+  },
+  {
+    "id": 10113,
+    "name": "Power & Energy",
+    "slug": "power-energy",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10114,
+    "name": "Battery",
+    "slug": "battery",
+    "parent": 10113,
+    "depth": 1
+  },
+  {
+    "id": 10115,
+    "name": "LiPo Battery",
+    "slug": "lipo-battery",
+    "parent": 10114,
+    "depth": 2
+  },
+  {
+    "id": 10116,
+    "name": "Li-ion Battery",
+    "slug": "li-ion-battery",
+    "parent": 10114,
+    "depth": 2
+  },
+  {
+    "id": 10117,
+    "name": "Smart Battery",
+    "slug": "smart-battery",
+    "parent": 10114,
+    "depth": 2
+  },
+  {
+    "id": 10118,
+    "name": "Industrial Battery Pack",
+    "slug": "industrial-battery-pack",
+    "parent": 10114,
+    "depth": 2
+  },
+  {
+    "id": 10119,
+    "name": "Charger",
+    "slug": "charger",
+    "parent": 10113,
+    "depth": 1
+  },
+  {
+    "id": 10120,
+    "name": "Power Module",
+    "slug": "power-module",
+    "parent": 10113,
+    "depth": 1
+  },
+  {
+    "id": 10121,
+    "name": "BMS",
+    "slug": "bms",
+    "parent": 10113,
+    "depth": 1
+  },
+  {
+    "id": 10122,
+    "name": "Power Distribution Board",
+    "slug": "power-distribution-board",
+    "parent": 10113,
+    "depth": 1
+  },
+  {
+    "id": 10123,
+    "name": "Portable Power Station",
+    "slug": "portable-power-station",
+    "parent": 10113,
+    "depth": 1
+  },
+  {
+    "id": 10124,
+    "name": "Embedded Computing & AI",
+    "slug": "embedded-computing-ai",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10125,
+    "name": "Embedded Computer",
+    "slug": "embedded-computer",
+    "parent": 10124,
+    "depth": 1
+  },
+  {
+    "id": 10126,
+    "name": "ARM Board",
+    "slug": "arm-board",
+    "parent": 10125,
+    "depth": 2
+  },
+  {
+    "id": 10127,
+    "name": "Industrial Computer",
+    "slug": "industrial-computer",
+    "parent": 10125,
+    "depth": 2
+  },
+  {
+    "id": 10128,
+    "name": "Edge Computer",
+    "slug": "edge-computer",
+    "parent": 10125,
+    "depth": 2
+  },
+  {
+    "id": 10129,
+    "name": "AI Accelerator",
+    "slug": "ai-accelerator",
+    "parent": 10124,
+    "depth": 1
+  },
+  {
+    "id": 10130,
+    "name": "GPU Module",
+    "slug": "gpu-module",
+    "parent": 10124,
+    "depth": 1
+  },
+  {
+    "id": 10131,
+    "name": "Micro Computer",
+    "slug": "micro-computer",
+    "parent": 10124,
+    "depth": 1
+  },
+  {
+    "id": 10132,
+    "name": "Chips",
+    "slug": "chips",
+    "parent": 10124,
+    "depth": 1
+  },
+  {
+    "id": 10133,
+    "name": "Development Board",
+    "slug": "development-board",
+    "parent": 10124,
+    "depth": 1
+  },
+  {
+    "id": 10134,
+    "name": "AI Vision Module",
+    "slug": "ai-vision-module",
+    "parent": 10124,
+    "depth": 1
+  },
+  {
+    "id": 10135,
+    "name": "Robotics Systems",
+    "slug": "robotics-systems",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10136,
+    "name": "Ground Robot",
+    "slug": "ground-robot",
+    "parent": 10135,
+    "depth": 1
+  },
+  {
+    "id": 10137,
+    "name": "Mobile Robot",
+    "slug": "mobile-robot",
+    "parent": 10135,
+    "depth": 1
+  },
+  {
+    "id": 10138,
+    "name": "Autonomous Vehicle",
+    "slug": "autonomous-vehicle",
+    "parent": 10135,
+    "depth": 1
+  },
+  {
+    "id": 10139,
+    "name": "Robot Controller",
+    "slug": "robot-controller",
+    "parent": 10135,
+    "depth": 1
+  },
+  {
+    "id": 10140,
+    "name": "Robot Sensors",
+    "slug": "robot-sensors",
+    "parent": 10135,
+    "depth": 1
+  },
+  {
+    "id": 10141,
+    "name": "Robot Components",
+    "slug": "robot-components",
+    "parent": 10135,
+    "depth": 1
+  },
+  {
+    "id": 10142,
+    "name": "Counter UAV Systems",
+    "slug": "counter-uav-systems",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10143,
+    "name": "Drone Detection",
+    "slug": "drone-detection",
+    "parent": 10142,
+    "depth": 1
+  },
+  {
+    "id": 10144,
+    "name": "RF Detection",
+    "slug": "rf-detection",
+    "parent": 10143,
+    "depth": 2
+  },
+  {
+    "id": 10145,
+    "name": "Radar Detection",
+    "slug": "radar-detection",
+    "parent": 10143,
+    "depth": 2
+  },
+  {
+    "id": 10146,
+    "name": "Optical Detection",
+    "slug": "optical-detection",
+    "parent": 10143,
+    "depth": 2
+  },
+  {
+    "id": 10147,
+    "name": "Counter Drone Equipment",
+    "slug": "counter-drone-equipment",
+    "parent": 10142,
+    "depth": 1
+  },
+  {
+    "id": 10148,
+    "name": "RF Jammer",
+    "slug": "rf-jammer",
+    "parent": 10147,
+    "depth": 2
+  },
+  {
+    "id": 10149,
+    "name": "Anti Drone System",
+    "slug": "anti-drone-system",
+    "parent": 10147,
+    "depth": 2
+  },
+  {
+    "id": 10150,
+    "name": "Protection System",
+    "slug": "protection-system",
+    "parent": 10147,
+    "depth": 2
+  },
+  {
+    "id": 10151,
+    "name": "Electronics Components",
+    "slug": "electronics-components",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10152,
+    "name": "PCB Modules",
+    "slug": "pcb-modules",
+    "parent": 10151,
+    "depth": 1
+  },
+  {
+    "id": 10153,
+    "name": "Sensors",
+    "slug": "sensors",
+    "parent": 10151,
+    "depth": 1
+  },
+  {
+    "id": 10154,
+    "name": "Connectors",
+    "slug": "connectors",
+    "parent": 10151,
+    "depth": 1
+  },
+  {
+    "id": 10155,
+    "name": "Cables",
+    "slug": "cables",
+    "parent": 10151,
+    "depth": 1
+  },
+  {
+    "id": 10156,
+    "name": "Communication Modules",
+    "slug": "communication-modules",
+    "parent": 10151,
+    "depth": 1
+  },
+  {
+    "id": 10157,
+    "name": "Electronic Accessories",
+    "slug": "electronic-accessories",
+    "parent": 10151,
+    "depth": 1
+  },
+  {
+    "id": 10158,
+    "name": "Manufacturing & Maintenance",
+    "slug": "manufacturing-maintenance",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10159,
+    "name": "Assembly Tools",
+    "slug": "assembly-tools",
+    "parent": 10158,
+    "depth": 1
+  },
+  {
+    "id": 10160,
+    "name": "Soldering Equipment",
+    "slug": "soldering-equipment",
+    "parent": 10158,
+    "depth": 1
+  },
+  {
+    "id": 10161,
+    "name": "Testing Equipment",
+    "slug": "testing-equipment",
+    "parent": 10158,
+    "depth": 1
+  },
+  {
+    "id": 10162,
+    "name": "Spare Parts",
+    "slug": "spare-parts",
+    "parent": 10158,
+    "depth": 1
+  },
+  {
+    "id": 10163,
+    "name": "Repair Kits",
+    "slug": "repair-kits",
+    "parent": 10158,
+    "depth": 1
+  },
+  {
+    "id": 10164,
+    "name": "Consumables",
+    "slug": "consumables",
+    "parent": 10158,
+    "depth": 1
+  },
+  {
+    "id": 10165,
+    "name": "Industrial Equipment Extension",
+    "slug": "industrial-equipment-extension",
+    "parent": 0,
+    "depth": 0
+  },
+  {
+    "id": 10166,
+    "name": "Solar Energy",
+    "slug": "solar-energy",
+    "parent": 10165,
+    "depth": 1
+  },
+  {
+    "id": 10167,
+    "name": "Electric Mobility",
+    "slug": "electric-mobility",
+    "parent": 10165,
+    "depth": 1
+  },
+  {
+    "id": 10168,
+    "name": "Portable Energy",
+    "slug": "portable-energy",
+    "parent": 10165,
+    "depth": 1
+  },
+  {
+    "id": 10169,
+    "name": "Marine Drone",
+    "slug": "marine-drone",
+    "parent": 10165,
+    "depth": 1
+  },
+  {
+    "id": 10170,
+    "name": "Underwater Robot",
+    "slug": "underwater-robot",
+    "parent": 10165,
+    "depth": 1
+  },
+  {
+    "id": 10171,
+    "name": "Industrial Accessories",
+    "slug": "industrial-accessories",
+    "parent": 10165,
+    "depth": 1
+  }
+]

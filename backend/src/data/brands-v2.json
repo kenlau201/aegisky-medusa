@@ -1,0 +1,970 @@
+[
+  {
+    "name": "AHTECH",
+    "slug": "ahtech"
+  },
+  {
+    "name": "AKK",
+    "slug": "akk"
+  },
+  {
+    "name": "AOMWAY",
+    "slug": "aomway"
+  },
+  {
+    "name": "ARRIS",
+    "slug": "arris"
+  },
+  {
+    "name": "ARTELV",
+    "slug": "artelv"
+  },
+  {
+    "name": "Alientech",
+    "slug": "alientech"
+  },
+  {
+    "name": "Align",
+    "slug": "align"
+  },
+  {
+    "name": "Alloyseed",
+    "slug": "alloyseed"
+  },
+  {
+    "name": "Anytone",
+    "slug": "anytone"
+  },
+  {
+    "name": "Aocoda-RC",
+    "slug": "aocoda-rc"
+  },
+  {
+    "name": "Apex",
+    "slug": "apex"
+  },
+  {
+    "name": "Arduino",
+    "slug": "arduino"
+  },
+  {
+    "name": "Art-Tech",
+    "slug": "art-tech"
+  },
+  {
+    "name": "AtomRC",
+    "slug": "atomrc"
+  },
+  {
+    "name": "Autel",
+    "slug": "autel"
+  },
+  {
+    "name": "AvengeAngel",
+    "slug": "avengeangel"
+  },
+  {
+    "name": "Axisflying",
+    "slug": "axisflying"
+  },
+  {
+    "name": "B&amp;C",
+    "slug": "b-amp-c"
+  },
+  {
+    "name": "BEE FLY",
+    "slug": "bee-fly"
+  },
+  {
+    "name": "BEYONDSKY",
+    "slug": "beyondsky"
+  },
+  {
+    "name": "Banana Pi",
+    "slug": "banana-pi"
+  },
+  {
+    "name": "Baofeng",
+    "slug": "baofeng"
+  },
+  {
+    "name": "BeastFPV",
+    "slug": "beastfpv"
+  },
+  {
+    "name": "Benewake",
+    "slug": "benewake"
+  },
+  {
+    "name": "BetaFPV",
+    "slug": "betafpv"
+  },
+  {
+    "name": "Black Magic",
+    "slug": "black-magic"
+  },
+  {
+    "name": "Boscam",
+    "slug": "boscam"
+  },
+  {
+    "name": "BrotherHobby",
+    "slug": "brotherhobby"
+  },
+  {
+    "name": "CNHL",
+    "slug": "cnhl"
+  },
+  {
+    "name": "CORONA",
+    "slug": "corona"
+  },
+  {
+    "name": "CUAV",
+    "slug": "cuav"
+  },
+  {
+    "name": "Caddx",
+    "slug": "caddx"
+  },
+  {
+    "name": "Canon",
+    "slug": "canon"
+  },
+  {
+    "name": "Cheerson",
+    "slug": "cheerson"
+  },
+  {
+    "name": "Copterparts",
+    "slug": "copterparts"
+  },
+  {
+    "name": "Cyclone",
+    "slug": "cyclone"
+  },
+  {
+    "name": "DJI",
+    "slug": "dji"
+  },
+  {
+    "name": "DSSERVO",
+    "slug": "dsservo"
+  },
+  {
+    "name": "DYS",
+    "slug": "dys"
+  },
+  {
+    "name": "Dalprop",
+    "slug": "dalprop"
+  },
+  {
+    "name": "DarwinFPV",
+    "slug": "darwinfpv"
+  },
+  {
+    "name": "Delta",
+    "slug": "delta"
+  },
+  {
+    "name": "Diatone",
+    "slug": "diatone"
+  },
+  {
+    "name": "Dualsky",
+    "slug": "dualsky"
+  },
+  {
+    "name": "EACHINE",
+    "slug": "eachine"
+  },
+  {
+    "name": "EBOYU",
+    "slug": "eboyu"
+  },
+  {
+    "name": "EFT",
+    "slug": "eft"
+  },
+  {
+    "name": "EV-Peak",
+    "slug": "ev-peak"
+  },
+  {
+    "name": "Ecoflow",
+    "slug": "ecoflow"
+  },
+  {
+    "name": "Emax",
+    "slug": "emax"
+  },
+  {
+    "name": "Epson",
+    "slug": "epson"
+  },
+  {
+    "name": "FATJAY",
+    "slug": "fatjay"
+  },
+  {
+    "name": "FIMI",
+    "slug": "fimi"
+  },
+  {
+    "name": "FOXWEY",
+    "slug": "foxwey"
+  },
+  {
+    "name": "FRC",
+    "slug": "frc"
+  },
+  {
+    "name": "FYXL",
+    "slug": "fyxl"
+  },
+  {
+    "name": "FatShark",
+    "slug": "fatshark"
+  },
+  {
+    "name": "Feetech",
+    "slug": "feetech"
+  },
+  {
+    "name": "Fifish",
+    "slug": "fifish"
+  },
+  {
+    "name": "Firefly",
+    "slug": "firefly"
+  },
+  {
+    "name": "Flashhobby",
+    "slug": "flashhobby"
+  },
+  {
+    "name": "Flipsky",
+    "slug": "flipsky"
+  },
+  {
+    "name": "FlySky",
+    "slug": "flysky"
+  },
+  {
+    "name": "Flycolor",
+    "slug": "flycolor"
+  },
+  {
+    "name": "FlyfishRC",
+    "slug": "flyfishrc"
+  },
+  {
+    "name": "Flywoo",
+    "slug": "flywoo"
+  },
+  {
+    "name": "Foxeer",
+    "slug": "foxeer"
+  },
+  {
+    "name": "FrSky",
+    "slug": "frsky"
+  },
+  {
+    "name": "Freerchobby",
+    "slug": "freerchobby"
+  },
+  {
+    "name": "Futaba",
+    "slug": "futaba"
+  },
+  {
+    "name": "GAONENG",
+    "slug": "gaoneng"
+  },
+  {
+    "name": "GEPRC",
+    "slug": "geprc"
+  },
+  {
+    "name": "GNB",
+    "slug": "gnb"
+  },
+  {
+    "name": "GNSS",
+    "slug": "gnss"
+  },
+  {
+    "name": "GP",
+    "slug": "gp"
+  },
+  {
+    "name": "GXservo",
+    "slug": "gxservo"
+  },
+  {
+    "name": "Garmin",
+    "slug": "garmin"
+  },
+  {
+    "name": "Gemfan",
+    "slug": "gemfan"
+  },
+  {
+    "name": "GoPro",
+    "slug": "gopro"
+  },
+  {
+    "name": "Gremsy",
+    "slug": "gremsy"
+  },
+  {
+    "name": "HAKRC",
+    "slug": "hakrc"
+  },
+  {
+    "name": "HDZero",
+    "slug": "hdzero"
+  },
+  {
+    "name": "HGLRC",
+    "slug": "hglrc"
+  },
+  {
+    "name": "HMF",
+    "slug": "hmf"
+  },
+  {
+    "name": "HOTA",
+    "slug": "hota"
+  },
+  {
+    "name": "HQProp",
+    "slug": "hqprop"
+  },
+  {
+    "name": "HRB",
+    "slug": "hrb"
+  },
+  {
+    "name": "HSKRC",
+    "slug": "hskrc"
+  },
+  {
+    "name": "HTRC",
+    "slug": "htrc"
+  },
+  {
+    "name": "HackRF",
+    "slug": "hackrf"
+  },
+  {
+    "name": "Happymodel",
+    "slug": "happymodel"
+  },
+  {
+    "name": "HelloRadio",
+    "slug": "helloradio"
+  },
+  {
+    "name": "Hitec",
+    "slug": "hitec"
+  },
+  {
+    "name": "HobbyPorter",
+    "slug": "hobbyporter"
+  },
+  {
+    "name": "Hobbyking",
+    "slug": "hobbyking"
+  },
+  {
+    "name": "Hobbypower",
+    "slug": "hobbypower"
+  },
+  {
+    "name": "Hobbywing",
+    "slug": "hobbywing"
+  },
+  {
+    "name": "Hoco",
+    "slug": "hoco"
+  },
+  {
+    "name": "Holybro",
+    "slug": "holybro"
+  },
+  {
+    "name": "HotRC",
+    "slug": "hotrc"
+  },
+  {
+    "name": "Hubsan",
+    "slug": "hubsan"
+  },
+  {
+    "name": "Hytera",
+    "slug": "hytera"
+  },
+  {
+    "name": "IFlight",
+    "slug": "iflight"
+  },
+  {
+    "name": "ISDT",
+    "slug": "isdt"
+  },
+  {
+    "name": "ITC",
+    "slug": "itc"
+  },
+  {
+    "name": "Intel",
+    "slug": "intel"
+  },
+  {
+    "name": "JHEMCU",
+    "slug": "jhemcu"
+  },
+  {
+    "name": "JMT",
+    "slug": "jmt"
+  },
+  {
+    "name": "JP Hobby",
+    "slug": "jp-hobby"
+  },
+  {
+    "name": "JSI",
+    "slug": "jsi"
+  },
+  {
+    "name": "JX",
+    "slug": "jx"
+  },
+  {
+    "name": "Jea.Love",
+    "slug": "jea-love"
+  },
+  {
+    "name": "Jijie",
+    "slug": "jijie"
+  },
+  {
+    "name": "Jumpeak",
+    "slug": "jumpeak"
+  },
+  {
+    "name": "Jumper",
+    "slug": "jumper"
+  },
+  {
+    "name": "Junsi iCharger",
+    "slug": "junsi-icharger"
+  },
+  {
+    "name": "K-Power",
+    "slug": "k-power"
+  },
+  {
+    "name": "KIRISUN",
+    "slug": "kirisun"
+  },
+  {
+    "name": "KISS",
+    "slug": "kiss"
+  },
+  {
+    "name": "KROKS",
+    "slug": "kroks"
+  },
+  {
+    "name": "KST",
+    "slug": "kst"
+  },
+  {
+    "name": "Khadas",
+    "slug": "khadas"
+  },
+  {
+    "name": "Korad",
+    "slug": "korad"
+  },
+  {
+    "name": "LYZRC",
+    "slug": "lyzrc"
+  },
+  {
+    "name": "LiitoKala",
+    "slug": "liitokala"
+  },
+  {
+    "name": "Lira",
+    "slug": "lira"
+  },
+  {
+    "name": "Livox",
+    "slug": "livox"
+  },
+  {
+    "name": "Lumenier",
+    "slug": "lumenier"
+  },
+  {
+    "name": "MAD",
+    "slug": "mad"
+  },
+  {
+    "name": "MJX",
+    "slug": "mjx"
+  },
+  {
+    "name": "MKS",
+    "slug": "mks"
+  },
+  {
+    "name": "Mamba System",
+    "slug": "mamba-system"
+  },
+  {
+    "name": "ManiaX",
+    "slug": "maniax"
+  },
+  {
+    "name": "Maple",
+    "slug": "maple"
+  },
+  {
+    "name": "Mateksys",
+    "slug": "mateksys"
+  },
+  {
+    "name": "Matsutec",
+    "slug": "matsutec"
+  },
+  {
+    "name": "Mayatech",
+    "slug": "mayatech"
+  },
+  {
+    "name": "Maytech",
+    "slug": "maytech"
+  },
+  {
+    "name": "MicroZone",
+    "slug": "microzone"
+  },
+  {
+    "name": "Misnode",
+    "slug": "misnode"
+  },
+  {
+    "name": "Molicel",
+    "slug": "molicel"
+  },
+  {
+    "name": "Motorola",
+    "slug": "motorola"
+  },
+  {
+    "name": "Mugin",
+    "slug": "mugin"
+  },
+  {
+    "name": "NETOPTIC",
+    "slug": "netoptic"
+  },
+  {
+    "name": "NTM",
+    "slug": "ntm"
+  },
+  {
+    "name": "Nazgul",
+    "slug": "nazgul"
+  },
+  {
+    "name": "Nitecore",
+    "slug": "nitecore"
+  },
+  {
+    "name": "Nvidia",
+    "slug": "nvidia"
+  },
+  {
+    "name": "ORT",
+    "slug": "ort"
+  },
+  {
+    "name": "Orange Pi",
+    "slug": "orange-pi"
+  },
+  {
+    "name": "Ouster",
+    "slug": "ouster"
+  },
+  {
+    "name": "Panasonic",
+    "slug": "panasonic"
+  },
+  {
+    "name": "Parrot",
+    "slug": "parrot"
+  },
+  {
+    "name": "Partom",
+    "slug": "partom"
+  },
+  {
+    "name": "Peak Racing",
+    "slug": "peak-racing"
+  },
+  {
+    "name": "Pixhawk",
+    "slug": "pixhawk"
+  },
+  {
+    "name": "PowerHD",
+    "slug": "powerhd"
+  },
+  {
+    "name": "QAV",
+    "slug": "qav"
+  },
+  {
+    "name": "QX-Motor",
+    "slug": "qx-motor"
+  },
+  {
+    "name": "RADIOMASTER",
+    "slug": "radiomaster"
+  },
+  {
+    "name": "RADXA",
+    "slug": "radxa"
+  },
+  {
+    "name": "RCINPOWER",
+    "slug": "rcinpower"
+  },
+  {
+    "name": "RF Explorer",
+    "slug": "rf-explorer"
+  },
+  {
+    "name": "RUSHFPV",
+    "slug": "rushfpv"
+  },
+  {
+    "name": "RacePow",
+    "slug": "racepow"
+  },
+  {
+    "name": "Radiolink",
+    "slug": "radiolink"
+  },
+  {
+    "name": "Raspberry Pi",
+    "slug": "raspberry-pi"
+  },
+  {
+    "name": "ReadyToSky",
+    "slug": "readytosky"
+  },
+  {
+    "name": "Repka Pi",
+    "slug": "repka-pi"
+  },
+  {
+    "name": "Runcam",
+    "slug": "runcam"
+  },
+  {
+    "name": "SEQURE",
+    "slug": "sequre"
+  },
+  {
+    "name": "SIYI",
+    "slug": "siyi"
+  },
+  {
+    "name": "SJRC",
+    "slug": "sjrc"
+  },
+  {
+    "name": "SKYRC",
+    "slug": "skyrc"
+  },
+  {
+    "name": "SURPASS",
+    "slug": "surpass"
+  },
+  {
+    "name": "SYMA",
+    "slug": "syma"
+  },
+  {
+    "name": "Samsung",
+    "slug": "samsung"
+  },
+  {
+    "name": "SanDisk",
+    "slug": "sandisk"
+  },
+  {
+    "name": "Savox",
+    "slug": "savox"
+  },
+  {
+    "name": "Scorpion",
+    "slug": "scorpion"
+  },
+  {
+    "name": "Sennheiser",
+    "slug": "sennheiser"
+  },
+  {
+    "name": "Shakespeare",
+    "slug": "shakespeare"
+  },
+  {
+    "name": "Sigp",
+    "slug": "sigp"
+  },
+  {
+    "name": "Sky-Drones",
+    "slug": "sky-drones"
+  },
+  {
+    "name": "Skydroid",
+    "slug": "skydroid"
+  },
+  {
+    "name": "Skystars",
+    "slug": "skystars"
+  },
+  {
+    "name": "Skyzone",
+    "slug": "skyzone"
+  },
+  {
+    "name": "Slamtec",
+    "slug": "slamtec"
+  },
+  {
+    "name": "Slonwake",
+    "slug": "slonwake"
+  },
+  {
+    "name": "SoloGood",
+    "slug": "sologood"
+  },
+  {
+    "name": "Sony",
+    "slug": "sony"
+  },
+  {
+    "name": "Sparkhobby",
+    "slug": "sparkhobby"
+  },
+  {
+    "name": "Speedybee",
+    "slug": "speedybee"
+  },
+  {
+    "name": "Starlink",
+    "slug": "starlink"
+  },
+  {
+    "name": "Suin",
+    "slug": "suin"
+  },
+  {
+    "name": "Sunnysky",
+    "slug": "sunnysky"
+  },
+  {
+    "name": "Sunpadow",
+    "slug": "sunpadow"
+  },
+  {
+    "name": "Superbat",
+    "slug": "superbat"
+  },
+  {
+    "name": "SwellPro",
+    "slug": "swellpro"
+  },
+  {
+    "name": "T-Motor",
+    "slug": "t-motor"
+  },
+  {
+    "name": "TYT",
+    "slug": "tyt"
+  },
+  {
+    "name": "Tarot",
+    "slug": "tarot"
+  },
+  {
+    "name": "Tattu",
+    "slug": "tattu"
+  },
+  {
+    "name": "Team BlackSheep",
+    "slug": "team-blacksheep"
+  },
+  {
+    "name": "ToolkitRC",
+    "slug": "toolkitrc"
+  },
+  {
+    "name": "Toothpick",
+    "slug": "toothpick"
+  },
+  {
+    "name": "TopON",
+    "slug": "topon"
+  },
+  {
+    "name": "Torvol",
+    "slug": "torvol"
+  },
+  {
+    "name": "Totem",
+    "slug": "totem"
+  },
+  {
+    "name": "TrueRC",
+    "slug": "truerc"
+  },
+  {
+    "name": "Turnigy",
+    "slug": "turnigy"
+  },
+  {
+    "name": "Ubiquiti",
+    "slug": "ubiquiti"
+  },
+  {
+    "name": "Ultrapower",
+    "slug": "ultrapower"
+  },
+  {
+    "name": "Unknown",
+    "slug": "unknown"
+  },
+  {
+    "name": "VANT",
+    "slug": "vant"
+  },
+  {
+    "name": "VCIHOBBY",
+    "slug": "vcihobby"
+  },
+  {
+    "name": "VIFLY",
+    "slug": "vifly"
+  },
+  {
+    "name": "Velodyne",
+    "slug": "velodyne"
+  },
+  {
+    "name": "Viewpro",
+    "slug": "viewpro"
+  },
+  {
+    "name": "WORX",
+    "slug": "worx"
+  },
+  {
+    "name": "WYFPV",
+    "slug": "wyfpv"
+  },
+  {
+    "name": "Walkera",
+    "slug": "walkera"
+  },
+  {
+    "name": "Walksnail",
+    "slug": "walksnail"
+  },
+  {
+    "name": "XIRO",
+    "slug": "xiro"
+  },
+  {
+    "name": "YAGI",
+    "slug": "yagi"
+  },
+  {
+    "name": "YDLIDAR",
+    "slug": "ydlidar"
+  },
+  {
+    "name": "Yahboom",
+    "slug": "yahboom"
+  },
+  {
+    "name": "Youme",
+    "slug": "youme"
+  },
+  {
+    "name": "Yuneec",
+    "slug": "yuneec"
+  },
+  {
+    "name": "ZLRC",
+    "slug": "zlrc"
+  },
+  {
+    "name": "ZMR",
+    "slug": "zmr"
+  },
+  {
+    "name": "ZOP POWER",
+    "slug": "zop-power"
+  },
+  {
+    "name": "ZTW",
+    "slug": "ztw"
+  },
+  {
+    "name": "Zeee Power",
+    "slug": "zeee-power"
+  },
+  {
+    "name": "iPower",
+    "slug": "ipower"
+  },
+  {
+    "name": "lattepanda",
+    "slug": "lattepanda"
+  },
+  {
+    "name": "tBeacon",
+    "slug": "tbeacon"
+  },
+  {
+    "name": "Взлёт, посадка",
+    "slug": ""
+  },
+  {
+    "name": "Гермес",
+    "slug": ""
+  },
+  {
+    "name": "Производство РФ",
+    "slug": ""
+  },
+  {
+    "name": "Разъёмы",
+    "slug": ""
+  },
+  {
+    "name": "Стезя",
+    "slug": ""
+  }
+]

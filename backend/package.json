@@ -1,0 +1,45 @@
+{
+  "name": "aegisky-medusa-backend",
+  "version": "1.0.0",
+  "description": "Aegisky B2B Platform - Medusa.js 2.0 Backend",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "medusa build",
+    "dev": "medusa develop",
+    "start": "medusa start",
+    "migrate": "medusa db:migrate",
+    "seed": "medusa db:seed",
+    "etl:full": "node src/scripts/etl-full.js",
+    "etl:db": "node src/scripts/etl-db.js",
+    "etl:analyze": "node src/scripts/analyze-categories.js",
+    "etl:map": "node src/scripts/generate-category-map.js",
+    "export-data": "node src/scripts/export-from-aegisky.js",
+    "import-data": "node src/scripts/import-to-medusa.js"
+  },
+  "dependencies": {
+    "@medusajs/admin-sdk": "^2.18.0",
+    "@medusajs/file-local": "^2.18.0",
+    "@medusajs/framework": "^2.0.0",
+    "@medusajs/fulfillment-manual": "^2.18.0",
+    "@medusajs/medusa": "^2.18.0",
+    "@medusajs/notification-local": "^2.18.0",
+    "@medusajs/payment-stripe": "^2.18.0",
+    "@medusajs/utils": "^2.0.0",
+    "bcryptjs": "^3.0.3",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.3.1",
+    "medusa-plugin-meilisearch": "^2.0.11",
+    "nodemailer": "^9.0.3",
+    "pdfkit": "^0.19.1",
+    "pg": "^8.11.3",
+    "redis": "^6.2.0",
+    "stripe": "^22.4.0"
+  },
+  "devDependencies": {
+    "@medusajs/cli": "^2.18.0",
+    "@types/node": "^20.10.0",
+    "@types/pg": "^8.10.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2"
+  }
+}

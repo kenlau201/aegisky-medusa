@@ -1,0 +1,5167 @@
+{
+  "735": {
+    "std_id": 28,
+    "std_slug": "servos",
+    "std_name": "伺服机"
+  },
+  "736": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "737": {
+    "std_id": 41,
+    "std_slug": "microcomputers",
+    "std_name": "微型计算机"
+  },
+  "738": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "739": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "740": {
+    "std_id": 37,
+    "std_slug": "charging-equipment",
+    "std_name": "充电设备"
+  },
+  "741": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "742": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "744": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "745": {
+    "std_id": 28,
+    "std_slug": "servos",
+    "std_name": "伺服机"
+  },
+  "746": {
+    "std_id": 34,
+    "std_slug": "esc-controllers",
+    "std_name": "ESC控制器"
+  },
+  "747": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "748": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "749": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "750": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "751": {
+    "std_id": 30,
+    "std_slug": "cameras-video",
+    "std_name": "摄像机与视频"
+  },
+  "752": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "753": {
+    "std_id": 40,
+    "std_slug": "tools",
+    "std_name": "工具"
+  },
+  "754": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "755": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "756": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "757": {
+    "std_id": 30,
+    "std_slug": "cameras-video",
+    "std_name": "摄像机与视频"
+  },
+  "758": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "759": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "760": {
+    "std_id": 42,
+    "std_slug": "chips",
+    "std_name": "薯片，薯片"
+  },
+  "761": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "762": {
+    "std_id": 43,
+    "std_slug": "monitors",
+    "std_name": "监视器"
+  },
+  "763": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "764": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "765": {
+    "std_id": 1,
+    "std_slug": "quadcopters",
+    "std_name": "四旋翼机"
+  },
+  "766": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "767": {
+    "std_id": 1,
+    "std_slug": "quadcopters",
+    "std_name": "四旋翼机"
+  },
+  "769": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "771": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "774": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "775": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "778": {
+    "std_id": 29,
+    "std_slug": "blades-propellers",
+    "std_name": "叶片与螺旋桨"
+  },
+  "780": {
+    "std_id": 29,
+    "std_slug": "blades-propellers",
+    "std_name": "叶片与螺旋桨"
+  },
+  "783": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "784": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "785": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "786": {
+    "std_id": 41,
+    "std_slug": "microcomputers",
+    "std_name": "微型计算机"
+  },
+  "787": {
+    "std_id": 41,
+    "std_slug": "microcomputers",
+    "std_name": "微型计算机"
+  },
+  "788": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "789": {
+    "std_id": 49,
+    "std_slug": "network-equipment",
+    "std_name": "网络设备"
+  },
+  "792": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "793": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "794": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "795": {
+    "std_id": 37,
+    "std_slug": "charging-equipment",
+    "std_name": "充电设备"
+  },
+  "796": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "797": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "799": {
+    "std_id": 50,
+    "std_slug": "kyocera-repair-kits",
+    "std_name": "京陶瓷维修套件"
+  },
+  "800": {
+    "std_id": 45,
+    "std_slug": "gimbals",
+    "std_name": "悬挂（云台）"
+  },
+  "801": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "803": {
+    "std_id": 18,
+    "std_slug": "counter-drones",
+    "std_name": "对抗无人机和无人机"
+  },
+  "804": {
+    "std_id": 25,
+    "std_slug": "control-panels",
+    "std_name": "控制面板"
+  },
+  "805": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "806": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "807": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "808": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "809": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "810": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "811": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "812": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "813": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "814": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "815": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "816": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "817": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "818": {
+    "std_id": 26,
+    "std_slug": "antennas",
+    "std_name": "天线"
+  },
+  "819": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "820": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "821": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "822": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "823": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "824": {
+    "std_id": 19,
+    "std_slug": "frames",
+    "std_name": "框架"
+  },
+  "825": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "826": {
+    "std_id": 29,
+    "std_slug": "blades-propellers",
+    "std_name": "叶片与螺旋桨"
+  },
+  "827": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "828": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "829": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "830": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "831": {
+    "std_id": 20,
+    "std_slug": "autopilots",
+    "std_name": "自动驾驶仪"
+  },
+  "832": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "833": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "834": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "835": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "837": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "838": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "839": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "842": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "844": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "845": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "846": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "847": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "848": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "849": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "850": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "851": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "852": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "853": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "854": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "855": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "856": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "857": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "858": {
+    "std_id": 20,
+    "std_slug": "autopilots",
+    "std_name": "自动驾驶仪"
+  },
+  "859": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "861": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "862": {
+    "std_id": 25,
+    "std_slug": "control-panels",
+    "std_name": "控制面板"
+  },
+  "863": {
+    "std_id": 25,
+    "std_slug": "control-panels",
+    "std_name": "控制面板"
+  },
+  "866": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "867": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "868": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "869": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "870": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "871": {
+    "std_id": 36,
+    "std_slug": "batteries",
+    "std_name": "电池"
+  },
+  "872": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "873": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "874": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "875": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "876": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "877": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "878": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "879": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "880": {
+    "std_id": 34,
+    "std_slug": "esc-controllers",
+    "std_name": "ESC控制器"
+  },
+  "881": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "887": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "888": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "889": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "890": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "891": {
+    "std_id": 36,
+    "std_slug": "batteries",
+    "std_name": "电池"
+  },
+  "892": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "893": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "894": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "895": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "896": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "897": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "898": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "900": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "901": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "902": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "903": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "905": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "906": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "907": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "908": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "909": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "930": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "931": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "932": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1007": {
+    "std_id": 1,
+    "std_slug": "quadcopters",
+    "std_name": "四旋翼机"
+  },
+  "1008": {
+    "std_id": 1,
+    "std_slug": "quadcopters",
+    "std_name": "四旋翼机"
+  },
+  "1011": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1074": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1079": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1080": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1081": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1082": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1083": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1084": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1085": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1086": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1087": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1088": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1165": {
+    "std_id": 1,
+    "std_slug": "quadcopters",
+    "std_name": "四旋翼机"
+  },
+  "1166": {
+    "std_id": 1,
+    "std_slug": "quadcopters",
+    "std_name": "四旋翼机"
+  },
+  "1182": {
+    "std_id": 28,
+    "std_slug": "servos",
+    "std_name": "伺服机"
+  },
+  "1183": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1191": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1193": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1194": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1195": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1196": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1201": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1202": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1203": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1204": {
+    "std_id": 40,
+    "std_slug": "tools",
+    "std_name": "工具"
+  },
+  "1205": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1206": {
+    "std_id": 28,
+    "std_slug": "servos",
+    "std_name": "伺服机"
+  },
+  "1207": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1209": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1210": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1211": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1212": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1214": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1215": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1216": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1217": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1218": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1219": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1220": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1221": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1222": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1223": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1224": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1225": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1226": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1227": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1228": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1229": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1230": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1231": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1232": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1233": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1234": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1235": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1236": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1237": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1238": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1239": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1240": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1241": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "1243": {
+    "std_id": 35,
+    "std_slug": "lanterns",
+    "std_name": "灯笼"
+  },
+  "1244": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1247": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1253": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1254": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1255": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1260": {
+    "std_id": 35,
+    "std_slug": "lanterns",
+    "std_name": "灯笼"
+  },
+  "1261": {
+    "std_id": 35,
+    "std_slug": "lanterns",
+    "std_name": "灯笼"
+  },
+  "1262": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1267": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1268": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1269": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1275": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1276": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1277": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1278": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "1279": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1280": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1281": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "1282": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1283": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1284": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1285": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1286": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1287": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1288": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1289": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1290": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1291": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1292": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1293": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1294": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1295": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1297": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1298": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1299": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1300": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1301": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1302": {
+    "std_id": 5,
+    "std_slug": "fpv-drones",
+    "std_name": "FPV无人机"
+  },
+  "1303": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1304": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1305": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1306": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1307": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1308": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1309": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1310": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1311": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1312": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1313": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1314": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1315": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1316": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1317": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1318": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1320": {
+    "std_id": 20,
+    "std_slug": "autopilots",
+    "std_name": "自动驾驶仪"
+  },
+  "1321": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1322": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1323": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1324": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1325": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1326": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1327": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1328": {
+    "std_id": 6,
+    "std_slug": "russian-drones",
+    "std_name": "俄罗斯联邦无人机"
+  },
+  "1329": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1330": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1331": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1332": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1333": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1334": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1335": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1336": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1337": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1338": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1339": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1340": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1341": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1342": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1343": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1344": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1345": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1346": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1347": {
+    "std_id": 6,
+    "std_slug": "russian-drones",
+    "std_name": "俄罗斯联邦无人机"
+  },
+  "1348": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1350": {
+    "std_id": 6,
+    "std_slug": "russian-drones",
+    "std_name": "俄罗斯联邦无人机"
+  },
+  "1352": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1353": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1357": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1358": {
+    "std_id": 12,
+    "std_slug": "robots",
+    "std_name": "机器人"
+  },
+  "1359": {
+    "std_id": 1,
+    "std_slug": "quadcopters",
+    "std_name": "四旋翼机"
+  },
+  "1360": {
+    "std_id": 2,
+    "std_slug": "training-drones",
+    "std_name": "训练用无人机"
+  },
+  "1361": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "1362": {
+    "std_id": 28,
+    "std_slug": "servos",
+    "std_name": "伺服机"
+  },
+  "1363": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1364": {
+    "std_id": 6,
+    "std_slug": "russian-drones",
+    "std_name": "俄罗斯联邦无人机"
+  },
+  "1365": {
+    "std_id": 1,
+    "std_slug": "quadcopters",
+    "std_name": "四旋翼机"
+  },
+  "1366": {
+    "std_id": 5,
+    "std_slug": "fpv-drones",
+    "std_name": "FPV无人机"
+  },
+  "1367": {
+    "std_id": 3,
+    "std_slug": "thermal-imaging-drones",
+    "std_name": "配备热成像器的无人机"
+  },
+  "1371": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1374": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "1377": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1378": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "1379": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1380": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1381": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1382": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "1383": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1384": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1385": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1386": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1387": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1389": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1391": {
+    "std_id": 34,
+    "std_slug": "esc-controllers",
+    "std_name": "ESC控制器"
+  },
+  "1392": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1393": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1394": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1395": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1396": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1397": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1409": {
+    "std_id": 1,
+    "std_slug": "quadcopters",
+    "std_name": "四旋翼机"
+  },
+  "1410": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1412": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1413": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1414": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1415": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1416": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1417": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1418": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1419": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "1422": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1423": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1424": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1425": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1426": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1427": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "1428": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1429": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "1430": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "1432": {
+    "std_id": 37,
+    "std_slug": "charging-equipment",
+    "std_name": "充电设备"
+  },
+  "1434": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1435": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1457": {
+    "std_id": 12,
+    "std_slug": "robots",
+    "std_name": "机器人"
+  },
+  "1458": {
+    "std_id": 12,
+    "std_slug": "robots",
+    "std_name": "机器人"
+  },
+  "1459": {
+    "std_id": 1,
+    "std_slug": "quadcopters",
+    "std_name": "四旋翼机"
+  },
+  "1460": {
+    "std_id": 18,
+    "std_slug": "counter-drones",
+    "std_name": "对抗无人机和无人机"
+  },
+  "1479": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "1481": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "1606": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1607": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1608": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "1609": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "1610": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "1611": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1613": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1616": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1617": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1618": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1619": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1620": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1621": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1622": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1624": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1626": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1628": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1630": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1631": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1633": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1635": {
+    "std_id": 40,
+    "std_slug": "tools",
+    "std_name": "工具"
+  },
+  "1844": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1845": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1847": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1848": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1850": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1851": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "1852": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1853": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1855": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "1857": {
+    "std_id": 43,
+    "std_slug": "monitors",
+    "std_name": "监视器"
+  },
+  "2138": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "2386": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "2387": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "2459": {
+    "std_id": 1,
+    "std_slug": "quadcopters",
+    "std_name": "四旋翼机"
+  },
+  "2537": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "2538": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "2539": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "2540": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "2542": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "2544": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "2546": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "2821": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "2823": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "2824": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "2825": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3053": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "3054": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3055": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3057": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3062": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "3064": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3189": {
+    "std_id": 45,
+    "std_slug": "gimbals",
+    "std_name": "悬挂（云台）"
+  },
+  "3204": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3348": {
+    "std_id": 37,
+    "std_slug": "charging-equipment",
+    "std_name": "充电设备"
+  },
+  "3352": {
+    "std_id": 37,
+    "std_slug": "charging-equipment",
+    "std_name": "充电设备"
+  },
+  "3382": {
+    "std_id": 36,
+    "std_slug": "batteries",
+    "std_name": "电池"
+  },
+  "3407": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3412": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3419": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3423": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "3563": {
+    "std_id": 4,
+    "std_slug": "waterproof-drones",
+    "std_name": "防水无人机"
+  },
+  "3575": {
+    "std_id": 15,
+    "std_slug": "underwater-drones",
+    "std_name": "水下无人机"
+  },
+  "3692": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "3693": {
+    "std_id": 15,
+    "std_slug": "underwater-drones",
+    "std_name": "水下无人机"
+  },
+  "3918": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3922": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3924": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3941": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3943": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3951": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3954": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3957": {
+    "std_id": 20,
+    "std_slug": "autopilots",
+    "std_name": "自动驾驶仪"
+  },
+  "3959": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3960": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3964": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3980": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "3991": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "3997": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4000": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4002": {
+    "std_id": 23,
+    "std_slug": "receivers",
+    "std_name": "接收器"
+  },
+  "4025": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4027": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4028": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4032": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4037": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4046": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4047": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4051": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "4058": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4067": {
+    "std_id": 28,
+    "std_slug": "servos",
+    "std_name": "伺服机"
+  },
+  "4071": {
+    "std_id": 28,
+    "std_slug": "servos",
+    "std_name": "伺服机"
+  },
+  "4089": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4208": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4218": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4220": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4235": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4430": {
+    "std_id": 41,
+    "std_slug": "microcomputers",
+    "std_name": "微型计算机"
+  },
+  "4432": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4437": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4456": {
+    "std_id": 41,
+    "std_slug": "microcomputers",
+    "std_name": "微型计算机"
+  },
+  "4460": {
+    "std_id": 41,
+    "std_slug": "microcomputers",
+    "std_name": "微型计算机"
+  },
+  "4463": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4492": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4528": {
+    "std_id": 30,
+    "std_slug": "cameras-video",
+    "std_name": "摄像机与视频"
+  },
+  "4541": {
+    "std_id": 30,
+    "std_slug": "cameras-video",
+    "std_name": "摄像机与视频"
+  },
+  "4543": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4545": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4547": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4595": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4596": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "4603": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "4604": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4605": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4607": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4608": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4611": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4614": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4621": {
+    "std_id": 28,
+    "std_slug": "servos",
+    "std_name": "伺服机"
+  },
+  "4642": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4665": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4789": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4791": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4796": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4800": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4804": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4806": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4839": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4842": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4868": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "4897": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4899": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4901": {
+    "std_id": 30,
+    "std_slug": "cameras-video",
+    "std_name": "摄像机与视频"
+  },
+  "4902": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4905": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4930": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4931": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "4950": {
+    "std_id": 30,
+    "std_slug": "cameras-video",
+    "std_name": "摄像机与视频"
+  },
+  "4960": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5038": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "5043": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "5051": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5053": {
+    "std_id": 30,
+    "std_slug": "cameras-video",
+    "std_name": "摄像机与视频"
+  },
+  "5059": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5070": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5071": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5075": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5081": {
+    "std_id": 30,
+    "std_slug": "cameras-video",
+    "std_name": "摄像机与视频"
+  },
+  "5111": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5366": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5368": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5373": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5376": {
+    "std_id": 30,
+    "std_slug": "cameras-video",
+    "std_name": "摄像机与视频"
+  },
+  "5377": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5379": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5381": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5382": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5383": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5401": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5403": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5407": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5422": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5423": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5425": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "5426": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5432": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5445": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5446": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5447": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5454": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5461": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "5470": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5474": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5476": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5482": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5490": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5495": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5496": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5500": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5533": {
+    "std_id": 28,
+    "std_slug": "servos",
+    "std_name": "伺服机"
+  },
+  "5544": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5548": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5552": {
+    "std_id": 1,
+    "std_slug": "quadcopters",
+    "std_name": "四旋翼机"
+  },
+  "5563": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5564": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5566": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5570": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5574": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5575": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5576": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5582": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5585": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5590": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5593": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5596": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5600": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5602": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5617": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5620": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5621": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5638": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5645": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5650": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5658": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5666": {
+    "std_id": 34,
+    "std_slug": "esc-controllers",
+    "std_name": "ESC控制器"
+  },
+  "5667": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "5719": {
+    "std_id": 4,
+    "std_slug": "waterproof-drones",
+    "std_name": "防水无人机"
+  },
+  "5720": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5728": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5739": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5746": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "5747": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5748": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5755": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5756": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5769": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5770": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5771": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5772": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5773": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5774": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5775": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5776": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5777": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "5778": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "5779": {
+    "std_id": 20,
+    "std_slug": "autopilots",
+    "std_name": "自动驾驶仪"
+  },
+  "5780": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5781": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5782": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5783": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5784": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "5785": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5786": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5787": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5788": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5789": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5790": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5791": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5804": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5805": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5819": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5824": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5825": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5837": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5839": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5840": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5843": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5846": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5851": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5854": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5859": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5860": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5863": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5866": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5867": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5869": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5870": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5873": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5882": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5887": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "5892": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5895": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5896": {
+    "std_id": 37,
+    "std_slug": "charging-equipment",
+    "std_name": "充电设备"
+  },
+  "5905": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "5908": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "5918": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5921": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5923": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5924": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5925": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5927": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5931": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5933": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5934": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5935": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5937": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "5939": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5948": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "5949": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6054": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6058": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6061": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6063": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6066": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6083": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6089": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "6090": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6092": {
+    "std_id": 20,
+    "std_slug": "autopilots",
+    "std_name": "自动驾驶仪"
+  },
+  "6098": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6103": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6104": {
+    "std_id": 30,
+    "std_slug": "cameras-video",
+    "std_name": "摄像机与视频"
+  },
+  "6106": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6109": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6118": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6121": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6126": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "6127": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6131": {
+    "std_id": 23,
+    "std_slug": "receivers",
+    "std_name": "接收器"
+  },
+  "6134": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6140": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6339": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6343": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6349": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6350": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6362": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6366": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6386": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6393": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "6405": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6413": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6415": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6424": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6425": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6435": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "6446": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6450": {
+    "std_id": 30,
+    "std_slug": "cameras-video",
+    "std_name": "摄像机与视频"
+  },
+  "6453": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6460": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6499": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6502": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6517": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6519": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6520": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6522": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6523": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6524": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6526": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6528": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6530": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6531": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6532": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6533": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "6534": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6535": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6536": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6538": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6539": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6541": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6542": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6543": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6545": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6547": {
+    "std_id": 20,
+    "std_slug": "autopilots",
+    "std_name": "自动驾驶仪"
+  },
+  "6548": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6549": {
+    "std_id": 20,
+    "std_slug": "autopilots",
+    "std_name": "自动驾驶仪"
+  },
+  "6550": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6552": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6553": {
+    "std_id": 30,
+    "std_slug": "cameras-video",
+    "std_name": "摄像机与视频"
+  },
+  "6554": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6555": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6557": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6559": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6560": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6561": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6563": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6564": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6566": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6568": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6569": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6572": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6573": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6574": {
+    "std_id": 6,
+    "std_slug": "russian-drones",
+    "std_name": "俄罗斯联邦无人机"
+  },
+  "6605": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6618": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6620": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6623": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6630": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6632": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6641": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6678": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6682": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6686": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6691": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "6713": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6730": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6737": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6767": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6772": {
+    "std_id": 34,
+    "std_slug": "esc-controllers",
+    "std_name": "ESC控制器"
+  },
+  "6780": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6822": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6828": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6854": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6863": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6883": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "6917": {
+    "std_id": 37,
+    "std_slug": "charging-equipment",
+    "std_name": "充电设备"
+  },
+  "6958": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7062": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7066": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "7068": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7092": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7093": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7095": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7097": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "7100": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7102": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7103": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7104": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7105": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7106": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7107": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7109": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7113": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7115": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7118": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7120": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7122": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7127": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7144": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7149": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7151": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7154": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7155": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7156": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7158": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7162": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7165": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7170": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7172": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7176": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7178": {
+    "std_id": 21,
+    "std_slug": "lidar",
+    "std_name": "激光雷达"
+  },
+  "7179": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7180": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7181": {
+    "std_id": 21,
+    "std_slug": "lidar",
+    "std_name": "激光雷达"
+  },
+  "7182": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7183": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7184": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7185": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7194": {
+    "std_id": 4,
+    "std_slug": "waterproof-drones",
+    "std_name": "防水无人机"
+  },
+  "7195": {
+    "std_id": 6,
+    "std_slug": "russian-drones",
+    "std_name": "俄罗斯联邦无人机"
+  },
+  "7196": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7199": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7200": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7201": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7202": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "7203": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7204": {
+    "std_id": 19,
+    "std_slug": "frames",
+    "std_name": "框架"
+  },
+  "7205": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7207": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7208": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7209": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7210": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7211": {
+    "std_id": 25,
+    "std_slug": "control-panels",
+    "std_name": "控制面板"
+  },
+  "7212": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7213": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7214": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7215": {
+    "std_id": 6,
+    "std_slug": "russian-drones",
+    "std_name": "俄罗斯联邦无人机"
+  },
+  "7216": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7217": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7218": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7219": {
+    "std_id": 45,
+    "std_slug": "gimbals",
+    "std_name": "悬挂（云台）"
+  },
+  "7220": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7221": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7222": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7223": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7226": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7230": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7233": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7245": {
+    "std_id": 12,
+    "std_slug": "robots",
+    "std_name": "机器人"
+  },
+  "7250": {
+    "std_id": 12,
+    "std_slug": "robots",
+    "std_name": "机器人"
+  },
+  "7259": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "7283": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "7294": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7296": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7300": {
+    "std_id": 41,
+    "std_slug": "microcomputers",
+    "std_name": "微型计算机"
+  },
+  "7304": {
+    "std_id": 21,
+    "std_slug": "lidar",
+    "std_name": "激光雷达"
+  },
+  "7307": {
+    "std_id": 41,
+    "std_slug": "microcomputers",
+    "std_name": "微型计算机"
+  },
+  "7308": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7311": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7313": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7317": {
+    "std_id": 28,
+    "std_slug": "servos",
+    "std_name": "伺服机"
+  },
+  "7324": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7327": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7337": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7350": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7356": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7368": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7371": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7373": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7375": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7377": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7378": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7380": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7396": {
+    "std_id": 12,
+    "std_slug": "robots",
+    "std_name": "机器人"
+  },
+  "7400": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7419": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7420": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7422": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7424": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7429": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7431": {
+    "std_id": 30,
+    "std_slug": "cameras-video",
+    "std_name": "摄像机与视频"
+  },
+  "7440": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7444": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7457": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7461": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7463": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7464": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7467": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7470": {
+    "std_id": 40,
+    "std_slug": "tools",
+    "std_name": "工具"
+  },
+  "7472": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7474": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7476": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7480": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7481": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7483": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7494": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7497": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7500": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7505": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7507": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7515": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7519": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7532": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7535": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7536": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7538": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7540": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7543": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7544": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7546": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7551": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7555": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7559": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7562": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7565": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7570": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7573": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7583": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7585": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7599": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7601": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7603": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7617": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7627": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7642": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7645": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7662": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7667": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7670": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7676": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7680": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7696": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7700": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7712": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7726": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7730": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7733": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7754": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7767": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7771": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7772": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7774": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7775": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7778": {
+    "std_id": 11,
+    "std_slug": "accessories",
+    "std_name": "配件"
+  },
+  "7781": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7784": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7785": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7786": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7787": {
+    "std_id": 6,
+    "std_slug": "russian-drones",
+    "std_name": "俄罗斯联邦无人机"
+  },
+  "7789": {
+    "std_id": 6,
+    "std_slug": "russian-drones",
+    "std_name": "俄罗斯联邦无人机"
+  },
+  "7790": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7791": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7792": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7793": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7794": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7795": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7796": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7797": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7798": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7808": {
+    "std_id": 32,
+    "std_slug": "spectrum-analyzers",
+    "std_name": "频谱分析仪"
+  },
+  "7816": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7833": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7836": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7840": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7851": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7854": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7859": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7872": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7879": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7881": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7883": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "7903": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7904": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7927": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7930": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7942": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7954": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7962": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7966": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7969": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7973": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7975": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7977": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7981": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7984": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7985": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7986": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7990": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7991": {
+    "std_id": 36,
+    "std_slug": "batteries",
+    "std_name": "电池"
+  },
+  "7993": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "7997": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8003": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8005": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8007": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8009": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8020": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8022": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8024": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8027": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8029": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8033": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8036": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8040": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8042": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8044": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8046": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8048": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8049": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8050": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8051": {
+    "std_id": 24,
+    "std_slug": "remote-radiometry",
+    "std_name": "远程辐射测量系统"
+  },
+  "8052": {
+    "std_id": 31,
+    "std_slug": "machine-vision-cameras",
+    "std_name": "机器视觉摄像机"
+  },
+  "8053": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8055": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8058": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8060": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8064": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8069": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8074": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8079": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8081": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8082": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8083": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8086": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8088": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8091": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8093": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8095": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8098": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8100": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8108": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8113": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8115": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8116": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8117": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8185": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8187": {
+    "std_id": 28,
+    "std_slug": "servos",
+    "std_name": "伺服机"
+  },
+  "8188": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8190": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8191": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8194": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8196": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8199": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8204": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8206": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8208": {
+    "std_id": 12,
+    "std_slug": "robots",
+    "std_name": "机器人"
+  },
+  "8213": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8223": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8224": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8226": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8228": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8230": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8232": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8233": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8238": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8240": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8241": {
+    "std_id": 27,
+    "std_slug": "motors",
+    "std_name": "发动机"
+  },
+  "8242": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8245": {
+    "std_id": 44,
+    "std_slug": "radio-stations",
+    "std_name": "广播电台"
+  },
+  "8246": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8251": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8258": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8268": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8271": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8279": {
+    "std_id": 23,
+    "std_slug": "receivers",
+    "std_name": "接收器"
+  },
+  "8284": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  },
+  "8287": {
+    "std_id": 52,
+    "std_slug": "other",
+    "std_name": "其他"
+  }
+}

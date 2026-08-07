@@ -1,0 +1,6 @@
+{
+  "transaction_id": "23d392ad-3c41-46b7-8781-fdd5808bceae",
+  "action": "APPROVE",
+  "reviewer_id": "test_compliance_officer",
+  "reviewer_notes": "Approved after manual review, civilian mapping use confirmed"
+}

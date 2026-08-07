@@ -1,0 +1,10 @@
+[
+  {
+    "version": "v2026.08.04-1020",
+    "timestamp": "2026-08-04T02:20:05.483Z",
+    "backendImage": "aegisky/backend:v2026.08.04-1020",
+    "frontendImage": "aegisky/frontend:v2026.08.04-1020",
+    "status": "stable",
+    "healthCheckPassed": true
+  }
+]

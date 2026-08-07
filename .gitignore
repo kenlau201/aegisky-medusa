@@ -1,0 +1,108 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+pgdata/
+postgres-data/
+
+# Docker
+docker-compose.override.yml
+.docker-data/
+
+# Media and large files (本地存储，不进git)
+data/mirror/images/
+data/mirror/videos/
+public/images/products/
+public/images/categories/
+public/images/brands/
+public/videos/
+storefront/public/videos/
+storefront/public/images/products/
+storefront/public/images/categories/
+storefront/public/images/brands/
+*.mp4
+*.mov
+*.avi
+*.webm
+*.zip
+*.tar.gz
+*.rar
+*.sql
+*.sql.gz
+*.bak
+*.bak_*
+
+# Large data files (over 10MB)
+data/mirror/products*.json*
+data/mirror/categories*.json*
+data/mirror/brands*.json*
+data/export/products*.json
+data/enriched/products*.json
+data/enriched/*.json
+backend/data/
+backend/src/data/staging-*.json
+storefront/data/products.json
+backend/storefront/
+*.backup
+backups/
+scripts/backups/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output/
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+*.tsbuildinfo
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Medusa
+.medusa/
+medusa-config.js.bak
+
+# Uploads
+uploads/
+public/uploads/

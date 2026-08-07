@@ -1,0 +1,12 @@
+{
+  "buyer_name": "Deutsche Luftfahrt GmbH",
+  "buyer_country": "DE",
+  "product_id": "uav-civ-001",
+  "product_name": "Civilian Mapping Drone",
+  "eccn_code": "EAR99",
+  "quantity": 2,
+  "unit_value": 3500,
+  "currency": "EUR",
+  "destination_country": "DE",
+  "end_user_statement": "For civilian aerial mapping and surveying, no military use."
+}

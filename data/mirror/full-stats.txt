@@ -1,0 +1,211 @@
+﻿=== PRODUCT TYPE CATEGORIES WITH FULL PRODUCT COUNTS ===
+
+[741] Двигатели (двигатели)
+  Total: 636 products, 62 brands
+
+[831] Автопилоты (автопилоты)
+  Total: 375 products, 47 brands
+
+[1302] FPV дроны (fpv-дроны)
+  Total: 374 products, 39 brands
+
+[751] Камеры и видео (фото-и-видео)
+  Total: 360 products, 8 brands
+
+[770] АКБ (акб)
+  Total: 316 products, 58 brands
+
+[809] Передатчики (передатчики)
+  Total: 311 products, 72 brands
+
+[735] Сервоприводы (сервоприводы-для-квадрокоптера)
+  Total: 309 products, 35 brands
+
+[746] ESC Регуляторы (esc-регуляторы)
+  Total: 302 products, 50 brands
+
+[739] Зарядные устроиства (зарядные-устроиства)
+  Total: 250 products, 35 brands
+
+[5769] Приёмники (приёмники)
+  Total: 250 products, 55 brands
+
+[743] Лопасти и пропеллеры (лопасти-и-пропеллеры)
+  Total: 247 products, 9 brands
+
+[7197] Аксессуары (аксессуары)
+  Total: 201 products, 8 brands
+
+[753] Инструмент (инструмент)
+  Total: 199 products, 4 brands
+
+[818] Антенны (антенны)
+  Total: 189 products, 51 brands
+
+[824] Рамы (купить-раму-для-квадрокоптера)
+  Total: 184 products, 31 brands
+
+[765] Квадрокоптеры (квадрокоптеры)
+  Total: 179 products, 20 brands
+
+[760] Микросхемы чипы (микросхемы-чипы)
+  Total: 174 products, 50 brands
+
+[737] Микрокомпьютеры (микрокомпьютеры)
+  Total: 162 products, 16 brands
+
+[804] Пульты управления (пульты-управления)
+  Total: 153 products, 28 brands
+
+[1358] Роботы (роботы)
+  Total: 138 products, 10 brands
+
+[761] Радиостанции (радиостанции)
+  Total: 125 products, 20 brands
+
+[1242] Фонари (lanterns)
+  Total: 120 products, 0 brands
+  Subcategories:
+    - [1243] ARMYTEK: 120 products
+
+[7178] Лидары (лидары)
+  Total: 111 products, 27 brands
+
+[1364] Дроны РФ (дроны-рф)
+  Total: 98 products, 4 brands
+
+[775] Тепловизоры (тепловизоры)
+  Total: 82 products, 31 brands
+
+[7067] Портативные электростанции (портативные-электростанции-2)
+  Total: 70 products, 21 brands
+
+[808] FPV очки (fpv-очки)
+  Total: 70 products, 19 brands
+
+[800] Подвесы (подвесы)
+  Total: 61 products, 6 brands
+
+[762] Мониторы (мониторы)
+  Total: 60 products, 11 brands
+
+[1387] Противодействия дронам и БПЛА (противодействия-дронам-и-бпла)
+  Total: 52 products, 5 brands
+
+[7091] Солнечные панели (солнечные-панели-2)
+  Total: 46 products, 11 brands
+
+[1477] Средства передвижения (средства-передвижения)
+  Total: 39 products, 0 brands
+  Subcategories:
+    - [1480] Мотоциклы: 2 products
+    - [1478] Электросамокаты: 37 products
+
+[7808] Анализаторы спектра (анализаторы-спектра)
+  Total: 36 products, 0 brands
+  Subcategories:
+    - [8058] SeeSii: 1 products
+    - [8055] Gaqqee: 1 products
+    - [8060] OWON: 3 products
+
+[7788] Дроны самолётного типа (дроны-самолётного-типа)
+  Total: 33 products, 10 brands
+
+[1272] Тепловизионные прицелы (тепловизионные-прицелы)
+  Total: 30 products, 9 brands
+
+[7766] Дроны с неподвижным крылом (дроны-с-неподвижным-крылом)
+  Total: 28 products, 8 brands
+
+[3563] Подводные дроны (подводные-дроны)
+  Total: 28 products, 0 brands
+  Subcategories:
+    - [3575] Fifish: 8 products
+
+[1267] Дроны с тепловизором (дроны-с-тепловизором)
+  Total: 24 products, 4 brands
+
+[799] Ремкомплекты Kyocera (ремкомплекты-kyocera)
+  Total: 24 products, 0 brands
+
+[1334] BETAFPV (betafpv-fpv-%d0%b4%d1%80%d0%be%d0%bd%d1%8b)
+  Total: 21 products, 0 brands
+
+[784] Консоли и приставки (игровые-консоли-и-приставки)
+  Total: 20 products, 0 brands
+
+[2537] Дроны для обучения (дроны-для-обучения)
+  Total: 19 products, 0 brands
+  Subcategories:
+    - [3991] Аксессуары: 1 products
+    - [2539] Дроны: 5 products
+    - [2538] Футбол: 12 products
+
+[1342] Комплекты для сборки дронов (комплекты-для-сборки-дронов)
+  Total: 17 products, 0 brands
+  Subcategories:
+    - [1378] Emax: 1 products
+    - [1343] JMT: 11 products
+    - [1377] QAV: 2 products
+
+[1421] Карбоновые материалы (карбоновые-материалы)
+  Total: 16 products, 6 brands
+
+[1210] Прицелы для ближней охоты (CRS) (crs)
+  Total: 11 products, 0 brands
+
+[7765] Дроны с вертикальным взлётом и посадкой (дроны-с-вертикальным-взлётом-и-посадк)
+  Total: 11 products, 5 brands
+
+[789] Сетевое оборудование (сетевое-оборудование)
+  Total: 10 products, 0 brands
+
+[1211] Прицелы для дальней охоты (LRS) (lrs)
+  Total: 10 products, 0 brands
+
+[7781] Мультикоптеры (мультикоптеры)
+  Total: 8 products, 0 brands
+
+[8051] Дальнобойные системы радиометрии (дальнобойные-системы-радиометрии)
+  Total: 6 products, 0 brands
+
+[834] RADIOMASTER (radiomaster-%d0%b0%d0%bd%d1%82%d0%b5%d0%bd%d0%bd%d1%8b)
+  Total: 6 products, 0 brands
+
+[5719] Водонепроницаемые дроны (водонепроницаемые-дроны)
+  Total: 4 products, 0 brands
+  Subcategories:
+    - [5720] SwellPro: 4 products
+
+[8052] Камеры машинного зрения (камеры-машинного-зрения)
+  Total: 4 products, 0 brands
+
+[783] Шлейфы (шлейфы)
+  Total: 2 products, 0 brands
+
+[7981] Транспорт Будущего (%d1%82%d1%80%d0%b0%d0%bd%d1%81%d0%bf%d0%be%d1%80%d1%82-%d0%b1%d1%83%d0%b4%d1%83%d1%89%d0%b5%d0%b3%d0%be-fpv-%d0%b4%d1%80%d0%be%d0%bd%d1%8b)
+  Total: 2 products, 0 brands
+
+[1209] ARTELV (artelv)
+  Total: 1 products, 0 brands
+
+[1208] Оптические прицелы (optical_sights)
+  Total: 1 products, 0 brands
+  Subcategories:
+    - [8020] Veber: 1 products
+
+[7969] Транспорт Будущего (%d1%82%d1%80%d0%b0%d0%bd%d1%81%d0%bf%d0%be%d1%80%d1%82-%d0%b1%d1%83%d0%b4%d1%83%d1%89%d0%b5%d0%b3%d0%be)
+  Total: 1 products, 0 brands
+
+[7930] Sony (sony-%d0%ba%d0%b0%d0%bc%d0%b5%d1%80%d1%8b)
+  Total: 1 products, 0 brands
+
+[7975] Транспорт Будущего (%d1%82%d1%80%d0%b0%d0%bd%d1%81%d0%bf%d0%be%d1%80%d1%82-%d0%b1%d1%83%d0%b4%d1%83%d1%89%d0%b5%d0%b3%d0%be-%d0%b4%d0%b2%d0%b8%d0%b3%d0%b0%d1%82%d0%b5%d0%bb%d0%b8)
+  Total: 1 products, 0 brands
+
+[7973] Транспорт Будущего (%d1%82%d1%80%d0%b0%d0%bd%d1%81%d0%bf%d0%be%d1%80%d1%82-%d0%b1%d1%83%d0%b4%d1%83%d1%89%d0%b5%d0%b3%d0%be-%d0%b0%d0%ba%d0%b1)
+  Total: 1 products, 0 brands
+
+
+Total product types with products: 61
+Total products across all: 6619

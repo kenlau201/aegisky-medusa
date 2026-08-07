@@ -1,0 +1,654 @@
+[
+  {
+    "id": 27,
+    "name": "发动机",
+    "slug": "motors",
+    "keywords": [
+      "发动机",
+      "мотор",
+      "двигател",
+      "motor",
+      "engine",
+      "бесщеточн"
+    ],
+    "count": 702
+  },
+  {
+    "id": 52,
+    "name": "其他",
+    "slug": "other",
+    "keywords": [],
+    "count": 699
+  },
+  {
+    "id": 1,
+    "name": "四旋翼机",
+    "slug": "quadcopters",
+    "keywords": [
+      "四旋翼",
+      "квадрокоптер",
+      "quadcopter",
+      "quad "
+    ],
+    "count": 440
+  },
+  {
+    "id": 11,
+    "name": "配件",
+    "slug": "accessories",
+    "keywords": [
+      "配件",
+      "аксессуар",
+      "accessor",
+      "комплектующ"
+    ],
+    "count": 411
+  },
+  {
+    "id": 44,
+    "name": "广播电台",
+    "slug": "radio-stations",
+    "keywords": [
+      "广播",
+      "радиостанц",
+      "radio",
+      "transmitter",
+      "передатчик",
+      "радиомодем"
+    ],
+    "count": 373
+  },
+  {
+    "id": 36,
+    "name": "电池",
+    "slug": "batteries",
+    "keywords": [
+      "电池",
+      "аккумулятор",
+      "батаре",
+      "battery",
+      "li-po",
+      "lipo",
+      "li-ion"
+    ],
+    "count": 342
+  },
+  {
+    "id": 28,
+    "name": "伺服机",
+    "slug": "servos",
+    "keywords": [
+      "伺服",
+      "сервопривод",
+      "servo",
+      "сервомашинка"
+    ],
+    "count": 307
+  },
+  {
+    "id": 30,
+    "name": "摄像机与视频",
+    "slug": "cameras-video",
+    "keywords": [
+      "摄像机",
+      "камер",
+      "camera",
+      "video",
+      "видео"
+    ],
+    "count": 274
+  },
+  {
+    "id": 34,
+    "name": "ESC控制器",
+    "slug": "esc-controllers",
+    "keywords": [
+      "esc",
+      "регулятор скорост",
+      "speed controller",
+      "регулятор хода"
+    ],
+    "count": 243
+  },
+  {
+    "id": 29,
+    "name": "叶片与螺旋桨",
+    "slug": "blades-propellers",
+    "keywords": [
+      "螺旋桨",
+      "пропеллер",
+      "лопаст",
+      "propeller",
+      "blade",
+      "проп"
+    ],
+    "count": 224
+  },
+  {
+    "id": 23,
+    "name": "接收器",
+    "slug": "receivers",
+    "keywords": [
+      "接收器",
+      "приемник",
+      "receiver",
+      "приемопередатчик"
+    ],
+    "count": 222
+  },
+  {
+    "id": 37,
+    "name": "充电设备",
+    "slug": "charging-equipment",
+    "keywords": [
+      "充电",
+      "зарядк",
+      "charger",
+      "charging",
+      "зарядное устройство"
+    ],
+    "count": 202
+  },
+  {
+    "id": 26,
+    "name": "天线",
+    "slug": "antennas",
+    "keywords": [
+      "天线",
+      "антенн",
+      "antenna"
+    ],
+    "count": 167
+  },
+  {
+    "id": 41,
+    "name": "微型计算机",
+    "slug": "microcomputers",
+    "keywords": [
+      "微型计算机",
+      "микрокомпьютер",
+      "raspberry",
+      "arduino",
+      "micro computer",
+      "одноплатный"
+    ],
+    "count": 163
+  },
+  {
+    "id": 19,
+    "name": "框架",
+    "slug": "frames",
+    "keywords": [
+      "框架",
+      "рама",
+      "frame",
+      "каркас"
+    ],
+    "count": 148
+  },
+  {
+    "id": 43,
+    "name": "监视器",
+    "slug": "monitors",
+    "keywords": [
+      "监视器",
+      "монитор",
+      "monitor",
+      "display",
+      "дисплей",
+      "экран"
+    ],
+    "count": 147
+  },
+  {
+    "id": 25,
+    "name": "控制面板",
+    "slug": "control-panels",
+    "keywords": [
+      "控制面板",
+      "пульт управлен",
+      "control panel",
+      "remote control",
+      "пульт"
+    ],
+    "count": 130
+  },
+  {
+    "id": 5,
+    "name": "FPV无人机",
+    "slug": "fpv-drones",
+    "keywords": [
+      "fpv",
+      "fpv коптер",
+      "fpv drone"
+    ],
+    "count": 128
+  },
+  {
+    "id": 20,
+    "name": "自动驾驶仪",
+    "slug": "autopilots",
+    "keywords": [
+      "自动驾驶",
+      "автопилот",
+      "autopilot",
+      "flight controller",
+      "контроллер полета"
+    ],
+    "count": 115
+  },
+  {
+    "id": 45,
+    "name": "悬挂（云台）",
+    "slug": "gimbals",
+    "keywords": [
+      "悬挂",
+      "подвес",
+      "gimbal",
+      "стабилизатор",
+      "стабилизация"
+    ],
+    "count": 110
+  },
+  {
+    "id": 15,
+    "name": "水下无人机",
+    "slug": "underwater-drones",
+    "keywords": [
+      "水下",
+      "подводн",
+      "underwater",
+      "submarine",
+      "подводный аппарат"
+    ],
+    "count": 105
+  },
+  {
+    "id": 35,
+    "name": "灯笼",
+    "slug": "lanterns",
+    "keywords": [
+      "灯笼",
+      "фонарь",
+      "lantern",
+      "light",
+      "свет",
+      "фара"
+    ],
+    "count": 103
+  },
+  {
+    "id": 21,
+    "name": "激光雷达",
+    "slug": "lidar",
+    "keywords": [
+      "激光雷达",
+      "лидар",
+      "lidar",
+      "laser radar"
+    ],
+    "count": 94
+  },
+  {
+    "id": 12,
+    "name": "机器人",
+    "slug": "robots",
+    "keywords": [
+      "机器人",
+      "робот",
+      "robot",
+      "робототехник"
+    ],
+    "count": 77
+  },
+  {
+    "id": 42,
+    "name": "薯片，薯片",
+    "slug": "chips",
+    "keywords": [
+      "芯片",
+      "чип",
+      "chip",
+      "microchip",
+      "микросхема",
+      "процессор"
+    ],
+    "count": 67
+  },
+  {
+    "id": 3,
+    "name": "配备热成像器的无人机",
+    "slug": "thermal-imaging-drones",
+    "keywords": [
+      "热成像",
+      "тепловиз",
+      "thermal imaging",
+      "thermal drone"
+    ],
+    "count": 64
+  },
+  {
+    "id": 13,
+    "name": "便携式发电站",
+    "slug": "portable-power-stations",
+    "keywords": [
+      "发电站",
+      "электростанц",
+      "power station",
+      "generator",
+      "генератор"
+    ],
+    "count": 39
+  },
+  {
+    "id": 6,
+    "name": "俄罗斯联邦无人机",
+    "slug": "russian-drones",
+    "keywords": [
+      "俄罗斯",
+      "российск",
+      "russian",
+      "производство рф"
+    ],
+    "count": 36
+  },
+  {
+    "id": 18,
+    "name": "对抗无人机和无人机",
+    "slug": "counter-drones",
+    "keywords": [
+      "对抗",
+      "противодрон",
+      "counter drone",
+      "anti drone",
+      "подавитель"
+    ],
+    "count": 35
+  },
+  {
+    "id": 32,
+    "name": "频谱分析仪",
+    "slug": "spectrum-analyzers",
+    "keywords": [
+      "频谱",
+      "спектральн",
+      "spectrum analyzer",
+      "анализатор спектра"
+    ],
+    "count": 32
+  },
+  {
+    "id": 2,
+    "name": "训练用无人机",
+    "slug": "training-drones",
+    "keywords": [
+      "训练",
+      "трениров",
+      "train",
+      "practice",
+      "учебный"
+    ],
+    "count": 31
+  },
+  {
+    "id": 14,
+    "name": "太阳能电池板",
+    "slug": "solar-panels",
+    "keywords": [
+      "太阳能",
+      "солнечн",
+      "solar panel",
+      "солнечная панель"
+    ],
+    "count": 28
+  },
+  {
+    "id": 39,
+    "name": "热成像瞄准镜",
+    "slug": "thermal-scopes",
+    "keywords": [
+      "热成像瞄准",
+      "тепловой прицел",
+      "thermal scope",
+      "тепловизионный прицел"
+    ],
+    "count": 24
+  },
+  {
+    "id": 50,
+    "name": "京陶瓷维修套件",
+    "slug": "kyocera-repair-kits",
+    "keywords": [
+      "京瓷",
+      "kyocera",
+      "ремонтный комплект"
+    ],
+    "count": 24
+  },
+  {
+    "id": 38,
+    "name": "步枪瞄准镜",
+    "slug": "rifle-scopes",
+    "keywords": [
+      "步枪瞄准",
+      "оптический прицел",
+      "scope",
+      "rifle scope",
+      "прицел оптический"
+    ],
+    "count": 21
+  },
+  {
+    "id": 49,
+    "name": "网络设备",
+    "slug": "network-equipment",
+    "keywords": [
+      "网络",
+      "сетев",
+      "network",
+      "wifi",
+      "wi-fi",
+      "маршрутизатор",
+      "роутер"
+    ],
+    "count": 12
+  },
+  {
+    "id": 4,
+    "name": "防水无人机",
+    "slug": "waterproof-drones",
+    "keywords": [
+      "防水",
+      "водонепроницаем",
+      "waterproof",
+      "water resistant"
+    ],
+    "count": 9
+  },
+  {
+    "id": 10,
+    "name": "固定翼无人机",
+    "slug": "fixed-wing-drones",
+    "keywords": [
+      "固定翼",
+      "фиксированное крыло",
+      "fixed wing",
+      "самолет"
+    ],
+    "count": 8
+  },
+  {
+    "id": 40,
+    "name": "工具",
+    "slug": "tools",
+    "keywords": [
+      "工具",
+      "инструмент",
+      "tool",
+      "инструменты"
+    ],
+    "count": 7
+  },
+  {
+    "id": 24,
+    "name": "远程辐射测量系统",
+    "slug": "remote-radiometry",
+    "keywords": [
+      "辐射",
+      "радиометр",
+      "radiometry",
+      "radiation",
+      "дозиметр"
+    ],
+    "count": 6
+  },
+  {
+    "id": 47,
+    "name": "碳材料",
+    "slug": "carbon-materials",
+    "keywords": [
+      "碳",
+      "карбон",
+      "carbon",
+      "carbon fiber",
+      "углепластик"
+    ],
+    "count": 6
+  },
+  {
+    "id": 16,
+    "name": "车辆",
+    "slug": "vehicles",
+    "keywords": [
+      "车辆",
+      "автомобил",
+      "vehicle",
+      "car",
+      "rover",
+      "вездеход"
+    ],
+    "count": 3
+  },
+  {
+    "id": 31,
+    "name": "机器视觉摄像机",
+    "slug": "machine-vision-cameras",
+    "keywords": [
+      "机器视觉",
+      "техническ зрен",
+      "machine vision"
+    ],
+    "count": 2
+  },
+  {
+    "id": 48,
+    "name": "环形",
+    "slug": "rings",
+    "keywords": [
+      "环",
+      "кольц",
+      "ring",
+      "кольцо"
+    ],
+    "count": 2
+  },
+  {
+    "id": 9,
+    "name": "垂直起降无人机",
+    "slug": "vtol-drones",
+    "keywords": [
+      "垂直起降",
+      "свп",
+      "vtol",
+      "vertical takeoff"
+    ],
+    "count": 1
+  },
+  {
+    "id": 17,
+    "name": "无人机组装套件",
+    "slug": "drone-kits",
+    "keywords": [
+      "组装套件",
+      "набор для сборки",
+      "kit",
+      "assembly kit",
+      "конструктор"
+    ],
+    "count": 1
+  },
+  {
+    "id": 7,
+    "name": "多旋翼机",
+    "slug": "multirotors",
+    "keywords": [
+      "多旋翼",
+      "мультиротор",
+      "multirotor",
+      "multi rotor"
+    ],
+    "count": 0
+  },
+  {
+    "id": 8,
+    "name": "航空型无人机",
+    "slug": "aerial-drones",
+    "keywords": [
+      "航空",
+      "авиац",
+      "aerial",
+      "aviation",
+      "беспилотник авиационный"
+    ],
+    "count": 0
+  },
+  {
+    "id": 22,
+    "name": "发射台",
+    "slug": "launch-pads",
+    "keywords": [
+      "发射台",
+      "пускова",
+      "launch pad",
+      "catapult",
+      "катапульта"
+    ],
+    "count": 0
+  },
+  {
+    "id": 33,
+    "name": "FPV积分",
+    "slug": "fpv-integration",
+    "keywords": [
+      "fpv интеграц",
+      "fpv integration",
+      "комплектующие для fpv"
+    ],
+    "count": 0
+  },
+  {
+    "id": 46,
+    "name": "热成像相机",
+    "slug": "thermal-cameras",
+    "keywords": [
+      "热成像相机",
+      "тепловая камера",
+      "thermal camera",
+      "тепловизионная камера"
+    ],
+    "count": 0
+  },
+  {
+    "id": 51,
+    "name": "主机与主机",
+    "slug": "hosts",
+    "keywords": [
+      "主机",
+      "хост",
+      "host",
+      "main unit",
+      "блок управления"
+    ],
+    "count": 0
+  }
+]

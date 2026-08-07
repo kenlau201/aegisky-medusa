@@ -1,0 +1,35 @@
+﻿=== Military & Defense UAV products ===
+node : D:\项目备份\Aegisky-Medusa\aegisky-medusa\backend\node_modules\pg\lib\client.js:652
+所在位置 行:2 字符: 1
++ node src/scripts/fix-zeros.js 2>&1 | Out-File -Encoding utf8 "D:\项目备份 ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (D:\项目备份\Aegisky...b\client.js:652:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+          Error.captureStackTrace(err)
+                ^
+
+error: column "categories" does not exist
+    at D:\项目备份\Aegisky-Medusa\aegisky-medusa\backend\node_modules\pg\lib\client.js:652:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async D:\项目备份\Aegisky-Medusa\aegisky-medusa\backend\src\scripts\fix-zeros.js:15:18 {
+  length: 110,
+  severity: 'ERROR',
+  code: '42703',
+  detail: undefined,
+  hint: undefined,
+  position: '37',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'parse_relation.c',
+  line: '3722',
+  routine: 'errorMissingColumn'
+}
+
+Node.js v24.15.0

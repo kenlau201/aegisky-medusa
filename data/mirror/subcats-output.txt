@@ -1,0 +1,127 @@
+﻿Inserting new sub-categories...
+Inserted 45 new sub-categories
+Classifying products into sub-categories...
+Classified 6375 products
+Updating product counts...
+
+=== FINAL CATEGORY TREE ===
+
+[10014] Propulsion Systems: 1494
+  [10015] Brushless Motors: 636
+    [10081] Racing & Freestyle Motors (18xx-23xx): 306
+    [10083] Industrial & Heavy-Lift Motors (30xx+): 188
+    [10080] Micro FPV Motors (11xx-15xx): 91
+    [10082] Cinelifter & X-Class Motors (24xx-29xx): 51
+  [10021] Servo Motors & Actuators: 309
+    [10088] Standard & Digital Servos: 306
+    [10087] Micro & Mini Servos: 3
+    [10089] High-Torque & Industrial Servos: 0
+  [10016] ESC (Electronic Speed Controllers): 302
+    [10086] HV & Industrial ESC (≥60A): 150
+    [10085] FPV Racing ESC (25-55A): 128
+    [10084] Mini & Whoop ESC (≤20A): 24
+  [10017] Propellers & Blades: 247
+    [10019] 3-Blade Propellers: 136
+    [10018] 2-Blade Propellers: 76
+    [10020] Folding Blades: 2
+[10026] RC Control & Data Link: 1028
+  [10030] Video Transmitters (VTX): 311
+    [10090] 5.8GHz Video Transmitters: 246
+    [10092] Other Frequency VTX & VRX: 44
+    [10091] 1.2/1.3GHz Video Transmitters: 21
+  [10028] RC Receivers: 250
+    [10096] Other RC Receivers: 133
+    [10095] FrSky & 2.4GHz Receivers: 57
+    [10093] ELRS Receivers (ExpressLRS): 52
+    [10094] Crossfire & 900MHz Receivers: 8
+  [10029] Antennas: 189
+    [10097] 5.8GHz FPV Antennas: 163
+    [10099] 2.4GHz WiFi & RC Antennas: 13
+    [10098] 433/868/915MHz Long-Range Antennas: 10
+    [10100] Multi-band & Cellular Antennas: 3
+  [10027] RC Transmitters: 153
+  [10032] Two-Way Radios & Walkie-Talkies: 125
+  [10031] Long-Range Radio Modems: 6
+[10048] Power & Energy Systems: 682
+  [10049] LiPo/Li-ion Batteries: 316
+    [10106] 4-6S LiPo Batteries: 202
+    [10105] 1-3S LiPo Batteries: 55
+    [10107] 6S+ LiPo & Li-ion Batteries: 39
+    [10108] Smart & Intelligent Batteries: 20
+  [10050] Battery Chargers: 250
+    [10109] RC/FPV Balance Chargers: 236
+    [10111] Power Supplies & Adapters: 14
+    [10110] Industrial & Multi-Chemistry Chargers: 0
+  [10051] Portable Power Stations: 70
+  [10052] Solar Panels: 46
+[10000] UAV Complete Systems: 676
+  [10001] Multirotor UAV: 604
+    [10002] FPV Racing & Freestyle Drones: 391
+    [10003] Industrial Quadcopters: 187
+    [10004] Russian-Made Drones: 98
+    [10005] Training Drones: 19
+    [10006] Waterproof Drones: 4
+  [10007] Fixed-Wing UAV: 35
+    [10009] Long-Range Fixed-Wing: 33
+    [10008] Mapping & Survey Aircraft: 28
+  [10074] Military & Defense UAV: 35
+    [10075] Combat & Strike Drones: 17
+    [10079] Unmanned Ground Vehicles: 6
+    [10078] Munitions & Payload Systems: 5
+    [10076] Heavy-Lift Cargo Drones: 4
+    [10077] Tethered Drone Systems: 3
+  [10012] Underwater ROV & Drones: 28
+  [10011] Thermal Imaging Drones: 24
+  [10013] Drone DIY Kits: 17
+  [10010] VTOL UAV: 11
+[10036] Imaging & Payload Systems: 606
+  [10037] Cameras & Video Equipment: 360
+    [10038] FPV & Action Cameras: 283
+    [10040] Camera Lenses: 10
+    [10039] Mirrorless & DSLR Cameras: 9
+    [10041] Tripods & Mounts: 2
+  [10043] Thermal Imaging Cameras: 82
+    [10116] Drone-Mounted Thermal Cameras: 82
+    [10115] Handheld Thermal Cameras: 0
+  [10046] Gimbal Stabilizers: 61
+    [10118] Camera & Payload Gimbals: 57
+    [10117] FPV & Action Camera Gimbals: 4
+  [10047] Counter-UAV & Anti-Drone Systems: 52
+  [10044] Thermal Weapon Scopes: 30
+  [10045] Optical Scopes & Sights: 22
+  [10042] Machine Vision Cameras: 4
+[10022] Flight Control & Navigation: 522
+  [10023] Flight Controllers & Autopilots: 375
+    [10101] FPV Flight Controllers (F4/F7/AIO): 250
+    [10103] GPS & Navigation Modules: 84
+    [10102] Industrial Autopilots (Pixhawk/CUAV): 38
+    [10104] PDB, PMU & FC Accessories: 3
+  [10024] LiDAR & Distance Sensors: 111
+  [10025] RF Spectrum Analyzers: 36
+[10063] Tools & Maintenance: 223
+  [10064] Assembly & Soldering Tools: 199
+  [10065] Repair Kits & Spare Parts: 24
+[10066] Accessories: 201
+[10053] Airframe & Mechanical Structures: 200
+  [10054] Drone Frames: 184
+  [10055] Carbon Fiber Materials: 16
+[10056] Electronic Components: 186
+  [10057] ICs, Chips & Modules: 174
+  [10059] Network Equipment: 10
+  [10058] Cables, Ribbons & Wiring: 2
+[10060] Embedded Computing & AI: 162
+  [10061] Single-Board Computers: 162
+[10062] Robotics Systems: 138
+  [10114] Robot Parts & Controllers: 130
+  [10112] Quadruped Robot Dogs: 5
+  [10113] UGV & Tracked Robots: 3
+[10033] FPV Systems: 130
+  [10034] FPV Goggles: 70
+  [10035] FPV Monitors & Displays: 60
+[10067] Lighting & Illumination: 120
+[10068] Electric Mobility: 39
+  [10069] Electric Scooters: 37
+  [10070] Electric Motorcycles: 2
+[10071] Industrial & Other Equipment: 33
+  [10072] Game Consoles & Industrial PCs: 20
+  [10073] Miscellaneous: 13
