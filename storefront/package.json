@@ -15,6 +15,7 @@
     "@types/dompurify": "^3.0.5",
     "@types/pg": "^8.20.4",
     "bcryptjs": "^3.0.3",
+    "cheerio": "^1.2.0",
     "clsx": "^2.1.1",
     "dompurify": "^3.4.13",
     "lucide-react": "^0.400.0",
