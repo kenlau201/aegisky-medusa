@@ -23,14 +23,14 @@ export async function GET(request: NextRequest, { params }: { params: { slug: st
       LIMIT 24
     `, [JSON.stringify([{ id: brand.id, name: brand.name, slug: brand.slug }])]);
 
-    // 相关品牌（同分类）
+    // 相关品牌（同分类，已验证优先）
     let relatedBrands: any[] = [];
     if (brand.solution_categories && brand.solution_categories.length > 0) {
       const relatedResult = await db.query(`
-        SELECT id, name, slug, logo_url, tagline, product_count
+        SELECT id, name, slug, logo_url, tagline, product_count, verified, country
         FROM aegisky_brands
         WHERE id != $1 AND solution_categories && $2::text[]
-        ORDER BY product_count DESC
+        ORDER BY verified DESC, product_count DESC
         LIMIT 6
       `, [brand.id, brand.solution_categories]);
       relatedBrands = relatedResult.rows;

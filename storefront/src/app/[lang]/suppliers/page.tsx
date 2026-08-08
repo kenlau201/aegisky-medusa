@@ -23,7 +23,7 @@ function SuppliersContent() {
   const [stats, setStats] = useState({ brands: 0, products: 0, countries: 0 });
 
   useEffect(() => {
-    // Fetch featured suppliers (top by product count)
+    // Fetch featured suppliers (verified first, then by product count)
     fetch('/api/suppliers?page=1&pageSize=24')
       .then(r => r.json())
       .then(data => {
@@ -32,9 +32,9 @@ function SuppliersContent() {
         (data.categories || []).forEach((c: any) => { counts[c.id] = c.count; });
         setCategoryCounts(counts);
         setStats({
-          brands: data.total || 0,
-          products: 6343,
-          countries: 50,
+          brands: data.stats?.verifiedBrands || data.total || 0,
+          products: data.stats?.products || 0,
+          countries: data.stats?.countries || 0,
         });
       });
   }, []);
@@ -173,11 +173,13 @@ function SuppliersContent() {
                     <div className="p-4">
                       <div className="flex items-center gap-2 mb-2">
                         <h3 className="font-bold text-gray-900 text-base truncate">{s.name}</h3>
-                        <span className="flex-shrink-0 text-green-600" title="Verified">
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                          </svg>
-                        </span>
+                        {s.verified && (
+                          <span className="flex-shrink-0 text-green-600" title="Verified Supplier">
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                            </svg>
+                          </span>
+                        )}
                       </div>
 
                       {s.tagline && (
@@ -259,7 +261,14 @@ function SuppliersContent() {
                       )}
                     </div>
                     <div className="p-4">
-                      <h3 className="font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">{s.name}</h3>
+                      <div className="flex items-center gap-2 mb-1">
+                        <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{s.name}</h3>
+                        {s.verified && (
+                          <svg className="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" title="Verified Supplier">
+                            <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                          </svg>
+                        )}
+                      </div>
                       {s.tagline && <p className="text-xs text-gray-600 line-clamp-2 mb-2">{s.tagline}</p>}
                       <div className="flex items-center justify-between text-xs text-gray-500">
                         {s.country && <span>{s.country}</span>}

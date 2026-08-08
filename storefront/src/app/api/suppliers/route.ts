@@ -1,21 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { pool as db } from '@/lib/control-tower/db';
-
-// 12个无人机系统解决方案分类（参考unmannedsystemstechnology.com）
-export const solutionCategories = [
-  { id: 'counter-uas', name: 'Counter-UAS', icon: 'target', description: '反无人机系统与探测' },
-  { id: 'command-control', name: 'Command, Control & Communications', icon: 'radio', description: '指挥控制与通信数据链' },
-  { id: 'electronics', name: 'Electronics & Subsystems', icon: 'cpu', description: '电子子系统与组件' },
-  { id: 'structural', name: 'Structural & Mechanical Systems', icon: 'grid', description: '结构与机械系统' },
-  { id: 'positioning', name: 'Positioning, Navigation & Guidance', icon: 'navigation', description: '定位导航与制导' },
-  { id: 'sensors', name: 'Mission Sensors & Payloads', icon: 'camera', description: '任务传感器与载荷' },
-  { id: 'propulsion', name: 'Propulsion & Power', icon: 'zap', description: '推进与动力系统' },
-  { id: 'materials', name: 'Materials & Manufacturing', icon: 'settings', description: '材料与制造' },
-  { id: 'safety', name: 'Safety Systems', icon: 'shield', description: '安全系统' },
-  { id: 'services', name: 'Professional Services', icon: 'briefcase', description: '专业服务' },
-  { id: 'software', name: 'Software & Autonomy', icon: 'monitor', description: '软件与自主系统' },
-  { id: 'vehicles', name: 'Unmanned Vehicles & Platforms', icon: 'drone', description: '无人飞行器平台' },
-];
+import { SOLUTION_CATEGORIES } from '@/lib/suppliers/solutions';
 
 export async function GET(request: NextRequest) {
   try {
@@ -24,6 +9,7 @@ export async function GET(request: NextRequest) {
     const pageSize = parseInt(searchParams.get('pageSize') || '12');
     const search = searchParams.get('search') || '';
     const category = searchParams.get('category') || '';
+    const verifiedOnly = searchParams.get('verified') === 'true';
     const offset = (page - 1) * pageSize;
 
     let whereClause = 'WHERE 1=1';
@@ -31,7 +17,7 @@ export async function GET(request: NextRequest) {
     let paramIndex = 1;
 
     if (search) {
-      whereClause += ` AND (name ILIKE $${paramIndex} OR description ILIKE $${paramIndex} OR tagline ILIKE $${paramIndex})`;
+      whereClause += ` AND (name ILIKE $${paramIndex} OR description ILIKE $${paramIndex} OR tagline ILIKE $${paramIndex} OR city ILIKE $${paramIndex} OR country ILIKE $${paramIndex})`;
       params.push(`%${search}%`);
       paramIndex++;
     }
@@ -42,16 +28,22 @@ export async function GET(request: NextRequest) {
       paramIndex++;
     }
 
+    if (verifiedOnly) {
+      whereClause += ` AND verified = true`;
+    }
+
     // 总数
     const countResult = await db.query(`SELECT COUNT(*) FROM aegisky_brands ${whereClause}`, params);
     const total = parseInt(countResult.rows[0].count);
 
-    // 品牌列表
+    // 品牌列表 - 包含所有扩展字段
     const result = await db.query(`
-      SELECT id, name, slug, logo_url, description, tagline, country, product_count, solution_categories
+      SELECT id, name, slug, logo_url, description, tagline, country, country_code,
+             city, product_count, solution_categories, verified, founded_year,
+             employees, certifications, website_url
       FROM aegisky_brands
       ${whereClause}
-      ORDER BY product_count DESC, name ASC
+      ORDER BY verified DESC, product_count DESC, name ASC
       LIMIT $${paramIndex} OFFSET $${paramIndex + 1}
     `, [...params, pageSize, offset]);
 
@@ -68,16 +60,39 @@ export async function GET(request: NextRequest) {
       categoryCounts[r.cat_id] = parseInt(r.count);
     });
 
+    // 全局统计
+    const statsResult = await db.query(`
+      SELECT
+        COUNT(*) as total_brands,
+        COUNT(*) FILTER (WHERE verified = true) as verified_brands,
+        COUNT(DISTINCT country) as total_countries,
+        COALESCE(SUM(product_count), 0) as total_products
+      FROM aegisky_brands
+    `);
+    const stats = statsResult.rows[0];
+
     return NextResponse.json({
       suppliers: result.rows,
       total,
       page,
       pageSize,
       totalPages: Math.ceil(total / pageSize),
-      categories: solutionCategories.map(c => ({ ...c, count: categoryCounts[c.id] || 0 })),
+      categories: SOLUTION_CATEGORIES.map(c => ({ ...c, count: categoryCounts[c.id] || 0 })),
+      stats: {
+        brands: parseInt(stats.total_brands),
+        verifiedBrands: parseInt(stats.verified_brands),
+        products: parseInt(stats.total_products),
+        countries: parseInt(stats.total_countries),
+      },
     });
   } catch (error: any) {
     console.error('Get suppliers error:', error);
-    return NextResponse.json({ suppliers: [], total: 0, categories: solutionCategories, error: error.message });
+    return NextResponse.json({
+      suppliers: [],
+      total: 0,
+      categories: SOLUTION_CATEGORIES,
+      stats: { brands: 0, verifiedBrands: 0, products: 0, countries: 0 },
+      error: error.message
+    });
   }
 }
