@@ -146,7 +146,7 @@ export default function SolutionCategoryPage() {
   useEffect(() => {
     if (!categoryId) return;
     setLoadingExtras(true);
-    fetch(`/api/solutions/${categoryId}?products=12&articles=6`)
+    fetch(`/api/solutions/${categoryId}?products=12&articles=9`)
       .then(r => r.json())
       .then(data => {
         setProducts(data.products || []);
@@ -190,8 +190,6 @@ export default function SolutionCategoryPage() {
   const relatedCats = details?.relatedCategories
     .map(id => SOLUTION_CATEGORIES.find(c => c.id === id))
     .filter(Boolean) || [];
-
-  const otherCats = SOLUTION_CATEGORIES.filter(c => c.id !== categoryId);
 
   return (
     <>
@@ -488,28 +486,69 @@ export default function SolutionCategoryPage() {
                 )}
               </section>
 
-              {/* Related Technology Domains */}
-              {relatedCats.length > 0 && (
-                <section className="mt-12">
-                  <div className="bg-white rounded-2xl border border-gray-200 p-6">
-                    <h2 className="text-lg font-bold text-gray-900 mb-4">Related Technology Domains</h2>
-                    <div className="grid sm:grid-cols-3 gap-4">
-                      {relatedCats.map(cat => cat && (
-                        <Link
-                          key={cat.id}
-                          href={`/${lang}/solutions/${cat.id}`}
-                          className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all group"
-                        >
-                          <div className={`w-10 h-10 ${cat.bgColor} rounded-lg flex items-center justify-center text-lg flex-shrink-0`}>
-                            {cat.icon}
-                          </div>
-                          <div>
-                            <div className="font-semibold text-sm text-gray-900 group-hover:text-blue-600">{cat.shortName}</div>
-                            <div className="text-xs text-gray-500 line-clamp-1">{cat.description}</div>
-                          </div>
-                        </Link>
-                      ))}
+              {/* Related Articles */}
+              {articles.length > 0 && (
+                <section className="mt-12" aria-label="Related articles">
+                  <div className="flex items-center justify-between mb-6">
+                    <div>
+                      <h2 className="text-xl font-bold text-gray-900">Related Articles</h2>
+                      <p className="text-sm text-gray-500 mt-0.5">Insights and news from {category.name} suppliers</p>
                     </div>
+                    <Link
+                      href={`/${lang}/insights`}
+                      className="text-sm text-blue-600 hover:underline flex items-center gap-1"
+                    >
+                      View all insights
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                      </svg>
+                    </Link>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {articles.map(a => (
+                      <Link
+                        key={a.id}
+                        href={`/${lang}/articles/${a.id}`}
+                        className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg hover:border-blue-200 transition-all group flex flex-col"
+                      >
+                        {a.image_url ? (
+                          <div className="h-40 bg-gray-100 overflow-hidden">
+                            <img src={a.image_url} alt={a.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                          </div>
+                        ) : (
+                          <div className="h-40 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                            <svg className="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                            </svg>
+                          </div>
+                        )}
+                        <div className="p-4 flex flex-col flex-1">
+                          <div className="flex items-center gap-2 text-[11px] text-gray-500 mb-2">
+                            {a.brand_name && (
+                              <span className="font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">{a.brand_name}</span>
+                            )}
+                            {a.published_date && (
+                              <span className="flex items-center gap-1">
+                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                {new Date(a.published_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                              </span>
+                            )}
+                            {a.read_time && (
+                              <span className="flex items-center gap-1">
+                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                {a.read_time}
+                              </span>
+                            )}
+                          </div>
+                          <h3 className="font-bold text-sm text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug mb-2">
+                            {a.title}
+                          </h3>
+                          {a.summary && (
+                            <p className="text-xs text-gray-500 line-clamp-3 leading-relaxed flex-1">{a.summary}</p>
+                          )}
+                        </div>
+                      </Link>
+                    ))}
                   </div>
                 </section>
               )}
@@ -517,80 +556,58 @@ export default function SolutionCategoryPage() {
 
             {/* === RIGHT: Sidebar === */}
             <aside className="w-full lg:w-80 flex-shrink-0">
-              <div className="lg:sticky lg:top-24 space-y-6 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:pr-1">
-              {/* Explore Other Categories */}
-              <div className="bg-white rounded-2xl border border-gray-200 p-4">
-                <h2 className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3 flex items-center gap-2">
-                  <svg className="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7"/>
-                  </svg>
-                  Explore Categories
-                </h2>
-                <div className="space-y-0.5">
-                  {otherCats.map(c => {
-                    const isActive = c.id === categoryId;
-                    return (
-                      <Link
-                        key={c.id}
-                        href={`/${lang}/solutions/${c.id}`}
-                        className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-[13px] transition-all ${
-                          isActive
-                            ? `${c.bgColor} ${c.color} font-semibold`
-                            : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
-                        }`}
-                      >
-                        <span className="text-sm">{c.icon}</span>
-                        <span className="flex-1 truncate">{c.shortName}</span>
-                        <svg className="w-3 h-3 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
-                        </svg>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Related Articles */}
-              {articles.length > 0 && (
-                <div className="bg-white rounded-2xl border border-gray-200 p-4">
-                  <h2 className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3 flex items-center gap-2">
-                    <svg className="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
-                    </svg>
-                    Related Articles
-                  </h2>
-                  <div className="space-y-3">
-                    {articles.map(a => (
-                      <Link
-                        key={a.id}
-                        href={`/${lang}/articles/${a.id}`}
-                        className="block group"
-                      >
-                        {a.image_url && (
-                          <div className="h-24 bg-gray-100 rounded-lg overflow-hidden mb-1.5">
-                            <img src={a.image_url} alt={a.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+              <div className="lg:sticky lg:top-24 space-y-6">
+                {/* Related Technology Domains */}
+                {relatedCats.length > 0 && (
+                  <div className="bg-white rounded-2xl border border-gray-200 p-5">
+                    <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-4 flex items-center gap-2">
+                      <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                      </svg>
+                      Related Domains
+                    </h2>
+                    <div className="space-y-2">
+                      {relatedCats.map(cat => cat && (
+                        <Link
+                          key={cat.id}
+                          href={`/${lang}/solutions/${cat.id}`}
+                          className="flex items-center gap-3 p-3 rounded-xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all group"
+                        >
+                          <div className={`w-10 h-10 ${cat.bgColor} rounded-lg flex items-center justify-center text-lg flex-shrink-0`}>
+                            {cat.icon}
                           </div>
-                        )}
-                        <div className="flex items-center gap-1 text-[10px] text-gray-500 mb-0.5">
-                          {a.brand_name && <span className="font-medium text-blue-600">{a.brand_name}</span>}
-                          {a.published_date && (
-                            <span>· {new Date(a.published_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-                          )}
-                        </div>
-                        <h3 className="font-semibold text-xs text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
-                          {a.title}
-                        </h3>
-                      </Link>
-                    ))}
+                          <div className="flex-1 min-w-0">
+                            <div className="font-semibold text-sm text-gray-900 group-hover:text-blue-600 transition-colors">{cat.shortName}</div>
+                            <div className="text-xs text-gray-500 line-clamp-1">{cat.description}</div>
+                          </div>
+                          <svg className="w-4 h-4 text-gray-300 group-hover:text-blue-500 transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                          </svg>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                  <Link
-                    href={`/${lang}/insights`}
-                    className="block mt-3 text-center text-xs text-blue-600 hover:underline font-medium"
-                  >
-                    View all insights →
-                  </Link>
+                )}
+
+                {/* Quick Stats */}
+                <div className="bg-white rounded-2xl border border-gray-200 p-5">
+                  <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-4 flex items-center gap-2">
+                    <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    Category Snapshot
+                  </h2>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-gray-50 rounded-lg p-3 text-center">
+                      <div className="text-2xl font-bold text-gray-900">{total}</div>
+                      <div className="text-[11px] text-gray-500 mt-0.5">Suppliers</div>
+                    </div>
+                    <div className="bg-gray-50 rounded-lg p-3 text-center">
+                      <div className="text-2xl font-bold text-gray-900">{totalProducts.toLocaleString()}</div>
+                      <div className="text-[11px] text-gray-500 mt-0.5">Products</div>
+                    </div>
+                  </div>
                 </div>
-              )}
               </div>
             </aside>
           </div>
