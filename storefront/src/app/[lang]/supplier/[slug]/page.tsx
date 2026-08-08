@@ -5,6 +5,46 @@ import { useParams, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { SOLUTION_CATEGORIES } from '@/lib/suppliers/solutions';
 
+// Seed articles - same as insights page, used for GEO content
+const ARTICLES = [
+  { slug: 'industrial-drone-eccn-classification-guide-2026', title: 'ECCN Classification Guide for Industrial Drones (2026 Update)', excerpt: 'Complete guide to ECCN classification for commercial drones, including 9A012, 7A003, and EAR export control requirements.', category: 'Compliance', readTime: '12 min read', date: '2026-08-01' },
+  { slug: 'best-industrial-drones-for-surveying-mapping', title: 'Best Industrial Drones for Surveying & Mapping in 2026', excerpt: 'Compare the top 10 surveying drones for construction, mining, and land surveying. Includes RTK accuracy, flight time, and payload comparisons.', category: 'Buying Guides', readTime: '15 min read', date: '2026-07-28' },
+  { slug: 'drone-export-compliance-checklist', title: 'Drone Export Compliance Checklist for Cross-Border Shipments', excerpt: 'Step-by-step checklist for legally exporting drones from China. Covers ECCN, license requirements, sanctions screening, and documentation.', category: 'Compliance', readTime: '10 min read', date: '2026-07-25' },
+  { slug: 'oem-vs-odm-drone-manufacturing', title: 'OEM vs ODM Drone Manufacturing: How to Choose the Right Supplier', excerpt: 'Understanding the difference between OEM and ODM for drone projects. Key questions to ask manufacturers, MOQ considerations, and IP protection.', category: 'Sourcing', readTime: '8 min read', date: '2026-07-20' },
+  { slug: 'counter-uas-technology-comparison', title: 'Counter-UAS Technologies Compared: Detection vs Mitigation', excerpt: 'Overview of C-UAS technologies including radar, RF detection, jamming, and kinetic solutions. Use cases and regulatory considerations.', category: 'Technology', readTime: '14 min read', date: '2026-07-15' },
+  { slug: 'drone-battery-technology-lipo-vs-solid-state', title: 'Drone Battery Technology: LiPo vs Solid-State for Industrial UAVs', excerpt: 'Deep dive into drone power systems, battery chemistry, charging infrastructure, and the future of solid-state batteries for UAVs.', category: 'Technology', readTime: '11 min read', date: '2026-07-10' },
+  { slug: 'fpv-drone-racing-vs-industrial-applications', title: 'FPV Drone Technology: From Racing to Industrial Applications', excerpt: 'How FPV drone components like flight controllers, ESCs, and motors are being adapted for industrial inspection and cinematography.', category: 'Technology', readTime: '9 min read', date: '2026-07-05' },
+  { slug: 'drone-propulsion-systems-explained', title: 'Drone Propulsion Systems Explained: Motors, ESCs, and Propellers', excerpt: 'Understanding brushless motor KV ratings, ESC protocols, propeller sizing, and how to match propulsion components for optimal UAV performance.', category: 'Technology', readTime: '13 min read', date: '2026-06-28' },
+];
+
+function getRelatedArticles(categories: string[], brandName: string) {
+  // Map solution categories to article keywords
+  const categoryKeywords: Record<string, string[]> = {
+    'propulsion': ['battery', 'propulsion', 'motor', 'power'],
+    'vehicles': ['drone', 'uav', 'surveying', 'fpv'],
+    'electronics': ['fpv', 'electronic', 'esc', 'flight controller'],
+    'sensors': ['surveying', 'payload', 'camera'],
+    'command-control': ['fpv', 'radio', 'control'],
+    'counter-uas': ['counter-uas', 'c-uas', 'detection'],
+    'software': ['autopilot', 'flight controller', 'software'],
+    'positioning': ['rtk', 'navigation', 'gps'],
+    'safety': ['parachute', 'safety', 'failsafe'],
+    'materials': ['oem', 'manufacturing', 'composite'],
+    'services': ['sourcing', 'oem', 'supplier'],
+    'structural': ['frame', 'airframe', 'structural'],
+  };
+
+  const keywords = categories.flatMap(c => categoryKeywords[c] || []);
+  const nameLower = brandName.toLowerCase();
+
+  return ARTICLES.filter(a => {
+    const text = (a.title + ' ' + a.excerpt + ' ' + a.category).toLowerCase();
+    return keywords.some(k => text.includes(k)) ||
+      categories.includes('services') ||
+      categories.includes('vehicles');
+  }).slice(0, 6);
+}
+
 function SupplierContent() {
   const params = useParams();
   const searchParams = useSearchParams();
@@ -55,12 +95,13 @@ function SupplierContent() {
     { id: 'overview', label: 'CAPABILITY OVERVIEW' },
     { id: 'products', label: 'PRODUCTS' },
     { id: 'documents', label: 'DOCUMENTS' },
+    { id: 'articles', label: 'ARTICLES' },
     { id: 'contact', label: 'CONTACT' },
   ];
 
-  // Generate description based on categories
   const categories = supplier.solution_categories || [];
   const categoryNames = categories.map((c: string) => SOLUTION_CATEGORIES.find(sc => sc.id === c)?.shortName).filter(Boolean);
+  const relatedArticles = getRelatedArticles(categories, supplier.name || '');
 
   const generatedDescription = supplier.description || (
     categoryNames.length > 0
@@ -68,8 +109,69 @@ function SupplierContent() {
       : `${supplier.name} is a verified supplier on the Aegisky Global UAV Trusted Trade Network, offering ${supplier.product_count || 0} products for the unmanned systems industry.`
   );
 
-  // First product as banner
   const bannerProduct = products[0];
+
+  // Reusable product card
+  const ProductCard = ({ p }: { p: any }) => (
+    <Link key={p.id} href={`/${lang}/products/${p.slug || p.id}`} className="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-all">
+      <div className="aspect-square bg-gray-50 flex items-center justify-center p-3">
+        {p.main_image ? (
+          <img src={p.main_image} alt={p.name} className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" />
+        ) : (
+          <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center text-gray-300">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+        )}
+      </div>
+      <div className="p-3">
+        <h4 className="text-xs font-medium text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">{p.name}</h4>
+        {p.price && <div className="text-sm font-bold text-blue-600 mt-1">${p.price}</div>}
+      </div>
+    </Link>
+  );
+
+  // Reusable article card
+  const ArticleCard = ({ a }: { a: any }) => (
+    <Link key={a.slug} href={`/${lang}/insights/${a.slug}`} className="block bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-all group">
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded">{a.category}</span>
+        <span className="text-xs text-gray-400">{a.readTime}</span>
+      </div>
+      <h4 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-1 line-clamp-2">{a.title}</h4>
+      <p className="text-xs text-gray-500 line-clamp-2">{a.excerpt}</p>
+    </Link>
+  );
+
+  // Reusable documents section
+  const DocumentsSection = () => (
+    <div className="bg-gray-50 rounded-xl p-8 text-center border border-gray-200">
+      <svg className="w-12 h-12 text-gray-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      <p className="text-gray-500">Documents will be available once the supplier uploads them.</p>
+    </div>
+  );
+
+  // Reusable contact form
+  const ContactForm = () => (
+    <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 max-w-lg">
+      <div className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+          <input type="text" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your name" />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+          <input type="email" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="your@email.com" />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+          <textarea rows={4} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="I'm interested in your products..."></textarea>
+        </div>
+        <button className="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+          Send Message
+        </button>
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-white">
@@ -180,12 +282,12 @@ function SupplierContent() {
       {/* Tabs */}
       <div className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4">
-          <nav className="flex gap-8 overflow-x-auto">
+          <nav className="flex gap-6 md:gap-8 overflow-x-auto">
             {tabs.map(tab => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`py-4 px-1 text-sm font-semibold tracking-wide border-b-2 transition-colors whitespace-nowrap ${
+                className={`py-4 px-1 text-xs md:text-sm font-semibold tracking-wide border-b-2 transition-colors whitespace-nowrap ${
                   activeTab === tab.id
                     ? 'border-green-600 text-green-700'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -203,12 +305,14 @@ function SupplierContent() {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Main Content */}
           <div className="flex-1 min-w-0">
+
+            {/* ==================== OVERVIEW TAB - ALL CONTENT ==================== */}
             {activeTab === 'overview' && (
               <div>
-                {/* Jump to Section */}
+                {/* Jump to Section - includes ALL sections for GEO */}
                 <div className="bg-gray-50 rounded-xl p-5 mb-8 border border-gray-200">
                   <h3 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">Jump to Section</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
                     <a href="#about" className="text-sm text-blue-600 hover:underline flex items-center gap-1.5">
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                       About
@@ -221,10 +325,23 @@ function SupplierContent() {
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
                       Products
                     </a>
+                    <a href="#documents-section" className="text-sm text-blue-600 hover:underline flex items-center gap-1.5">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                      Documents
+                    </a>
+                    <a href="#articles-section" className="text-sm text-blue-600 hover:underline flex items-center gap-1.5">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                      Articles
+                    </a>
+                    <a href="#contact-section" className="text-sm text-blue-600 hover:underline flex items-center gap-1.5">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                      Contact
+                    </a>
                   </div>
                 </div>
 
-                <div id="about" className="mb-8">
+                {/* About */}
+                <div id="about" className="mb-10 scroll-mt-24">
                   <h2 className="text-xl font-bold text-gray-900 mb-4">About {supplier.name}</h2>
                   <div className="prose prose-gray max-w-none">
                     <p className="text-gray-700 leading-relaxed">{generatedDescription}</p>
@@ -234,9 +351,11 @@ function SupplierContent() {
                   </div>
                 </div>
 
+                {/* Capabilities */}
                 {categories.length > 0 && (
-                  <div id="capabilities" className="mb-8">
+                  <div id="capabilities" className="mb-10 scroll-mt-24">
                     <h2 className="text-xl font-bold text-gray-900 mb-4">Capabilities</h2>
+                    <p className="text-gray-600 text-sm mb-3">{supplier.name} operates in the following technology areas:</p>
                     <div className="flex flex-wrap gap-2">
                       {categories.map((c: string) => {
                         const cat = SOLUTION_CATEGORIES.find(sc => sc.id === c);
@@ -255,65 +374,62 @@ function SupplierContent() {
                   </div>
                 )}
 
-                {/* Products Preview */}
-                <div id="products-section">
+                {/* ALL Products - full grid for GEO */}
+                <div id="products-section" className="mb-10 scroll-mt-24">
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-xl font-bold text-gray-900">Products</h2>
-                    {products.length > 12 && (
-                      <button onClick={() => setActiveTab('products')} className="text-sm text-blue-600 hover:underline font-medium">
-                        View all {products.length} products →
-                      </button>
-                    )}
+                    <h2 className="text-xl font-bold text-gray-900">Products ({products.length})</h2>
+                    <button onClick={() => setActiveTab('products')} className="text-sm text-blue-600 hover:underline font-medium">
+                      View in Products tab →
+                    </button>
                   </div>
                   {products.length > 0 ? (
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                      {products.slice(0, 12).map((p: any) => (
-                        <Link key={p.id} href={`/${lang}/products/${p.slug || p.id}`} className="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-all">
-                          <div className="aspect-square bg-gray-50 flex items-center justify-center p-3">
-                            {p.main_image ? (
-                              <img src={p.main_image} alt={p.name} className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" />
-                            ) : (
-                              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center text-gray-300">
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                              </div>
-                            )}
-                          </div>
-                          <div className="p-3">
-                            <h4 className="text-xs font-medium text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">{p.name}</h4>
-                            {p.price && <div className="text-sm font-bold text-blue-600 mt-1">${p.price}</div>}
-                          </div>
-                        </Link>
-                      ))}
+                      {products.map((p: any) => <ProductCard key={p.id} p={p} />)}
                     </div>
                   ) : (
                     <p className="text-gray-500 text-sm">No products available yet.</p>
                   )}
                 </div>
+
+                {/* Documents */}
+                <div id="documents-section" className="mb-10 scroll-mt-24">
+                  <h2 className="text-xl font-bold text-gray-900 mb-4">Documents & Resources</h2>
+                  <DocumentsSection />
+                </div>
+
+                {/* Articles */}
+                <div id="articles-section" className="mb-10 scroll-mt-24">
+                  <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-xl font-bold text-gray-900">Related Articles</h2>
+                    <Link href={`/${lang}/insights`} className="text-sm text-blue-600 hover:underline font-medium">
+                      View all insights →
+                    </Link>
+                  </div>
+                  {relatedArticles.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {relatedArticles.map((a: any) => <ArticleCard key={a.slug} a={a} />)}
+                    </div>
+                  ) : (
+                    <p className="text-gray-500 text-sm">No related articles at this time.</p>
+                  )}
+                </div>
+
+                {/* Contact */}
+                <div id="contact-section" className="scroll-mt-24">
+                  <h2 className="text-xl font-bold text-gray-900 mb-4">Contact {supplier.name}</h2>
+                  <p className="text-gray-600 text-sm mb-4">Interested in working with {supplier.name}? Send them a message directly.</p>
+                  <ContactForm />
+                </div>
               </div>
             )}
 
+            {/* ==================== PRODUCTS TAB ==================== */}
             {activeTab === 'products' && (
               <div>
                 <h2 className="text-xl font-bold text-gray-900 mb-4">All Products ({products.length})</h2>
                 {products.length > 0 ? (
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {products.map((p: any) => (
-                      <Link key={p.id} href={`/${lang}/products/${p.slug || p.id}`} className="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-all">
-                        <div className="aspect-square bg-gray-50 flex items-center justify-center p-3">
-                          {p.main_image ? (
-                            <img src={p.main_image} alt={p.name} className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" />
-                          ) : (
-                            <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center text-gray-300">
-                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                            </div>
-                          )}
-                        </div>
-                        <div className="p-3">
-                          <h4 className="text-xs font-medium text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">{p.name}</h4>
-                          {p.price && <div className="text-sm font-bold text-blue-600 mt-1">${p.price}</div>}
-                        </div>
-                      </Link>
-                    ))}
+                    {products.map((p: any) => <ProductCard key={p.id} p={p} />)}
                   </div>
                 ) : (
                   <p className="text-gray-500">No products available.</p>
@@ -321,38 +437,37 @@ function SupplierContent() {
               </div>
             )}
 
+            {/* ==================== DOCUMENTS TAB ==================== */}
             {activeTab === 'documents' && (
               <div>
                 <h2 className="text-xl font-bold text-gray-900 mb-4">Documents & Resources</h2>
-                <div className="bg-gray-50 rounded-xl p-8 text-center border border-gray-200">
-                  <svg className="w-12 h-12 text-gray-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                  <p className="text-gray-500">Documents will be available once the supplier uploads them.</p>
-                </div>
+                <DocumentsSection />
               </div>
             )}
 
+            {/* ==================== ARTICLES TAB ==================== */}
+            {activeTab === 'articles' && (
+              <div>
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Related Articles & Insights</h2>
+                <p className="text-gray-600 text-sm mb-6">Industry articles, guides, and analysis relevant to {supplier.name}&apos;s technology areas.</p>
+                {relatedArticles.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {relatedArticles.map((a: any) => <ArticleCard key={a.slug} a={a} />)}
+                  </div>
+                ) : (
+                  <div className="text-center py-12 bg-gray-50 rounded-xl border border-gray-200">
+                    <p className="text-gray-500">No related articles at this time.</p>
+                    <Link href={`/${lang}/insights`} className="text-blue-600 hover:underline text-sm mt-2 inline-block">Browse all insights →</Link>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* ==================== CONTACT TAB ==================== */}
             {activeTab === 'contact' && (
               <div>
                 <h2 className="text-xl font-bold text-gray-900 mb-4">Contact {supplier.name}</h2>
-                <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 max-w-lg">
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-                      <input type="text" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your name" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                      <input type="email" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="your@email.com" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                      <textarea rows={4} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="I'm interested in your products..."></textarea>
-                    </div>
-                    <button className="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-                      Send Message
-                    </button>
-                  </div>
-                </div>
+                <ContactForm />
               </div>
             )}
           </div>
@@ -417,6 +532,12 @@ function SupplierContent() {
                   <svg className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
                   <span className="text-gray-700">{supplier.product_count || products.length} products</span>
                 </div>
+                {relatedArticles.length > 0 && (
+                  <div className="flex items-start gap-2 text-sm">
+                    <svg className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                    <span className="text-gray-700">{relatedArticles.length} related articles</span>
+                  </div>
+                )}
               </div>
 
               <div className="space-y-2">

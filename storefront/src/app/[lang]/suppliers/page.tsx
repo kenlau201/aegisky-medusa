@@ -113,25 +113,21 @@ function SuppliersContent() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {SOLUTION_CATEGORIES.map(cat => {
             const count = categoryCounts[cat.id] || 0;
-            const isSelected = selectedCategory === cat.id;
             return (
-              <button
+              <Link
                 key={cat.id}
-                onClick={() => selectCategory(cat.id)}
-                className={`flex items-start gap-3 p-5 text-left rounded-xl border-2 transition-all hover:shadow-md ${
-                  isSelected
-                    ? 'border-blue-500 bg-blue-50 shadow-sm'
-                    : 'border-gray-200 bg-white hover:border-gray-300'
-                }`}
+                href={`/${lang}/solutions/${cat.id}`}
+                className="flex items-start gap-3 p-5 text-left rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-md transition-all"
               >
                 <div className={`w-10 h-10 ${cat.bgColor} rounded-lg flex items-center justify-center text-xl flex-shrink-0`}>
                   {cat.icon}
                 </div>
                 <div className="min-w-0">
-                  <div className="font-semibold text-gray-900 text-sm leading-tight">{cat.name}</div>
+                  <div className="font-semibold text-gray-900 text-sm leading-tight group-hover:text-blue-600">{cat.name}</div>
                   <div className="text-xs text-gray-500 mt-1">{count} suppliers</div>
                 </div>
-              </button>
+                <svg className="w-4 h-4 text-gray-400 ml-auto flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
+              </Link>
             );
           })}
         </div>
