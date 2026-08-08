@@ -2,32 +2,28 @@
 
 import { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
-import { useParams, useSearchParams, useRouter } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 import { SOLUTION_CATEGORIES } from '@/lib/suppliers/solutions';
 
 function SuppliersContent() {
   const params = useParams();
-  const router = useRouter();
   const searchParams = useSearchParams();
   const lang = params.lang as string;
 
-  const [suppliers, setSuppliers] = useState<any[]>([]);
-  const [featuredSuppliers, setFeaturedSuppliers] = useState<any[]>([]);
+  const [allSuppliers, setAllSuppliers] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState(searchParams.get('q') || '');
-  const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || '');
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
   const [categoryCounts, setCategoryCounts] = useState<Record<string, number>>({});
   const [stats, setStats] = useState({ brands: 0, products: 0, countries: 0 });
 
+  // Initial load: category counts + stats from first page
   useEffect(() => {
-    // Fetch featured suppliers (verified first, then by product count)
     fetch('/api/suppliers?page=1&pageSize=24')
       .then(r => r.json())
       .then(data => {
-        setFeaturedSuppliers(data.suppliers || []);
         const counts: Record<string, number> = {};
         (data.categories || []).forEach((c: any) => { counts[c.id] = c.count; });
         setCategoryCounts(counts);
@@ -39,39 +35,33 @@ function SuppliersContent() {
       });
   }, []);
 
+  // Paginated supplier fetch (with search)
   useEffect(() => {
     setLoading(true);
-    const params = new URLSearchParams();
-    if (search) params.set('search', search);
-    if (selectedCategory) params.set('category', selectedCategory);
-    params.set('page', page.toString());
-    params.set('pageSize', '12');
+    const urlParams = new URLSearchParams();
+    if (search) urlParams.set('search', search);
+    urlParams.set('page', page.toString());
+    urlParams.set('pageSize', '24');
 
-    fetch(`/api/suppliers?${params}`)
+    fetch(`/api/suppliers?${urlParams}`)
       .then(r => r.json())
       .then(data => {
-        setSuppliers(data.suppliers || []);
+        setAllSuppliers(data.suppliers || []);
         setTotal(data.total || 0);
         setTotalPages(data.totalPages || 1);
-        const counts: Record<string, number> = {};
-        (data.categories || []).forEach((c: any) => { counts[c.id] = c.count; });
-        setCategoryCounts(counts);
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [search, selectedCategory, page]);
+  }, [search, page]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     setPage(1);
   };
 
-  const selectCategory = (catId: string) => {
-    setSelectedCategory(selectedCategory === catId ? '' : catId);
-    setPage(1);
-  };
+  // Featured = first 8 suppliers (verified, top by product count)
+  const featuredSuppliers = allSuppliers.slice(0, 8);
 
-  // Tier badge
   const getTierBadge = (index: number) => {
     if (index < 6) return { label: 'Platinum', class: 'bg-gradient-to-r from-gray-700 to-gray-900 text-white' };
     if (index < 14) return { label: 'Gold', class: 'bg-gradient-to-r from-yellow-500 to-amber-500 text-white' };
@@ -81,11 +71,12 @@ function SuppliersContent() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="bg-gradient-to-b from-gray-50 to-white border-b">
+      <section className="bg-gradient-to-b from-gray-50 to-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-16 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Find a Supplier</h1>
           <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
-            Explore capabilities of unmanned system, subsystem, component and service suppliers for the global UAV industry
+            Explore {stats.brands || 439}+ verified suppliers across the complete UAV technology stack —
+            from propulsion and sensors to complete air vehicles, software, and professional services.
           </p>
 
           {/* Search Bar */}
@@ -98,71 +89,79 @@ function SuppliersContent() {
               <input
                 type="text"
                 value={search}
-                onChange={e => setSearch(e.target.value)}
-                placeholder="What are you looking for?"
+                onChange={e => { setSearch(e.target.value); setPage(1); }}
+                placeholder="Search suppliers by name, product, or capability..."
                 className="w-full pl-14 pr-6 py-4 text-lg border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm bg-white"
               />
             </div>
           </form>
-        </div>
-      </div>
 
-      {/* Categories Grid */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
+          {search && (
+            <div className="mt-4 inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm">
+              <span>Searching for "{search}"</span>
+              <button onClick={() => setSearch('')} className="hover:text-blue-900 font-bold ml-1">×</button>
+              <span className="text-blue-500">· {total} results</span>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Browse by Technology Category */}
+      <section className="max-w-7xl mx-auto px-4 py-12" aria-labelledby="categories-heading">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Browse by Technology Category</h2>
-            <p className="text-sm text-gray-500 mt-1">Suppliers classified by their core technology domain, not just product type</p>
+            <h2 id="categories-heading" className="text-2xl font-bold text-gray-900">Browse by Technology Category</h2>
+            <p className="text-sm text-gray-500 mt-1">
+              Suppliers classified by their core technology domain. Click any category to explore specialized suppliers.
+            </p>
           </div>
-          <Link href={`/${lang}/solutions`} className="text-sm text-blue-600 hover:text-blue-700 font-medium whitespace-nowrap">
-            View all categories →
+          <Link
+            href={`/${lang}/solutions`}
+            className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
+          >
+            View all categories
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+            </svg>
           </Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+        <nav aria-label="Technology categories" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {SOLUTION_CATEGORIES.map(cat => {
             const count = categoryCounts[cat.id] || 0;
-            const isSelected = selectedCategory === cat.id;
             return (
-              <button
+              <Link
                 key={cat.id}
-                onClick={() => selectCategory(cat.id)}
-                className={`flex items-start gap-3 p-5 text-left rounded-xl border-2 transition-all ${
-                  isSelected
-                    ? 'border-blue-500 bg-blue-50 shadow-md ring-2 ring-blue-200'
-                    : 'border-gray-200 bg-white hover:border-blue-400 hover:shadow-md'
-                }`}
+                href={`/${lang}/solutions/${cat.id}`}
+                className="group flex items-start gap-3 p-5 text-left rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-md transition-all"
               >
-                <div className={`w-11 h-11 ${cat.bgColor} rounded-lg flex items-center justify-center text-xl flex-shrink-0`}>
+                <div className={`w-11 h-11 ${cat.bgColor} rounded-lg flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform`}>
                   {cat.icon}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className={`font-semibold text-sm leading-tight ${isSelected ? 'text-blue-700' : 'text-gray-900'}`}>
+                  <div className="font-semibold text-sm leading-tight text-gray-900 group-hover:text-blue-600 transition-colors">
                     {cat.name}
                   </div>
                   <div className="text-xs text-gray-500 mt-1 line-clamp-2">{cat.description}</div>
-                  <div className={`text-xs font-medium mt-2 ${isSelected ? 'text-blue-600' : 'text-gray-400'}`}>
-                    {count} supplier{count !== 1 ? 's' : ''}
+                  <div className="flex items-center gap-1 mt-2">
+                    <span className={`text-xs font-medium ${cat.color}`}>{count} suppliers</span>
+                    <svg className="w-3 h-3 text-gray-300 group-hover:text-blue-500 group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                    </svg>
                   </div>
                 </div>
-                {isSelected && (
-                  <svg className="w-5 h-5 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                  </svg>
-                )}
-              </button>
+              </Link>
             );
           })}
-        </div>
-      </div>
+        </nav>
+      </section>
 
       {/* Featured Suppliers */}
-      {!selectedCategory && !search && (
-        <div className="max-w-7xl mx-auto px-4 pb-12">
+      {!search && (
+        <section className="max-w-7xl mx-auto px-4 pb-12" aria-labelledby="featured-heading">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Featured Suppliers</h2>
-            <Link href={`/${lang}/suppliers?all=1`} className="text-blue-600 hover:text-blue-700 text-sm font-medium">
-              View all suppliers →
-            </Link>
+            <h2 id="featured-heading" className="text-2xl font-bold text-gray-900">Featured Suppliers</h2>
+            <span className="text-sm text-gray-500">Top verified manufacturers and brands</span>
           </div>
 
           {featuredSuppliers.length > 0 ? (
@@ -170,14 +169,13 @@ function SuppliersContent() {
               {featuredSuppliers.map((s, idx) => {
                 const tier = getTierBadge(idx);
                 return (
-                  <div
+                  <article
                     key={s.id}
                     className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all group"
                   >
-                    {/* Product image area */}
                     <div className="h-36 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
                       {s.logo_url ? (
-                        <img src={s.logo_url} alt={s.name} className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform" />
+                        <img src={s.logo_url} alt={`${s.name} logo`} className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform" />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center">
                           <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-2xl font-bold text-blue-600">
@@ -210,18 +208,26 @@ function SuppliersContent() {
 
                       {/* Technology category tags */}
                       {s.solution_categories && s.solution_categories.length > 0 && (
-                        <div className="flex flex-wrap gap-1 mb-2">
+                        <div className="flex flex-wrap gap-1 mb-3">
                           {s.solution_categories.slice(0, 3).map((catId: string) => {
                             const cat = SOLUTION_CATEGORIES.find(c => c.id === catId);
                             if (!cat) return null;
                             return (
-                              <span key={catId} className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-medium ${cat.bgColor} ${cat.color}`}>
-                                {cat.icon} {cat.shortName}
-                              </span>
+                              <Link
+                                key={catId}
+                                href={`/${lang}/solutions/${catId}`}
+                                className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium ${cat.bgColor} ${cat.color} hover:opacity-80 transition-opacity`}
+                              >
+                                <span className="text-xs">{cat.icon}</span>
+                                {cat.shortName}
+                              </Link>
                             );
                           })}
                           {s.solution_categories.length > 3 && (
-                            <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-gray-100 text-gray-500">
+                            <span
+                              className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-medium bg-gray-100 text-gray-500"
+                              title={s.solution_categories.slice(3).map((id: string) => SOLUTION_CATEGORIES.find(c => c.id === id)?.shortName).filter(Boolean).join(', ')}
+                            >
                               +{s.solution_categories.length - 3}
                             </span>
                           )}
@@ -256,47 +262,36 @@ function SuppliersContent() {
                         </Link>
                       </div>
                     </div>
-                  </div>
+                  </article>
                 );
               })}
             </div>
           ) : (
             <div className="text-center py-12 text-gray-400">Loading suppliers...</div>
           )}
-        </div>
+        </section>
       )}
 
-      {/* Filtered Results */}
-      {(selectedCategory || search) && (
-        <div className="max-w-7xl mx-auto px-4 pb-12">
-          {selectedCategory && (
-            <div className="mb-6 flex items-center flex-wrap gap-3">
-              <span className="text-gray-600">Filter:</span>
-              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
-                {SOLUTION_CATEGORIES.find(c => c.id === selectedCategory)?.name}
-                <button onClick={() => { setSelectedCategory(''); setPage(1); }} className="hover:text-blue-600 font-bold">×</button>
-              </span>
-              <span className="text-gray-500 text-sm">({total} suppliers found)</span>
-              <Link
-                href={`/${lang}/solutions/${selectedCategory}`}
-                className="ml-auto text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1"
-              >
-                View category details
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                </svg>
-              </Link>
-            </div>
-          )}
+      {/* All Suppliers (or search results) */}
+      <section className="bg-gray-50 border-t" aria-labelledby="all-suppliers-heading">
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="flex items-center justify-between mb-6">
+            <h2 id="all-suppliers-heading" className="text-2xl font-bold text-gray-900">
+              {search ? `Search Results` : 'All Suppliers'}
+            </h2>
+            <span className="text-sm text-gray-500">
+              {search ? `${total} suppliers matching "${search}"` : `${total} verified suppliers`}
+            </span>
+          </div>
 
           {loading ? (
             <div className="text-center py-16">
               <div className="inline-block w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
             </div>
-          ) : suppliers.length > 0 ? (
+          ) : allSuppliers.length > 0 ? (
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                {suppliers.map(s => (
+                {allSuppliers.map(s => (
                   <Link
                     key={s.id}
                     href={`/${lang}/supplier/${s.slug}`}
@@ -304,7 +299,7 @@ function SuppliersContent() {
                   >
                     <div className="h-32 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6">
                       {s.logo_url ? (
-                        <img src={s.logo_url} alt={s.name} className="max-w-full max-h-20 object-contain group-hover:scale-105 transition-transform" />
+                        <img src={s.logo_url} alt={`${s.name} logo`} className="max-w-full max-h-20 object-contain group-hover:scale-105 transition-transform" />
                       ) : (
                         <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center text-xl font-bold text-blue-600">
                           {s.name?.charAt(0)}
@@ -322,20 +317,20 @@ function SuppliersContent() {
                       </div>
                       {s.tagline && <p className="text-xs text-gray-600 line-clamp-2 mb-2">{s.tagline}</p>}
 
-                      {/* Technology category tags */}
                       {s.solution_categories && s.solution_categories.length > 0 && (
                         <div className="flex flex-wrap gap-1 mb-2">
                           {s.solution_categories.slice(0, 2).map((catId: string) => {
                             const cat = SOLUTION_CATEGORIES.find(c => c.id === catId);
                             if (!cat) return null;
                             return (
-                              <span key={catId} className={`inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-medium ${cat.bgColor} ${cat.color}`}>
-                                {cat.icon} {cat.shortName}
+                              <span key={catId} className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium ${cat.bgColor} ${cat.color}`}>
+                                <span className="text-xs">{cat.icon}</span>
+                                {cat.shortName}
                               </span>
                             );
                           })}
                           {s.solution_categories.length > 2 && (
-                            <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-gray-100 text-gray-500">
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-medium bg-gray-100 text-gray-500">
                               +{s.solution_categories.length - 2}
                             </span>
                           )}
@@ -352,44 +347,57 @@ function SuppliersContent() {
               </div>
 
               {totalPages > 1 && (
-                <div className="flex justify-center items-center gap-2 mt-10">
-                  <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1}
-                    className="px-4 py-2 border rounded-lg disabled:opacity-50 hover:bg-gray-50 text-sm">Previous</button>
+                <nav className="flex justify-center items-center gap-2 mt-10" aria-label="Pagination">
+                  <button
+                    onClick={() => { setPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    disabled={page === 1}
+                    className="px-4 py-2 border rounded-lg disabled:opacity-50 hover:bg-gray-50 text-sm"
+                  >
+                    Previous
+                  </button>
                   <span className="px-4 py-2 text-gray-600 text-sm">Page {page} of {totalPages}</span>
-                  <button onClick={() => setPage(p => Math.min(totalPages, p + 1))} disabled={page === totalPages}
-                    className="px-4 py-2 border rounded-lg disabled:opacity-50 hover:bg-gray-50 text-sm">Next</button>
-                </div>
+                  <button
+                    onClick={() => { setPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    disabled={page === totalPages}
+                    className="px-4 py-2 border rounded-lg disabled:opacity-50 hover:bg-gray-50 text-sm"
+                  >
+                    Next
+                  </button>
+                </nav>
               )}
             </>
           ) : (
-            <div className="text-center py-16 text-gray-500">No suppliers found. Try adjusting your search.</div>
+            <div className="text-center py-16 text-gray-500">
+              <p className="text-lg mb-2">No suppliers found</p>
+              <p className="text-sm">Try adjusting your search terms.</p>
+            </div>
           )}
         </div>
-      )}
+      </section>
 
       {/* Stats Footer */}
-      <div className="bg-gray-900 text-white">
+      <section className="bg-gray-900 text-white" aria-label="Platform statistics">
         <div className="max-w-7xl mx-auto px-4 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-blue-400">{stats.brands}+</div>
+              <div className="text-4xl font-bold text-blue-400">{stats.brands || 439}+</div>
               <div className="text-gray-400 mt-1 text-sm">Verified Suppliers</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-green-400">{stats.products.toLocaleString()}</div>
+              <div className="text-4xl font-bold text-green-400">{(stats.products || 6385).toLocaleString()}</div>
               <div className="text-gray-400 mt-1 text-sm">Products</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-yellow-400">{SOLUTION_CATEGORIES.length}</div>
-              <div className="text-gray-400 mt-1 text-sm">Solution Categories</div>
+              <div className="text-gray-400 mt-1 text-sm">Technology Domains</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-purple-400">{stats.countries}+</div>
+              <div className="text-4xl font-bold text-purple-400">{stats.countries || 30}+</div>
               <div className="text-gray-400 mt-1 text-sm">Countries</div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
