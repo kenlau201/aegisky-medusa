@@ -516,31 +516,32 @@ export default function SolutionCategoryPage() {
             </div>
 
             {/* === RIGHT: Sidebar === */}
-            <aside className="w-full lg:w-80 flex-shrink-0 space-y-6">
+            <aside className="w-full lg:w-80 flex-shrink-0">
+              <div className="lg:sticky lg:top-24 space-y-6 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:pr-1">
               {/* Explore Other Categories */}
-              <div className="bg-white rounded-2xl border border-gray-200 p-5 lg:sticky lg:top-24">
-                <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-4 flex items-center gap-2">
-                  <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-white rounded-2xl border border-gray-200 p-4">
+                <h2 className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3 flex items-center gap-2">
+                  <svg className="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7"/>
                   </svg>
                   Explore Categories
                 </h2>
-                <div className="space-y-1.5">
+                <div className="space-y-0.5">
                   {otherCats.map(c => {
                     const isActive = c.id === categoryId;
                     return (
                       <Link
                         key={c.id}
                         href={`/${lang}/solutions/${c.id}`}
-                        className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-all ${
+                        className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-[13px] transition-all ${
                           isActive
                             ? `${c.bgColor} ${c.color} font-semibold`
                             : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
                         }`}
                       >
-                        <span className="text-base">{c.icon}</span>
+                        <span className="text-sm">{c.icon}</span>
                         <span className="flex-1 truncate">{c.shortName}</span>
-                        <svg className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-3 h-3 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
                         </svg>
                       </Link>
@@ -551,14 +552,14 @@ export default function SolutionCategoryPage() {
 
               {/* Related Articles */}
               {articles.length > 0 && (
-                <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                  <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-4 flex items-center gap-2">
-                    <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="bg-white rounded-2xl border border-gray-200 p-4">
+                  <h2 className="text-xs font-bold text-gray-900 uppercase tracking-wide mb-3 flex items-center gap-2">
+                    <svg className="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
                     </svg>
                     Related Articles
                   </h2>
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     {articles.map(a => (
                       <Link
                         key={a.id}
@@ -566,11 +567,11 @@ export default function SolutionCategoryPage() {
                         className="block group"
                       >
                         {a.image_url && (
-                          <div className="h-28 bg-gray-100 rounded-lg overflow-hidden mb-2">
+                          <div className="h-24 bg-gray-100 rounded-lg overflow-hidden mb-1.5">
                             <img src={a.image_url} alt={a.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                           </div>
                         )}
-                        <div className="flex items-center gap-1.5 text-[11px] text-gray-500 mb-1">
+                        <div className="flex items-center gap-1 text-[10px] text-gray-500 mb-0.5">
                           {a.brand_name && <span className="font-medium text-blue-600">{a.brand_name}</span>}
                           {a.published_date && (
                             <span>· {new Date(a.published_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
@@ -579,20 +580,18 @@ export default function SolutionCategoryPage() {
                         <h3 className="font-semibold text-xs text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
                           {a.title}
                         </h3>
-                        {a.summary && (
-                          <p className="text-[11px] text-gray-500 line-clamp-2 mt-1">{a.summary}</p>
-                        )}
                       </Link>
                     ))}
                   </div>
                   <Link
                     href={`/${lang}/insights`}
-                    className="block mt-4 text-center text-xs text-blue-600 hover:underline font-medium"
+                    className="block mt-3 text-center text-xs text-blue-600 hover:underline font-medium"
                   >
                     View all insights →
                   </Link>
                 </div>
               )}
+              </div>
             </aside>
           </div>
         </div>
