@@ -1,352 +1,351 @@
-import { Metadata } from 'next';
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { pool as db } from '@/lib/control-tower/db';
-import { JsonLd } from '@/components/geo/JsonLd';
-import { generateOrganizationSchema, generateBreadcrumbSchema } from '@/lib/geo/schema-generator';
 
-export const revalidate = 3600;
+const TABS = [
+  { id: 'overview', label: 'CAPABILITY OVERVIEW' },
+  { id: 'products', label: 'PRODUCTS' },
+  { id: 'solutions', label: 'SOLUTIONS' },
+  { id: 'documents', label: 'DOCUMENTS' },
+  { id: 'contact', label: 'CONTACT' },
+];
 
-async function getSupplier(slug: string) {
-  try {
-    // Query aegisky_brands (not the empty 'brands' Medusa table)
-    const result = await db.query(`
-      SELECT b.id, b.name, b.slug, b.logo_url, b.description, b.product_count
-      FROM aegisky_brands b
-      WHERE b.slug = $1 OR b.id::text = $1
-    `, [slug]);
+export default function BrandDetailPage() {
+  const params = useParams();
+  const router = useRouter();
+  const lang = params.lang as string;
+  const slug = params.slug as string;
 
-    if (result.rows.length === 0) return null;
-    const brand = result.rows[0];
+  const [brand, setBrand] = useState<any>(null);
+  const [products, setProducts] = useState<any[]>([]);
+  const [relatedBrands, setRelatedBrands] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('overview');
 
-    // Query products that have this brand in their JSONB brands array
-    const productsResult = await db.query(`
-      SELECT id, name, slug, main_image, price
-      FROM aegisky_products
-      WHERE brands @> $1::jsonb
-      LIMIT 12
-    `, [JSON.stringify([{ id: brand.id, name: brand.name, slug: brand.slug }])]);
+  useEffect(() => {
+    setLoading(true);
+    fetch(`/api/suppliers/${slug}`)
+      .then(r => r.json())
+      .then(data => {
+        if (data.error) { router.push(`/${lang}/suppliers`); return; }
+        setBrand(data.brand);
+        setProducts(data.products || []);
+        setRelatedBrands(data.relatedBrands || []);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, [slug, router, lang]);
 
-    return {
-      ...brand,
-      products: productsResult.rows,
-    };
-  } catch (e) {
-    console.error('Error fetching supplier:', e);
-    return null;
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+          <p className="mt-4 text-gray-500">Loading supplier profile...</p>
+        </div>
+      </div>
+    );
   }
-}
 
-export async function generateMetadata({ params }: { params: { slug: string; lang: string } }): Promise<Metadata> {
-  const supplier = await getSupplier(params.slug);
-  if (!supplier) return { title: 'Supplier Not Found' };
-
-  return {
-    title: `${supplier.name} - Verified Drone Supplier | Aegisky`,
-    description: supplier.description || `${supplier.name} is a verified supplier of industrial drones and unmanned systems on Aegisky. View products, certifications, and contact information.`,
-  };
-}
-
-export default async function SupplierDetailPage({ params }: { params: { slug: string; lang: string } }) {
-  const supplier = await getSupplier(params.slug);
-  if (!supplier) notFound();
-
-  const baseUrl = 'https://aegisky.com';
-  const supplierUrl = `${baseUrl}/${params.lang}/suppliers/${params.slug}`;
-
-  const orgJsonLd = generateOrganizationSchema({
-    id: supplier.id,
-    name: supplier.name,
-    url: supplierUrl,
-    logo: supplier.logo_url,
-    description: supplier.description,
-    country: 'Global',
-    certifications: ['Verified Supplier', 'Export Compliance Screened'],
-  });
-
-  const breadcrumbJsonLd = generateBreadcrumbSchema({
-    items: [
-      { name: 'Home', url: `${baseUrl}/${params.lang}` },
-      { name: 'Suppliers', url: `${baseUrl}/${params.lang}/suppliers` },
-      { name: supplier.name, url: supplierUrl },
-    ],
-  });
+  if (!brand) return null;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <JsonLd data={[orgJsonLd, breadcrumbJsonLd]} />
-
+    <div className="min-h-screen bg-white">
       {/* Breadcrumb */}
-      <div className="bg-white border-b">
+      <div className="bg-gray-50 border-b">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex items-center gap-2 text-sm text-gray-500">
-            <Link href={`/${params.lang}`} className="hover:text-blue-600">Home</Link>
+          <nav className="flex items-center gap-2 text-sm text-gray-600">
+            <Link href={`/${lang}`} className="hover:text-blue-600 flex items-center gap-1">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            </Link>
             <span>/</span>
-            <Link href={`/${params.lang}/suppliers`} className="hover:text-blue-600">Suppliers</Link>
+            <Link href={`/${lang}/suppliers`} className="hover:text-blue-600">Suppliers</Link>
             <span>/</span>
-            <span className="text-gray-900">{supplier.name}</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Supplier Header */}
-      <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row gap-8 items-start">
-            {/* Logo */}
-            <div className="w-32 h-32 bg-gray-50 rounded-xl flex items-center justify-center flex-shrink-0 border border-gray-200">
-              {supplier.logo_url ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={supplier.logo_url}
-                  alt={supplier.name}
-                  className="max-w-full max-h-full object-contain p-4"
-                />
-              ) : (
-                <span className="text-5xl font-bold text-gray-300">{supplier.name?.charAt(0)}</span>
-              )}
-            </div>
-
-            {/* Info */}
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-2">
-                <h1 className="text-3xl font-bold text-gray-900">{supplier.name}</h1>
-                <span className="bg-green-100 text-green-700 text-sm font-medium px-3 py-1 rounded-full flex items-center gap-1.5">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  Verified
-                </span>
-              </div>
-
-              <p className="text-gray-600 mb-3 flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                Global Supplier
-              </p>
-
-              {supplier.description && (
-                <p className="text-lg text-gray-700 mb-6 max-w-3xl">
-                  {supplier.description}
-                </p>
-              )}
-
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  href={`/${params.lang}/brand/${supplier.slug}`}
-                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-                >
-                  View All Products
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-                <Link
-                  href={`/${params.lang}/rfq?supplier=${supplier.id}`}
-                  className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-2.5 rounded-lg font-medium hover:bg-gray-50 transition-colors"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  Contact Supplier / RFQ
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Tabs Navigation */}
-      <div className="bg-white border-b sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4">
-          <nav className="flex gap-8 overflow-x-auto">
-            {[
-              { id: 'overview', label: 'CAPABILITY OVERVIEW' },
-              { id: 'products', label: `PRODUCTS (${supplier.product_count || 0})` },
-              { id: 'certifications', label: 'CERTIFICATIONS' },
-              { id: 'contact', label: 'CONTACT' },
-            ].map((tab) => (
-              <a
-                key={tab.id}
-                href={`#${tab.id}`}
-                className="py-4 px-1 border-b-2 border-transparent hover:border-blue-600 hover:text-blue-600 text-sm font-semibold text-gray-600 whitespace-nowrap transition-colors"
-              >
-                {tab.label}
-              </a>
-            ))}
+            <span className="text-gray-900 font-medium">{brand.name}</span>
           </nav>
         </div>
       </div>
 
-      {/* Tab Content */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-12">
-            {/* Capability Overview */}
-            <section id="overview">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b">Capability Overview</h2>
-              <div className="prose max-w-none text-gray-700">
-                {supplier.description ? (
-                  <p>{supplier.description}</p>
+      {/* Header */}
+      <div className="max-w-7xl mx-auto px-4 py-10">
+        <div className="flex flex-col lg:flex-row gap-8 items-start">
+          <div className="flex-1">
+            <div className="flex items-center gap-3 mb-3">
+              <h1 className="text-3xl lg:text-4xl font-bold text-gray-900">{brand.name}</h1>
+              <span className="inline-flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
+                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
+                Verified
+              </span>
+            </div>
+
+            {brand.tagline && (
+              <p className="text-xl text-gray-600 mb-4 leading-relaxed">{brand.tagline}</p>
+            )}
+
+            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+              {brand.country && (
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3" strokeWidth={2}/></svg>
+                  {brand.country}
+                </span>
+              )}
+              {brand.founded_year && (
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" strokeWidth={2}/><line x1="16" y1="2" x2="16" y2="6" strokeWidth={2}/><line x1="8" y1="2" x2="8" y2="6" strokeWidth={2}/><line x1="3" y1="10" x2="21" y2="10" strokeWidth={2}/></svg>
+                  Founded {brand.founded_year}
+                </span>
+              )}
+              {brand.product_count > 0 && (
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                  {brand.product_count} products
+                </span>
+              )}
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-3 mt-6">
+              {brand.website_url && (
+                <a
+                  href={brand.website_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-blue-700 transition-colors"
+                >
+                  Visit Website
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              )}
+              <button className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-2.5 rounded-full font-medium hover:bg-gray-50 transition-colors">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                Save
+              </button>
+              <button className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-2.5 rounded-full font-medium hover:bg-gray-50 transition-colors">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Contact
+              </button>
+            </div>
+          </div>
+
+          {/* Logo */}
+          <div className="w-full lg:w-64 flex-shrink-0">
+            <div className="bg-white border border-gray-200 rounded-xl p-8 flex items-center justify-center min-h-[160px]">
+              {brand.logo_url ? (
+                <img src={brand.logo_url} alt={brand.name} className="max-w-full max-h-32 object-contain" />
+              ) : (
+                <div className="w-24 h-24 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center text-4xl font-bold text-blue-600">
+                  {brand.name?.charAt(0)}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="mt-10 border-b border-gray-200">
+          <nav className="flex gap-8 overflow-x-auto">
+            {TABS.map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`pb-4 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
+                  activeTab === tab.id
+                    ? 'border-green-600 text-green-700'
+                    : 'border-transparent text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </nav>
+        </div>
+
+        {/* Tab Content */}
+        <div className="py-10">
+          {activeTab === 'overview' && (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+              <div className="lg:col-span-2">
+                {brand.description ? (
+                  <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: brand.description }} />
                 ) : (
-                  <p className="text-gray-500">
-                    {supplier.name} is a verified supplier on the Aegisky Global UAV Trusted Trade Network.
-                    All products undergo compliance screening and certification verification.
-                  </p>
+                  <div>
+                    <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                      <strong className="text-gray-900">{brand.name}</strong> is a leading manufacturer and supplier in the unmanned systems industry, providing high-quality products and solutions for UAV, UGV and robotics applications.
+                    </p>
+                    {brand.tagline && (
+                      <p className="text-gray-600 leading-relaxed">{brand.tagline}</p>
+                    )}
+                    <p className="text-gray-600 leading-relaxed mt-4">
+                      With a comprehensive product portfolio covering airframes, propulsion systems, sensors, communication equipment and more, {brand.name} serves customers worldwide with reliable and innovative solutions for both commercial and defense applications.
+                    </p>
+                  </div>
                 )}
 
-                <div className="mt-6 grid grid-cols-2 gap-4 not-prose">
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-900 mb-2">Core Capabilities</h4>
-                    <ul className="text-sm space-y-1 text-gray-600">
-                      <li>✓ Industrial UAV Manufacturing</li>
-                      <li>✓ OEM/ODM Services</li>
-                      <li>✓ Custom Engineering</li>
-                      <li>✓ Global Shipping</li>
-                    </ul>
+                {/* Solution Categories */}
+                {brand.solution_categories && brand.solution_categories.length > 0 && (
+                  <div className="mt-10">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Capabilities</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {brand.solution_categories.map((cat: string) => (
+                        <span key={cat} className="bg-blue-50 text-blue-700 px-3 py-1.5 rounded-full text-sm font-medium">
+                          {cat.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-900 mb-2">Quality Assurance</h4>
-                    <ul className="text-sm space-y-1 text-gray-600">
-                      <li>✓ ISO 9001 Certified</li>
-                      <li>✓ CE/FCC Compliance</li>
-                      <li>✓ Factory Inspection</li>
-                      <li>✓ Product Testing</li>
-                    </ul>
+                )}
+              </div>
+
+              {/* Sidebar */}
+              <div className="space-y-6">
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <h3 className="font-semibold text-gray-900 mb-4">Company Info</h3>
+                  <div className="space-y-3 text-sm">
+                    {brand.country && (
+                      <div className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3" strokeWidth={2}/></svg>
+                        <div>
+                          <div className="text-gray-500">Headquarters</div>
+                          <div className="font-medium text-gray-900">{brand.country}</div>
+                        </div>
+                      </div>
+                    )}
+                    {brand.founded_year && (
+                      <div className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" strokeWidth={2}/><line x1="16" y1="2" x2="16" y2="6" strokeWidth={2}/><line x1="8" y1="2" x2="8" y2="6" strokeWidth={2}/><line x1="3" y1="10" x2="21" y2="10" strokeWidth={2}/></svg>
+                        <div>
+                          <div className="text-gray-500">Founded</div>
+                          <div className="font-medium text-gray-900">{brand.founded_year}</div>
+                        </div>
+                      </div>
+                    )}
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                      <div>
+                        <div className="text-gray-500">Products</div>
+                        <div className="font-medium text-gray-900">{brand.product_count || products.length} items</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </section>
 
-            {/* Products */}
-            <section id="products">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b">Products</h2>
-              {supplier.products && supplier.products.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {supplier.products.map((product: any) => (
+                {brand.website_url && (
+                  <a
+                    href={brand.website_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block bg-blue-600 text-white text-center py-3 rounded-xl font-medium hover:bg-blue-700 transition-colors"
+                  >
+                    Visit Official Website →
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'products' && (
+            <div>
+              {products.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {products.map(p => (
                     <Link
-                      key={product.id}
-                      href={`/${params.lang}/product/${product.slug || product.id}`}
-                      className="bg-white border border-gray-200 rounded-lg p-4 hover:border-blue-500 hover:shadow-md transition-all flex gap-4"
+                      key={p.id}
+                      href={`/${lang}/products/${p.slug || p.id}`}
+                      className="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all"
                     >
-                      <div className="w-20 h-20 bg-gray-100 rounded flex-shrink-0 flex items-center justify-center">
-                        {product.main_image ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src={product.main_image} alt={product.name} className="w-full h-full object-contain rounded" />
+                      <div className="aspect-square bg-gray-50 flex items-center justify-center p-4">
+                        {p.main_image ? (
+                          <img src={p.main_image} alt={p.name} className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" />
                         ) : (
-                          <span className="text-gray-400 text-xs">No image</span>
+                          <div className="w-20 h-20 bg-gray-200 rounded-lg flex items-center justify-center text-gray-400">
+                            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                          </div>
                         )}
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-medium text-gray-900 text-sm line-clamp-2 hover:text-blue-600">
-                          {product.name}
-                        </h4>
-                        {product.price && (
-                          <p className="text-blue-600 font-semibold mt-1">
-                            ${product.price}
-                          </p>
+                      <div className="p-4">
+                        <h4 className="font-medium text-gray-900 text-sm line-clamp-2 group-hover:text-blue-600 transition-colors mb-2">{p.name}</h4>
+                        {p.price && (
+                          <div className="text-lg font-bold text-blue-600">${p.price}</div>
                         )}
                       </div>
                     </Link>
                   ))}
                 </div>
               ) : (
-                <p className="text-gray-500">No products listed yet.</p>
+                <div className="text-center py-16 text-gray-400">No products available for this supplier yet.</div>
               )}
-              {(supplier.product_count || 0) > 12 && (
-                <div className="mt-6">
-                  <Link
-                    href={`/${params.lang}/brand/${supplier.slug}`}
-                    className="inline-block bg-[#0B1F3A] text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-[#1a3055] transition-colors"
-                  >
-                    View all {supplier.product_count} products
-                  </Link>
-                </div>
-              )}
-            </section>
+            </div>
+          )}
 
-            {/* Certifications */}
-            <section id="certifications">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b">Certifications & Compliance</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {['CE Marking', 'FCC Part 15', 'ISO 9001', 'RoHS Compliant', 'REACH', 'FAA Remote ID Ready'].map((cert) => (
-                  <div key={cert} className="bg-white border border-gray-200 rounded-lg p-4 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 flex-shrink-0">
-                      ✓
+          {activeTab === 'solutions' && (
+            <div className="text-center py-16 text-gray-400">
+              <p>Solution content coming soon.</p>
+            </div>
+          )}
+
+          {activeTab === 'documents' && (
+            <div className="text-center py-16 text-gray-400">
+              <p>Documents and resources coming soon.</p>
+            </div>
+          )}
+
+          {activeTab === 'contact' && (
+            <div className="max-w-xl">
+              <div className="bg-gray-50 rounded-xl p-8">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">Contact {brand.name}</h3>
+                <div className="space-y-4">
+                  {brand.website_url && (
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Website</label>
+                      <a href={brand.website_url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline break-all">{brand.website_url}</a>
                     </div>
-                    <span className="font-medium text-gray-900 text-sm">{cert}</span>
-                  </div>
-                ))}
+                  )}
+                  {brand.country && (
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                      <p className="text-gray-900">{brand.country}</p>
+                    </div>
+                  )}
+                </div>
+                <button className="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                  Send Inquiry
+                </button>
               </div>
-            </section>
-          </div>
-
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Company Facts */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6">
-              <h3 className="font-bold text-gray-900 mb-4">Company Facts</h3>
-              <dl className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <dt className="text-gray-500">Country</dt>
-                  <dd className="font-medium text-gray-900">Global</dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-gray-500">Products</dt>
-                  <dd className="font-medium text-gray-900">{supplier.product_count || 0}</dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-gray-500">Verification</dt>
-                  <dd className="font-medium text-green-600">Verified</dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-gray-500">Compliance</dt>
-                  <dd className="font-medium text-green-600">Screened</dd>
-                </div>
-              </dl>
             </div>
-
-            {/* Contact */}
-            <div id="contact" className="bg-white border border-gray-200 rounded-xl p-6">
-              <h3 className="font-bold text-gray-900 mb-4">Contact Supplier</h3>
-              <p className="text-sm text-gray-600 mb-4">
-                Request a quote, ask for samples, or discuss custom requirements.
-              </p>
-              <Link
-                href={`/${params.lang}/rfq?supplier=${supplier.id}`}
-                className="block w-full bg-blue-600 text-white text-center py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-              >
-                Send RFQ to {supplier.name}
-              </Link>
-            </div>
-
-            {/* Trust Badges */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-xl p-6">
-              <h3 className="font-bold text-gray-900 mb-3">Why Book Through Aegisky?</h3>
-              <ul className="space-y-2 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-0.5">✓</span>
-                  <span>Payment protection & escrow</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-0.5">✓</span>
-                  <span>Pre-shipment inspection</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-0.5">✓</span>
-                  <span>Export compliance documentation</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-0.5">✓</span>
-                  <span>Global logistics support</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+          )}
         </div>
+
+        {/* Related Suppliers */}
+        {relatedBrands.length > 0 && (
+          <div className="mt-16 pt-10 border-t border-gray-200">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Related Suppliers</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {relatedBrands.map(rb => (
+                <Link
+                  key={rb.id}
+                  href={`/${lang}/suppliers/${rb.slug}`}
+                  className="bg-white border border-gray-200 rounded-xl p-4 text-center hover:shadow-md transition-all group"
+                >
+                  <div className="h-16 flex items-center justify-center mb-3">
+                    {rb.logo_url ? (
+                      <img src={rb.logo_url} alt={rb.name} className="max-w-full max-h-12 object-contain group-hover:scale-105 transition-transform" />
+                    ) : (
+                      <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-lg font-bold text-gray-400">
+                        {rb.name?.charAt(0)}
+                      </div>
+                    )}
+                  </div>
+                  <h4 className="text-sm font-medium text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">{rb.name}</h4>
+                  {rb.product_count > 0 && (
+                    <p className="text-xs text-gray-500 mt-1">{rb.product_count} products</p>
+                  )}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

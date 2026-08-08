@@ -1,177 +1,66 @@
-import { Metadata } from 'next';
+'use client';
+
 import Link from 'next/link';
-import { JsonLd } from '@/components/geo/JsonLd';
+import { useParams } from 'next/navigation';
 
-export const revalidate = 86400;
-
-export const metadata: Metadata = {
-  title: 'Industrial Drone Solutions by Industry | Aegisky',
-  description: 'Drone solutions for surveying, agriculture, public safety, construction, inspection, and more. Find the right platform for your use case.',
-};
-
-const INDUSTRIES = [
-  {
-    slug: 'surveying-mapping',
-    name: 'Surveying & Mapping',
-    icon: '🗺️',
-    description: 'RTK/PPK surveying drones for topographic mapping, cadastral survey, and volumetric calculations.',
-    keyProducts: ['RTK Multirotors', 'VTOL Fixed-Wing', 'Photogrammetry Software'],
-    specs: ['1-3cm accuracy', '500+ acres per flight', 'Mechanical shutter'],
-    color: 'from-blue-500 to-blue-700',
-  },
-  {
-    slug: 'agriculture',
-    name: 'Agriculture & Spraying',
-    icon: '🌾',
-    description: 'Agricultural sprayers, multispectral imaging, and crop monitoring drones for precision farming.',
-    keyProducts: ['Spraying Drones', 'Multispectral Cameras', 'Crop Health Analytics'],
-    specs: ['10-50L tank', '4-8m spray width', 'Variable rate application'],
-    color: 'from-green-500 to-green-700',
-  },
-  {
-    slug: 'construction',
-    name: 'Construction & Infrastructure',
-    icon: '🏗️',
-    description: 'Progress monitoring, site surveying, BIM integration, and infrastructure inspection.',
-    keyProducts: ['Mapping Drones', 'Thermal Cameras', 'Progress Tracking Software'],
-    specs: ['Orthomosaic maps', '3D point clouds', 'Digital twins'],
-    color: 'from-orange-500 to-orange-700',
-  },
-  {
-    slug: 'public-safety',
-    name: 'Public Safety & Security',
-    icon: '🚔',
-    description: 'Thermal imaging, search and rescue, fire monitoring, and tactical situational awareness.',
-    keyProducts: ['Thermal Drones', 'Zoom Cameras', 'Night Vision Payloads'],
-    specs: ['640x512 thermal', '30x optical zoom', 'IP54 rated'],
-    color: 'from-red-500 to-red-700',
-  },
-  {
-    slug: 'inspection',
-    name: 'Industrial Inspection',
-    icon: '🔍',
-    description: 'Power line, pipeline, wind turbine, solar farm, and infrastructure inspection.',
-    keyProducts: ['Zoom Cameras', 'Thermal Imaging', 'Corona Detection'],
-    specs: ['200x hybrid zoom', 'Radiometric thermal', 'Obstacle avoidance'],
-    color: 'from-purple-500 to-purple-700',
-  },
-  {
-    slug: 'mining',
-    name: 'Mining & Quarries',
-    icon: '⛏️',
-    description: 'Stockpile volumetrics, site survey, blast monitoring, and haul road inspection.',
-    keyProducts: ['Heavy-lift Drones', 'LiDAR Payloads', 'Volumetrics Software'],
-    specs: ['1000+ acre coverage', 'LiDAR point clouds', 'Stockpile reports'],
-    color: 'from-yellow-600 to-yellow-800',
-  },
-  {
-    slug: 'energy',
-    name: 'Energy & Utilities',
-    icon: '⚡',
-    description: 'Power line inspection, solar farm thermography, wind turbine blade inspection.',
-    keyProducts: ['Thermal Drones', 'Corona Cameras', 'Inspection Software'],
-    specs: ['Per-pixel temperature', 'Vegetation management', 'AI defect detection'],
-    color: 'from-cyan-500 to-cyan-700',
-  },
-  {
-    slug: 'defense-security',
-    name: 'Defense & Security',
-    icon: '🛡️',
-    description: 'Tactical UAS, border patrol, ISR, and counter-UAS solutions for government users.',
-    keyProducts: ['Tactical UAS', 'Counter-UAS', 'Encrypted Data Links'],
-    specs: ['AES-256 encryption', 'BVLOS capable', 'MIL-STD tested'],
-    color: 'from-gray-700 to-gray-900',
-  },
-  {
-    slug: 'logistics',
-    name: 'Logistics & Delivery',
-    icon: '📦',
-    description: 'Last-mile delivery, medical supply transport, and BVLOS logistics solutions.',
-    keyProducts: ['Delivery Drones', 'Winch Systems', 'Fleet Management'],
-    specs: ['5-20kg payload', '50km range', 'Automated landing'],
-    color: 'from-indigo-500 to-indigo-700',
-  },
-  {
-    slug: 'film-photography',
-    name: 'Cinema & Aerial Photography',
-    icon: '🎬',
-    description: 'Professional cinema drones, heavy-lift platforms, and high-end camera systems.',
-    keyProducts: ['Heavy-lift Drones', 'Cinema Cameras', 'Gimbal Systems'],
-    specs: ['8K video', 'Full-frame sensors', 'ProRes/RAW'],
-    color: 'from-pink-500 to-pink-700',
-  },
+const SOLUTIONS = [
+  { id: 'vehicles', name: 'Unmanned Vehicles & Platforms', desc: 'Complete UAV, UGV, USV platforms including multirotors, fixed-wing, VTOL', icon: '🚁', color: 'from-blue-500 to-blue-600' },
+  { id: 'sensors', name: 'Mission Sensors & Payloads', desc: 'Cameras, gimbals, lidar, thermal imaging, EO/IR and survey payloads', icon: '📷', color: 'from-green-500 to-green-600' },
+  { id: 'propulsion', name: 'Propulsion & Power', desc: 'Motors, ESCs, propellers, batteries, fuel cells and charging solutions', icon: '⚡', color: 'from-yellow-500 to-orange-500' },
+  { id: 'command-control', name: 'Command & Control', desc: 'C2 systems, data links, radios, telemetry and communication equipment', icon: '📡', color: 'from-purple-500 to-purple-600' },
+  { id: 'positioning', name: 'Positioning & Navigation', desc: 'GPS/GNSS, IMU, RTK, compasses and high-precision navigation systems', icon: '🧭', color: 'from-indigo-500 to-indigo-600' },
+  { id: 'software', name: 'Software & Autonomy', desc: 'Autopilot, flight controllers, mission planning, AI and SDK platforms', icon: '💻', color: 'from-cyan-500 to-cyan-600' },
+  { id: 'electronics', name: 'Electronics & Subsystems', desc: 'Circuit boards, embedded systems, power modules and electronic components', icon: '🔌', color: 'from-pink-500 to-pink-600' },
+  { id: 'structural', name: 'Structural & Mechanical', desc: 'Airframes, frames, landing gear, servos and precision mechanical parts', icon: '⚙️', color: 'from-gray-500 to-gray-600' },
+  { id: 'materials', name: 'Materials & Manufacturing', desc: 'Carbon fiber, composites, 3D printing, CNC machining and advanced materials', icon: '🏭', color: 'from-orange-500 to-red-500' },
+  { id: 'counter-uas', name: 'Counter-UAS', desc: 'Anti-drone systems, detection radar, jamming and airspace security', icon: '🎯', color: 'from-red-500 to-red-600' },
+  { id: 'safety', name: 'Safety Systems', desc: 'Parachutes, failsafe, collision avoidance and recovery systems', icon: '🛡️', color: 'from-teal-500 to-teal-600' },
+  { id: 'services', name: 'Professional Services', desc: 'Training, maintenance, inspection, surveying, mapping and consulting', icon: '💼', color: 'from-amber-500 to-amber-600' },
 ];
 
-export default function SolutionsPage({ params }: { params: { lang: string } }) {
+export default function SolutionsPage() {
+  const params = useParams();
+  const lang = params.lang as string;
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 py-12">
-          <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-            <Link href={`/${params.lang}`} className="hover:text-blue-600">Home</Link>
-            <span>/</span>
-            <span className="text-gray-900">Solutions</span>
-          </div>
-
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Industrial Drone Solutions by Industry
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl">
-            Purpose-built drone platforms for every industry. Compare specifications, find verified suppliers,
-            and source complete solutions for your use case.
+      <div className="bg-gradient-to-br from-blue-900 via-gray-900 to-black text-white">
+        <div className="max-w-7xl mx-auto px-4 py-20 text-center">
+          <h1 className="text-4xl lg:text-5xl font-bold mb-6">Solutions by Application</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Explore unmanned system solutions organized by capability and application area.
+            Find the right suppliers and products for your specific mission requirements.
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      {/* Categories Grid */}
+      <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {INDUSTRIES.map(industry => (
+          {SOLUTIONS.map(sol => (
             <Link
-              key={industry.slug}
-              href={`/${params.lang}/solutions/${industry.slug}`}
-              className="bg-white rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all overflow-hidden group"
+              key={sol.id}
+              href={`/${lang}/solutions/${sol.id}`}
+              className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all"
             >
-              <div className={`h-32 bg-gradient-to-br ${industry.color} flex items-center justify-center`}>
-                <span className="text-6xl">{industry.icon}</span>
+              <div className={`h-32 bg-gradient-to-br ${sol.color} flex items-center justify-center text-5xl`}>
+                {sol.icon}
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600">
-                  {industry.name}
+                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  {sol.name}
                 </h3>
-                <p className="text-gray-600 text-sm mb-4">{industry.description}</p>
-
-                <div className="space-y-2 mb-4">
-                  {industry.specs.slice(0, 3).map(spec => (
-                    <div key={spec} className="flex items-center gap-2 text-sm text-gray-700">
-                      <span className="text-green-500">✓</span>
-                      {spec}
-                    </div>
-                  ))}
-                </div>
-
-                <div className="pt-4 border-t">
-                  <span className="text-blue-600 font-medium text-sm group-hover:underline">
-                    View {industry.name} Solutions →
-                  </span>
+                <p className="text-gray-600 text-sm leading-relaxed">{sol.desc}</p>
+                <div className="mt-4 flex items-center text-blue-600 text-sm font-medium">
+                  Explore solutions
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                  </svg>
                 </div>
               </div>
             </Link>
           ))}
-        </div>
-
-        {/* CTA */}
-        <div className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 text-white text-center">
-          <h2 className="text-2xl font-bold mb-3">Don't see your industry?</h2>
-          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            We work with customers across 50+ industries. Contact our solutions team to discuss your specific requirements.
-          </p>
-          <Link
-            href={`/${params.lang}/contact`}
-            className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors"
-          >
-            Talk to a Solutions Engineer →
-          </Link>
         </div>
       </div>
     </div>

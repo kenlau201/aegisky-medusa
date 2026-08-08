@@ -199,7 +199,11 @@ export default function MegaMenu({ lang, categories }: MegaMenuProps) {
           </Link>
           <Link href={`/${lang}/suppliers`} className="px-3 py-2 text-sm text-gray-700 hover:text-blue-600 transition font-medium flex items-center gap-1">
             <Building2 size={15} />
-            {lang === 'ru' ? 'Поставщики' : lang === 'zh' ? '供应商与方案' : 'Suppliers & Solutions'}
+            {lang === 'ru' ? 'Поставщики' : lang === 'zh' ? '供应商' : 'Suppliers'}
+          </Link>
+          <Link href={`/${lang}/solutions`} className="px-3 py-2 text-sm text-gray-700 hover:text-blue-600 transition font-medium flex items-center gap-1">
+            <Layers size={15} />
+            {lang === 'ru' ? 'Решения' : lang === 'zh' ? '解决方案' : 'Solutions'}
           </Link>
         </div>
       </nav>
@@ -250,9 +254,9 @@ export default function MegaMenu({ lang, categories }: MegaMenuProps) {
               </div>
             </div>
 
-            {/* Suppliers & Solutions quick link */}
+            {/* Suppliers & Solutions quick links */}
             {!searchQuery.trim() && (
-              <div className="px-4 py-3 border-b border-gray-100">
+              <div className="px-4 py-3 border-b border-gray-100 space-y-2">
                 <Link
                   href={`/${lang}/suppliers`}
                   onClick={() => setMobileOpen(false)}
@@ -260,9 +264,21 @@ export default function MegaMenu({ lang, categories }: MegaMenuProps) {
                 >
                   <Building2 size={16} className="text-indigo-600" />
                   <span className="text-sm font-semibold text-gray-900">
-                    {lang === 'ru' ? 'Поставщики и решения' : lang === 'zh' ? '供应商与解决方案' : 'Suppliers & Solutions'}
+                    {lang === 'ru' ? 'Каталог поставщиков' : lang === 'zh' ? '供应商目录' : 'Find a Supplier'}
                   </span>
-                  <ChevronRight size={14} className="text-gray-400 ml-auto" />
+                  <ChevronRight size={14} className="text-gray-400" />
+                </Link>
+                <Link
+                  href={`/${lang}/solutions`}
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-2"
+                >
+                  <Layers size={16} className="text-blue-600" />
+                  <span className="text-sm font-semibold text-gray-900">
+                    {lang === 'ru' ? 'Технологии и решения' : lang === 'zh' ? '技术与解决方案' : 'Solutions & Technology'}
+                  </span>
+                  <span className="text-xs text-gray-400 ml-auto">12</span>
+                  <ChevronRight size={14} className="text-gray-400" />
                 </Link>
               </div>
             )}

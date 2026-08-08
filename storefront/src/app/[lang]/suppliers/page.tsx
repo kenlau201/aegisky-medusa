@@ -1,270 +1,236 @@
-import { Metadata } from 'next';
+'use client';
+
+import { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
-import { pool as db } from '@/lib/control-tower/db';
-import { JsonLd } from '@/components/geo/JsonLd';
-import { generateCollectionPageSchema, generateWebSiteSchema } from '@/lib/geo/schema-generator';
+import { useParams, useSearchParams, useRouter } from 'next/navigation';
 
-export const revalidate = 3600;
-
-// 工业级技术分类（英文+俄文关键词，匹配俄文商品名）
-const TECHNOLOGY_CATEGORIES = [
-  { name: 'Unmanned Vehicles & Platforms', icon: '🚁', slug: 'vehicles', keywords: ['drone', 'uav', 'quadcopter', 'multirotor', 'fixed-wing', 'vtol', 'helicopter', 'aircraft', 'дрон', 'квадрокоптер', 'беспилотник', 'коптер', 'мультиротор', 'самолет', 'авиа', 'dji', 'mavic', 'phantom', 'matrice', 'autel'] },
-  { name: 'Propulsion & Power', icon: '⚡', slug: 'propulsion', keywords: ['motor', 'esc', 'propeller', 'battery', 'lipo', 'engine', 'brushless', 'двигатель', 'мотор', 'регулятор', 'пропеллер', 'лопаст', 'аккумулятор', 'батарея', 'заряд', 't-motor', 'hobbywing'] },
-  { name: 'Sensors & Payloads', icon: '📡', slug: 'sensors', keywords: ['camera', 'sensor', 'lidar', 'thermal', 'gimbal', 'payload', 'radar', 'imaging', 'камера', 'сенсор', 'лидар', 'тепловиз', 'подвес', 'стабилизатор', 'радар', 'фото', 'видео', 'flir', 'sony', 'gopro'] },
-  { name: 'Command & Control (C2)', icon: '📻', slug: 'c2', keywords: ['remote', 'controller', 'transmitter', 'receiver', 'telemetry', 'radio', 'antenna', 'пульт', 'управления', 'передатчик', 'приемник', 'телеметр', 'радио', 'антенн', 'flysky', 'frsky', 'radiomaster'] },
-  { name: 'Software & Autonomy', icon: '💻', slug: 'software', keywords: ['software', 'autopilot', 'px4', 'ardupilot', 'autonomy', 'algorithm', 'sdk', 'программ', 'автопилот', 'полетн', 'контроллер', 'прошивк', 'pixhawk', 'cube'] },
-  { name: 'Electronics & Subsystems', icon: '🔌', slug: 'electronics', keywords: ['electronic', 'circuit', 'pcb', 'module', 'board', 'chip', 'bec', 'wiring', 'электрон', 'плата', 'модуль', 'схема', 'чип', 'провод', 'разъем'] },
-  { name: 'Positioning & Navigation', icon: '🧭', slug: 'navigation', keywords: ['gps', 'gnss', 'compass', 'imu', 'navigation', 'rtk', 'accelerometer', 'gyro', 'gps', 'глонасс', 'компас', 'навигац', 'позицион', 'инерциаль', 'датчик'] },
-  { name: 'Counter-UAS', icon: '🛡️', slug: 'counter-uas', keywords: ['counter', 'anti-drone', 'jammer', 'detection', 'cuas', 'jamming', 'противодейств', 'глушител', 'обнаруж', 'защит', 'безопасност'] },
-  { name: 'Structural & Mechanical', icon: '⚙️', slug: 'mechanical', keywords: ['frame', 'landing gear', 'mount', 'bracket', 'hinge', 'clamp', 'servo', 'рама', 'шасси', 'креплен', 'кронштейн', 'сервопривод', 'механизм', 'подвес'] },
-  { name: 'Materials & Manufacturing', icon: '🏭', slug: 'materials', keywords: ['carbon fiber', 'material', 'composite', '3d print', 'cnc', 'aluminum', 'карбон', 'углерод', 'материал', 'композит', 'печать', 'фрезер', 'алюмин', 'титан'] },
-  { name: 'Safety Systems', icon: '🔒', slug: 'safety', keywords: ['safety', 'parachute', 'failsafe', 'emergency', 'recovery', 'protection', 'collision', 'redundancy', 'безопасност', 'парашют', 'катапульт', 'аварий', 'спасен', 'защит', 'отказоустой'] },
-  { name: 'Professional Services', icon: '💼', slug: 'services', keywords: ['service', 'training', 'consulting', 'maintenance', 'repair', 'inspection', 'survey', 'mapping', 'обслуживан', 'обучен', 'консалтинг', 'ремонт', 'осмотр', 'съемка', 'картограф', 'услуг'] },
+// 12个无人机系统解决方案分类（参考unmannedsystemstechnology.com）
+const SOLUTION_CATEGORIES = [
+  { id: 'counter-uas', name: 'Counter-UAS', icon: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" strokeWidth="2"/><circle cx="12" cy="12" r="6" strokeWidth="2"/><circle cx="12" cy="12" r="2" strokeWidth="2"/><line x1="12" y1="2" x2="12" y2="6" strokeWidth="2"/><line x1="12" y1="18" x2="12" y2="22" strokeWidth="2"/><line x1="2" y1="12" x2="6" y2="12" strokeWidth="2"/><line x1="18" y1="12" x2="22" y2="12" strokeWidth="2"/></svg>
+  ), color: 'text-red-500' },
+  { id: 'command-control', name: 'Command, Control & Communications', icon: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
+  ), color: 'text-blue-500' },
+  { id: 'electronics', name: 'Electronics & Subsystems', icon: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" strokeWidth="2"/><rect x="9" y="9" width="6" height="6" strokeWidth="2"/><line x1="9" y1="2" x2="9" y2="4" strokeWidth="2"/><line x1="15" y1="2" x2="15" y2="4" strokeWidth="2"/><line x1="9" y1="20" x2="9" y2="22" strokeWidth="2"/><line x1="15" y1="20" x2="15" y2="22" strokeWidth="2"/><line x1="20" y1="9" x2="22" y2="9" strokeWidth="2"/><line x1="20" y1="14" x2="22" y2="14" strokeWidth="2"/><line x1="2" y1="9" x2="4" y2="9" strokeWidth="2"/><line x1="2" y1="14" x2="4" y2="14" strokeWidth="2"/></svg>
+  ), color: 'text-purple-500' },
+  { id: 'structural', name: 'Structural & Mechanical Systems', icon: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" strokeWidth="2"/><rect x="14" y="3" width="7" height="7" strokeWidth="2"/><rect x="3" y="14" width="7" height="7" strokeWidth="2"/><rect x="14" y="14" width="7" height="7" strokeWidth="2"/></svg>
+  ), color: 'text-gray-600' },
+  { id: 'positioning', name: 'Positioning, Navigation & Guidance', icon: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" strokeWidth="2"/><polygon points="12,2 14.5,9.5 22,12 14.5,14.5 12,22 9.5,14.5 2,12 9.5,9.5" strokeWidth="2"/></svg>
+  ), color: 'text-indigo-500' },
+  { id: 'sensors', name: 'Mission Sensors & Payloads', icon: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="4" strokeWidth="2"/></svg>
+  ), color: 'text-green-500' },
+  { id: 'propulsion', name: 'Propulsion & Power', icon: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10" strokeWidth="2" strokeLinejoin="round"/></svg>
+  ), color: 'text-yellow-500' },
+  { id: 'materials', name: 'Materials & Manufacturing', icon: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" strokeWidth="2"/><path strokeLinecap="round" strokeWidth={2} d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+  ), color: 'text-orange-500' },
+  { id: 'safety', name: 'Safety Systems', icon: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+  ), color: 'text-green-600' },
+  { id: 'services', name: 'Professional Services', icon: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" strokeWidth="2"/><path strokeLinecap="round" strokeWidth={2} d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+  ), color: 'text-teal-500' },
+  { id: 'software', name: 'Software & Autonomy', icon: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" strokeWidth="2"/><line x1="8" y1="21" x2="16" y2="21" strokeWidth="2"/><line x1="12" y1="17" x2="12" y2="21" strokeWidth="2"/></svg>
+  ), color: 'text-cyan-500' },
+  { id: 'vehicles', name: 'Unmanned Vehicles & Platforms', icon: (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" strokeWidth="2"/><circle cx="18" cy="6" r="3" strokeWidth="2"/><circle cx="6" cy="18" r="3" strokeWidth="2"/><circle cx="18" cy="18" r="3" strokeWidth="2"/><line x1="9" y1="6" x2="15" y2="6" strokeWidth="2"/><line x1="9" y1="18" x2="15" y2="18" strokeWidth="2"/><line x1="6" y1="9" x2="6" y2="15" strokeWidth="2"/><line x1="18" y1="9" x2="18" y2="15" strokeWidth="2"/><rect x="9" y="9" width="6" height="6" rx="1" strokeWidth="2"/></svg>
+  ), color: 'text-blue-600' },
 ];
 
-interface PageProps {
-  params: { lang: string };
-  searchParams: { category?: string; q?: string; page?: string };
-}
+function SuppliersContent() {
+  const params = useParams();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const lang = params.lang as string;
 
-async function getSuppliers(opts: { category?: string; search?: string; page?: number }) {
-  const { category, search, page = 1 } = opts;
-  const pageSize = 48;
-  const offset = (page - 1) * pageSize;
+  const [suppliers, setSuppliers] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState(searchParams.get('q') || '');
+  const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || '');
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
+  const [categories, setCategories] = useState(SOLUTION_CATEGORIES);
 
-  let whereClause = '';
-  const params: any[] = [];
-  const conditions: string[] = [];
+  useEffect(() => {
+    setLoading(true);
+    const params = new URLSearchParams();
+    if (search) params.set('search', search);
+    if (selectedCategory) params.set('category', selectedCategory);
+    params.set('page', page.toString());
+    params.set('pageSize', '12');
 
-  // Search filter
-  if (search) {
-    conditions.push(`(b.name ILIKE $${params.length + 1} OR b.description ILIKE $${params.length + 1})`);
-    params.push(`%${search}%`);
-  }
+    fetch(`/api/suppliers?${params}`)
+      .then(r => r.json())
+      .then(data => {
+        setSuppliers(data.suppliers || []);
+        setTotal(data.total || 0);
+        setTotalPages(data.totalPages || 1);
+        if (data.categories) {
+          setCategories(SOLUTION_CATEGORIES.map(c => ({
+            ...c,
+            count: data.categories.find((dc: any) => dc.id === c.id)?.count || 0
+          })));
+        }
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, [search, selectedCategory, page]);
 
-  // Category filter: find brands whose products match category keywords
-  if (category) {
-    const catConfig = TECHNOLOGY_CATEGORIES.find(c => c.slug === category);
-    if (catConfig) {
-      const startIdx = params.length;
-      const keywordConditions = catConfig.keywords.map((_, i) => `p.name ILIKE $${startIdx + i + 1}`).join(' OR ');
-      const keywordParams = catConfig.keywords.map(kw => `%${kw}%`);
-      conditions.push(`EXISTS (SELECT 1 FROM aegisky_products p WHERE p.brands @> jsonb_build_array(jsonb_build_object('id', b.id))::jsonb AND (${keywordConditions}))`);
-      params.push(...keywordParams);
-    }
-  }
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    setPage(1);
+    const url = new URL(window.location.href);
+    if (search) url.searchParams.set('q', search); else url.searchParams.delete('q');
+    if (selectedCategory) url.searchParams.set('category', selectedCategory); else url.searchParams.delete('category');
+    router.push(url.pathname + url.search);
+  };
 
-  if (conditions.length > 0) {
-    whereClause = 'WHERE ' + conditions.join(' AND ');
-  }
-
-  try {
-    const countResult = await db.query(`SELECT COUNT(*) FROM aegisky_brands b ${whereClause}`, params);
-    const total = parseInt(countResult.rows[0].count);
-
-    const result = await db.query(`
-      SELECT b.id, b.name, b.slug, b.logo_url, b.description,
-             COALESCE(b.product_count, 0) as product_count
-      FROM aegisky_brands b
-      ${whereClause}
-      ORDER BY b.product_count DESC NULLS LAST, b.name ASC
-      LIMIT $${params.length + 1} OFFSET $${params.length + 2}
-    `, [...params, pageSize, offset]);
-
-    return { suppliers: result.rows, total, page, pageSize, totalPages: Math.ceil(total / pageSize) };
-  } catch (e) {
-    console.error('Error fetching suppliers:', e);
-    return { suppliers: [], total: 0, page: 1, pageSize: 48, totalPages: 0 };
-  }
-}
-
-async function getCategoryCounts() {
-  const counts: Record<string, number> = {};
-  for (const cat of TECHNOLOGY_CATEGORIES) {
-    try {
-      const keywordConditions = cat.keywords.map((kw, i) => `p.name ILIKE $${i + 1}`).join(' OR ');
-      const keywordParams = cat.keywords.map(kw => `%${kw}%`);
-      const result = await db.query(`
-        SELECT COUNT(DISTINCT b.id) FROM aegisky_brands b
-        WHERE EXISTS (SELECT 1 FROM aegisky_products p WHERE p.brands @> jsonb_build_array(jsonb_build_object('id', b.id))::jsonb AND (${keywordConditions}))
-      `, keywordParams);
-      counts[cat.slug] = parseInt(result.rows[0].count);
-    } catch {
-      counts[cat.slug] = 0;
-    }
-  }
-  return counts;
-}
-
-export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
-  const category = searchParams.category;
-  const catConfig = TECHNOLOGY_CATEGORIES.find(c => c.slug === category);
-  const title = catConfig
-    ? `${catConfig.name} Suppliers & Manufacturers | Aegisky`
-    : 'Verified Drone Suppliers & Manufacturers | Aegisky';
-  return { title, description: 'Browse verified industrial drone suppliers and manufacturers on Aegisky.' };
-}
-
-export default async function SuppliersPage({ params, searchParams }: PageProps) {
-  const category = searchParams.category;
-  const search = searchParams.q;
-  const page = parseInt(searchParams.page || '1');
-
-  const catConfig = category ? TECHNOLOGY_CATEGORIES.find(c => c.slug === category) : null;
-  const [{ suppliers, total, totalPages }, categoryCounts] = await Promise.all([
-    getSuppliers({ category, search, page }),
-    getCategoryCounts(),
-  ]);
-
-  const jsonLd = generateCollectionPageSchema({
-    name: catConfig ? `${catConfig.name} Suppliers` : 'Verified Drone Suppliers & Manufacturers',
-    description: 'Browse verified industrial drone suppliers and manufacturers on Aegisky.',
-    url: `https://aegisky.com/${params.lang}/suppliers`,
-    numberOfItems: total,
-  });
+  const selectCategory = (catId: string) => {
+    setSelectedCategory(selectedCategory === catId ? '' : catId);
+    setPage(1);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <JsonLd data={[jsonLd, generateWebSiteSchema()]} />
-
       {/* Hero Section */}
       <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 py-12">
-          <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-            <Link href={`/${params.lang}`} className="hover:text-blue-600">Home</Link>
-            <span>/</span>
-            <span className="text-gray-900">Suppliers & Solutions</span>
-            {catConfig && (<><span>/</span><span className="text-blue-600">{catConfig.name}</span></>)}
-          </div>
-
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            {catConfig ? catConfig.name : 'Verified Drone Suppliers & Manufacturers'}
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mb-8">
-            {catConfig
-              ? `Browse verified suppliers specializing in ${catConfig.name.toLowerCase()} for industrial drone applications.`
-              : 'Discover world-leading unmanned systems technology. All suppliers undergo business verification, product certification review, and export compliance screening.'}
+        <div className="max-w-7xl mx-auto px-4 py-16 text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Find a Supplier</h1>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Explore capabilities of unmanned system, subsystem, component and service suppliers for the global UAV industry
           </p>
 
           {/* Search Bar */}
-          <form action={`/${params.lang}/suppliers`} method="GET" className="flex gap-2 mb-6 max-w-xl">
-            {category && <input type="hidden" name="category" value={category} />}
-            <input
-              type="text"
-              name="q"
-              defaultValue={search || ''}
-              placeholder="Search suppliers by name or keyword..."
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-            />
-            <button type="submit" className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
-              Search
-            </button>
-            {(search || category) && (
-              <Link href={`/${params.lang}/suppliers`} className="px-4 py-3 text-gray-600 hover:text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors flex items-center">
-                Clear
-              </Link>
-            )}
+          <form onSubmit={handleSearch} className="max-w-2xl mx-auto">
+            <div className="relative">
+              <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8" strokeWidth="2"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+              <input
+                type="text"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                placeholder="What are you looking for?"
+                className="w-full pl-12 pr-4 py-4 text-lg border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+              />
+            </div>
           </form>
-
-          <div className="flex flex-wrap gap-4">
-            <div className="flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full">
-              <span className="text-blue-600">✓</span>
-              <span className="font-medium">{total} Suppliers Found</span>
-            </div>
-            <div className="flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full">
-              <span className="text-green-600">✓</span>
-              <span className="font-medium">CE/FCC/ISO Certified</span>
-            </div>
-            <div className="flex items-center gap-2 bg-purple-50 text-purple-700 px-4 py-2 rounded-full">
-              <span className="text-purple-600">✓</span>
-              <span className="font-medium">Export Compliance Screened</span>
-            </div>
-          </div>
         </div>
       </div>
 
+      {/* Categories Grid */}
       <div className="max-w-7xl mx-auto px-4 py-12">
-        {/* Technology Categories */}
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Browse by Technology Category</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
-          {TECHNOLOGY_CATEGORIES.map((cat) => {
-            const isActive = category === cat.slug;
-            const count = categoryCounts[cat.slug] || 0;
-            return (
-              <Link
-                key={cat.slug}
-                href={`/${params.lang}/suppliers?category=${cat.slug}`}
-                className={`bg-white p-5 rounded-xl border transition-all group ${isActive ? 'border-blue-500 ring-2 ring-blue-200 shadow-md' : 'border-gray-200 hover:border-blue-500 hover:shadow-md'}`}
-              >
-                <div className="text-3xl mb-3">{cat.icon}</div>
-                <h3 className={`font-semibold mb-1 ${isActive ? 'text-blue-600' : 'text-gray-900 group-hover:text-blue-600'}`}>
-                  {cat.name}
-                </h3>
-                <p className="text-sm text-gray-500">{count} suppliers</p>
-              </Link>
-            );
-          })}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0 border border-gray-200 rounded-xl overflow-hidden bg-white">
+          {categories.map((cat, i) => (
+            <button
+              key={cat.id}
+              onClick={() => selectCategory(cat.id)}
+              className={`flex items-center gap-3 p-6 text-left transition-all hover:bg-gray-50 border-gray-200 ${
+                selectedCategory === cat.id ? 'bg-blue-50 border-l-4 border-l-blue-600' : ''
+              } ${i < 8 ? 'border-b' : ''} ${i % 4 !== 3 ? 'border-r' : ''}`}
+            >
+              <div className={`${cat.color} flex-shrink-0`}>{cat.icon}</div>
+              <div>
+                <div className="font-medium text-gray-900 text-sm leading-tight">{cat.name}</div>
+                {cat.count > 0 && (
+                  <div className="text-xs text-gray-500 mt-1">{cat.count} suppliers</div>
+                )}
+              </div>
+            </button>
+          ))}
         </div>
 
-        {/* Suppliers Grid */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-gray-900">
-            {catConfig ? `${catConfig.name} Suppliers` : 'All Suppliers'}
-            <span className="text-base font-normal text-gray-500 ml-3">({total})</span>
-          </h2>
-        </div>
+        <p className="text-center text-sm text-gray-500 mt-6">
+          For Suppliers: <Link href="#" className="text-blue-600 hover:underline">Partner with us to showcase your solutions »</Link>
+        </p>
+      </div>
 
-        {suppliers.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-xl">
-            <p className="text-gray-500 text-lg mb-4">No suppliers found{search ? ` for "${search}"` : ''}{catConfig ? ` in ${catConfig.name}` : ''}.</p>
-            <Link href={`/${params.lang}/suppliers`} className="text-blue-600 hover:underline">View all suppliers</Link>
+      {/* Suppliers Grid */}
+      <div className="max-w-7xl mx-auto px-4 pb-16">
+        {selectedCategory && (
+          <div className="mb-6 flex items-center gap-3">
+            <span className="text-gray-600">Filter:</span>
+            <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
+              {SOLUTION_CATEGORIES.find(c => c.id === selectedCategory)?.name}
+              <button onClick={() => setSelectedCategory('')} className="hover:text-blue-600">×</button>
+            </span>
+            <span className="text-gray-500 text-sm">({total} suppliers found)</span>
           </div>
-        ) : (
+        )}
+
+        {loading ? (
+          <div className="text-center py-16 text-gray-400">
+            <div className="inline-block w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+            <p className="mt-4">Loading suppliers...</p>
+          </div>
+        ) : suppliers.length > 0 ? (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {suppliers.map((supplier: any) => (
+              {suppliers.map(s => (
                 <Link
-                  key={supplier.id}
-                  href={`/${params.lang}/suppliers/${supplier.slug || supplier.id}`}
-                  className="bg-white rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all overflow-hidden group"
+                  key={s.id}
+                  href={`/${lang}/suppliers/${s.slug}`}
+                  className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all group"
                 >
-                  <div className="h-40 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center p-6 relative">
-                    {supplier.logo_url ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={supplier.logo_url.startsWith('http') ? supplier.logo_url : `/images/brands/${supplier.logo_url}`}
-                        alt={supplier.name}
-                        className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform"
-                      />
+                  {/* Logo area */}
+                  <div className="h-40 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6 relative overflow-hidden">
+                    {s.logo_url ? (
+                      <img src={s.logo_url} alt={s.name} className="max-w-full max-h-24 object-contain group-hover:scale-105 transition-transform" />
                     ) : (
-                      <span className="text-4xl font-bold text-gray-300">
-                        {supplier.name?.charAt(0)}
-                      </span>
+                      <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-3xl font-bold text-blue-600">
+                        {s.name?.charAt(0)}
+                      </div>
                     )}
-                    <div className="absolute top-3 right-3">
-                      <span className="bg-green-100 text-green-700 text-xs font-medium px-2 py-1 rounded-full flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-                        Verified
-                      </span>
-                    </div>
+                    <button className="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                    </button>
                   </div>
 
                   <div className="p-5">
-                    <h3 className="font-bold text-gray-900 text-lg mb-1 group-hover:text-blue-600">
-                      {supplier.name}
-                    </h3>
-                    {supplier.description && (
-                      <p className="text-sm text-gray-600 line-clamp-2 mb-3">
-                        {supplier.description.replace(/<[^>]*>/g, '').substring(0, 120)}
-                      </p>
+                    <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-blue-600 transition-colors">{s.name}</h3>
+                    {s.tagline && (
+                      <p className="text-sm text-gray-600 mb-3 line-clamp-2">{s.tagline}</p>
                     )}
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-500">
-                        {supplier.product_count} products
-                      </span>
-                      <span className="text-blue-600 text-sm font-medium group-hover:underline">
-                        View Profile →
-                      </span>
+                    {s.description && !s.tagline && (
+                      <p className="text-sm text-gray-600 mb-3 line-clamp-2">{s.description}</p>
+                    )}
+
+                    <div className="flex items-center gap-2 text-xs text-gray-500 mb-4">
+                      {s.country && (
+                        <span className="flex items-center gap-1">
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3" strokeWidth={2}/></svg>
+                          {s.country}
+                        </span>
+                      )}
+                      {s.product_count > 0 && (
+                        <span>• {s.product_count} products</span>
+                      )}
+                    </div>
+
+                    <div className="flex gap-2">
+                      <button className="flex-1 bg-gray-900 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+                        View Profile
+                      </button>
+                      {s.website_url && (
+                        <a
+                          href={s.website_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={e => e.stopPropagation()}
+                          className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+                        >
+                          Visit
+                        </a>
+                      )}
                     </div>
                   </div>
                 </Link>
@@ -273,46 +239,42 @@ export default async function SuppliersPage({ params, searchParams }: PageProps)
 
             {/* Pagination */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-center gap-2 mt-10">
-                {page > 1 && (
-                  <Link
-                    href={`/${params.lang}/suppliers?${new URLSearchParams({ ...(category && { category }), ...(search && { q: search }), page: String(page - 1) })}`}
-                    className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-gray-700"
-                  >
-                    ← Previous
-                  </Link>
-                )}
+              <div className="flex justify-center items-center gap-2 mt-12">
+                <button
+                  onClick={() => setPage(p => Math.max(1, p - 1))}
+                  disabled={page === 1}
+                  className="px-4 py-2 border rounded-lg disabled:opacity-50 hover:bg-gray-50"
+                >
+                  Previous
+                </button>
                 <span className="px-4 py-2 text-gray-600">
                   Page {page} of {totalPages}
                 </span>
-                {page < totalPages && (
-                  <Link
-                    href={`/${params.lang}/suppliers?${new URLSearchParams({ ...(category && { category }), ...(search && { q: search }), page: String(page + 1) })}`}
-                    className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-gray-700"
-                  >
-                    Next →
-                  </Link>
-                )}
+                <button
+                  onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                  disabled={page === totalPages}
+                  className="px-4 py-2 border rounded-lg disabled:opacity-50 hover:bg-gray-50"
+                >
+                  Next
+                </button>
               </div>
             )}
           </>
+        ) : (
+          <div className="text-center py-16">
+            <div className="text-gray-400 text-lg mb-2">No suppliers found</div>
+            <p className="text-gray-500 text-sm">Try adjusting your search or filter</p>
+          </div>
         )}
-
-        {/* CTA */}
-        <div className="mt-16 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 text-white text-center">
-          <h2 className="text-2xl font-bold mb-3">Are you a drone manufacturer or supplier?</h2>
-          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Join verified suppliers on the world's most trusted B2B platform for industrial drones.
-            Get access to global enterprise buyers with built-in compliance.
-          </p>
-          <Link
-            href={`/${params.lang}/become-supplier`}
-            className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors"
-          >
-            Become a Verified Supplier →
-          </Link>
-        </div>
       </div>
     </div>
+  );
+}
+
+export default function SuppliersPage() {
+  return (
+    <Suspense fallback={<div className="text-center py-16 text-gray-400">Loading...</div>}>
+      <SuppliersContent />
+    </Suspense>
   );
 }
