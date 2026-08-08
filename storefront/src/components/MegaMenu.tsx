@@ -199,11 +199,7 @@ export default function MegaMenu({ lang, categories }: MegaMenuProps) {
           </Link>
           <Link href={`/${lang}/suppliers`} className="px-3 py-2 text-sm text-gray-700 hover:text-blue-600 transition font-medium flex items-center gap-1">
             <Building2 size={15} />
-            {lang === 'ru' ? 'Поставщики' : lang === 'zh' ? '供应商' : 'Suppliers'}
-          </Link>
-          <Link href={`/${lang}/solutions`} className="px-3 py-2 text-sm text-gray-700 hover:text-blue-600 transition font-medium flex items-center gap-1">
-            <Layers size={15} />
-            {lang === 'ru' ? 'Решения' : lang === 'zh' ? '解决方案' : 'Solutions'}
+            {lang === 'ru' ? 'Поставщики и решения' : lang === 'zh' ? '供应商与解决方案' : 'Suppliers & Solutions'}
           </Link>
         </div>
       </nav>
