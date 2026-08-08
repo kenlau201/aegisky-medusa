@@ -102,37 +102,43 @@ const CATEGORY_TO_SOLUTION: Record<number, string[]> = {
 // Brand name keyword → Solution category mapping
 const BRAND_KEYWORDS: Array<{ pattern: RegExp; categories: string[] }> = [
   // Counter-UAS brands
-  { pattern: /dedrone|d-fend|fortem|liteye|anduril|sRC inc|raytheon|lockheed|northrop|brinc|teal|percepto/i, categories: ['counter-uas'] },
+  { pattern: /dedrone|d-fend|fortem|liteye|anduril|sRC inc|raytheon|lockheed|northrop|brinc|teal|percepto|anti-drone|counter-uav|c-uas|drone detection|jammer|drone gun|drone shield|dronebuster|airspace security|faselase/i, categories: ['counter-uas'] },
 
-  // Propulsion specialists
-  { pattern: /t-motor|tiger motor|t-motor|hobbywing|brotherhobby|flashhobby| Sunnysky|dualsky|mad components|iPower|scorpion|emax|maytech|dys|tattu|gens ace|gaoneng|gnb|cnhl|isdt|toolkitrc|skyrc|junsi|ev-peak|eflite|spektrum/i, categories: ['propulsion'] },
+  // Propulsion specialists - motors, ESCs, propellers, batteries, chargers, power
+  { pattern: /t-motor|tiger motor|hobbywing|brotherhobby|flashhobby|sunnysky|dualsky|mad components|ipower|scorpion|emax|maytech|dys|tattu|gens ace|gaoneng|gnb|cnhl|isdt|toolkitrc|skyrc|junsi|ev-peak|eflite|spektrum|rcinpower|qx-motor|qxmotor|freerchobby|maniax|spedix|ztw|xxd|herewin|sunpadow|zeee|hrb|gensace|liitokala|hota|makerbase|gt power|imax|nitecore|turnigy|hobbyking|hobbywing|t-motor|bluex|bluetti|ecoflow|jackery|allpowers|romoss|solar|power station|battery|lipo|li-ion|charger|motor|esc|propeller|thrust/i, categories: ['propulsion'] },
 
-  // Command & Control specialists
-  { pattern: /frsky|radiomaster|jumper|flysky|hitec|radiolink|team blacksheep|tbs|akk|crossfire|expresslrs|elrs/i, categories: ['command-control'] },
+  // Command & Control specialists - radios, transmitters, receivers, antennas, VTX
+  { pattern: /frsky|radiomaster|jumper|flysky|hitec|radiolink|team blacksheep|tbs|akk|crossfire|expresslrs|elrs|immersionrc|bayckrc|helloradio|hawkeye|skydroid|superbat|turbo|microzone|yagi|antenna|transmitter|receiver|radio|vtx|telemetry|baofeng|hytera|motorola|anytone|quansheng|tyt|walksnail|hdzero|fatshark|skyzone|fpv goggle|starlink|ubiquiti|d-link|zyxel|quectel|hackrf|rf explorer|tbeam|beacon/i, categories: ['command-control'] },
 
-  // Sensor/camera specialists
-  { pattern: /flir|teledyne|gopro|insta360|caddx|runcam|foxeer|walksnail|hdzero|fatshark|skyzone|ouster|velodyne|livox|leica|topcon|garmin|gremsy|sony/i, categories: ['sensors'] },
+  // Sensor/camera/lidar specialists
+  { pattern: /flir|teledyne|gopro|insta360|caddx|runcam|foxeer|walksnail|hdzero|fatshark|skyzone|ouster|velodyne|livox|leica|topcon|garmin|gremsy|sony|hesai|robosense|slamtec|benewake|ydlidar|lidar|viewpro|siminics|seyond|stereolabs|unitree|thermal|camera|gimbal|infrared|ranging|tof|depth sensor/i, categories: ['sensors'] },
 
   // Flight controller/autopilot specialists
-  { pattern: /pixhawk|ardupilot|px4|holybro|matek|cuav|mamba|speedybee|hglrc|rushfpv|betaflight|inav|diatone/i, categories: ['positioning', 'software', 'electronics'] },
+  { pattern: /pixhawk|ardupilot|px4|holybro|matek|cuav|mamba|speedybee|hglrc|rushfpv|betaflight|inav|diatone|drotek|chcnav|prinCe|gnss|gps|rtk|compass|imu|barometer|autopilot|flight controller|fc stack/i, categories: ['positioning', 'software', 'electronics'] },
 
   // Airframe/vehicle specialists
-  { pattern: /dji|autel|parrot|skydio|yuneec|geprc|iflight|betafpv|happymodel|flywoo|axisflying|darwinfpv|diatone|emax|eachine|hubsan|syma|wltoys|eachine|risingsky|armattan|shendrones|iFlight|geprc/i, categories: ['vehicles'] },
+  { pattern: /dji|autel|parrot|skydio|yuneec|geprc|iflight|betafpv|happymodel|flywoo|axisflying|darwinfpv|diatone|emax|eachine|hubsan|syma|wltoys|risingsky|armattan|shendrones|swellpro|tdrones|walkera|fimi|sjrc|cheerson|lyzrc|rufus|skyeye|xiro|zlrc|mugin|skywalker|makeflyeasy|eft|sub250|drone|quadcopter|multirotor|vtol|fixed.wing|uav|uas|rover|submarine/i, categories: ['vehicles'] },
 
-  // Software/AI companies
-  { pattern: /auterion|airmap|skyward|dronedeploy|pix4d|sensefly|wingcopter|freefly|wingtra|quantum-systems|delair|ehang|xag|aerovironment|insitu|textron|shield ai|hivemind/i, categories: ['software', 'vehicles'] },
+  // Software/AI/SBC companies
+  { pattern: /auterion|airmap|skyward|dronedeploy|pix4d|sensefly|wingcopter|freefly|wingtra|quantum-systems|delair|ehang|xag|aerovironment|insitu|textron|shield ai|hivemind|raspberry pi|arduino|orange pi|nanopi|radxa|banana pi|lattepanda|khadas|lilygo|nvidia|intel|repka pi|gmktec|flipper|bigtreetech|sipeed|waveshare|wavgat|fdrobot|atway|sky-drones|software|firmware|autonomy|ai |machine learning|computer vision|sbc|microcontroller/i, categories: ['software', 'electronics'] },
 
   // Materials/manufacturing
-  { pattern: /carbon|composite|3d print|cnc|titanium|aluminum|armattan|readymaderc|lumonier|taulman|prusa|creality|formlabs|markforged|fiber|carbon|kevlar|fiberglass|extrudr|polymaker|esun|hatchbox|matterhackers/i, categories: ['materials', 'structural'] },
+  { pattern: /carbon|composite|3d print|cnc|titanium|aluminum|alloy|armattan|readymaderc|lumenier|taulman|prusa|creality|formlabs|markforged|kevlar|fiberglass|extrudr|polymaker|esun|hatchbox|matterhackers|filament|resin|carbon fiber|carbon plate|cnc machin|injection mold/i, categories: ['materials', 'structural'] },
 
   // Services
-  { pattern: /training|consulting|survey|mapping|inspection|service|aerial photo|photogrammetry|repair|maintenance|integration|custom build|consulting|uav service|drone service|flight school|certification/i, categories: ['services'] },
+  { pattern: /training|consulting|survey|mapping|inspection|photogrammetry|repair service|flight school|certification|uav service|drone service|aerial survey|geospatial|integration service/i, categories: ['services'] },
 
   // Safety systems
-  { pattern: /parachute|fruity|parazero|safesystem|failsafe|collision avoidance|ads-b|pingrid|foreflight|safetech|airspace|geofence|return to home|rth|recovery|crash|emergency|redundancy|parachute|ballistic|flare|mars|parachute|safeair|iris|skycat|fruitychutes/i, categories: ['safety'] },
+  { pattern: /parachute|fruity|parazero|safesystem|failsafe|collision avoidance|ads-b|pingrid|foreflight|safetech|airspace|geofence|return to home|recovery|crash|emergency|redundancy|ballistic|flare|safeair|iris|skycat|fruitychutes|marss|sagetech|uavionix|kirisun|marsriva/i, categories: ['safety'] },
 
-  // Counter-UAS additional
-  { pattern: /anti-drone|counter-uav|c-uas|drone detection|drone jammer|drone gun|airspace security|drone shield|dronebuster|battelle|drone defender|sRC|skywall|aSel|drone monitor|airguard|counter drone/i, categories: ['counter-uas'] },
+  // Servo/actuator specialists → structural + electronics
+  { pattern: /servo|actuator|kserv|k-power|powerhd|dsservo|spt servo|gxservo|feetech|savox|jx |kstdigital|kingmax|oversky|cys|dspower/i, categories: ['structural', 'electronics'] },
+
+  // Display/monitor specialists
+  { pattern: /feelworld|seetec|avmatrix|osee|monitor|display|fpv screen/i, categories: ['electronics'] },
+
+  // Power station / solar
+  { pattern: /power station|solar panel|generator|inverter|ups|battery pack|power bank/i, categories: ['propulsion', 'electronics'] },
 
   // Safety
   { pattern: /parachute|fruity|parazero|safesystem|failsafe|collision avoidance|ads-b|pingrid|foreflight/i, categories: ['safety'] },
@@ -511,6 +517,88 @@ const KNOWN_BRANDS: Record<string, string[]> = {
   'Yuneec': ['vehicles', 'propulsion', 'electronics'],
   'AKK': ['command-control', 'electronics'],
   'Mamba System': ['electronics', 'command-control'],
+  // Additional known brands for accuracy
+  'Hesai': ['sensors', 'electronics'],
+  'RoboSense': ['sensors', 'electronics'],
+  'Stereolabs': ['sensors', 'software'],
+  'Unitree': ['vehicles', 'electronics'],
+  'Quectel': ['command-control', 'electronics'],
+  'CHCNAV': ['positioning', 'electronics'],
+  'SwellPro': ['vehicles', 'propulsion', 'command-control'],
+  'T-Drones': ['vehicles', 'propulsion'],
+  'Viewpro': ['sensors'],
+  'Hikvision': ['sensors', 'electronics'],
+  'Infiray': ['sensors'],
+  'Guide': ['sensors'],
+  'Fluke': ['sensors', 'electronics'],
+  'Omron': ['electronics', 'sensors'],
+  'SICK': ['sensors', 'electronics'],
+  'Panasonic': ['propulsion', 'electronics'],
+  'Motorola': ['command-control'],
+  'Hytera': ['command-control'],
+  'Baofeng': ['command-control', 'electronics'],
+  'Ubiquiti': ['command-control', 'electronics'],
+  'Starlink': ['command-control'],
+  'D-Link': ['command-control', 'electronics'],
+  'Zyxel': ['command-control', 'electronics'],
+  'Logitech': ['sensors', 'electronics'],
+  'Sennheiser': ['command-control', 'electronics'],
+  'ImmersionRC': ['command-control', 'electronics'],
+  'Spektrum': ['command-control', 'propulsion'],
+  'Turnigy': ['propulsion', 'electronics'],
+  'GensAce': ['propulsion'],
+  'HRB': ['propulsion'],
+  'Herewin': ['propulsion'],
+  'Molicel': ['propulsion'],
+  'Jackery': ['propulsion', 'electronics'],
+  'Bluetti': ['propulsion', 'electronics'],
+  'Ecoflow': ['propulsion', 'electronics'],
+  'Allpowers': ['propulsion'],
+  'Feelworld': ['electronics'],
+  'AVMATRIX': ['electronics'],
+  'HackRF': ['electronics', 'command-control'],
+  'Drotek': ['positioning', 'electronics'],
+  'QX-Motor': ['propulsion'],
+  'Spedix': ['propulsion', 'electronics'],
+  'ZTW': ['propulsion', 'electronics'],
+  'XXD': ['propulsion', 'electronics'],
+  'iPower': ['propulsion'],
+  'RCINPOWER': ['propulsion'],
+  'BrotherHobby': ['propulsion'],
+  'Flashhobby': ['propulsion'],
+  'Sunnysky': ['propulsion'],
+  'Dualsky': ['propulsion'],
+  'Scorpion': ['propulsion'],
+  'Tattu': ['propulsion'],
+  'GNB': ['propulsion'],
+  'CNHL': ['propulsion'],
+  'GAONENG': ['propulsion'],
+  'ISDT': ['propulsion', 'electronics'],
+  'ToolkitRC': ['propulsion', 'electronics'],
+  'SKYRC': ['propulsion', 'electronics'],
+  'Junsi iCharger': ['propulsion', 'electronics'],
+  'EV-Peak': ['propulsion', 'electronics'],
+  'HOTA': ['propulsion', 'electronics'],
+  'Ultrapower': ['propulsion', 'electronics'],
+  'TopON': ['propulsion', 'electronics'],
+  'HTRC': ['propulsion', 'electronics'],
+  'Flycolor': ['propulsion', 'electronics'],
+  'Flipsky': ['propulsion', 'electronics'],
+  'MAD': ['propulsion', 'vehicles'],
+  'Maytech': ['propulsion', 'vehicles'],
+  'DYS': ['propulsion', 'electronics'],
+  'Lumenier': ['vehicles', 'propulsion', 'electronics', 'materials'],
+  'Tarot': ['structural', 'vehicles', 'electronics'],
+  'SunnyLife': ['materials', 'structural', 'electronics'],
+  'ReadymadeRC': ['materials', 'vehicles', 'propulsion'],
+  'Armattan': ['materials', 'vehicles', 'structural'],
+  'Gemfan': ['propulsion', 'materials'],
+  'HQProp': ['propulsion', 'materials'],
+  'Dalprop': ['propulsion', 'materials'],
+  'Aeronaut CAM Carbon': ['propulsion', 'materials'],
+  'KIRISUN': ['command-control', 'safety'],
+  'MARSRIVA': ['propulsion', 'safety'],
+  'FaseLase': ['sensors', 'counter-uas'],
   'Test Brand': ['electronics'],
 };
 
