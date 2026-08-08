@@ -109,25 +109,47 @@ function SuppliersContent() {
 
       {/* Categories Grid */}
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Browse by Technology Category</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900">Browse by Technology Category</h2>
+            <p className="text-sm text-gray-500 mt-1">Suppliers classified by their core technology domain, not just product type</p>
+          </div>
+          <Link href={`/${lang}/solutions`} className="text-sm text-blue-600 hover:text-blue-700 font-medium whitespace-nowrap">
+            View all categories →
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {SOLUTION_CATEGORIES.map(cat => {
             const count = categoryCounts[cat.id] || 0;
+            const isSelected = selectedCategory === cat.id;
             return (
-              <Link
+              <button
                 key={cat.id}
-                href={`/${lang}/solutions/${cat.id}`}
-                className="flex items-start gap-3 p-5 text-left rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-md transition-all"
+                onClick={() => selectCategory(cat.id)}
+                className={`flex items-start gap-3 p-5 text-left rounded-xl border-2 transition-all ${
+                  isSelected
+                    ? 'border-blue-500 bg-blue-50 shadow-md ring-2 ring-blue-200'
+                    : 'border-gray-200 bg-white hover:border-blue-400 hover:shadow-md'
+                }`}
               >
-                <div className={`w-10 h-10 ${cat.bgColor} rounded-lg flex items-center justify-center text-xl flex-shrink-0`}>
+                <div className={`w-11 h-11 ${cat.bgColor} rounded-lg flex items-center justify-center text-xl flex-shrink-0`}>
                   {cat.icon}
                 </div>
-                <div className="min-w-0">
-                  <div className="font-semibold text-gray-900 text-sm leading-tight group-hover:text-blue-600">{cat.name}</div>
-                  <div className="text-xs text-gray-500 mt-1">{count} suppliers</div>
+                <div className="min-w-0 flex-1">
+                  <div className={`font-semibold text-sm leading-tight ${isSelected ? 'text-blue-700' : 'text-gray-900'}`}>
+                    {cat.name}
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1 line-clamp-2">{cat.description}</div>
+                  <div className={`text-xs font-medium mt-2 ${isSelected ? 'text-blue-600' : 'text-gray-400'}`}>
+                    {count} supplier{count !== 1 ? 's' : ''}
+                  </div>
                 </div>
-                <svg className="w-4 h-4 text-gray-400 ml-auto flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
-              </Link>
+                {isSelected && (
+                  <svg className="w-5 h-5 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                  </svg>
+                )}
+              </button>
             );
           })}
         </div>
@@ -183,7 +205,27 @@ function SuppliersContent() {
                       </div>
 
                       {s.tagline && (
-                        <p className="text-xs text-gray-600 line-clamp-2 mb-3 min-h-[32px]">{s.tagline}</p>
+                        <p className="text-xs text-gray-600 line-clamp-2 mb-2 min-h-[32px]">{s.tagline}</p>
+                      )}
+
+                      {/* Technology category tags */}
+                      {s.solution_categories && s.solution_categories.length > 0 && (
+                        <div className="flex flex-wrap gap-1 mb-2">
+                          {s.solution_categories.slice(0, 3).map((catId: string) => {
+                            const cat = SOLUTION_CATEGORIES.find(c => c.id === catId);
+                            if (!cat) return null;
+                            return (
+                              <span key={catId} className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-medium ${cat.bgColor} ${cat.color}`}>
+                                {cat.icon} {cat.shortName}
+                              </span>
+                            );
+                          })}
+                          {s.solution_categories.length > 3 && (
+                            <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-gray-100 text-gray-500">
+                              +{s.solution_categories.length - 3}
+                            </span>
+                          )}
+                        </div>
                       )}
 
                       <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
@@ -228,13 +270,22 @@ function SuppliersContent() {
       {(selectedCategory || search) && (
         <div className="max-w-7xl mx-auto px-4 pb-12">
           {selectedCategory && (
-            <div className="mb-6 flex items-center gap-3">
+            <div className="mb-6 flex items-center flex-wrap gap-3">
               <span className="text-gray-600">Filter:</span>
               <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
                 {SOLUTION_CATEGORIES.find(c => c.id === selectedCategory)?.name}
-                <button onClick={() => setSelectedCategory('')} className="hover:text-blue-600 font-bold">×</button>
+                <button onClick={() => { setSelectedCategory(''); setPage(1); }} className="hover:text-blue-600 font-bold">×</button>
               </span>
               <span className="text-gray-500 text-sm">({total} suppliers found)</span>
+              <Link
+                href={`/${lang}/solutions/${selectedCategory}`}
+                className="ml-auto text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1"
+              >
+                View category details
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+              </Link>
             </div>
           )}
 
@@ -270,6 +321,27 @@ function SuppliersContent() {
                         )}
                       </div>
                       {s.tagline && <p className="text-xs text-gray-600 line-clamp-2 mb-2">{s.tagline}</p>}
+
+                      {/* Technology category tags */}
+                      {s.solution_categories && s.solution_categories.length > 0 && (
+                        <div className="flex flex-wrap gap-1 mb-2">
+                          {s.solution_categories.slice(0, 2).map((catId: string) => {
+                            const cat = SOLUTION_CATEGORIES.find(c => c.id === catId);
+                            if (!cat) return null;
+                            return (
+                              <span key={catId} className={`inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-medium ${cat.bgColor} ${cat.color}`}>
+                                {cat.icon} {cat.shortName}
+                              </span>
+                            );
+                          })}
+                          {s.solution_categories.length > 2 && (
+                            <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-gray-100 text-gray-500">
+                              +{s.solution_categories.length - 2}
+                            </span>
+                          )}
+                        </div>
+                      )}
+
                       <div className="flex items-center justify-between text-xs text-gray-500">
                         {s.country && <span>{s.country}</span>}
                         <span>{s.product_count} products</span>
