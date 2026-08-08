@@ -5,46 +5,6 @@ import { useParams, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { SOLUTION_CATEGORIES } from '@/lib/suppliers/solutions';
 
-// Seed articles - same as insights page, used for GEO content
-const ARTICLES = [
-  { slug: 'industrial-drone-eccn-classification-guide-2026', title: 'ECCN Classification Guide for Industrial Drones (2026 Update)', excerpt: 'Complete guide to ECCN classification for commercial drones, including 9A012, 7A003, and EAR export control requirements.', category: 'Compliance', readTime: '12 min read', date: '2026-08-01' },
-  { slug: 'best-industrial-drones-for-surveying-mapping', title: 'Best Industrial Drones for Surveying & Mapping in 2026', excerpt: 'Compare the top 10 surveying drones for construction, mining, and land surveying. Includes RTK accuracy, flight time, and payload comparisons.', category: 'Buying Guides', readTime: '15 min read', date: '2026-07-28' },
-  { slug: 'drone-export-compliance-checklist', title: 'Drone Export Compliance Checklist for Cross-Border Shipments', excerpt: 'Step-by-step checklist for legally exporting drones from China. Covers ECCN, license requirements, sanctions screening, and documentation.', category: 'Compliance', readTime: '10 min read', date: '2026-07-25' },
-  { slug: 'oem-vs-odm-drone-manufacturing', title: 'OEM vs ODM Drone Manufacturing: How to Choose the Right Supplier', excerpt: 'Understanding the difference between OEM and ODM for drone projects. Key questions to ask manufacturers, MOQ considerations, and IP protection.', category: 'Sourcing', readTime: '8 min read', date: '2026-07-20' },
-  { slug: 'counter-uas-technology-comparison', title: 'Counter-UAS Technologies Compared: Detection vs Mitigation', excerpt: 'Overview of C-UAS technologies including radar, RF detection, jamming, and kinetic solutions. Use cases and regulatory considerations.', category: 'Technology', readTime: '14 min read', date: '2026-07-15' },
-  { slug: 'drone-battery-technology-lipo-vs-solid-state', title: 'Drone Battery Technology: LiPo vs Solid-State for Industrial UAVs', excerpt: 'Deep dive into drone power systems, battery chemistry, charging infrastructure, and the future of solid-state batteries for UAVs.', category: 'Technology', readTime: '11 min read', date: '2026-07-10' },
-  { slug: 'fpv-drone-racing-vs-industrial-applications', title: 'FPV Drone Technology: From Racing to Industrial Applications', excerpt: 'How FPV drone components like flight controllers, ESCs, and motors are being adapted for industrial inspection and cinematography.', category: 'Technology', readTime: '9 min read', date: '2026-07-05' },
-  { slug: 'drone-propulsion-systems-explained', title: 'Drone Propulsion Systems Explained: Motors, ESCs, and Propellers', excerpt: 'Understanding brushless motor KV ratings, ESC protocols, propeller sizing, and how to match propulsion components for optimal UAV performance.', category: 'Technology', readTime: '13 min read', date: '2026-06-28' },
-];
-
-function getRelatedArticles(categories: string[], brandName: string) {
-  // Map solution categories to article keywords
-  const categoryKeywords: Record<string, string[]> = {
-    'propulsion': ['battery', 'propulsion', 'motor', 'power'],
-    'vehicles': ['drone', 'uav', 'surveying', 'fpv'],
-    'electronics': ['fpv', 'electronic', 'esc', 'flight controller'],
-    'sensors': ['surveying', 'payload', 'camera'],
-    'command-control': ['fpv', 'radio', 'control'],
-    'counter-uas': ['counter-uas', 'c-uas', 'detection'],
-    'software': ['autopilot', 'flight controller', 'software'],
-    'positioning': ['rtk', 'navigation', 'gps'],
-    'safety': ['parachute', 'safety', 'failsafe'],
-    'materials': ['oem', 'manufacturing', 'composite'],
-    'services': ['sourcing', 'oem', 'supplier'],
-    'structural': ['frame', 'airframe', 'structural'],
-  };
-
-  const keywords = categories.flatMap(c => categoryKeywords[c] || []);
-  const nameLower = brandName.toLowerCase();
-
-  return ARTICLES.filter(a => {
-    const text = (a.title + ' ' + a.excerpt + ' ' + a.category).toLowerCase();
-    return keywords.some(k => text.includes(k)) ||
-      categories.includes('services') ||
-      categories.includes('vehicles');
-  }).slice(0, 6);
-}
-
 function SupplierContent() {
   const params = useParams();
   const searchParams = useSearchParams();
@@ -54,18 +14,22 @@ function SupplierContent() {
   const [supplier, setSupplier] = useState<any>(null);
   const [products, setProducts] = useState<any[]>([]);
   const [relatedSuppliers, setRelatedSuppliers] = useState<any[]>([]);
+  const [articles, setArticles] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState(searchParams.get('tab') || 'overview');
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-    fetch(`/api/suppliers/${slug}`)
-      .then(r => r.json())
-      .then(data => {
+    Promise.all([
+      fetch(`/api/suppliers/${slug}`).then(r => r.json()),
+      fetch(`/api/suppliers/${slug}/articles`).then(r => r.json()).catch(() => ({ articles: [] }))
+    ])
+      .then(([data, articlesData]) => {
         setSupplier(data.brand || data.supplier || data);
         setProducts(data.products || []);
         setRelatedSuppliers(data.relatedBrands || data.relatedSuppliers || []);
+        setArticles(articlesData.articles || []);
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -101,7 +65,6 @@ function SupplierContent() {
 
   const categories = supplier.solution_categories || [];
   const categoryNames = categories.map((c: string) => SOLUTION_CATEGORIES.find(sc => sc.id === c)?.shortName).filter(Boolean);
-  const relatedArticles = getRelatedArticles(categories, supplier.name || '');
 
   // Use long_description if available, otherwise fall back to description or generated
   const fullDescription = supplier.long_description || supplier.description || (
@@ -154,16 +117,33 @@ function SupplierContent() {
     </Link>
   );
 
-  // Reusable article card
+  // Reusable article card - links to external source
   const ArticleCard = ({ a }: { a: any }) => (
-    <Link key={a.slug} href={`/${lang}/insights/${a.slug}`} className="block bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-all group">
-      <div className="flex items-center gap-2 mb-2">
-        <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded">{a.category}</span>
-        <span className="text-xs text-gray-400">{a.readTime}</span>
+    <a
+      href={a.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md hover:border-blue-300 transition-all group"
+    >
+      <div className="flex items-center gap-2 mb-2 flex-wrap">
+        {a.category && (
+          <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded capitalize">{a.category}</span>
+        )}
+        {a.source && (
+          <span className="text-xs text-gray-400">{a.source}</span>
+        )}
+        {a.published_date && (
+          <span className="text-xs text-gray-400 ml-auto">{new Date(a.published_date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+        )}
       </div>
-      <h4 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-1 line-clamp-2">{a.title}</h4>
-      <p className="text-xs text-gray-500 line-clamp-2">{a.excerpt}</p>
-    </Link>
+      <h4 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-1 line-clamp-2 flex items-start gap-1">
+        {a.title}
+        <svg className="w-3 h-3 flex-shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+      </h4>
+      {a.summary && (
+        <p className="text-xs text-gray-500 line-clamp-2">{a.summary}</p>
+      )}
+    </a>
   );
 
   // Reusable documents section
@@ -508,16 +488,18 @@ function SupplierContent() {
                 <div id="articles-section" className="mb-10 scroll-mt-24">
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="text-xl font-bold text-gray-900">Related Articles</h2>
-                    <Link href={`/${lang}/insights`} className="text-sm text-blue-600 hover:underline font-medium">
-                      View all insights →
-                    </Link>
+                    {articles.length > 0 && (
+                      <button onClick={() => setActiveTab('articles')} className="text-sm text-blue-600 hover:underline font-medium">
+                        View all articles →
+                      </button>
+                    )}
                   </div>
-                  {relatedArticles.length > 0 ? (
+                  {articles.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {relatedArticles.map((a: any) => <ArticleCard key={a.slug} a={a} />)}
+                      {articles.slice(0, 6).map((a: any) => <ArticleCard key={a.id || a.url} a={a} />)}
                     </div>
                   ) : (
-                    <p className="text-gray-500 text-sm">No related articles at this time.</p>
+                    <p className="text-gray-400 text-sm italic">No related articles found for this supplier.</p>
                   )}
                 </div>
 
@@ -555,16 +537,17 @@ function SupplierContent() {
             {/* ==================== ARTICLES TAB ==================== */}
             {activeTab === 'articles' && (
               <div>
-                <h2 className="text-xl font-bold text-gray-900 mb-4">Related Articles & Insights</h2>
-                <p className="text-gray-600 text-sm mb-6">Industry articles, guides, and analysis relevant to {supplier.name}&apos;s technology areas.</p>
-                {relatedArticles.length > 0 ? (
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Related Articles & News</h2>
+                <p className="text-gray-600 text-sm mb-6">Real articles and news from around the web about {supplier.name} and their technology.</p>
+                {articles.length > 0 ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {relatedArticles.map((a: any) => <ArticleCard key={a.slug} a={a} />)}
+                    {articles.map((a: any) => <ArticleCard key={a.id || a.url} a={a} />)}
                   </div>
                 ) : (
                   <div className="text-center py-12 bg-gray-50 rounded-xl border border-gray-200">
-                    <p className="text-gray-500">No related articles at this time.</p>
-                    <Link href={`/${lang}/insights`} className="text-blue-600 hover:underline text-sm mt-2 inline-block">Browse all insights →</Link>
+                    <svg className="w-12 h-12 text-gray-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
+                    <p className="text-gray-500">No articles found for this supplier yet.</p>
+                    <p className="text-gray-400 text-sm mt-1">Articles are sourced from industry news and official announcements.</p>
                   </div>
                 )}
               </div>
