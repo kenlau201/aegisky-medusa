@@ -112,6 +112,10 @@ export default function SolutionCategoryPage() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [total, setTotal] = useState(0);
+  const [products, setProducts] = useState<any[]>([]);
+  const [articles, setArticles] = useState<any[]>([]);
+  const [totalProducts, setTotalProducts] = useState(0);
+  const [loadingExtras, setLoadingExtras] = useState(true);
 
   useEffect(() => {
     if (!categoryId) return;
@@ -139,6 +143,21 @@ export default function SolutionCategoryPage() {
         window.scrollTo({ top: 400, behavior: 'smooth' });
       });
   }, [categoryId, page]);
+
+  // Fetch products and articles for this category
+  useEffect(() => {
+    if (!categoryId) return;
+    setLoadingExtras(true);
+    fetch(`/api/solutions/${categoryId}?products=12&articles=6`)
+      .then(r => r.json())
+      .then(data => {
+        setProducts(data.products || []);
+        setArticles(data.articles || []);
+        setTotalProducts(data.totalProducts || 0);
+        setLoadingExtras(false);
+      })
+      .catch(() => setLoadingExtras(false));
+  }, [categoryId]);
 
   if (!category) {
     return (
@@ -417,6 +436,119 @@ export default function SolutionCategoryPage() {
             </>
           )}
         </section>
+
+        {/* Products & Solutions */}
+        <section className="max-w-7xl mx-auto px-4 py-8" aria-label={`${category.name} products`}>
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-xl font-bold text-gray-900">Products & Solutions</h2>
+              <p className="text-sm text-gray-500 mt-0.5">
+                {loadingExtras ? 'Loading...' : `${totalProducts.toLocaleString()} products in ${category.name}`}
+              </p>
+            </div>
+            <Link
+              href={`/${lang}/search?q=${encodeURIComponent(category.shortName || category.name)}`}
+              className="text-sm text-blue-600 hover:underline flex items-center gap-1"
+            >
+              View all products
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+              </svg>
+            </Link>
+          </div>
+
+          {loadingExtras ? (
+            <div className="text-center py-12">
+              <div className="inline-block w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          ) : products.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {products.map(p => (
+                <Link
+                  key={p.id}
+                  href={`/${lang}/products/${p.slug}`}
+                  className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md hover:border-blue-200 transition-all group"
+                >
+                  <div className="h-36 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
+                    {p.main_image ? (
+                      <img src={p.main_image} alt={p.name} className="max-w-full max-h-28 object-contain group-hover:scale-105 transition-transform" />
+                    ) : (
+                      <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center text-gray-400">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-3">
+                    <h3 className="font-semibold text-sm text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 min-h-[40px]">
+                      {p.name}
+                    </h3>
+                    {p.brand_name && (
+                      <p className="text-xs text-gray-500 mt-1 truncate">{p.brand_name}</p>
+                    )}
+                    {p.price && (
+                      <p className="text-sm font-bold text-gray-900 mt-1.5">
+                        ${Number(p.price).toLocaleString()}
+                      </p>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12 text-gray-400 text-sm">No products found in this category.</div>
+          )}
+        </section>
+
+        {/* Related Articles */}
+        {articles.length > 0 && (
+          <section className="max-w-7xl mx-auto px-4 py-8" aria-label="Related articles">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-gray-900">Related Articles</h2>
+              <Link
+                href={`/${lang}/insights`}
+                className="text-sm text-blue-600 hover:underline flex items-center gap-1"
+              >
+                View all insights
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                </svg>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {articles.map(a => (
+                <Link
+                  key={a.id}
+                  href={`/${lang}/articles/${a.id}`}
+                  className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md hover:border-blue-200 transition-all group flex flex-col"
+                >
+                  {a.image_url && (
+                    <div className="h-40 bg-gray-100 overflow-hidden">
+                      <img src={a.image_url} alt={a.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                    </div>
+                  )}
+                  <div className="p-4 flex-1 flex flex-col">
+                    <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                      {a.brand_name && <span className="font-medium text-blue-600">{a.brand_name}</span>}
+                      {a.published_date && (
+                        <span>· {new Date(a.published_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                      )}
+                      {a.read_time && <span>· {a.read_time}</span>}
+                    </div>
+                    <h3 className="font-semibold text-sm text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 mb-2">
+                      {a.title}
+                    </h3>
+                    {a.summary && (
+                      <p className="text-xs text-gray-600 line-clamp-2 flex-1">{a.summary}</p>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Related Categories CTA */}
         {relatedCats.length > 0 && (
