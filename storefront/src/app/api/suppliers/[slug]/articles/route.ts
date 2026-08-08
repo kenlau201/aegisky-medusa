@@ -4,7 +4,7 @@ import { pool as db } from '@/lib/control-tower/db';
 export async function GET(request: NextRequest, { params }: { params: { slug: string } }) {
   try {
     const result = await db.query(
-      `SELECT id, title, url, source, author, published_date, summary, image_url, category
+      `SELECT id, title, url, source, author, published_date, summary, image_url, category, read_time, slug
        FROM brand_articles
        WHERE brand_slug = $1
        ORDER BY published_date DESC NULLS LAST, created_at DESC`,

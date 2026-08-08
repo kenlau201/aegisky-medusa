@@ -117,20 +117,18 @@ function SupplierContent() {
     </Link>
   );
 
-  // Reusable article card - links to external source
+  // Reusable article card - links to internal full article page
   const ArticleCard = ({ a }: { a: any }) => (
-    <a
-      href={a.url}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      href={`/${lang}/articles/${a.id}`}
       className="block bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md hover:border-blue-300 transition-all group"
     >
       <div className="flex items-center gap-2 mb-2 flex-wrap">
         {a.category && (
           <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded capitalize">{a.category}</span>
         )}
-        {a.source && (
-          <span className="text-xs text-gray-400">{a.source}</span>
+        {a.read_time && (
+          <span className="text-xs text-gray-400">{a.read_time}</span>
         )}
         {a.published_date && (
           <span className="text-xs text-gray-400 ml-auto">{new Date(a.published_date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
@@ -138,12 +136,12 @@ function SupplierContent() {
       </div>
       <h4 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-1 line-clamp-2 flex items-start gap-1">
         {a.title}
-        <svg className="w-3 h-3 flex-shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+        <svg className="w-3 h-3 flex-shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
       </h4>
       {a.summary && (
         <p className="text-xs text-gray-500 line-clamp-2">{a.summary}</p>
       )}
-    </a>
+    </Link>
   );
 
   // Reusable documents section
