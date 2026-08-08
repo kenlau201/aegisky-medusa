@@ -86,9 +86,24 @@ const CATEGORY_DETAILS: Record<string, {
   },
 };
 
+function getTierBadge(supplier: any, index: number) {
+  // Determine tier based on verification status and product count
+  if (supplier.verified && (supplier.product_count >= 100 || index < 12)) {
+    return { label: 'Platinum', class: 'bg-gradient-to-r from-gray-700 to-gray-900 text-white' };
+  }
+  if (supplier.verified || (supplier.product_count >= 30 && index < 40)) {
+    return { label: 'Gold', class: 'bg-gradient-to-r from-yellow-500 to-amber-500 text-white' };
+  }
+  if (supplier.product_count >= 5) {
+    return { label: 'Silver', class: 'bg-gradient-to-r from-gray-400 to-gray-500 text-white' };
+  }
+  return null;
+}
+
 export default function SolutionCategoryPage() {
   const params = useParams();
   const categoryId = params.category as string;
+  const lang = params.lang as string;
   const category = getCategoryById(categoryId);
   const details = categoryId ? CATEGORY_DETAILS[categoryId] : null;
 
@@ -131,18 +146,18 @@ export default function SolutionCategoryPage() {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Category Not Found</h1>
           <p className="text-gray-600 mb-4">The technology category you're looking for doesn't exist.</p>
-          <Link href="/zh/solutions" className="text-blue-600 hover:underline">← View All Categories</Link>
+          <Link href={`/${lang}/suppliers`} className="text-blue-600 hover:underline">← Browse all suppliers</Link>
         </div>
       </div>
     );
   }
 
-  // JSON-LD for GEO
+  // JSON-LD for GEO/SEO
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: `${category.name} Suppliers`,
-    description: category.longDescription,
+    description: category.longDescription || category.description,
     numberOfItems: total,
     itemListElement: suppliers.slice(0, 24).map((s, i) => ({
       '@type': 'ListItem',
@@ -151,7 +166,7 @@ export default function SolutionCategoryPage() {
         '@type': 'Organization',
         name: s.name,
         description: s.tagline || s.description || '',
-        url: `https://aegisky.com/zh/supplier/${s.slug}`,
+        url: `https://aegisky.com/${lang}/supplier/${s.slug}`,
       },
     })),
   };
@@ -168,14 +183,14 @@ export default function SolutionCategoryPage() {
       />
 
       <div className="min-h-screen bg-gray-50">
-        {/* Hero */}
+        {/* Hero Section */}
         <section className="bg-white border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 py-10">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
-              <Link href="/zh" className="hover:text-blue-600">Home</Link>
+              <Link href={`/${lang}`} className="hover:text-blue-600">Home</Link>
               <span>/</span>
-              <Link href="/zh/solutions" className="hover:text-blue-600">Solutions</Link>
+              <Link href={`/${lang}/suppliers`} className="hover:text-blue-600">Suppliers</Link>
               <span>/</span>
               <span className="text-gray-900 font-medium">{category.name}</span>
             </nav>
@@ -186,12 +201,12 @@ export default function SolutionCategoryPage() {
               </div>
               <div className="flex-1">
                 <h1 className="text-3xl font-bold text-gray-900">{category.name}</h1>
-                <p className="text-gray-600 mt-2 max-w-3xl leading-relaxed">{category.longDescription}</p>
+                <p className="text-gray-600 mt-2 max-w-3xl leading-relaxed">{category.longDescription || category.description}</p>
                 <div className="flex items-center gap-4 mt-4 flex-wrap">
-                  <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium ${category.bgColor} ${category.color}`}>
-                    {loading ? 'Loading...' : `${total} supplier${total !== 1 ? 's' : ''}`}
+                  <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold ${category.bgColor} ${category.color}`}>
+                    {loading ? 'Loading...' : `${total} Leading Supplier${total !== 1 ? 's' : ''}`}
                   </span>
-                  <Link href="/zh/suppliers" className="text-sm text-blue-600 hover:underline">
+                  <Link href={`/${lang}/suppliers`} className="text-sm text-blue-600 hover:underline">
                     Browse all suppliers →
                   </Link>
                 </div>
@@ -241,17 +256,13 @@ export default function SolutionCategoryPage() {
 
         {/* Related categories quick nav */}
         <section className="max-w-7xl mx-auto px-4 pb-2">
-          <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-3">Explore Related Categories</h2>
+          <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-3">Explore Other Categories</h2>
           <div className="flex flex-wrap gap-2">
             {SOLUTION_CATEGORIES.filter(c => c.id !== categoryId).map(c => (
               <Link
                 key={c.id}
-                href={`/zh/solutions/${c.id}`}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
-                  c.id === categoryId
-                    ? `${c.bgColor} ${c.color} border-current`
-                    : 'bg-white border-gray-200 text-gray-700 hover:border-gray-300 hover:shadow-sm'
-                }`}
+                href={`/${lang}/solutions/${c.id}`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-white border border-gray-200 text-gray-700 hover:border-blue-300 hover:shadow-sm transition-all"
               >
                 <span>{c.icon}</span>
                 {c.shortName}
@@ -260,13 +271,13 @@ export default function SolutionCategoryPage() {
           </div>
         </section>
 
-        {/* Suppliers List */}
+        {/* Suppliers List - UST-style list layout */}
         <section className="max-w-7xl mx-auto px-4 py-8" aria-label={`${category.name} suppliers`}>
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold text-gray-900">
-              {category.shortName} Suppliers
+              Suppliers: {category.name}
             </h2>
-            <span className="text-sm text-gray-500">{total} suppliers</span>
+            <span className="text-sm text-gray-500 font-medium">{total} Leading Suppliers</span>
           </div>
 
           {loading ? (
@@ -277,64 +288,110 @@ export default function SolutionCategoryPage() {
             <div className="text-center py-20 text-gray-500">No suppliers found in this category.</div>
           ) : (
             <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                {suppliers.map(s => (
-                  <article key={s.id} className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all group">
-                    <Link href={`/zh/supplier/${s.slug}`}>
-                      <div className="h-32 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6">
-                        {s.logo_url ? (
-                          <img src={s.logo_url} alt={`${s.name} logo`} className="max-w-full max-h-20 object-contain group-hover:scale-105 transition-transform" />
-                        ) : (
-                          <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center text-xl font-bold text-blue-600">
-                            {s.name?.charAt(0)}
+              <div className="space-y-3">
+                {suppliers.map((s, idx) => {
+                  const tier = getTierBadge(s, idx);
+                  return (
+                    <article
+                      key={s.id}
+                      className="bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:border-blue-200 transition-all"
+                    >
+                      <div className="flex items-start gap-5">
+                        {/* Logo */}
+                        <Link href={`/${lang}/supplier/${s.slug}`} className="flex-shrink-0">
+                          <div className="w-20 h-20 bg-gray-50 rounded-lg flex items-center justify-center p-3 hover:bg-gray-100 transition-colors">
+                            {s.logo_url ? (
+                              <img src={s.logo_url} alt={`${s.name} logo`} className="max-w-full max-h-full object-contain" />
+                            ) : (
+                              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-xl font-bold text-blue-600">
+                                {s.name?.charAt(0)}
+                              </div>
+                            )}
                           </div>
-                        )}
-                      </div>
-                    </Link>
-                    <div className="p-4">
-                      <Link href={`/zh/supplier/${s.slug}`}>
-                        <div className="flex items-center gap-2 mb-1">
-                          <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors truncate">{s.name}</h3>
-                          {s.verified && (
-                            <svg className="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                            </svg>
-                          )}
-                        </div>
-                      </Link>
-                      {s.tagline && <p className="text-xs text-gray-600 line-clamp-2 mb-2 min-h-[32px]">{s.tagline}</p>}
+                        </Link>
 
-                      {/* Other categories this supplier belongs to */}
-                      {s.solution_categories && s.solution_categories.length > 1 && (
-                        <div className="flex flex-wrap gap-1 mb-2">
-                          {s.solution_categories.filter((c: string) => c !== categoryId).slice(0, 2).map((catId: string) => {
-                            const cat = SOLUTION_CATEGORIES.find(c => c.id === catId);
-                            if (!cat) return null;
-                            return (
-                              <Link
-                                key={catId}
-                                href={`/zh/solutions/${catId}`}
-                                className={`inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-medium ${cat.bgColor} ${cat.color} hover:opacity-80`}
-                              >
-                                {cat.icon} {cat.shortName}
-                              </Link>
-                            );
-                          })}
-                          {s.solution_categories.filter((c: string) => c !== categoryId).length > 2 && (
-                            <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-gray-100 text-gray-500">
-                              +{s.solution_categories.filter((c: string) => c !== categoryId).length - 2}
+                        {/* Content */}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <Link href={`/${lang}/supplier/${s.slug}`}>
+                              <h3 className="font-bold text-gray-900 text-lg hover:text-blue-600 transition-colors">{s.name}</h3>
+                            </Link>
+                            {s.verified && (
+                              <span className="text-green-600 flex-shrink-0" title="Verified Supplier">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                                </svg>
+                              </span>
+                            )}
+                            {tier && (
+                              <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${tier.class} shadow-sm`}>
+                                {tier.label}
+                              </span>
+                            )}
+                          </div>
+
+                          {s.tagline && (
+                            <p className="text-sm text-gray-600 mt-1 leading-relaxed">{s.tagline}</p>
+                          )}
+
+                          {/* Meta info */}
+                          <div className="flex items-center gap-4 mt-2 text-xs text-gray-500 flex-wrap">
+                            <span className="flex items-center gap-1">
+                              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                              {s.product_count} products
                             </span>
+                            {s.country && (
+                              <span className="flex items-center gap-1">
+                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3" strokeWidth={2}/></svg>
+                                {s.country}
+                              </span>
+                            )}
+                            {/* Other categories */}
+                            {s.solution_categories && s.solution_categories.filter((c: string) => c !== categoryId).slice(0, 3).map((catId: string) => {
+                              const cat = SOLUTION_CATEGORIES.find(c => c.id === catId);
+                              if (!cat) return null;
+                              return (
+                                <Link
+                                  key={catId}
+                                  href={`/${lang}/solutions/${catId}`}
+                                  className={`inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-medium ${cat.bgColor} ${cat.color} hover:opacity-80`}
+                                >
+                                  {cat.icon} {cat.shortName}
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        {/* Actions */}
+                        <div className="flex flex-col gap-2 flex-shrink-0">
+                          <Link
+                            href={`/${lang}/supplier/${s.slug}`}
+                            className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-gray-900 text-white rounded-lg text-xs font-medium hover:bg-gray-800 transition-colors whitespace-nowrap"
+                          >
+                            View Profile
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                            </svg>
+                          </Link>
+                          {s.website_url && (
+                            <a
+                              href={s.website_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center gap-1.5 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-xs font-medium hover:bg-gray-50 transition-colors whitespace-nowrap"
+                            >
+                              Visit Website
+                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                              </svg>
+                            </a>
                           )}
                         </div>
-                      )}
-
-                      <div className="flex items-center justify-between text-xs text-gray-500">
-                        {s.country && <span>{s.country}</span>}
-                        <span>{s.product_count} products</span>
                       </div>
-                    </div>
-                  </article>
-                ))}
+                    </article>
+                  );
+                })}
               </div>
 
               {/* Pagination */}
@@ -370,7 +427,7 @@ export default function SolutionCategoryPage() {
                 {relatedCats.map(cat => cat && (
                   <Link
                     key={cat.id}
-                    href={`/zh/solutions/${cat.id}`}
+                    href={`/${lang}/solutions/${cat.id}`}
                     className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all group"
                   >
                     <div className={`w-10 h-10 ${cat.bgColor} rounded-lg flex items-center justify-center text-lg flex-shrink-0`}>
@@ -386,6 +443,26 @@ export default function SolutionCategoryPage() {
             </div>
           </section>
         )}
+
+        {/* CTA Banner */}
+        <section className="max-w-7xl mx-auto px-4 pb-12">
+          <div className={`rounded-2xl p-8 text-center ${category.bgColor} border border-gray-200`}>
+            <h2 className="text-xl font-bold text-gray-900 mb-2">Showcase your capabilities</h2>
+            <p className="text-sm text-gray-600 max-w-2xl mx-auto mb-4">
+              If you design, build or supply {category.name}, create a profile to showcase your capabilities
+              and connect with buyers who have an active requirement for your solutions.
+            </p>
+            <Link
+              href={`/${lang}/suppliers`}
+              className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 transition-colors`}
+            >
+              List Your Company
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+              </svg>
+            </Link>
+          </div>
+        </section>
       </div>
     </>
   );

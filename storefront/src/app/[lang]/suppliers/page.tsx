@@ -13,12 +13,11 @@ function SuppliersContent() {
   const [allSuppliers, setAllSuppliers] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState(searchParams.get('q') || '');
-  const [activeCategory, setActiveCategory] = useState<string | null>(searchParams.get('category'));
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
   const [categoryCounts, setCategoryCounts] = useState<Record<string, number>>({});
-  const [stats, setStats] = useState({ brands: 0, products: 0, countries: 0 });
+  const [stats, setStats] = useState({ brands: 439, products: 6385, countries: 30 });
 
   // Initial load: category counts + stats
   useEffect(() => {
@@ -36,12 +35,11 @@ function SuppliersContent() {
       });
   }, []);
 
-  // Fetch suppliers with search + category filter
+  // Fetch suppliers with search
   const fetchSuppliers = useCallback(() => {
     setLoading(true);
     const urlParams = new URLSearchParams();
     if (search) urlParams.set('search', search);
-    if (activeCategory) urlParams.set('category', activeCategory);
     urlParams.set('page', page.toString());
     urlParams.set('pageSize', '24');
 
@@ -54,7 +52,7 @@ function SuppliersContent() {
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [search, activeCategory, page]);
+  }, [search, page]);
 
   useEffect(() => {
     fetchSuppliers();
@@ -65,23 +63,8 @@ function SuppliersContent() {
     setPage(1);
   };
 
-  const handleCategoryClick = (catId: string) => {
-    if (activeCategory === catId) {
-      setActiveCategory(null);
-    } else {
-      setActiveCategory(catId);
-    }
-    setPage(1);
-  };
-
-  const clearFilter = () => {
-    setActiveCategory(null);
-    setSearch('');
-    setPage(1);
-  };
-
-  // Featured = first 8 suppliers when no filter/search
-  const showFeatured = !search && !activeCategory;
+  // Featured = first 8 suppliers when no search
+  const showFeatured = !search;
   const featuredSuppliers = allSuppliers.slice(0, 8);
 
   const getTierBadge = (index: number) => {
@@ -90,8 +73,6 @@ function SuppliersContent() {
     return null;
   };
 
-  const activeCat = activeCategory ? SOLUTION_CATEGORIES.find(c => c.id === activeCategory) : null;
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -99,7 +80,7 @@ function SuppliersContent() {
         <div className="max-w-7xl mx-auto px-4 py-16 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Find a Supplier</h1>
           <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
-            Explore {stats.brands || 439}+ verified suppliers across the complete UAV technology stack —
+            Explore {stats.brands}+ verified suppliers across the complete UAV technology stack —
             from propulsion and sensors to complete air vehicles, software, and professional services.
           </p>
 
@@ -120,19 +101,11 @@ function SuppliersContent() {
             </div>
           </form>
 
-          {(search || activeCategory) && (
+          {search && (
             <div className="mt-4 inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm">
-              {activeCat && (
-                <>
-                  <span className="text-base">{activeCat.icon}</span>
-                  <span>Filter: {activeCat.name}</span>
-                </>
-              )}
-              {search && (
-                <span>Search: "{search}"</span>
-              )}
-              <span className="text-blue-500">· {total} suppliers found</span>
-              <button onClick={clearFilter} className="ml-2 hover:text-blue-900 font-bold text-lg leading-none">×</button>
+              <span>Searching for "{search}"</span>
+              <button onClick={() => setSearch('')} className="hover:text-blue-900 font-bold ml-1">×</button>
+              <span className="text-blue-500">· {total} results</span>
             </div>
           )}
         </div>
@@ -143,51 +116,41 @@ function SuppliersContent() {
         <div className="mb-8">
           <h2 id="categories-heading" className="text-2xl font-bold text-gray-900">Browse by Technology Category</h2>
           <p className="text-sm text-gray-500 mt-1">
-            Suppliers classified by their core technology domain, not just product type. Click to filter.
+            Suppliers classified by their core technology domain. Click any category to explore specialized suppliers.
           </p>
         </div>
 
         <nav aria-label="Technology categories" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {SOLUTION_CATEGORIES.map(cat => {
             const count = categoryCounts[cat.id] || 0;
-            const isActive = activeCategory === cat.id;
             return (
-              <button
+              <Link
                 key={cat.id}
-                onClick={() => handleCategoryClick(cat.id)}
-                aria-pressed={isActive}
-                className={`group flex items-start gap-3 p-5 text-left rounded-xl border-2 transition-all w-full ${
-                  isActive
-                    ? 'border-blue-500 bg-blue-50 shadow-md ring-2 ring-blue-200'
-                    : 'border-gray-200 bg-white hover:border-blue-300 hover:shadow-sm'
-                }`}
+                href={`/${lang}/solutions/${cat.id}`}
+                className="group flex items-start gap-3 p-5 text-left rounded-xl border-2 border-gray-200 bg-white hover:border-blue-400 hover:shadow-md transition-all"
               >
-                <div className={`w-11 h-11 ${cat.bgColor} rounded-lg flex items-center justify-center text-xl flex-shrink-0 transition-transform ${isActive ? 'scale-110' : 'group-hover:scale-110'}`}>
+                <div className={`w-11 h-11 ${cat.bgColor} rounded-lg flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform`}>
                   {cat.icon}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-1.5">
-                    <span className={`font-semibold text-sm leading-tight transition-colors ${isActive ? 'text-blue-700' : 'text-gray-900 group-hover:text-blue-600'}`}>
-                      {cat.name}
-                    </span>
-                    {isActive && (
-                      <svg className="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                      </svg>
-                    )}
+                  <div className="font-semibold text-sm leading-tight text-gray-900 group-hover:text-blue-600 transition-colors">
+                    {cat.name}
                   </div>
                   <div className="text-xs text-gray-500 mt-1 line-clamp-2">{cat.description}</div>
                   <div className="flex items-center gap-1 mt-2">
-                    <span className={`text-xs font-semibold ${isActive ? 'text-blue-600' : cat.color}`}>{count} suppliers</span>
+                    <span className={`text-xs font-medium ${cat.color}`}>{count} suppliers</span>
+                    <svg className="w-3 h-3 text-gray-300 group-hover:text-blue-500 group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                    </svg>
                   </div>
                 </div>
-              </button>
+              </Link>
             );
           })}
         </nav>
       </section>
 
-      {/* Featured Suppliers (only when no filter) */}
+      {/* Featured Suppliers (only when no search) */}
       {showFeatured && (
         <section className="max-w-7xl mx-auto px-4 pb-12" aria-labelledby="featured-heading">
           <div className="flex items-center justify-between mb-6">
@@ -237,21 +200,21 @@ function SuppliersContent() {
                         <p className="text-xs text-gray-600 line-clamp-2 mb-2 min-h-[32px]">{s.tagline}</p>
                       )}
 
-                      {/* Technology category tags */}
+                      {/* Technology category tags - link to category pages */}
                       {s.solution_categories && s.solution_categories.length > 0 && (
                         <div className="flex flex-wrap gap-1 mb-3">
                           {s.solution_categories.slice(0, 3).map((catId: string) => {
                             const cat = SOLUTION_CATEGORIES.find(c => c.id === catId);
                             if (!cat) return null;
                             return (
-                              <button
+                              <Link
                                 key={catId}
-                                onClick={(e) => { e.preventDefault(); handleCategoryClick(catId); }}
-                                className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium ${cat.bgColor} ${cat.color} hover:opacity-80 transition-opacity cursor-pointer`}
+                                href={`/${lang}/solutions/${catId}`}
+                                className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium ${cat.bgColor} ${cat.color} hover:opacity-80 transition-opacity`}
                               >
                                 <span className="text-xs">{cat.icon}</span>
                                 {cat.shortName}
-                              </button>
+                              </Link>
                             );
                           })}
                           {s.solution_categories.length > 3 && (
@@ -303,16 +266,15 @@ function SuppliersContent() {
         </section>
       )}
 
-      {/* All Suppliers (or filtered results) */}
+      {/* All Suppliers (or search results) */}
       <section className="bg-gray-50 border-t" aria-labelledby="all-suppliers-heading">
         <div className="max-w-7xl mx-auto px-4 py-12">
           <div className="flex items-center justify-between mb-6">
             <h2 id="all-suppliers-heading" className="text-2xl font-bold text-gray-900">
-              {activeCat ? activeCat.name : search ? 'Search Results' : 'All Suppliers'}
+              {search ? 'Search Results' : 'All Suppliers'}
             </h2>
             <span className="text-sm text-gray-500">
               {total} {total === 1 ? 'supplier' : 'suppliers'}
-              {activeCat && ` in ${activeCat.name}`}
               {search && ` matching "${search}"`}
             </span>
           </div>
@@ -356,10 +318,15 @@ function SuppliersContent() {
                             const cat = SOLUTION_CATEGORIES.find(c => c.id === catId);
                             if (!cat) return null;
                             return (
-                              <span key={catId} className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium ${cat.bgColor} ${cat.color}`}>
+                              <Link
+                                key={catId}
+                                href={`/${lang}/solutions/${catId}`}
+                                onClick={e => e.stopPropagation()}
+                                className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium ${cat.bgColor} ${cat.color} hover:opacity-80 transition-opacity`}
+                              >
                                 <span className="text-xs">{cat.icon}</span>
                                 {cat.shortName}
-                              </span>
+                              </Link>
                             );
                           })}
                           {s.solution_categories.length > 2 && (
@@ -405,9 +372,9 @@ function SuppliersContent() {
           ) : (
             <div className="text-center py-16 text-gray-500">
               <p className="text-lg mb-2">No suppliers found</p>
-              <p className="text-sm mb-4">Try adjusting your search or filter.</p>
-              <button onClick={clearFilter} className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
-                Clear all filters
+              <p className="text-sm mb-4">Try adjusting your search terms.</p>
+              <button onClick={() => setSearch('')} className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
+                Clear search
               </button>
             </div>
           )}
@@ -419,11 +386,11 @@ function SuppliersContent() {
         <div className="max-w-7xl mx-auto px-4 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-blue-400">{stats.brands || 439}+</div>
+              <div className="text-4xl font-bold text-blue-400">{stats.brands}+</div>
               <div className="text-gray-400 mt-1 text-sm">Verified Suppliers</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-green-400">{(stats.products || 6385).toLocaleString()}</div>
+              <div className="text-4xl font-bold text-green-400">{stats.products.toLocaleString()}</div>
               <div className="text-gray-400 mt-1 text-sm">Products</div>
             </div>
             <div>
@@ -431,7 +398,7 @@ function SuppliersContent() {
               <div className="text-gray-400 mt-1 text-sm">Technology Domains</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-purple-400">{stats.countries || 30}+</div>
+              <div className="text-4xl font-bold text-purple-400">{stats.countries}+</div>
               <div className="text-gray-400 mt-1 text-sm">Countries</div>
             </div>
           </div>

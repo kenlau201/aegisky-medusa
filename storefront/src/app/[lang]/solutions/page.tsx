@@ -1,10 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { SOLUTION_CATEGORIES } from '@/lib/suppliers/solutions';
 
 export default function SolutionsPage() {
+  const params = useParams();
+  const lang = params.lang as string;
   const [categoryCounts, setCategoryCounts] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(true);
 
@@ -28,12 +31,12 @@ export default function SolutionsPage() {
     '@type': 'CollectionPage',
     name: 'UAV Technology Categories',
     description: 'Browse verified UAV and drone suppliers organized by 12 specialized technology domains including propulsion, sensors, avionics, airframes, software and more.',
-    url: 'https://aegisky.com/zh/solutions',
+    url: `https://aegisky.com/${lang}/solutions`,
     hasPart: SOLUTION_CATEGORIES.map(cat => ({
       '@type': 'Thing',
       name: cat.name,
       description: cat.longDescription,
-      url: `https://aegisky.com/zh/solutions/${cat.id}`,
+      url: `https://aegisky.com/${lang}/solutions/${cat.id}`,
     })),
   };
 
@@ -93,7 +96,7 @@ export default function SolutionsPage() {
                   key={cat.id}
                   className="group bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl hover:border-gray-300 transition-all"
                 >
-                  <Link href={`/zh/solutions/${cat.id}`} className="block">
+                  <Link href={`/${lang}/solutions/${cat.id}`} className="block">
                     <div className="flex items-start gap-4">
                       <div className={`w-14 h-14 ${cat.bgColor} rounded-xl flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-110 transition-transform`}>
                         {cat.icon}
@@ -150,7 +153,7 @@ export default function SolutionsPage() {
             <h2 className="text-2xl font-bold mb-2">Looking for a specific component or solution?</h2>
             <p className="text-blue-100 mb-6">Search all 6,385 products across our verified supplier network</p>
             <Link
-              href="/zh/suppliers"
+              href={`/${lang}/suppliers`}
               className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-colors"
             >
               Browse All Suppliers
